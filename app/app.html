@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html>
+<head>
+    <title>TEST</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>  
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- leaflet plugin -->
+    <link rel="stylesheet" href="lib/control.layers.minimap.css" />
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script src="lib/L.Map.Sync.js"></script>
+    <script src="lib/L.Control.Layers.Minimap.js"></script>
+    <script type="text/javascript">
+    // map object
+    var map = L.map('map').setView([41.9, -87.7], 12);
+    var mapArea = $('#map');
+
+    // chicago geoJson and add layers
+    d3.json("../data/chicagoDist.json", function(data){
+            d3.csv("../data/stations.csv", function(stations){
+            //rad in divvy bike location
+            var stationCircles = [];  
+            for (var i = 0; i < stations.length; i++) {
+                stationCircles.push( L.circle([stations[i]["latitude"], stations[i]["longitude"]], 15, {
+                    color: 'red',
+                    fillColor: '#3AE8DF',
+                    fillOpacity: 0.5,
+                    stationID : stations[i]["station_id"],
+                    stationName : stations[i]["station_name"]
+                }));
+            };
+            addLayers(data, stationCircles);
+        });
+    });
+
+    // shitty work around because Javascript is stupid sometimes
+    function addLayers(chicagoMap, stationCircles){
+        // tile layers
+        var baseLayers = {
+            'Streets' : L.tileLayer('http://{s}.tiles.mapbox.com/v3/dare2wow.jkic38a8/{z}/{x}/{y}.png', {
+                    attribution: 'Tiles Courtesy of <a href="http://www.mapbox.com/">Mapbox</a>;',
+                    maxZoom: 18,
+                    minZoom: 10
+                }),
+
+            'MapQuest Aerial': L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+                    attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a>',
+                    subdomains: '1234',
+                    maxZoom: 18,
+                    minZoom: 10
+            })
+        };
+
+        // map overlays
+        var overlays = {
+            'Chicago Communities' : L.geoJson(chicagoMap, {
+                style: function (feature){
+                    return {
+                        color: "black",
+                        // colorOpacity: 1,
+                        fillColor: "grey",
+                        fillOpacity: 0};
+                },
+                onEachFeature: function (feature, layer){
+                    layer.bindPopup(feature.properties.name);
+                    layer.on('click', function (){
+                        testStuff(feature.properties.name)}
+                    );
+                }
+            })
+        };
+
+        // add control and streets layer and bicycle stations
+        var layersControl = L.control.layers.minimap(baseLayers, overlays, {
+            collapsed: false
+        }).addTo(map);
+        baseLayers['Streets'].addTo(map);
+
+        for (var i = 0; i < stationCircles.length; i++) {
+            // add listeners and bind stuff here...
+            // stationCircles[i].bindPopup(stationCircles[i]);
+            stationCircles[i].on('click', function(d){
+                console.log(d.target.options.stationName);
+            });
+            stationCircles[i].addTo(map);
+        };
+    };
+
+    function testStuff(name){
+        console.log(name);
+    }
+
+    </script>
+</body>
+</html>
