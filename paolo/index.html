@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="graph.css">
 	<script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 	<script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript" src="bike_day_week.js"></script>
+    <script>
+        var bar_App1;
+        function init() {
+            bar_App1 = new BarChart("#bar1");
+        }
+    </script>
 </head>
-<body>
 
-<h1>CS424 Project2</h1>
-<button onclick="foo();">Print database on console</button>
-</body>
+<body onload="init()" >
+    <h1>CS424 Project2</h1>
+    <button onclick="foo();">Print database on console</button>
+    <button onclick="bar_App1.updateWindow();">Update Window</button>
+    <div id="bar1" style="width:30%; margin-top:2px"></div>
+    </body>
 </html>
