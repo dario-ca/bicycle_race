@@ -8,9 +8,13 @@ FOR A C YOU NEED:
 	WHERE from_station_id='21' OR to_station_id='21';
 
 2: number of bikes out by day of the week (for each station and overall)
-	a: SELECT count(*) AS bikes/* number of trips.. not bikes */
-		FROM divvy_trips_distances
-		WHERE weekday(starttime)='0'; /* 0 monday, 6 sunday */
+	a: SELECT avg(bikes) as bikes
+        FROM (
+            SELECT count(*) as bikes
+            FROM divvy_trips_distances
+            WHERE weekday(starttime)='0'
+            GROUP BY day(starttime)
+        ) as Table_Alias
 
 	b: SELECT avg(bikes) as bikes
         FROM (
