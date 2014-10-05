@@ -38,6 +38,16 @@ FOR A C YOU NEED:
 		FROM divvy_trips_distances
 		WHERE hour(starttime)= '12' AND from_station_id='73';
 
+	/*c and b are better for graphs*/
+	c:SELECT hour(starttime), count(*) AS bikes
+		FROM divvy_trips_distances
+		GROUP BY hour(starttime);
+	
+	d:SELECT hour(starttime),count(*) AS bikes
+                FROM divvy_trips_distances
+                WHERE from_station_id='73'
+                GROUP BY hour(starttime);
+
 4: number of bikes out by day of the year
 	SELECT count(*) AS bikes
 	FROM divvy_trips_distances

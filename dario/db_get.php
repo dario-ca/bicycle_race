@@ -62,6 +62,18 @@
                 FROM divvy_trips_distances
                 WHERE hour(starttime)=".$hour." AND from_station_id=".$num_station.";";
     }
+    else if(strcmp($_GET['query'], "q3c") == 0){
+        $temp="SELECT hour(starttime), count(*) AS bikes
+                FROM divvy_trips_distances
+                GROUP BY hour(starttime);";
+    }
+    else if(strcmp($_GET['query'], "q3d") == 0){
+        $num_station=$_GET['station'];
+        $temp="SELECT count(*) AS bikes
+                FROM divvy_trips_distances
+                WHERE from_station_id=".$num_station."
+                GROUP BY hour(starttime)=".$hour.";";
+    }
     else if(strcmp($_GET['query'], "q4") == 0){
         $date=$_GET['date'];
         $temp="SELECT count(*) AS bikes
