@@ -14,9 +14,7 @@ FOR A C YOU NEED:
 
 	b: SELECT from_station_id,count(*) AS bikes
 		FROM divvy_trips_distances
-		WHERE weekday(starttime)='0'
-		GROUP BY from_station_id
-		ORDER BY from_station_id;
+		WHERE weekday(starttime)='0' and from_station_id = '5';
 
 	/* this is better for a graph, it gives both x-axis and y-axis*/
 	c:SELECT weekday(starttime), count(*) AS trips
