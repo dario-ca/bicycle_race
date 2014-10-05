@@ -43,8 +43,10 @@ BarChart.prototype.draw = function(){
         .scale(y)
         .orient("left")
         .tickFormat(function(d){
-            if(d >= 1000)
+            if(d >= 10000)
                 return (d/1000).toFixed(0)+"K";
+            if(d >= 1000)
+                return (d/1000).toFixed(1)+"K";
             return d;
         });
     
@@ -114,13 +116,14 @@ BarChart.prototype.getBikesForallDays = function(station){
 BarChart.prototype.callBack_getBikesPerDay = function(context, day, station){
     // Empty the current values (this.values)
     context.values = [];
+    
     var parameters;
     // station id: 0 means ALL
     if(station == 0)
        parameters = "query=q2a&weekday="+day;
     else
        parameters = "query=q2b&weekday="+day+"&station_id="+station;
-    console.log(parameters);
+    
     // Load data
 	d3.json("db_get.php?"+parameters, function(error, data) {
 		    data.forEach(function(d) {
@@ -146,7 +149,6 @@ BarChart.prototype.callBack_getStations = function(context){
                     .attr("value", d.station_id)
                     .text("Station " + d.station_id + ": " + d.station_name);
         });
-        console.log(context.stations);
     });
 }
 
