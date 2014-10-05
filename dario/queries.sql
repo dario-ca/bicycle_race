@@ -12,9 +12,13 @@ FOR A C YOU NEED:
 		FROM divvy_trips_distances
 		WHERE weekday(starttime)='0'; /* 0 monday, 6 sunday */
 
-	b: SELECT from_station_id,count(*) AS bikes
-		FROM divvy_trips_distances
-		WHERE weekday(starttime)='0' and from_station_id = '5';
+	b: SELECT avg(bikes) as bikes
+        FROM (
+            SELECT count(*) as bikes
+            FROM divvy_trips_distances
+            WHERE weekday(starttime)='0' and from_station_id = '5'
+            GROUP BY day(starttime)
+        ) as Table_Alias
 
 	/* this is better for a graph, it gives both x-axis and y-axis*/
 	c:SELECT weekday(starttime), count(*) AS trips

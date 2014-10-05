@@ -90,7 +90,7 @@ BarChart.prototype.draw = function(){
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Bikes Out");
+          .text("AVG Bikes Out");
         
       svg.selectAll(".bar")
           .data(yvalues)
@@ -130,7 +130,7 @@ BarChart.prototype.callBack_getBikesPerDay = function(context, day, station){
                 // NB: Don't use the push function! This method is called
                 // asynchronous, so I prefer to directly store the value
                 // in the corresponding index (monday is values[0] , tuesday is values[1]...)
-                context.values[day]= d.bikes;
+                context.values[day]= parseFloat(d.bikes).toFixed(0);
 	    	});
         
     // When all the 7 days have been loaded, draw the graph 
