@@ -12,15 +12,18 @@ function BarChart(tag) {
     // Day = 0 is monday
     // Day = 6 is sunday
     this.values = [];
-    for (day = 0 ; day < 7 ; day++)
-        this.callBack_getTripsPerDay(this,day);
+    this.getBikesForallDays(0);
+    
+    // List of all the stations
+    this.stations = [];
+    this.callBack_getStations(this);
 }
 
 BarChart.prototype.draw = function(){
     
-    d3.selectAll("g").remove();
-    d3.selectAll("rect").remove();
-    d3.selectAll("#tip").remove();
+    d3.select(this.tag).selectAll("g").remove();
+    d3.select(this.tag).selectAll("rect").remove();
+    d3.select(this.tag).selectAll("#tip").remove();
     
     var margin = this.margin;
     var width = this.canvasWidth,
@@ -39,7 +42,11 @@ BarChart.prototype.draw = function(){
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-        .tickFormat(function(d){return (d/1000).toFixed(0)+"K"});
+        .tickFormat(function(d){
+            if(d >= 1000)
+                return (d/1000).toFixed(0)+"K";
+            return d;
+        });
     
     var tip = d3.tip()
         .attr('id','tip')
@@ -81,7 +88,7 @@ BarChart.prototype.draw = function(){
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Number of Trips");
+          .text("Bikes Out");
         
       svg.selectAll(".bar")
           .data(yvalues)
@@ -97,11 +104,25 @@ BarChart.prototype.draw = function(){
 
 }
 
-BarChart.prototype.callBack_getTripsPerDay = function(context, day){
+// For all days...
+BarChart.prototype.getBikesForallDays = function(station){
+    for (day = 0 ; day < 7 ; day++)
+        this.callBack_getBikesPerDay(this,day,station);
+}
+
+/*Load the result into a data structure*/
+BarChart.prototype.callBack_getBikesPerDay = function(context, day, station){
     // Empty the current values (this.values)
     context.values = [];
+    var parameters;
+    // station id: 0 means ALL
+    if(station == 0)
+       parameters = "query=q2a&weekday="+day;
+    else
+       parameters = "query=q2b&weekday="+day+"&station_id="+station;
+    console.log(parameters);
     // Load data
-	d3.json("db_get.php?query=q2a&weekday="+day, function(error, data) {
+	d3.json("db_get.php?"+parameters, function(error, data) {
 		    data.forEach(function(d) {
                 // NB: Don't use the push function! This method is called
                 // asynchronous, so I prefer to directly store the value
@@ -113,6 +134,20 @@ BarChart.prototype.callBack_getTripsPerDay = function(context, day){
     if(context.values.length == 7)
         context.draw();
 	});
+}
+
+/*Load stations [ID,NAME] into memory */
+BarChart.prototype.callBack_getStations = function(context){
+    var dropdown = d3.select("#stations_dropdown");
+    d3.csv("stations.csv",function(error, data){
+        data.forEach(function(d){
+            context.stations.push([d.station_id,d.station_name]);
+            dropdown.append("option")
+                    .attr("value", d.station_id)
+                    .text("Station " + d.station_id + ": " + d.station_name);
+        });
+        console.log(context.stations);
+    });
 }
 
 //==================================================

@@ -40,14 +40,14 @@
                 FROM divvy_trips_distances
                 WHERE weekday(starttime)=".$week_day.";";
     }
-    //two columns: station and number of bikes out for selected day of week
+    //two columns: station and number of bikes out for selected day of week in that station
     else if(strcmp($_GET['query'], "q2b") == 0){
         $week_day=$_GET['weekday'];
+        $station_id=$_GET['station_id'];
         $temp = "SELECT from_station_id,count(*) AS bikes
                 FROM divvy_trips_distances
                 WHERE weekday(starttime)=".$week_day.
-                " GROUP BY from_station_id
-                ORDER BY from_station_id;";
+                " and from_station_id=".$station_id;
     }
     //two columns, day of week and bikes out, for each day
     else if(strcmp($_GET['query'], "q2c") == 0){
