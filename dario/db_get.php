@@ -73,7 +73,7 @@
     }
     //two columns: hour of day and bikes out
     else if(strcmp($_GET['query'], "q3c") == 0){
-        $temp="SELECT hour(starttime), count(*) AS bikes
+        $temp="SELECT hour(starttime) as hour, count(*) AS bikes
                 FROM divvy_trips_distances
                 GROUP BY hour(starttime);";
     }
