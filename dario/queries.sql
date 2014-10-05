@@ -88,6 +88,42 @@ FOR A C YOU NEED:
 
 	for other types of data, just GROUP BY them and SELECT them..
 
+
+	/*better for graphs*/
+	HOUR OF DAY
+	GENDER
+	j:SELECT hour(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY hour(starttime),gender;
+
+	k:SELECT hour(starttime),count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Male'
+	GROUP BY hour(starttime),gender;
+
+	l:SELECT hour(starttime),count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Female'
+	GROUP BY hour(starttime),gender;
+	
+	m:SELECT hour(starttime),count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Unknown'
+	GROUP BY hour(starttime),gender;
+
+	AGE
+	n:SELECT hour(starttime),2014-birthyear AS age,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY hour(starttime),birthyear;
+
+	USERTYPE
+	o:SELECT hour(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY hour(starttime),usertype;
+
+	/*TO DO: return only custome r or only subscribers and so on for all types of query*/
+
+
 6: distribution of rides by distance (for each station, maybe useful for heatmaps)
 	SELECT from_station_id, meters
 	FROM divvy_trips_distances
