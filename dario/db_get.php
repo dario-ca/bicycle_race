@@ -74,11 +74,16 @@
                 WHERE from_station_id=".$num_station."
                 GROUP BY hour(starttime)=".$hour.";";
     }
-    else if(strcmp($_GET['query'], "q4") == 0){
+    else if(strcmp($_GET['query'], "q4a") == 0){
         $date=$_GET['date'];
         $temp="SELECT count(*) AS bikes
                 FROM divvy_trips_distances
                 WHERE date(starttime) =".$date.";";
+    }
+    else if(strcmp($_GET['query'], "q4b") == 0){
+        $temp="SELECT date(starttime),count(*) AS bikes
+                FROM divvy_trips_distances
+                GROUP BY date(starttime);";
     }
     else if(strcmp($_GET['query'], "q5a") == 0){
         $hour=$_GET['hour'];

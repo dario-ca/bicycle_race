@@ -49,9 +49,14 @@ FOR A C YOU NEED:
                 GROUP BY hour(starttime);
 
 4: number of bikes out by day of the year
-	SELECT count(*) AS bikes
+	a:SELECT count(*) AS bikes
 	FROM divvy_trips_distances
 	WHERE date(starttime) = '2013-06-27';
+
+	/*better for graphs*/
+	b:SELECT date(starttime),count(*) AS bikes
+	FROM divvy_trips_distances
+	GROUP BY date(starttime);
 
 5: rider demographics (male vs female vs unknown, age, subscriber vs customer) (for any of the previous queries?
 	hour,yearday,weekday)
