@@ -44,6 +44,11 @@
                 " GROUP BY from_station_id
                 ORDER BY from_station_id;";
     }
+    else if(strcmp($_GET['query'], "q2c") == 0){
+        $temp="SELECT weekday(starttime), count(*) AS trips
+                FROM divvy_trips_distances
+                GROUP BY weekday(starttime);";
+    }
     else if(strcmp($_GET['query'], "q3a") == 0){
         $hour=$_GET['hour'];
         $temp="SELECT count(*) AS bikes

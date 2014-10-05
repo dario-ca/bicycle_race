@@ -23,6 +23,11 @@ FOR A C YOU NEED:
 		GROUP BY from_station_id
 		ORDER BY from_station_id;
 
+	/* this is better for a graph, it gives both x-axis and y-axis*/
+	c:SELECT weekday(starttime), count(*) AS trips
+		FROM divvy_trips_distances
+		GROUP BY weekday(starttime);
+
 
 3: number of bikes out by hour of the day (and night) (for each station and overall)
 	a:SELECT count(*) AS bikes
