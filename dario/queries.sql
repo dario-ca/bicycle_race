@@ -1,10 +1,5 @@
-QUERIES!!
-
 DATABASE:
-
 trip_id, bike_id, starttime, endtime, from_station_id, to_station_id, usertype, gender, birthyear, meters, seconds
-
-(starttime and endtime format: mm/dd/yyyy hh:mm)
 
 FOR A C YOU NEED:
 1: overall popularity of each station (number of trips from or to that station) SISTEMARE BENE QUESTA
