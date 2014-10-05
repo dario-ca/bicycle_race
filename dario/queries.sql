@@ -121,8 +121,97 @@ FOR A C YOU NEED:
 	FROM divvy_trips_distances
 	GROUP BY hour(starttime),usertype;
 
-	/*TO DO: return only custome r or only subscribers and so on for all types of query*/
+	p:SELECT hour(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Customer'
+	GROUP BY hour(starttime),usertype;
 
+	q:SELECT hour(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Subscriber'
+	GROUP BY hour(starttime),usertype;
+
+	DAY OF YEAR
+	GENDER
+	r:SELECT date(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY date(starttime),gender;
+
+	s:SELECT date(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Male'
+	GROUP BY date(starttime),gender;
+
+	t:SELECT date(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Female'
+	GROUP BY date(starttime),gender;
+
+	u:SELECT date(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Unknown'
+	GROUP BY date(starttime),gender;
+
+	AGE
+	v:SELECT date(starttime),2014-birthyear AS age,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY date(starttime),birthyear;
+
+	USERTYPE
+	w:SELECT date(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY date(starttime),usertype;
+
+	x:SELECT date(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Customer'
+	GROUP BY date(starttime),usertype;
+
+	y:SELECT date(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Subscriber'
+	GROUP BY date(starttime),usertype;
+
+	WEEKDAY
+	GENDER
+	z:SELECT weekday(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY weekday(starttime),gender;
+
+	aa:SELECT weekday(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Male'
+	GROUP BY weekday(starttime),gender;
+
+	ab:SELECT weekday(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Female'
+	GROUP BY weekday(starttime),gender;
+
+	ac:SELECT weekday(starttime),gender,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE gender='Unknown'
+	GROUP BY weekday(starttime),gender;
+
+	AGE
+	ad:SELECT weekday(starttime),2014-birthyear AS age,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY weekday(starttime),birthyear;
+
+	USERTYPE
+	ae:SELECT weekday(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	GROUP BY weekday(starttime),usertype;
+
+	af:SELECT weekday(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Customer'
+	GROUP BY weekday(starttime),usertype;
+
+	ag:SELECT date(starttime),usertype,count(*) AS people
+	FROM divvy_trips_distances
+	WHERE usertype='Subscriber'
+	GROUP BY date(starttime),usertype;
 
 6: distribution of rides by distance (for each station, maybe useful for heatmaps)
 	SELECT from_station_id, meters
@@ -143,15 +232,28 @@ FOR A C YOU NEED:
 	
 	OVERALL
 	a:SELECT count(*) AS trips
-	FROM divvy_trips_distances
-	WHERE hour(starttime)='12' AND date(starttime)='6/28/2013';
+    	FROM divvy_trips_distances
+        WHERE hour(starttime)='12' AND date(starttime)='2013-06-27';
 
 	EACH STATION
 	b:SELECT from_station_id, count(*) AS trips
+                FROM divvy_trips_distances
+                WHERE hour(starttime)='12' AND date(starttime)='2013-06-27'
+                GROUP BY from_station_id
+                ORDER BY from_station_id DESC;
+
+	/* better for graphs*/
+	c:SELECT hour(starttime) AS hour,count(*) AS trips
 	FROM divvy_trips_distances
-	WHERE hour(starttime)='12' AND date(starttime)='6/28/2013'
-	GROUP BY from_station_id
-	ORDER BY from_station_id DESC;
+	WHERE date(starttime)='2013-06-27'
+	GROUP BY hour(starttime);
+	
+	d:SELECT hour(starttime) AS hour, count(*) AS trips
+	FROM divvy_trips_distances
+	WHERE date(starttime)='2013-06-27' AND from_station_id='73'
+	GROUP BY hour(starttime);
+
+
 
 FOR A B YOU NEED TO ADD:
 10: pick a station and see all (overall) outgoing trips (destinations and number of people for each of those destinations)

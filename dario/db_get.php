@@ -24,12 +24,14 @@
     if(strcmp($_GET['query'], "q0") == 0){
         $temp="SELECT * FROM divvy_trips_distances LIMIT 10;";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 1
     else if(strcmp($_GET['query'], "q1") == 0){
         $num_station=$_GET['station'];
         $temp="SELECT count(*) AS popularity
                 FROM divvy_trips_distances
                 WHERE from_station_id= ".$num_station." OR to_station_id= ".$num_station.";";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 2
     else if(strcmp($_GET['query'], "q2a") == 0){
         $week_day=$_GET['weekday'];
         $temp = "SELECT count(*) AS bikes
@@ -49,6 +51,7 @@
                 FROM divvy_trips_distances
                 GROUP BY weekday(starttime);";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 3
     else if(strcmp($_GET['query'], "q3a") == 0){
         $hour=$_GET['hour'];
         $temp="SELECT count(*) AS bikes
@@ -72,8 +75,9 @@
         $temp="SELECT count(*) AS bikes
                 FROM divvy_trips_distances
                 WHERE from_station_id=".$num_station."
-                GROUP BY hour(starttime)=".$hour.";";
+                GROUP BY hour(starttime);";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 4
     else if(strcmp($_GET['query'], "q4a") == 0){
         $date=$_GET['date'];
         $temp="SELECT count(*) AS bikes
@@ -85,6 +89,7 @@
                 FROM divvy_trips_distances
                 GROUP BY date(starttime);";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 5
     else if(strcmp($_GET['query'], "q5a") == 0){
         $hour=$_GET['hour'];
         $temp="SELECT gender,count(*) AS people
@@ -148,18 +153,156 @@
                 WHERE weekday(starttime)=".$week_day."
                 GROUP BY usertype;";
     }
+    else if(strcmp($_GET['query'], "q5j") == 0){
+        $temp="SELECT hour(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY hour(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5k") == 0){
+        $temp="SELECT hour(starttime),count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Male'
+                GROUP BY hour(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5l") == 0){
+        $temp="SELECT hour(starttime),count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Female'
+                GROUP BY hour(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5m") == 0){
+        $temp="SELECT hour(starttime),count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Unknown'
+                GROUP BY hour(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5n") == 0){
+        $temp="SELECT hour(starttime),2014-birthyear AS age,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY hour(starttime),birthyear;";
+    }
+    else if(strcmp($_GET['query'], "q5o") == 0){
+        $temp="SELECT hour(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY hour(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5p") == 0){
+        $temp="SELECT hour(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Customer'
+                GROUP BY hour(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5q") == 0){
+        $temp="SELECT hour(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Subscriber'
+                GROUP BY hour(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5r") == 0){
+        $temp="SELECT date(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY date(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5s") == 0){
+        $temp="SELECT date(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Male'
+                GROUP BY date(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5t") == 0){
+        $temp="SELECT date(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Female'
+                GROUP BY date(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5u") == 0){
+        $temp="SELECT date(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Unknown'
+                GROUP BY date(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5v") == 0){
+        $temp="SELECT date(starttime),2014-birthyear AS age,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY date(starttime),birthyear;";
+    }
+    else if(strcmp($_GET['query'], "q5w") == 0){
+        $temp="SELECT date(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY date(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5x") == 0){
+        $temp="SELECT date(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Customer'
+                GROUP BY date(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5y") == 0){
+        $temp="SELECT date(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Subscriber'
+                GROUP BY date(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5z") == 0){
+        $temp="SELECT weekday(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY weekday(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5aa") == 0){
+        $temp="SELECT weekday(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Male'
+                GROUP BY weekday(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5ab") == 0){
+        $temp="SELECT weekday(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Female'
+                GROUP BY weekday(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5ac") == 0){
+        $temp="SELECT weekday(starttime),gender,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE gender='Unknown'
+                GROUP BY weekday(starttime),gender;";
+    }
+    else if(strcmp($_GET['query'], "q5ad") == 0){
+        $temp="SELECT weekday(starttime),2014-birthyear AS age,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY weekday(starttime),birthyear;";
+    }
+    else if(strcmp($_GET['query'], "q5ae") == 0){
+        $temp="SELECT weekday(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                GROUP BY weekday(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5af") == 0){
+        $temp="SELECT weekday(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Customer'
+                GROUP BY weekday(starttime),usertype;";
+    }
+    else if(strcmp($_GET['query'], "q5ag") == 0){
+        $temp="SELECT date(starttime),usertype,count(*) AS people
+                FROM divvy_trips_distances
+                WHERE usertype='Subscriber'
+                GROUP BY date(starttime),usertype;";
+    }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
     else if(strcmp($_GET['query'], "q6") == 0){   
         $temp="SELECT from_station_id, meters
         FROM divvy_trips_distances
         ORDER BY meters DESC;";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7: TO DO
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8
     else if(strcmp($_GET['query'], "q8") == 0){   
         $temp="SELECT bikeid,sum(meters) AS tot_dist
                 FROM divvy_trips_distances
                 GROUP BY bikeid
                 ORDER BY tot_dist DESC;";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 9
     else if(strcmp($_GET['query'], "q9a") == 0){
         $date=$_GET['date'];
         $hour=$_GET['hour'];
@@ -176,6 +319,22 @@
                 "GROUP BY from_station_id
                 ORDER BY from_station_id DESC;";
     }
+    else if(strcmp($_GET['query'], "q9c") == 0){
+        $date=$_GET['date'];
+        $temp="SELECT hour(starttime) AS hour,count(*) AS trips
+                FROM divvy_trips_distances
+                WHERE date(starttime)=".$date."
+                GROUP BY hour(starttime);";
+    }
+    else if(strcmp($_GET['query'], "q9d") == 0){
+        $date=$_GET['date'];
+        $num_station=$_GET['station'];
+        $temp="SELECT hour(starttime) AS hour,count(*) AS trips
+                FROM divvy_trips_distances
+                WHERE date(starttime)=".$date." AND from_station_id=".$num_station."
+                 GROUP BY hour(starttime);";
+    }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 10
     else if(strcmp($_GET['query'], "q10") == 0){
         $num_station=$_GET['station'];
         $temp="SELECT from_station_id, to_station_id,count(*) AS trips
@@ -183,6 +342,7 @@
             WHERE from_station_id=".$num_station."
             GROUP BY to_station_id;";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 11
     else if(strcmp($_GET['query'], "q11") == 0){
         $num_station=$_GET['station'];
         $temp="SELECT to_station_id, from_station_id,count(*) AS trips
@@ -190,6 +350,7 @@
             WHERE to_station_id=".$num_station."
             GROUP BY from_station_id;";
     }
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 12
     else if(strcmp($_GET['query'], "q12a") == 0){
         $num_station=$_GET['station'];
         $temp="SELECT gender,count(*) AS people
