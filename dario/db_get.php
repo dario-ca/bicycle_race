@@ -80,7 +80,7 @@
     }
     //two columns: hour of day and bikes out
     else if(strcmp($_GET['query'], "q3c") == 0){
-        $temp="SELECT hour(starttime) as hour, count(*) AS bikes
+        $temp="SELECT hour(starttime), count(*) AS bikes
                 FROM divvy_trips_distances
                 GROUP BY hour(starttime);";
     }
@@ -348,6 +348,13 @@
         WHERE (meters*0.0006213) between ".$min." and ".$max;
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7: TO DO
+    else if(strcmp($_GET['query'], "q7") == 0){   
+        $min=$_GET['min'];
+        $max=$_GET['max'];
+        $temp="SELECT count(*) as bikes
+        FROM divvy_trips_distances
+        WHERE (seconds / 60) between ".$min." and ".$max;
+    }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8
     //total distance for each bike, ranking from highest
     else if(strcmp($_GET['query'], "q8") == 0){   
