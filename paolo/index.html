@@ -5,19 +5,30 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script type="text/javascript" src="bike_day_week.js"></script>
+    <script type="text/javascript" src="bike_distance.js"></script>
     <script>
         var bar_App1;
+        var bar_App2;
         function init() {
-            bar_App1 = new BarChart("#bar1");
+            bar_App1 = new BarChart1("#bar1");
+            bar_App2 = new BarChart2("#bar2");
         }
     </script>
 </head>
 
 <body onload="init()" >
     <h1 id="title">CS424 Project2</h1>
-    <div id="bar1" style="width:30%; margin-top:2px"></div>
-    <select id="stations_dropdown" onchange="bar_App1.getBikesForallDays(this.value);">
-        <option value="0">All stations</option>
-    </select>
+    
+    <div id="wrapper1" style="width:30%; margin-top:2px; float: left;">
+        <div id="bar1" style=" margin-top:2px;"></div>
+        <select id="stations_dropdown1" onchange="bar_App1.getBikesForallDays(this.value);">
+            <option value="0">All stations</option>
+        </select>
+    </div>
+    
+    <div id="wrapper2" style="width:30%; margin-top:2px; float: left;">
+        <div id="bar2" style=" margin-top:2px;"></div>
+    </div>
+    
     </body>
 </html>

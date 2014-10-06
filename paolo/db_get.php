@@ -339,11 +339,13 @@
                 GROUP BY date(starttime),usertype;";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
-    //distances in meters of all trips of all stations, ranking from highest distance to lowest one
+    //distances in miles of all trips of all stations
     else if(strcmp($_GET['query'], "q6") == 0){   
-        $temp="SELECT from_station_id, meters
+        $min=$_GET['min'];
+        $max=$_GET['max'];
+        $temp="SELECT count(*) as bikes
         FROM divvy_trips_distances
-        ORDER BY meters DESC;";
+        WHERE (meters*0.0006213) between ".$min." and ".$max;
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7: TO DO
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8
