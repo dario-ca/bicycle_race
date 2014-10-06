@@ -2,11 +2,17 @@
 <html>
 <head>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
-	<script type="text/javascript" src="test.js"></script>
+	<link rel="stylesheet" type="text/css" href="style_dario.css">
+	<script type="text/javascript" src="bikes_by_hour.js"></script>
+	<script>
+		var lineApp;
+		function init(){
+			lineApp = new Line_chart('#line_chart'); 
+		}
+	</script>
 </head>
-<body>
-
-<h1>CS424 Project2</h1>
-<button onclick="foo();">Print database on console</button>
+<body onload="init()">
+	<h1>CS424 Project2 - Overall: bikes per hour of the day</h1><button onclick="lineApp.draw();">START</button>
+	<div id="line_chart"></div>
 </body>
 </html>
