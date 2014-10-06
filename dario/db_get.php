@@ -33,21 +33,28 @@
                 WHERE from_station_id= ".$num_station." OR to_station_id= ".$num_station.";";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 2
-    //returns number of bikes out for selected day of week
+    //returns the average number of bikes out for selected day of week
     else if(strcmp($_GET['query'], "q2a") == 0){
         $week_day=$_GET['weekday'];
-        $temp = "SELECT count(*) AS bikes
-                FROM divvy_trips_distances
-                WHERE weekday(starttime)=".$week_day.";";
+        $temp =  "SELECT avg(bikes) as bikes
+                FROM (
+                    SELECT count(*) as bikes
+                    FROM divvy_trips_distances
+                    WHERE weekday(starttime)='".$week_day."' 
+                    GROUP BY day(starttime)
+                ) as Table_Alias";
     }
-    //two columns: station and number of bikes out for selected day of week in that station
+    //average bikes out for selected day of week in that station
     else if(strcmp($_GET['query'], "q2b") == 0){
         $week_day=$_GET['weekday'];
         $station_id=$_GET['station_id'];
-        $temp = "SELECT from_station_id,count(*) AS bikes
-                FROM divvy_trips_distances
-                WHERE weekday(starttime)=".$week_day.
-                " and from_station_id=".$station_id;
+        $temp = "SELECT avg(bikes) as bikes
+                FROM (
+                    SELECT count(*) as bikes
+                    FROM divvy_trips_distances
+                    WHERE weekday(starttime)='".$week_day."' and from_station_id = '".$station_id."'
+                    GROUP BY day(starttime)
+                ) as Table_Alias";
     }
     //two columns, day of week and bikes out, for each day
     else if(strcmp($_GET['query'], "q2c") == 0){
@@ -332,11 +339,13 @@
                 GROUP BY date(starttime),usertype;";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
-    //distances in meters of all trips of all stations, ranking from highest distance to lowest one
+    //distances in miles of all trips of all stations
     else if(strcmp($_GET['query'], "q6") == 0){   
-        $temp="SELECT from_station_id, meters
+        $min=$_GET['min'];
+        $max=$_GET['max'];
+        $temp="SELECT count(*) as bikes
         FROM divvy_trips_distances
-        ORDER BY meters DESC;";
+        WHERE (meters*0.0006213) between ".$min." and ".$max;
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7: TO DO
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8

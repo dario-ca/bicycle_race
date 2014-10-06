@@ -214,10 +214,10 @@ FOR A C YOU NEED:
 	WHERE usertype='Subscriber'
 	GROUP BY date(starttime),usertype;
 
-6: distribution of rides by distance (for each station, maybe useful for heatmaps)
-	SELECT from_station_id, meters
-	FROM divvy_trips_distances
-	ORDER BY meters DESC;
+6: distribution of rides by distance
+	SELECT count(*) as bikes
+    FROM divvy_trips_distances
+    WHERE (meters*0.0006213) between '0' and '2';
 
 7: distribution of rides by time (for each station, maybe useful for heatmaps)
 	maybe it is not a query..but a complex chart
