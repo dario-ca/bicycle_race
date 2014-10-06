@@ -80,9 +80,12 @@
     }
     //two columns: hour of day and bikes out
     else if(strcmp($_GET['query'], "q3c") == 0){
-        $temp="SELECT hour(starttime), count(*) AS bikes
-                FROM divvy_trips_distances
-                GROUP BY hour(starttime);";
+        $temp="SELECT hour,avg(bikes) as num_bikes FROM (
+                    SELECT hour(starttime) as hour, count(*) AS bikes
+                    FROM divvy_trips_distances
+                    GROUP BY hour(starttime),date(starttime)
+                    ) as tablex
+        GROUP BY hour;";
     }
     //bikes out for selected station, two columns: hour and number of bikes
     else if(strcmp($_GET['query'], "q3d") == 0){
@@ -347,7 +350,7 @@
         FROM divvy_trips_distances
         WHERE (meters*0.0006213) between ".$min." and ".$max;
     }
-    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7: TO DO
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7
     else if(strcmp($_GET['query'], "q7") == 0){   
         $min=$_GET['min'];
         $max=$_GET['max'];
