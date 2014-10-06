@@ -1,4 +1,4 @@
-function BarChart2(tag) {
+function BarChart3(tag) {
     
     this.tag = tag;
     this.margin = {top: 30, right: 30, bottom: 30, left: 60};
@@ -13,7 +13,7 @@ function BarChart2(tag) {
     this.getBikesFarallIntervals();
 }
 
-BarChart2.prototype.draw = function(){
+BarChart3.prototype.draw = function(){
     
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("rect").remove();
@@ -58,7 +58,7 @@ BarChart2.prototype.draw = function(){
     
     svg.call(tip);
     
-    var xvalues = ["0-1 mi","1-2 mi","2-3 mi","3-4 mi","4-5 mi","5-6 mi","6-7 mi",">7 mi"];
+    var xvalues = ["0-5","5-10","10-15","15-20","20-25","25-30","30-60",">60   minutes"];
     var yvalues = this.values;
     
     var padding = width / xvalues.length - 2;
@@ -99,21 +99,21 @@ BarChart2.prototype.draw = function(){
 }
 
 // For all intervals...
-BarChart2.prototype.getBikesFarallIntervals = function(){
-    // First 7 intervals
-    for (miles = 0, index = 0; miles < 7 ; miles ++, index++)
-        this.callBack_getBikesPerInterval(this,index, miles , (miles+1)*0.999);
-    // Last one
-    this.callBack_getBikesPerInterval(this,index, miles , 30000);
-    
+BarChart3.prototype.getBikesFarallIntervals = function(){
+    // First 5 intervals up to 30 mins
+    for (minutes = 0, index = 0; minutes < 30 ; minutes += 5, index++)
+        this.callBack_getBikesPerInterval(this,index, minutes , (minutes+5)*0.999);
+    // Last 2 intervals
+    this.callBack_getBikesPerInterval(this,index, minutes , 59.999);
+    this.callBack_getBikesPerInterval(this,index + 1, 60 , 1440);
 }
 
 /*Load the result into a data structure*/
-BarChart2.prototype.callBack_getBikesPerInterval = function(context, index, min, max){
+BarChart3.prototype.callBack_getBikesPerInterval = function(context, index, min, max){
     // Empty the current values (this.values)
     context.values = [];
     
-    var parameters = "query=q6&min="+min+"&max="+max;
+    var parameters = "query=q7&min="+min+"&max="+max;
 
     // Load data
 	d3.json("db_get.php?"+parameters, function(error, data) {
