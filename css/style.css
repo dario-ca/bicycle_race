@@ -61,6 +61,10 @@ h1 {
 h2 {
 	font-size:			4vh;
 }
+
+li {
+	font-size:			4vh;
+}
 	
 p {
 	font-size:			3vmin;
@@ -86,6 +90,7 @@ p {
 	left:				85%;
 	width:				15%;
 	height:				100%;
+	background-color:	#444;
 }
 
 
@@ -168,4 +173,90 @@ p {
 .icon:hover {
 	fill:				orange;
 	stroke:				#000;
+}
+
+
+
+/* QUERY MENU RIGHT */
+
+#querymenu {
+	padding:			0;
+	display:			table;
+	width:				100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-bottom:		.6em;
+}
+
+#querymenu li {
+	display:			table-cell;
+	text-align:			center;
+	// border: 1px solid #888;
+}
+
+#querymenu a {
+	color:				orange;
+	background-color:	#222;
+	display:			block;
+	width:				100%;
+	cursor:				pointer;
+	height:				8vh;
+}
+
+#querymenu a:hover {
+	color:				black;
+	background-color:	#888;
+}
+
+#querymenu a:active {
+	color:				black;
+	background-color:	blue;
+}
+
+#querymenu li.active a {
+	color:				black;
+	background-color:	orange;
+}
+
+#querymenu li.active {
+	position:			relative;
+}
+
+#querymenu li.active::before {
+	content:			"";
+	width:				0px;
+	height:				0px;
+	border:				0.4em solid transparent;
+	position:			absolute;
+	left:				20%;
+	bottom:				-0.9em;
+	border-top:			.6em solid orange;
+}
+
+#queryoptions {
+	position:			absolute;
+	left:				0%;
+	width:				100%;
+	top:				8vh;
+	bottom:				0%;
+}
+
+#options {
+	position:			absolute;
+	left:				0%;
+	width:				100%;
+	top:				0%;
+	bottom:				0%;
+}
+
+.querydescription {
+	position:			absolute;
+	bottom:				0%;
+	left:				0%;
+	padding:			1.0em 4% 1.0em 4%;
+}
+
+#iconauthorship {
+	font-size:			.6em;
 }
