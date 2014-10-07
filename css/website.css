@@ -1,0 +1,262 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
+
+* {
+	padding:			0;
+	margin:				4px;
+}
+
+html,body,div,svg,h1,h2,h3,h4,h5,h6,
+p,a,ol,ul,li,table,canvas,
+footer,header,menu,nav {
+	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
+	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
+	box-sizing:			border-box;		/* Opera/IE 8+ */
+	// border:				solid #999 1px; // TODO: remove border
+    font-size:			100%;
+    font:				inherit;
+    // vertical-align:		baseline;
+    margin:				0;
+    padding:			0;
+}
+
+menu, nav {
+    display:			block
+}
+
+html, body {
+	color:				orange;
+	background-color:	#222;
+	font-family:		Roboto, sans serif;
+	margin-left:		auto;
+	margin-right:		auto;
+	position:			relative;
+	height:				100%;
+}
+
+div {
+	font-family:		inherit;
+	font-size:			2rem;
+	// border:				solid cyan 1px;
+}
+
+svg {
+	font-family:		inherit;
+	font-size:			.5rem;
+	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
+	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
+	box-sizing:			border-box;		/* Opera/IE 8+ */
+	// border:				solid magenta 1px; // TODO: remove border
+	width:				100%;
+	height:				100%;
+	// viewBox:			0 0 100 100;
+	// preserveAspectRatio: xMaxYmax;
+}
+
+h1 {
+	padding-left:		4%;
+	padding-right:		4%;
+	font-size:			6vh;
+}
+
+h2 {
+	font-size:			4vh;
+}
+
+li {
+	font-size:			4vh;
+}
+	
+p {
+	font-size:			3vmin;
+}
+
+.left {
+	position:			absolute;
+	left:				0%;
+	width:				30%;
+	float:				left;
+	height:				100%;
+}
+
+.center {
+	position:			absolute;
+	left:				30%;
+	width:				55%;
+	height:				100%;
+}
+
+.right {
+	position:			absolute;
+	left:				85%;
+	width:				15%;
+	height:				100%;
+	background-color:	#444;
+}
+
+
+/* LEFT */
+
+/* TODO: try to move map options to left - (slide in) */
+/*
+#mapmenu {
+	position:			absolute;
+	left:				0%;
+	top:				0%;
+	width:				20%;
+	min-height:			100%;
+	font-size:			1rem;
+} */
+
+#map {
+	position:			absolute;
+	left:				0%;
+	width:				100%;
+	top:				0%;
+	min-height:			100%;
+	font-size:			.5rem;
+	cursor:				crosshair;
+	background-color:	#444;
+}
+
+
+/* CENTER */
+
+.titlebar {
+	position:			absolute;
+	top:				0%;
+	height:				8%;
+	left:				0%;
+	width:				100%;
+}
+
+.graphs {
+	position:			absolute;
+	top:				8%;
+	bottom:				0%;
+	left:				0%;
+	width:				100%;
+	font-size:			.5rem;
+}
+
+#graphicons {
+	position:			absolute;
+	top:				0%;
+	right:				0%;
+	height:				100%;
+	width:				20%;
+}
+
+#centertitle {
+	position:			absolute;
+	top:				0%;
+	left:				0%;
+	height:				100%;
+	right:				20%;
+}
+
+#graph {
+	position:			absolute;
+	top:				0%;
+	left:				0%;
+	width:				100%; 
+	height:				100%;
+}
+
+.icon {
+	width:				40px;
+	height:				40px;
+	fill:				#555;
+	stroke:				#111;
+	border:				none;
+}
+
+.icon:hover {
+	fill:				orange;
+	stroke:				#000;
+}
+
+
+
+/* QUERY MENU RIGHT */
+
+#querymenu {
+	padding:			0;
+	display:			table;
+	width:				100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-bottom:		.6em;
+}
+
+#querymenu li {
+	display:			table-cell;
+	text-align:			center;
+	// border: 1px solid #888;
+}
+
+#querymenu a {
+	color:				orange;
+	background-color:	#222;
+	display:			block;
+	width:				100%;
+	cursor:				pointer;
+	height:				8vh;
+}
+
+#querymenu a:hover {
+	color:				black;
+	background-color:	#888;
+}
+
+#querymenu a:active {
+	color:				black;
+	background-color:	blue;
+}
+
+#querymenu li.active a {
+	color:				black;
+	background-color:	orange;
+}
+
+#querymenu li.active {
+	position:			relative;
+}
+
+#querymenu li.active::before {
+	content:			"";
+	width:				0px;
+	height:				0px;
+	border:				0.4em solid transparent;
+	position:			absolute;
+	left:				20%;
+	bottom:				-0.9em;
+	border-top:			.6em solid orange;
+}
+
+#queryoptions {
+	position:			absolute;
+	left:				0%;
+	width:				100%;
+	top:				8vh;
+	bottom:				0%;
+}
+
+#options {
+	position:			absolute;
+	left:				0%;
+	width:				100%;
+	top:				0%;
+	bottom:				0%;
+}
+
+.querydescription {
+	position:			absolute;
+	bottom:				0%;
+	left:				0%;
+	padding:			1.0em 4% 1.0em 4%;
+}
+
+#iconauthorship {
+	font-size:			.6em;
+}
