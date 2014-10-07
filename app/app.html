@@ -7,7 +7,7 @@
     <script src="http://d3js.org/d3.v3.min.js"></script>  
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!-- leaflet plugin -->
+    <!-- leaflet plugins -->
     <link rel="stylesheet" href="lib/control.layers.minimap.css" />
 </head>
 
@@ -16,26 +16,21 @@
 
     <script src="lib/L.Map.Sync.js"></script>
     <script src="lib/L.Control.Layers.Minimap.js"></script>
+    <script type="text/javascript" src="lib/leaflet-button-control.js"></script>
+    <!-- Custom classes -->
+    <script type="text/javascript" src="lib/divvyCircles.js"></script>
     <script type="text/javascript">
     // map object
     var map = L.map('map').setView([41.9, -87.7], 12);
     var mapArea = $('#map');
+    var divvyCircles = new DivvyCircles();
 
     // chicago geoJson and add layers
     d3.json("../data/chicagoDist.json", function(data){
             d3.csv("../data/stations.csv", function(stations){
             //rad in divvy bike location
-            var stationCircles = [];  
-            for (var i = 0; i < stations.length; i++) {
-                stationCircles.push( L.circle([stations[i]["latitude"], stations[i]["longitude"]], 15, {
-                    color: 'red',
-                    fillColor: '#3AE8DF',
-                    fillOpacity: 0.5,
-                    stationID : stations[i]["station_id"],
-                    stationName : stations[i]["station_name"]
-                }));
-            };
-            addLayers(data, stationCircles);
+            divvyCircles.addData(stations, "grey", "black", 5);
+            addLayers(data, divvyCircles.getCircles());
         });
     });
 
@@ -62,10 +57,12 @@
             'Chicago Communities' : L.geoJson(chicagoMap, {
                 style: function (feature){
                     return {
-                        color: "black",
+                        color: "#17D576",
                         // colorOpacity: 1,
                         fillColor: "grey",
-                        fillOpacity: 0};
+                        fillOpacity: 0.25,
+                        opacity: 1
+                    };
                 },
                 onEachFeature: function (feature, layer){
                     layer.bindPopup(feature.properties.name);
@@ -82,14 +79,23 @@
         }).addTo(map);
         baseLayers['Streets'].addTo(map);
 
-        for (var i = 0; i < stationCircles.length; i++) {
-            // add listeners and bind stuff here...
-            // stationCircles[i].bindPopup(stationCircles[i]);
-            stationCircles[i].on('click', function(d){
-                console.log(d.target.options.stationName);
-            });
+        for (var i = 0; i < stationCircles.length; i++)
             stationCircles[i].addTo(map);
-        };
+
+        var myButtonOptions = {
+          'text': 'Test1',  // string
+          'iconUrl': 'img/button.png',  // string
+          'onClick': my_button_onClick,  // callback function
+          'hideText': true,  // bool
+          'maxWidth': 30,  // number
+          'doToggle': false,  // bool
+          'toggleStatus': false  // bool
+        }   
+
+        var myButton = new L.Control.Button(myButtonOptions).addTo(map);
+        function my_button_onClick() {
+            divvyCircles.colorPop();
+        }
     };
 
     function testStuff(name){
@@ -97,5 +103,7 @@
     }
 
     </script>
+
+    
 </body>
 </html>
