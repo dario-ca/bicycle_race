@@ -1,7 +1,7 @@
 <DOCTYPE html>
 <html>
 <head>
-    <title>TEST</title>
+    <title>M A P</title>
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>  
@@ -12,11 +12,14 @@
 </head>
 
 <body>
-    <div id="map"></div>
+    <div id="map">
+        <div id = "controlButtons">
+        <input type="button" value="Popularity" class="btnStyle" id="heatMap" onclick=" divvyCircles.colorPop()" />
+        </div>
+    </div>
 
     <script src="lib/L.Map.Sync.js"></script>
     <script src="lib/L.Control.Layers.Minimap.js"></script>
-    <script type="text/javascript" src="lib/leaflet-button-control.js"></script>
     <!-- Custom classes -->
     <script type="text/javascript" src="lib/divvyCircles.js"></script>
     <script type="text/javascript">
@@ -81,21 +84,6 @@
 
         for (var i = 0; i < stationCircles.length; i++)
             stationCircles[i].addTo(map);
-
-        var myButtonOptions = {
-          'text': 'Test1',  // string
-          'iconUrl': 'img/button.png',  // string
-          'onClick': my_button_onClick,  // callback function
-          'hideText': true,  // bool
-          'maxWidth': 30,  // number
-          'doToggle': false,  // bool
-          'toggleStatus': false  // bool
-        }   
-
-        var myButton = new L.Control.Button(myButtonOptions).addTo(map);
-        function my_button_onClick() {
-            divvyCircles.colorPop();
-        }
     };
 
     function testStuff(name){
