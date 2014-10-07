@@ -10,11 +10,20 @@ div {
     position: relative;
 }
 
-#line_chart{
+#line_chart1{
 	border: 0px;
     padding: 0px 0px 0px; 
     margin: 0px;
-	width: 40%;
+	width: 50%;
+	float:left;
+}
+
+#line_chart2{
+	border: 0px;
+    padding: 0px 0px 0px; 
+    margin: 0px;
+	width: 50%;
+	float:left;
 };
 
 .line_chart_svg {
@@ -26,7 +35,23 @@ div {
 .line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 4px;
+  stroke-width: 6px;
   stroke-linecap:round;
   stroke-linejoin:round;
+/*  opacity:0.7;
+*/}
+
+.axis{
+	font: sans-serif;
 }
+
+.axis .xminor line {
+  stroke: black;
+  stroke-dasharray: 6,6;
+/*  opacity:0.5;
+*/}
+.axis .yminor line {
+  stroke: black;
+  stroke-dasharray: 2,2;
+/*  opacity:0.5;
+*/}

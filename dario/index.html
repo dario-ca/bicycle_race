@@ -4,15 +4,21 @@
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style_dario.css">
 	<script type="text/javascript" src="bikes_by_hour.js"></script>
+	<script type="text/javascript" src="bikes_by_date.js"></script>
 	<script>
 		var lineApp;
 		function init(){
-			lineApp = new Line_chart('#line_chart'); 
+			lineApp1 = new Line_chart1('#line_chart1');
+			lineApp2 = new Line_chart2('#line_chart2');
+
 		}
 	</script>
 </head>
 <body onload="init()">
-	<h1>CS424 Project2 - Overall: bikes per hour of the day</h1><button onclick="lineApp.draw();">START</button>
-	<div id="line_chart"></div>
+	<h1>CS424 Project2</h1><!-- <button onclick="lineApp.draw();">START</button> -->
+	<div id="container">
+		<div id="line_chart1"></div>
+		<div id="line_chart2"></div>
+	</div>
 </body>
 </html>

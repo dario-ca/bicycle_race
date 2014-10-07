@@ -1,4 +1,4 @@
-function Line_chart1(tag){
+function Line_chart2(tag){
     
     this.tag=tag;
 
@@ -12,7 +12,7 @@ function Line_chart1(tag){
                 .attr("viewBox","0 0 "+this.canvasWidth+" "+this.canvasHeight)
                 .attr("preserveAspectRatio","xMinYMin meet");
 
-    //hours of the day
+    //day of the year
     this.xValues=[];
     //number of bikes
     this.yValues=[];
@@ -21,25 +21,24 @@ function Line_chart1(tag){
 
 }
 
-Line_chart1.prototype.callBack_getData = function(context){
+Line_chart2.prototype.callBack_getData = function(context){
     
     context.xValues=[];
     context.yValues=[];
-    var parameters="query=q3c";
+    var parameters="query=q4b";
     d3.json("db_get.php?"+parameters, function(error, data) {
         data.forEach(function(d){
-            context.xValues.push(d.hour);
-            context.yValues.push(d.num_bikes);
+            context.xValues.push(d.day_year);
+            context.yValues.push(d.bikes);
         });
         console.log(context.xValues);
         console.log(context.yValues);
-        /*context.xValues=["0am","1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm",
-                            "1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"];*/
         context.draw();
     });
 }
 
-Line_chart1.prototype.draw = function(){
+
+Line_chart2.prototype.draw = function(){
 
     console.log('DRAW FUNCTION');
     
@@ -65,6 +64,11 @@ Line_chart1.prototype.draw = function(){
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
+        .tickFormat(function(d){
+            if(d!=0)
+                return (d/1000).toFixed(0)+"k";
+            else return d;
+        })
         .tickSize(2)
         .tickPadding(7);
 
@@ -100,6 +104,10 @@ Line_chart1.prototype.draw = function(){
                 return -height+yScale(yValues[i]);
             });
 
+    gx.selectAll("text")
+        .attr("transform","rotate(-90)");
+        //.style("text-anchor", "start");
+
     gy.selectAll("g")
             .classed("yminor", true)
             .select("line")
@@ -112,7 +120,7 @@ Line_chart1.prototype.draw = function(){
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("AVG Bikes Out");
+          .text("Bikes Out");
 
 }
 
