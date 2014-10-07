@@ -5,7 +5,7 @@ function init(DOC) {
 	/* Getting ID's from HTML document DOC */
 	mapid = DOC.getElementById("map");
 	graphiconid = DOC.getElementById("graphicons");
-	graphid = DOC.getElementById("graph");
+	graphid = DOC.getElementById("graphs"); // graphs is now a div
 	queryoptionid = DOC.getElementById("options");
 	
 	/* Calling functions */
