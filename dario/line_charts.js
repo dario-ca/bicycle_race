@@ -1,4 +1,4 @@
-function Line_chart2(tag){
+function Line_chart1(tag){
     
     this.tag=tag;
 
@@ -12,35 +12,35 @@ function Line_chart2(tag){
                 .attr("viewBox","0 0 "+this.canvasWidth+" "+this.canvasHeight)
                 .attr("preserveAspectRatio","xMinYMin meet");
 
-    //day of the year
+    //hours of the day
     this.xValues=[];
     //number of bikes
     this.yValues=[];
+
 
     this.callBack_getData(this);
 
 }
 
-Line_chart2.prototype.callBack_getData = function(context){
+Line_chart.prototype.callBack_getData = function(context){
     
     context.xValues=[];
     context.yValues=[];
-    var parameters="query=q4b";
+    var parameters="query=q3c";
     d3.json("db_get.php?"+parameters, function(error, data) {
-        data.forEach(function(d,i){
-            context.xValues[context.xValues.length]=d.day_year;
-            context.yValues[context.yValues.length]=d.bikes;
-            /*context.xValues.push(d.day_year);
-            context.yValues.push(d.bikes);*/
+        data.forEach(function(d){
+            context.xValues.push(d.hour);
+            context.yValues.push(d.num_bikes);
         });
         console.log(context.xValues);
         console.log(context.yValues);
+        /*context.xValues=["0am","1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm",
+                            "1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"];*/
         context.draw();
     });
 }
 
-
-Line_chart2.prototype.draw = function(){
+Line_chart.prototype.draw = function(){
 
     console.log('DRAW FUNCTION');
     
@@ -52,7 +52,7 @@ Line_chart2.prototype.draw = function(){
     var yValues = this.yValues;
 
     var xScale = d3.scale.ordinal()
-        .rangeBands([0, width], 0).domain(xValues);
+        .rangeRoundBands([0, width], .1).domain(xValues);
 
     var yScale = d3.scale.linear()
         .range([height, 0]).domain([0, max(yValues)*1.1]);
@@ -60,18 +60,12 @@ Line_chart2.prototype.draw = function(){
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        //.tickValues(xValues)
         .tickSize(2)
         .tickPadding(7);
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
-        .tickFormat(function(d){
-            if(d!=0)
-                return (d/1000).toFixed(0)+"k";
-            else return d;
-        })
         .tickSize(2)
         .tickPadding(7);
 
@@ -80,13 +74,13 @@ Line_chart2.prototype.draw = function(){
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var line = d3.svg.line()
-                .x(function(d,i) { return xScale(xValues[i]); })
+                .x(function(d,i) { return xScale(i); })
                 .y(function(d,i) { return yScale(yValues[i]);});
 
     svg.append("path")
       .datum(yValues)
       .attr("class", "line")
-      .attr("d", line).attr("transform", "translate("+ parseFloat(margin.left+2)+ ",0)");
+      .attr("d", line).attr("transform", "translate("+ parseFloat(margin.left+13)+ ",0)");
 
     var padding = width / xValues.length;
 
@@ -100,16 +94,12 @@ Line_chart2.prototype.draw = function(){
           .attr("transform", "translate("+ margin.left+ ",0)")
           .call(yAxis);
     
-    /*gx.selectAll("g")
+    gx.selectAll("g")
             .classed("xminor", true)
             .select("line")
             .attr("y2",function(d,i){
                 return -height+yScale(yValues[i]);
-            });*/
-
-    gx.selectAll("text")
-        .attr("transform","rotate(-90)");
-        //.style("text-anchor", "start");
+            });
 
     gy.selectAll("g")
             .classed("yminor", true)
@@ -123,7 +113,7 @@ Line_chart2.prototype.draw = function(){
           .attr("y", 6)
           .attr("dy", ".71em")
           .style("text-anchor", "end")
-          .text("Bikes Out");
+          .text("AVG Bikes Out");
 
 }
 

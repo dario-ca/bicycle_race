@@ -105,7 +105,7 @@
     }
     //bikes out for all days of the year
     else if(strcmp($_GET['query'], "q4b") == 0){
-        $temp="SELECT date(starttime) as day_year,count(*) AS bikes
+        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes
                 FROM divvy_trips_distances
                 GROUP BY date(starttime);";
     }
