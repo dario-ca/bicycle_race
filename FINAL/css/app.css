@@ -1,0 +1,29 @@
+#map{
+    height: 100%;
+    width: 100%;
+    /*position: relative;*/
+}
+
+.btnStyle {
+    background-color: #4D90FE;
+    border: 1px solid #3079ED;  
+    color: #FFFFFF;
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width:50px;
+}
+
+#controlButtons{
+    bottom: 0px;
+    right: 0px;
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+}
+
+#heatMap{
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+}
