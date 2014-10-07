@@ -10,7 +10,6 @@ function Line_chart(tag){
                 .append("svg")
                 .attr("class","line_chart_svg")
                 .attr("viewBox","0 0 "+this.canvasWidth+" "+this.canvasHeight)
-                //.attr("viewBox","0 0 100 100")
                 .attr("preserveAspectRatio","xMinYMin meet");
 
     //hours of the day
@@ -34,6 +33,8 @@ Line_chart.prototype.callBack_getData = function(context){
         });
         console.log(context.xValues);
         console.log(context.yValues);
+        /*context.xValues=["0am","1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm",
+                            "1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"];*/
         context.draw();
     });
 }
@@ -42,8 +43,6 @@ Line_chart.prototype.draw = function(){
 
     console.log('DRAW FUNCTION');
     
-    //d3.select(this.tag).remove();
-
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
     var height = this.canvasHeight - margin.top - margin.bottom;
@@ -55,45 +54,23 @@ Line_chart.prototype.draw = function(){
         .rangeRoundBands([0, width], .1).domain(xValues);
 
     var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0, max(yValues)]);
+        .range([height, 0]).domain([0, max(yValues)*1.1]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
-        .orient("bottom");
+        .orient("bottom")
+        .tickSize(2)
+        .tickPadding(7);
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
-        .tickFormat(function(d){
-            if(d >= 10000)
-                return (d/1000).toFixed(0)+"k";
-            if(d >= 1000)
-                return (d/1000).toFixed(1)+"k";
-            return d;
-        });;
+        .tickSize(2)
+        .tickPadding(7);
 
     var svg=this.svg;
 
-    svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    var padding = width / xValues.length;
-
-    svg.append("g")
-          .attr("class", "xAxis")
-          .attr("transform", "translate("+margin.left+"," + height + ")")
-          .call(xAxis);
-
-    svg.append("g")
-          .attr("class", "yAxis")
-          .attr("transform", "translate("+ margin.left+ ",0)")
-          .call(yAxis)
-          .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
-          .attr("dy", ".71em")
-          .style("text-anchor", "end")
-          .text("Bikes Out");
-
+    //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var line = d3.svg.line()
                 .x(function(d,i) { return xScale(i); })
@@ -102,7 +79,41 @@ Line_chart.prototype.draw = function(){
     svg.append("path")
       .datum(yValues)
       .attr("class", "line")
-      .attr("d", line).attr("transform", "translate("+ parseFloat(margin.left+15)+ ",0)");
+      .attr("d", line).attr("transform", "translate("+ parseFloat(margin.left+13)+ ",0)");
+
+    var padding = width / xValues.length;
+
+    var gx = svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate("+margin.left+"," + height + ")")
+          .call(xAxis);
+
+    var gy = svg.append("g")
+          .attr("class", "y axis")
+          .attr("transform", "translate("+ margin.left+ ",0)")
+          .call(yAxis);
+    
+    gx.selectAll("g")
+            .classed("xminor", true)
+            .select("line")
+            .attr("y2",function(d,i){
+                return -height+yScale(yValues[i]);
+            });
+
+    gy.selectAll("g")
+            .classed("yminor", true)
+            .select("line")
+            .attr("x2",function(d,i){
+                return width;
+            });
+    
+    gy.append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+          .text("AVG Bikes Out");
+
 }
 
 //////////////////////////////////////////UTILS
