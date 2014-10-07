@@ -3,7 +3,7 @@ function BarChart1(tag) {
     this.tag = tag;
     this.margin = {top: 30, right: 30, bottom: 30, left: 60};
     
-    this.svg = d3.select(this.tag).append("svg");
+    this.svg = d3.select(this.tag).append("svg").attr("class","bar_chart_svg");
 
     this.canvasWidth = 400;
 	this.canvasHeight = 300;
