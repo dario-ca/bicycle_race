@@ -3,7 +3,7 @@
 	height: 100%;
 	float: left;
     margin-top: 1%;
-    margin-left: 5%;
+    margin-left: 2%;
 }
 
 .bar {
@@ -11,7 +11,7 @@
 }
 
 .bar:hover {
-  fill: brown;
+  fill: orange;
 }
 
 .axis {

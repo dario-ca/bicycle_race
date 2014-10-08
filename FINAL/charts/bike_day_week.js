@@ -53,7 +53,7 @@ BarChart1.prototype.draw = function(){
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function(d) {
-          return "<strong>AVG bikes out:</strong> <span style='color:brown'>" + dotSeparator(d) + "</span>";
+          return "<strong>AVG bikes out:</strong> <span style='color:orange'>" + dotSeparator(d) + "</span>";
         });
     
     var svg = this.svg;
