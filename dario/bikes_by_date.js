@@ -30,8 +30,6 @@ Line_chart2.prototype.callBack_getData = function(context){
         data.forEach(function(d,i){
             context.xValues[context.xValues.length]=d.day_year;
             context.yValues[context.yValues.length]=d.bikes;
-            /*context.xValues.push(d.day_year);
-            context.yValues.push(d.bikes);*/
         });
         console.log(context.xValues);
         console.log(context.yValues);

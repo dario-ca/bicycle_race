@@ -80,12 +80,12 @@
     }
     //two columns: hour of day and bikes out
     else if(strcmp($_GET['query'], "q3c") == 0){
-        $temp="SELECT hour,avg(bikes) as num_bikes FROM (
-                    SELECT hour(starttime) as hour, count(*) AS bikes
+        $temp="SELECT date_format(starttime,'%l%p') as hour,avg(bikes) as num_bikes FROM (
+                    SELECT starttime, count(*) AS bikes
                     FROM divvy_trips_distances
                     GROUP BY hour(starttime),date(starttime)
                     ) as tablex
-        GROUP BY hour;";
+                GROUP BY hour(starttime);";
     }
     //bikes out for selected station, two columns: hour and number of bikes
     else if(strcmp($_GET['query'], "q3d") == 0){

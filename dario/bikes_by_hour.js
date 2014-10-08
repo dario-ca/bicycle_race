@@ -28,13 +28,11 @@ Line_chart1.prototype.callBack_getData = function(context){
     var parameters="query=q3c";
     d3.json("db_get.php?"+parameters, function(error, data) {
         data.forEach(function(d){
-            context.xValues.push(d.hour);
-            context.yValues.push(d.num_bikes);
+            context.xValues[context.xValues.length]=d.hour;
+            context.yValues[context.yValues.length]=d.num_bikes;
         });
         console.log(context.xValues);
         console.log(context.yValues);
-        /*context.xValues=["0am","1am","2am","3am","4am","5am","6am","7am","8am","9am","10am","11am","12pm",
-                            "1pm","2pm","3pm","4pm","5pm","6pm","7pm","8pm","9pm","10pm","11pm"];*/
         context.draw();
     });
 }
@@ -51,7 +49,7 @@ Line_chart1.prototype.draw = function(){
     var yValues = this.yValues;
 
     var xScale = d3.scale.ordinal()
-        .rangeRoundBands([0, width], .1).domain(xValues);
+        .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
         .range([height, 0]).domain([0, max(yValues)*1.1]);
@@ -73,13 +71,13 @@ Line_chart1.prototype.draw = function(){
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var line = d3.svg.line()
-                .x(function(d,i) { return xScale(i); })
+                .x(function(d,i) { return xScale(xValues[i]); })
                 .y(function(d,i) { return yScale(yValues[i]);});
 
     svg.append("path")
       .datum(yValues)
       .attr("class", "line")
-      .attr("d", line).attr("transform", "translate("+ parseFloat(margin.left+13)+ ",0)");
+      .attr("d", line).attr("transform", "translate("+ margin.left+ ",0)");
 
     var padding = width / xValues.length;
 
@@ -92,6 +90,10 @@ Line_chart1.prototype.draw = function(){
           .attr("class", "y axis")
           .attr("transform", "translate("+ margin.left+ ",0)")
           .call(yAxis);
+
+    gx.selectAll("text")
+        .attr("transform","rotate(-40)")
+        .style("text-anchor", "end");
     
     gx.selectAll("g")
             .classed("xminor", true)
