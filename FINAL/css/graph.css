@@ -2,6 +2,7 @@
 	width: 100%;
 	height: 100%;
 	float: left;
+    margin-top: 1%;
 }
 
 .bar {
@@ -14,13 +15,18 @@
 
 .axis {
   font: 10px sans-serif;
+  fill: white;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: white;
   shape-rendering: crispEdges;
+}
+
+.tick{
+  fill: white;
 }
 
 .x.axis path {
@@ -34,6 +40,7 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
+  font-size: 16px;
 }
 
 /* Creates a small triangle extender for the tooltip */

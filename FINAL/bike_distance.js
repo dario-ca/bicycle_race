@@ -1,7 +1,7 @@
 function BarChart2(tag) {
     
     this.tag = tag;
-    this.margin = {top: 30, right: 30, bottom: 30, left: 60};
+    this.margin = {top: 0, right: 0, bottom: 30, left: 0};
     
     this.svg = d3.select(this.tag).append("svg").attr("class","bar_chart_svg");
 
