@@ -10,8 +10,8 @@ function BarChart1(tag) {
 
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
 
-    this.canvasWidth = 215;
-    this.canvasHeight = 380;
+    this.canvasWidth = 320;
+    this.canvasHeight = 400;
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
     // Day = 0 is monday
@@ -31,7 +31,7 @@ BarChart1.prototype.draw = function () {
     d3.select(this.tag).selectAll("#tip").remove();
 
     var margin = this.margin;
-    var width = this.canvasWidth,
+    var width = this.canvasWidth -margin.left - margin.right,
         height = this.canvasHeight - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal()
@@ -62,10 +62,6 @@ BarChart1.prototype.draw = function () {
         });
 
     var svg = this.svg;
-    svg.attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     svg.call(tip);
 
@@ -82,13 +78,14 @@ BarChart1.prototype.draw = function () {
     **/
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
+        .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(20)");
 
     svg.append("g")
         .attr("class", "y axis")
+        .attr("transform","translate("+margin.left+",0)")
         .call(yAxis)
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -105,7 +102,7 @@ BarChart1.prototype.draw = function () {
             return i * padding;
         })
         .attr("width", x.rangeBand())
-        .attr("transform", "translate (" + width / 25 + ",0)")
+        .attr("transform", "translate (" + (margin.left + 10) + ",0)")
         .attr("y", function (d, i) {
             return y(d);
         })
