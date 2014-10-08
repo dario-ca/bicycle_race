@@ -16,9 +16,9 @@ function init(DOC) {
 	drawGraphIcons(graphiconid);
 	drawGraph(graphid);
 	drawQuery_Calendar(queryoptionid);
-    bar_App1 = new BarChart2(chart1);
+    bar_App1 = new BarChart1(chart1);
     bar_App2 = new BarChart2(chart2);
-    bar_App3 = new BarChart2(chart3);
+    bar_App3 = new BarChart3(chart3);
 	
 	console.log("Done");
 
