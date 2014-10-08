@@ -1,77 +1,93 @@
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>Bicycle Race</title>
-        <link rel="stylesheet" type="text/css" href="css/graph.css">
-		<link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-         <link rel="stylesheet" type="text/css" href="css/app.css">
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="http://d3js.org/d3.v3.min.js"></script> 
-        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-        
-        <!-- SCRIPTS -->
-		<script src="scripts/drawGraphIcons.js"></script>
-		<script src="scripts/drawGraph.js"></script>
-		<script src="scripts/drawMap.js"></script>
-		<script src="scripts/drawQuery_Calendar.js"></script>
-		<script src="scripts/drawQuery_Stations.js"></script>
-		<script src="scripts/drawQuery_Demographics.js"></script>
-		<script src="scripts/drawQuery_Week.js"></script>
-		<script src="scripts/drawQuery_Time.js"></script>
-		<script src="scripts/clickUpdateQuery.js"></script>
-		<script src="scripts/init.js"></script>
-        
-        <!-- CHARTS -->
-        <script src="charts/bike_day_week.js"></script>
-        <script src="charts/bike_distance.js"></script>
-        <script src="charts/bike_time.js"></script>
-        
- <link rel="stylesheet" href="lib/control.layers.minimap.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Bicycle Race</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/graph.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="lib/control.layers.minimap.css" />
+
+    <!-- Leaflet and D3-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="lib/L.Map.Sync.js"></script>
     <script src="lib/L.Control.Layers.Minimap.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="scripts/drawGraphIcons.js"></script>
+    <script src="scripts/drawGraph.js"></script>
+    <script src="scripts/drawMap.js"></script>
+    <script src="scripts/drawQuery_Calendar.js"></script>
+    <script src="scripts/drawQuery_Stations.js"></script>
+    <script src="scripts/drawQuery_Demographics.js"></script>
+    <script src="scripts/drawQuery_Week.js"></script>
+    <script src="scripts/drawQuery_Time.js"></script>
+    <script src="scripts/clickUpdateQuery.js"></script>
+    <script src="scripts/init.js"></script>
+
+    <!-- CHARTS -->
+    <script src="charts/bike_day_week.js"></script>
+    <script src="charts/bike_distance.js"></script>
+    <script src="charts/bike_time.js"></script>
+
     <!-- Custom classes -->
     <script type="text/javascript" src="lib/divvyCircles.js"></script>
-	</head>
 
-	<body onload="init(document)">
+</head>
 
-		<div class="left">
-		<!--	
+<body onload="init(document)">
+
+    <div class="left">
+        <!--	
 			<div id="mapmenu" style="text-align: center; padding-top: 50%;">MAP MENU</div>
 			<h1>LEFT</h1>
 		-->
-			<!-- <svg id="map" viewBox="0 0 1000 1000"></svg> -->
-			<div id="map"> 
-                <div id = "controlButtons">
-                    <input type="button" value="Popularity" class="btnStyle" id="heatMap" onclick=" divvyCircles.colorPop()" />
-                </div>
+        <!-- <svg id="map" viewBox="0 0 1000 1000"></svg> -->
+        <div id="map">
+            <div id="controlButtons">
+                <input type="button" value="Popularity" class="btnStyle" id="heatMap" onclick=" divvyCircles.colorPop()" />
             </div>
-		</div>
-		
-		<div class="center">
-			<div class="titlebar">
-				<div id="centertitle"><h1>CENTER - TITLE</h1></div>
-				<svg id="graphicons" viewBox="0 0 300 100"></svg>
-			</div>
-			
-			<div id="chart1" class="graph1" ></div>
-            <div id="chart2" class="graph2" ></div>
-            <div id="chart3" class="graph3" ></div>
+        </div>
+    </div>
 
-		</div>
+    <div class="center">
+        <div class="titlebar">
+            <div id="centertitle">
+                <h1>CENTER - TITLE</h1>
+            </div>
+            <svg id="graphicons" viewBox="0 0 300 100"></svg>
+        </div>
 
-		<div class="right">
-			
-			<ul id="querymenu">
-				<li class="active"><a onClick="clickUpdateQuery(document,1); return false;">A1</a></li>
-				<li><a onClick="clickUpdateQuery(document,2); return false;">B2</a></li>
-				<li><a onClick="clickUpdateQuery(document,3); return false;">C3</a></li>
-				<li><a onClick="clickUpdateQuery(document,4); return false;">D4</a></li>
-				<li><a onClick="clickUpdateQuery(document,5); return false;">E5</a></li>
-				<li><a>XY
+        <div id="chart1" class="graph1">
+            <select id="stations_dropdown1" class="dropdown" onchange="bar_App1.getBikesForallDays(this.value);">
+                <option value="0">All stations</option>
+            </select>
+        </div>
+        <div id="chart2" class="graph2"></div>
+        <div id="chart3" class="graph3"></div>
+
+    </div>
+
+    <div class="right">
+
+        <ul id="querymenu">
+            <li class="active"><a onClick="clickUpdateQuery(document,1); return false;">A1</a>
+            </li>
+            <li><a onClick="clickUpdateQuery(document,2); return false;">B2</a>
+            </li>
+            <li><a onClick="clickUpdateQuery(document,3); return false;">C3</a>
+            </li>
+            <li><a onClick="clickUpdateQuery(document,4); return false;">D4</a>
+            </li>
+            <li><a onClick="clickUpdateQuery(document,5); return false;">E5</a>
+            </li>
+            <li><a>XY
 					<!--
 					<object data="icons/svg/watch.svg" type="image/svg+xml" color="orange" style="width: 50px; height: 50px; background-color: green;" viewBox="0 0 10 10">
 						<img src="icond/png/watch.png" />
@@ -82,29 +98,28 @@
 						
 						</svg>
 						-->
-					</a></li>
-			</ul>
+					</a>
+            </li>
+        </ul>
 
-			<div id="queryoptions">
-				<svg id="options", viewBox="0 0 1000 1000"></svg>
-				<div class="querydescription">
-					<h2>DiVVy Bike Chicago</h2>
-					<p>Text Description</p>
-					<p id="iconauthorship"> Icon authorship: Freepik (<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>)
-				</div>
-				</p>
-			</div>
-		</div>
+        <div id="queryoptions">
+            <svg id="options" , viewBox="0 0 1000 1000"></svg>
+            <div class="querydescription">
+                <h2>DiVVy Bike Chicago</h2>
+                <p>Text Description</p>
+                <p id="iconauthorship">Icon authorship: Freepik (<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>)
+            </div>
+            </p>
+        </div>
+    </div>
 
-	</body>
+</body>
 
-	<script>
-
-		/* Change active tile on click (Query menu) */ 
-		$('li a').click(function() {
-				$(this).parent().addClass('active').siblings().removeClass('active');
-		});
-
-	</script>
+<script>
+    /* Change active tile on click (Query menu) */
+    $('li a').click(function () {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+    });
+</script>
 
 </html>
