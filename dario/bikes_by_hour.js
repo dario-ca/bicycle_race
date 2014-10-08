@@ -2,7 +2,7 @@ function Line_chart1(tag){
     
     this.tag=tag;
 
-    this.margin = {top: 30, right: 20, bottom: 20, left: 100};
+    this.margin = {top: 30, right: 20, bottom: 30, left: 100};
     this.canvasWidth=800;
     this.canvasHeight=400;
     

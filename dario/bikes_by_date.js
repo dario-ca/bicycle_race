@@ -2,7 +2,7 @@ function Line_chart2(tag){
     
     this.tag=tag;
 
-    this.margin = {top: 30, right: 20, bottom: 20, left: 100};
+    this.margin = {top: 30, right: 20, bottom: 30, left: 100};
     this.canvasWidth=800;
     this.canvasHeight=400;
     
@@ -52,7 +52,7 @@ Line_chart2.prototype.draw = function(){
     var yValues = this.yValues;
 
     var xScale = d3.scale.ordinal()
-        .rangeBands([0, width], 0).domain(xValues);
+        .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
         .range([height, 0]).domain([0, max(yValues)*1.1]);
@@ -60,7 +60,7 @@ Line_chart2.prototype.draw = function(){
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        //.tickValues(xValues)
+        .tickValues(xScale.domain().filter(function(d, i) { return !(i % 12); }))
         .tickSize(2)
         .tickPadding(7);
 
@@ -92,7 +92,7 @@ Line_chart2.prototype.draw = function(){
 
     var gx = svg.append("g")
           .attr("class", "x axis")
-          .attr("transform", "translate("+margin.left+"," + height + ")")
+          .attr("transform", "translate("+parseFloat(margin.left+2)+"," + height + ")")
           .call(xAxis);
 
     var gy = svg.append("g")
@@ -100,16 +100,16 @@ Line_chart2.prototype.draw = function(){
           .attr("transform", "translate("+ margin.left+ ",0)")
           .call(yAxis);
     
-    /*gx.selectAll("g")
+    gx.selectAll("g")
             .classed("xminor", true)
             .select("line")
             .attr("y2",function(d,i){
-                return -height+yScale(yValues[i]);
-            });*/
+                    return -height+yScale(yValues[i*12]);
+            });
 
     gx.selectAll("text")
-        .attr("transform","rotate(-90)");
-        //.style("text-anchor", "start");
+        .attr("transform","rotate(-40)")
+        .style("text-anchor", "end");
 
     gy.selectAll("g")
             .classed("yminor", true)
