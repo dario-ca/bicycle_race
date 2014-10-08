@@ -5,7 +5,7 @@ function BarChart2(tag) {
     
     this.svg = d3.select(this.tag).append("svg").attr("class","bar_chart_svg");
 
-    this.canvasWidth = 190;
+    this.canvasWidth = 215;
 	this.canvasHeight = 380;
 	this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
     
