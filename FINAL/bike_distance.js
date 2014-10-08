@@ -1,12 +1,12 @@
 function BarChart2(tag) {
     
     this.tag = tag;
-    this.margin = {top: 0, right: 0, bottom: 30, left: 0};
+    this.margin = {top: 0, right: 30, bottom: 30, left: 60};
     
     this.svg = d3.select(this.tag).append("svg").attr("class","bar_chart_svg");
 
-    this.canvasWidth = 400;
-	this.canvasHeight = 300;
+    this.canvasWidth = 190;
+	this.canvasHeight = 380;
 	this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
     
     this.values = [];
@@ -58,7 +58,7 @@ BarChart2.prototype.draw = function(){
     
     svg.call(tip);
     
-    var xvalues = ["0-1 mi","1-2 mi","2-3 mi","3-4 mi","4-5 mi","5-6 mi","6-7 mi",">7 mi"];
+    var xvalues = ["0-1","1-2","2-3","3-4","4-5","5-6","6-7",">7 mi"];
     var yvalues = this.values;
     
     var padding = width / xvalues.length - 2;
