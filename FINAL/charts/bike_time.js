@@ -58,7 +58,7 @@ BarChart3.prototype.draw = function(){
     
     svg.call(tip);
     
-    var xvalues = ["0-5","5-10","10-15","15-20","20-25","25-30","30-60",">60"];
+    var xvalues = ["0-5","5-10","10-15","15-20","20-25","25-30","30-60",">60 min"];
     var yvalues = this.values;
     
     var padding = width / xvalues.length - 2;
@@ -72,7 +72,9 @@ BarChart3.prototype.draw = function(){
       svg.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
+          .call(xAxis)
+          .selectAll("text")
+          .attr("transform","rotate(20)");
 
       svg.append("g")
           .attr("class", "y axis")

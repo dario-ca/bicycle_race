@@ -78,7 +78,9 @@ BarChart1.prototype.draw = function(){
       svg.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
+          .call(xAxis)
+          .selectAll("text")
+          .attr("transform","rotate(20)");
 
       svg.append("g")
           .attr("class", "y axis")
