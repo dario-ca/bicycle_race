@@ -134,7 +134,8 @@ p {
 	top:				8%;
 	bottom:				0%;
 	left:				0%;
-	width:				33%;
+	width:				50%;
+    height:             46%;
 	font-size:			.5rem;
 }
 
@@ -142,17 +143,29 @@ p {
 	position:			absolute;
 	top:				8%;
 	bottom:				0%;
-	left:				33%;
-	width:				33%;
+	left:				50%;
+	width:				50%;
+    height:             46%;
 	font-size:			.5rem;
 }
 
 .graph3 {
 	position:			absolute;
-	top:				8%;
+	top:				54%;
 	bottom:				0%;
-	left:				66%;
-	width:				33%;
+	left:				0%;
+	width:				50%;
+    height:             46%;
+	font-size:			.5rem;
+}
+
+.graph4 {
+	position:			absolute;
+	top:				54%;
+	bottom:				0%;
+	left:				50%;
+	width:				50%;
+    height:             46%;
 	font-size:			.5rem;
 }
 
