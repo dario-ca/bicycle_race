@@ -1,9 +1,9 @@
 /* BAR CHARTS*/
 
 .bar_chart_svg {
-	width: 100%;
-	height: 100%;
-	float: left;
+  width: 100%;
+  height: 100%;
+  float: left;
 }
 
 .bar {
@@ -30,40 +30,36 @@
   fill: white;
 }
 
-.x.axis path {
+/*.x.axis path {
   display: none;
-}
+}*/
 
 
 /* LINE CHARTS */
 
 .line_chart_svg {
-	width: 100%;
-	height: 100%;
-	float: left;
+  width: 100%;
+  height: 100%;
+  float: left;
 }
 
-.line {
+.chart.line {
   fill: none;
   stroke: steelblue;
-  stroke-width: 1px;
+  stroke-width: 2px;
   stroke-linecap:round;
   stroke-linejoin:round;
 /*  opacity:0.7;
 */}
 
 
-.axis{
-	font: sans-serif;
-}
-
 .axis .xminor line {
-  stroke: black;
+  stroke: white;
   stroke-dasharray: 6,6;
 /*  opacity:0.5;
 */}
 .axis .yminor line {
-  stroke: black;
+  stroke: white;
   stroke-dasharray: 2,2;
 /*  opacity:0.5;
 */}

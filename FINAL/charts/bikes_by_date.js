@@ -96,7 +96,7 @@ LineChart2.prototype.draw = function () {
 
     svg.append("path")
         .datum(yValues)
-        .attr("class", "line")
+        .attr("class", "chart line")
         .attr("d", line).attr("transform", "translate(" + parseFloat(margin.left + 2) + ",0)");
 
     var padding = width / xValues.length;
