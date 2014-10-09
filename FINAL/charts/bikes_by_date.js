@@ -5,11 +5,12 @@ function LineChart2(tag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 30,
+        bottom: 40,
         left: 60
     };
-    this.canvasWidth = 320;
-    this.canvasHeight = 400;
+    
+    this.canvasWidth = document.getElementById(tag.id).clientWidth;
+    this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
     this.svg = d3.select(this.tag)
         .append("svg")
@@ -94,11 +95,6 @@ LineChart2.prototype.draw = function () {
             return yScale(yValues[i]);
         });
 
-    svg.append("path")
-        .datum(yValues)
-        .attr("class", "chart line")
-        .attr("d", line).attr("transform", "translate(" + parseFloat(margin.left + 2) + ",0)");
-
     var padding = width / xValues.length;
 
     var gx = svg.append("g")
@@ -110,14 +106,17 @@ LineChart2.prototype.draw = function () {
         .attr("class", "y axis")
         .attr("transform", "translate(" + margin.left + ",0)")
         .call(yAxis);
-
+    
+    /*
+    // Vertical Lines
     gx.selectAll("g")
         .classed("xminor", true)
         .select("line")
         .attr("y2", function (d, i) {
             return -height + yScale(yValues[i * 12]);
         });
-
+    */
+    
     gx.selectAll("text")
         .attr("transform", "rotate(-40)")
         .style("text-anchor", "end");
@@ -128,7 +127,12 @@ LineChart2.prototype.draw = function () {
         .attr("x2", function (d, i) {
             return width;
         });
-
+    
+    svg.append("path")
+        .datum(yValues)
+        .attr("class", "chart line")
+        .attr("d", line).attr("transform", "translate(" + parseFloat(margin.left + 2) + ",0)");
+    
     gy.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)

@@ -9,9 +9,10 @@ function BarChart1(tag) {
     };
 
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
-
-    this.canvasWidth = 320;
-    this.canvasHeight = 400;
+    
+    this.canvasWidth = document.getElementById(tag.id).clientWidth;
+    this.canvasHeight = document.getElementById(tag.id).clientHeight;
+    
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
     // Day = 0 is monday
@@ -93,7 +94,7 @@ BarChart1.prototype.draw = function () {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("AVG Bikes Out");
-
+    
     svg.selectAll(".bar")
         .data(yvalues)
         .enter().append("rect")
