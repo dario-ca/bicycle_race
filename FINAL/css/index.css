@@ -55,7 +55,7 @@ svg {
 h1 {
 	padding-left:		4%;
 	padding-right:		4%;
-	font-size:			6vh;
+	font-size:			4vh;
 }
 
 h2 {
@@ -124,7 +124,7 @@ p {
 .titlebar {
 	position:			absolute;
 	top:				0%;
-	height:				8%;
+	height:				4%;
 	left:				0%;
 	width:				100%;
 }
@@ -135,7 +135,7 @@ p {
 	bottom:				0%;
 	left:				0%;
 	width:				50%;
-    height:             46%;
+    height:             48%;
 	font-size:			.5rem;
 }
 
@@ -145,7 +145,7 @@ p {
 	bottom:				0%;
 	left:				50%;
 	width:				50%;
-    height:             46%;
+    height:             48%;
 	font-size:			.5rem;
 }
 
@@ -155,7 +155,7 @@ p {
 	bottom:				0%;
 	left:				0%;
 	width:				50%;
-    height:             46%;
+    height:             48%;
 	font-size:			.5rem;
 }
 
@@ -165,14 +165,14 @@ p {
 	bottom:				0%;
 	left:				50%;
 	width:				50%;
-    height:             46%;
+    height:             48%;
 	font-size:			.5rem;
 }
 
 #graphicons {
 	position:			absolute;
 	top:				0%;
-	right:				0%;
+	right:				40%;
 	height:				100%;
 	width:				20%;
 }

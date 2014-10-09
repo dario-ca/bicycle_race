@@ -73,28 +73,15 @@ BarChart1.prototype.draw = function () {
     x.domain(xvalues);
     y.domain([0, max(yvalues) * 1.1]);
 
-    /**    
-      x.domain(data.map(function(d) { return d.letter; }));
-      y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-    **/
+    // X AXIS
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(20)");
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .attr("transform","translate("+margin.left+",0)")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("AVG Bikes Out");
     
+    // BARS
     svg.selectAll(".bar")
         .data(yvalues)
         .enter().append("rect")
@@ -112,6 +99,18 @@ BarChart1.prototype.draw = function () {
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
+    
+    // Y AXIS
+    svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform","translate("+margin.left+",0)")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("AVG Bikes Out");
 
 }
 

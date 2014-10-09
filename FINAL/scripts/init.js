@@ -19,6 +19,7 @@ function init(DOC) {
     bar_App1 = new BarChart1(chart1);
     bar_App2 = new LineChart2(chart2);
     bar_App3 = new BarChart3(chart3);
+    bar_App4 = new BarChart2(chart4);
 	
 	console.log("Done");
 
