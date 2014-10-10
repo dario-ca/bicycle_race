@@ -82,6 +82,15 @@
         $temp="SELECT count(*) as bikes
         FROM divvy_trips_distances
         WHERE (meters*0.0006213) between ".$min." and ".$max;
+
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+            $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        $temp=$temp.";";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7
     else if(strcmp($_GET['query'], "q7") == 0){   
@@ -90,6 +99,15 @@
         $temp="SELECT count(*) as bikes
         FROM divvy_trips_distances
         WHERE (seconds / 60) between ".$min." and ".$max;
+
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+            $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        $temp=$temp.";";
     }
 
     # QUERIES
