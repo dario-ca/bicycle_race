@@ -121,52 +121,92 @@ p {
 
 /* CENTER */
 
-.titlebar {
+#titlebar1 {
 	position:			absolute;
 	top:				0%;
+    left:				0%;
 	height:				4%;
-	left:				0%;
-	width:				100%;
+	width:				50%;
+    font-size:          3vh;
+    text-align:         center;
 }
 
-.graph1 {
+#chart1 {
 	position:			absolute;
-	top:				8%;
+	top:				4%;
 	bottom:				0%;
 	left:				0%;
 	width:				50%;
-    height:             48%;
+    height:             43%;
 	font-size:			.5rem;
 }
 
-.graph2 {
+#titlebar2 {
 	position:			absolute;
-	top:				8%;
+	top:				0%;
+    left:				50%;
+	height:				4%;
+	width:				50%;
+    font-size:          3vh;
+    text-align:         center;
+}
+
+#chart2 {
+	position:			absolute;
+	top:				4%;
 	bottom:				0%;
 	left:				50%;
 	width:				50%;
-    height:             48%;
+    height:             43%;
 	font-size:			.5rem;
 }
 
-.graph3 {
+#titlebar3 {
 	position:			absolute;
-	top:				54%;
+	top:				47%;
+    left:				0%;
+	height:				4%;
+	width:				50%;
+    font-size:          3vh;
+    text-align:         center;
+}
+
+#chart3 {
+	position:			absolute;
+	top:				51%;
 	bottom:				0%;
 	left:				0%;
 	width:				50%;
-    height:             48%;
+    height:             43%;
 	font-size:			.5rem;
 }
 
-.graph4 {
+#titlebar4 {
 	position:			absolute;
-	top:				54%;
+	top:				47%;
+    left:				50%;
+	height:				4%;
+	width:				50%;
+    font-size:          3vh;
+    text-align:         center;
+}
+
+#chart4 {
+	position:			absolute;
+	top:				51%;
 	bottom:				0%;
 	left:				50%;
 	width:				50%;
-    height:             48%;
+    height:             43%;
 	font-size:			.5rem;
+}
+
+.controlbar{
+    position:           absolute;
+    top:                94%;
+    left:               0%;
+    width:              100%;
+    height:             6%;
 }
 
 #graphicons {

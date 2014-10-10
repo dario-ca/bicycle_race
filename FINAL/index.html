@@ -58,19 +58,26 @@
     </div>
 
     <div class="center">
-        <div class="titlebar">
-            <h1>Title 1</h1>
-            <svg id="graphicons" viewBox="0 0 300 100"></svg>
-        </div>
-
-        <div id="chart1" class="graph1">
-            <select id="stations_dropdown1" class="dropdown" onchange="bar_App1.getBikesForallDays(this.value,null);">
+        
+        <div id="titlebar1"> Title 1</div>
+        <div id="chart1">
+            <select id="stations_dropdown1" class="dropdown" onchange="bar_App1.getBikesForallDays(this.value,'Male');">
                 <option value="0">All stations</option>
             </select>
         </div>
-        <div id="chart2" class="graph2"></div>
-        <div id="chart3" class="graph3"></div>
-        <div id="chart4" class="graph4"></div>
+        
+        <div id="titlebar2"> Title 2</div>
+        <div id="chart2" ></div>
+        
+        <div id="titlebar3"> Title 3</div>
+        <div id="chart3" ></div> 
+        
+        <div id="titlebar4"> Title 4</div>
+        <div id="chart4" ></div>
+         <div class="controlbar">
+            <h1>Controlbar</h1>
+            <svg id="graphicons" viewBox="0 0 300 100"></svg>
+        </div>
 
     </div>
 
