@@ -24,32 +24,47 @@ function LineChart2(tag, titletag) {
     //number of bikes
     this.yValues = [];
 
-    this.callBack_getData(this);
+    this.setOption(null,null,null);
 
 }
 
-LineChart2.prototype.callBack_getData = function (context) {
+LineChart2.prototype.setOption = function(station,gender,usertype){
+    this.callBack_getData(this,station,gender,usertype);
+}
+
+LineChart2.prototype.callBack_getData = function (context,station,gender,usertype) {
 
     context.xValues = [];
     context.yValues = [];
-    var parameters = "query=q4b";
-    d3.json("db_get.php?" + parameters, function (error, data) {
-        data.forEach(function (d, i) {
-            context.xValues[context.xValues.length] = d.day_year;
-            context.yValues[context.yValues.length] = d.bikes;
-            /*context.xValues.push(d.day_year);
-            context.yValues.push(d.bikes);*/
+     var parameters;
+    parameters="query=q4";
+
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
+    
+    d3.json("db_get.php?"+parameters, function(error, data) {
+        data.forEach(function(d,i){
+            context.xValues[context.xValues.length]=d.day_year;
+            context.yValues[context.yValues.length]=d.bikes;
         });
-        console.log("X Values: " + context.xValues);
-        console.log("Y Values: " + context.yValues);
         context.draw();
     });
 }
 
 
 LineChart2.prototype.draw = function () {
-
-    console.log('DRAW FUNCTION');
+    
+    d3.select(this.tag).selectAll("g").remove();
+    d3.select(this.tag).selectAll("path").remove();
 
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;

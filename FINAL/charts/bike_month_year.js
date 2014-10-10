@@ -9,7 +9,7 @@ function BarChart4(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out during the Year");
+    d3.select(titletag).text("AVG Bikes out during per Month");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
@@ -20,9 +20,8 @@ function BarChart4(tag, titletag) {
     // Month = 0 is jenuary
     // Month = 11 is december
     this.values = [];
-    this.gender = null;
-    this.usertype = null;
-    this.getBikesForallMonths(0, this.gender, this.usertype);
+    this.counter = 0;
+    this.getBikesForallMonths(0, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -120,6 +119,7 @@ BarChart4.prototype.draw = function () {
 
 // For all days...
 BarChart4.prototype.getBikesForallMonths = function (station, gender, usertype) {
+    this.counter = 0;
     for (month = 0; month < 7; month++)
         this.callBack_getBikesPerMonth(this, month, station, gender, usertype);
 }
@@ -151,8 +151,9 @@ BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, statio
             context.values[month] = parseFloat(d.bikes).toFixed(0);
         });
 
-        // When all the 7 days have been loaded, draw the graph 
-        if (context.values.length == 7)
+        context.counter ++;
+        // When all the 7 days have been loaded, draw the graph
+        if (context.counter == 7)
             context.draw();
     });
 }

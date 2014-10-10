@@ -38,8 +38,17 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
     var parameters;
     parameters = "query=q3";
 
-    if (gender != null)
+ // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
         parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
 
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {

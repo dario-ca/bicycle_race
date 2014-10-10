@@ -46,8 +46,6 @@ Line_chart2.prototype.callBack_getData = function(context,station,gender,usertyp
             context.xValues[context.xValues.length]=d.day_year;
             context.yValues[context.yValues.length]=d.bikes;
         });
-        console.log(context.xValues);
-        console.log(context.yValues);
         context.draw();
     });
 }
@@ -57,8 +55,6 @@ Line_chart2.prototype.draw = function(){
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
-
-    console.log('DRAW FUNCTION');
     
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;

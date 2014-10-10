@@ -20,9 +20,8 @@ function BarChart1(tag, titletag) {
     // Day = 0 is monday
     // Day = 6 is sunday
     this.values = [];
-    this.gender = null;
-    this.usertype = null;
-    this.getBikesForallDays(0, this.gender, this.usertype);
+    this.counter = 0;
+    this.getBikesForallDays(0, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -120,6 +119,7 @@ BarChart1.prototype.draw = function () {
 
 // For all days...
 BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
+    this.counter = 0;
     for (day = 0; day < 7; day++)
         this.callBack_getBikesPerDay(this, day, station, gender, usertype);
 }
@@ -151,8 +151,9 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
             context.values[day] = parseFloat(d.bikes).toFixed(0);
         });
 
-        // When all the 7 days have been loaded, draw the graph 
-        if (context.values.length == 7)
+        context.counter ++;
+        // When all the 7 days have been loaded, draw the graph
+        if (context.counter == 7)
             context.draw();
     });
 }
