@@ -1,0 +1,7 @@
+CHANGES:
+-query q3e added for displaying MALES
+-query q3f added for displaying FEMALES
+-query q3f added for displaying UNKNOWN
+-query q4c added for displaying MALES
+-query q4d added for displaying FEMALES
+-query q4e added for displaying UNKNOWN
