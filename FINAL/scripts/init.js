@@ -12,7 +12,7 @@ function init(DOC) {
     chart3 = DOC.getElementById("chart3");
 	
 	/* Calling functions */
-	drawMap(mapid);
+    BikeMap.init(mapid);
 	drawGraphIcons(graphiconid);
 	drawGraph(graphid);
 	drawQuery_Calendar(queryoptionid);

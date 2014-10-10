@@ -4,6 +4,14 @@
     /*position: relative;*/
 }
 
+/*quick way to fix map... maybe*/
+#map svg{
+    width: inherit;
+    height: inherit;
+}
+
+
+
 .btnStyle {
     background-color: #4D90FE;
     border: 1px solid #3079ED;  
