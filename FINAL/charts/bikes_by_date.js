@@ -1,4 +1,4 @@
-function LineChart2(tag) {
+function LineChart2(tag, titletag) {
 
     this.tag = tag;
 
@@ -9,6 +9,7 @@ function LineChart2(tag) {
         left: 60
     };
     
+    d3.select(titletag).text("AVG bikes out during the Year");
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 

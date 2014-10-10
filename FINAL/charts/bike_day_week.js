@@ -1,13 +1,15 @@
-function BarChart1(tag) {
+function BarChart1(tag, titletag) {
 
     this.tag = tag;
+    
     this.margin = {
         top: 0,
         right: 30,
         bottom: 58,
         left: 60
     };
-
+    
+    d3.select(titletag).text("AVG Bikes out during the Week");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
