@@ -82,18 +82,19 @@
     }
 
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 4
-    //bikes out at selected date of year
-    else if(strcmp($_GET['query'], "q4a") == 0){
-        $date=$_GET['date'];
-        $temp="SELECT count(*) AS bikes
-                FROM divvy_trips_distances
-                WHERE date(starttime) =".$date.";";
-    }
     //bikes out for all days of the year
-    else if(strcmp($_GET['query'], "q4b") == 0){
+    else if(strcmp($_GET['query'], "q4") == 0){
         $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes
                 FROM divvy_trips_distances
-                GROUP BY date(starttime);";
+                WHERE 1=1 ";
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+            $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        $temp=$temp."GROUP BY date(starttime);";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
     //distances in miles of all trips of all stations
