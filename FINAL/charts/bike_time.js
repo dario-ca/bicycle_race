@@ -85,7 +85,7 @@ BarChart3.prototype.draw = function () {
             return i * padding;
         })
         .attr("width", x.rangeBand())
-        .attr("transform", "translate (" + (margin.left + 10) + ",0)")
+        .attr("transform", "translate (" + (margin.left + 10) + ", -2)")
         .attr("y", function (d, i) {
             return y(d);
         })
