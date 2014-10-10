@@ -16,8 +16,8 @@ function LineChart1(tag, titletag) {
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
-        .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight)
-        .attr("preserveAspectRatio", "xMinYMin meet");
+        .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
+        //.attr("preserveAspectRatio", "xMinYMin meet");
 
     //hours of the day
     this.xValues = [];
