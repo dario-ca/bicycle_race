@@ -126,7 +126,7 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     // Empty the current values (this.values)
     context.values = [];
 
-    var parameters = "query=q2b&weekday=" + day;
+    var parameters = "query=q2&weekday=" + day;
     // station id: 0 means ALL
     if (station != 0)
         parameters = parameters + "&station=" + station;
@@ -134,8 +134,6 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     // check gender
     if(gender != null)
         parameters = parameters + "&gender=" + gender;
-    
-    console.log(parameters);
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
