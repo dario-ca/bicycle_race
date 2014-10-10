@@ -74,7 +74,15 @@
                 FROM divvy_trips_distances
                 GROUP BY date(starttime);";
     }
-    
+    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
+    //distances in miles of all trips of all stations
+    else if(strcmp($_GET['query'], "q6") == 0){   
+        $min=$_GET['min'];
+        $max=$_GET['max'];
+        $temp="SELECT count(*) as bikes
+        FROM divvy_trips_distances
+        WHERE (meters*0.0006213) between ".$min." and ".$max;
+    }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7
     else if(strcmp($_GET['query'], "q7") == 0){   
         $min=$_GET['min'];
