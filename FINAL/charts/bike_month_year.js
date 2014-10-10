@@ -1,15 +1,15 @@
-function BarChart1(tag, titletag) {
+function BarChart4(tag, titletag) {
 
     this.tag = tag;
     
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 58,
+        bottom: 30,
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out during during the Week");
+    d3.select(titletag).text("AVG Bikes out during the Year");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
@@ -17,19 +17,19 @@ function BarChart1(tag, titletag) {
     
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
-    // Day = 0 is monday
-    // Day = 6 is sunday
+    // Month = 0 is jenuary
+    // Month = 11 is december
     this.values = [];
     this.gender = null;
     this.usertype = null;
-    this.getBikesForallDays(0, this.gender, this.usertype);
+    this.getBikesForallMonths(0, this.gender, this.usertype);
 
     // List of all the stations
     this.stations = [];
     this.callBack_getStations(this);
 }
 
-BarChart1.prototype.draw = function () {
+BarChart4.prototype.draw = function () {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("rect").remove();
@@ -70,7 +70,7 @@ BarChart1.prototype.draw = function () {
 
     svg.call(tip);
 
-    var xvalues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    var xvalues = ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     var yvalues = this.values;
 
     var padding = width / xvalues.length - 2;
@@ -119,17 +119,17 @@ BarChart1.prototype.draw = function () {
 }
 
 // For all days...
-BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
-    for (day = 0; day < 7; day++)
-        this.callBack_getBikesPerDay(this, day, station, gender, usertype);
+BarChart4.prototype.getBikesForallMonths = function (station, gender, usertype) {
+    for (month = 0; month < 7; month++)
+        this.callBack_getBikesPerMonth(this, month, station, gender, usertype);
 }
 
 /*Load the result into a data structure*/
-BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender, usertype) {
+BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, station, gender, usertype) {
     // Empty the current values (this.values)
     context.values = [];
 
-    var parameters = "query=q2a&weekday=" + day;
+    var parameters = "query=q2b&month=" + (month+6);
     // station id: 0 means ALL
     if (station != 0)
         parameters = parameters + "&station=" + station;
@@ -141,14 +141,14 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
-
+    
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
             // NB: Don't use the push function! This method is called
             // asynchronous, so I prefer to directly store the value
             // in the corresponding index (monday is values[0] , tuesday is values[1]...)
-            context.values[day] = parseFloat(d.bikes).toFixed(0);
+            context.values[month] = parseFloat(d.bikes).toFixed(0);
         });
 
         // When all the 7 days have been loaded, draw the graph 
@@ -158,7 +158,7 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
 }
 
 /*Load stations [ID,NAME] into memory */
-BarChart1.prototype.callBack_getStations = function (context) {
+BarChart4.prototype.callBack_getStations = function (context) {
     var dropdown = d3.select("#stations_dropdown1");
     d3.csv("data/stations.csv", function (error, data) {
         data.forEach(function (d) {
