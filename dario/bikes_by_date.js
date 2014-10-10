@@ -1,7 +1,6 @@
 function Line_chart2(tag){
     
     this.tag=tag;
-    this.option="overall";
     this.margin = {top: 30, right: 20, bottom: 30, left: 100};
     this.canvasWidth=800;
     this.canvasHeight=400;
@@ -16,38 +15,37 @@ function Line_chart2(tag){
     this.xValues=[];
     //number of bikes
     this.yValues=[];
-
-    //this.callBack_getData(this);
-
 }
 
-Line_chart2.prototype.setOption = function(opt){
-    this.option=opt;
-    this.callBack_getData(this);
+Line_chart2.prototype.setOption = function(station,gender,usertype){
+    this.callBack_getData(this,station,gender,usertype);
 }
 
-Line_chart2.prototype.callBack_getData = function(context){
+Line_chart2.prototype.callBack_getData = function(context,station,gender,usertype){
     
     context.xValues=[];
     context.yValues=[];
     
     var parameters;
-    if(context.option=="overall")
-        parameters="query=q4b";
-    else if (context.option=="male")
-        parameters="query=q4c";
-    else if (context.option=="female")
-        parameters="query=q4d";
-    else if (context.option=="unknown")
-        parameters="query=q4e";
+    parameters="query=q4";
+
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
     
     d3.json("db_get.php?"+parameters, function(error, data) {
         data.forEach(function(d,i){
             context.xValues[context.xValues.length]=d.day_year;
             context.yValues[context.yValues.length]=d.bikes;
         });
-        console.log(context.xValues);
-        console.log(context.yValues);
         context.draw();
     });
 }
@@ -57,8 +55,6 @@ Line_chart2.prototype.draw = function(){
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
-
-    console.log('DRAW FUNCTION');
     
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;

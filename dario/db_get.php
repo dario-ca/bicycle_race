@@ -63,6 +63,23 @@
                 GROUP BY weekday(starttime);";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 3
+    else if(strcmp($_GET['query'], "q3") == 0){
+        $temp="SELECT date_format(starttime,'%l%p') as hour,avg(bikes) as num_bikes FROM (
+                    SELECT starttime, count(*) AS bikes
+                    FROM divvy_trips_distances
+                    WHERE 1=1 ";
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+            $temp = $temp." and usertype = '".$_GET['usertype']."'"; 
+
+        $temp=$temp." GROUP BY hour(starttime),date(starttime)
+                    ) as tablex
+                GROUP BY hour(starttime);";
+    }
     //bikes out for hour in input
     else if(strcmp($_GET['query'], "q3a") == 0){
         $hour=$_GET['hour'];
@@ -126,6 +143,21 @@
                 GROUP BY hour(starttime);";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 4
+    //bikes out for all days of the year
+    else if(strcmp($_GET['query'], "q4") == 0){
+        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes
+                FROM divvy_trips_distances
+                WHERE 1=1 ";
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+            $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        
+        $temp=$temp."GROUP BY date(starttime);";
+    }
     //bikes out at selected date of year
     else if(strcmp($_GET['query'], "q4a") == 0){
         $date=$_GET['date'];

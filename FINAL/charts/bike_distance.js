@@ -17,6 +17,7 @@ function BarChart2(tag, titletag) {
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
     this.values = [];
+    this.counter = 0;
     this.getBikesFarallIntervals();
 }
 
@@ -111,6 +112,7 @@ BarChart2.prototype.draw = function () {
 
 // For all intervals...
 BarChart2.prototype.getBikesFarallIntervals = function () {
+    this.counter = 0;
     // First 7 intervals
     for (miles = 0, index = 0; miles < 7; miles++, index++)
         this.callBack_getBikesPerInterval(this, index, miles, (miles + 1) * 0.999);
@@ -132,8 +134,9 @@ BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min
             context.values[index] = d.bikes;
         });
 
+        context.counter ++;
         // When all the 7 intervals have been loaded, draw the graph 
-        if (context.values.length == 8)
+        if (context.counter == 8)
             context.draw();
     });
 }

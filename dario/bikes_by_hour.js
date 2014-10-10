@@ -1,7 +1,6 @@
 function Line_chart1(tag){
     
     this.tag=tag;
-    this.option="overall";
     this.margin = {top: 30, right: 20, bottom: 30, left: 100};
     this.canvasWidth=800;
     this.canvasHeight=400;
@@ -18,25 +17,29 @@ function Line_chart1(tag){
     this.yValues=[];
 }
 
-Line_chart1.prototype.setOption = function(opt){
-    this.option=opt;
-    this.callBack_getData(this);
+Line_chart1.prototype.setOption = function(station,gender,usertype){
+    this.callBack_getData(this,station,gender,usertype);
 }
 
-Line_chart1.prototype.callBack_getData = function(context){
+Line_chart1.prototype.callBack_getData = function(context,station,gender,usertype){
     
     context.xValues=[];
     context.yValues=[];
     
     var parameters;
-    if(context.option=="overall")
-        parameters="query=q3c";
-    else if (context.option=="male")
-        parameters="query=q3e";
-    else if (context.option=="female")
-        parameters="query=q3f";
-    else if (context.option=="unknown")
-        parameters="query=q3g";
+    parameters="query=q3";
+
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
 
     d3.json("db_get.php?"+parameters, function(error, data) {
         data.forEach(function(d){
