@@ -5,11 +5,11 @@ function BarChart1(tag, titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 58,
+        bottom: 30,
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out during during the Week");
+    d3.select(titletag).text("AVG Bikes out per DAY");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
