@@ -1,13 +1,15 @@
-function BarChart1(tag) {
+function BarChart1(tag, titletag) {
 
     this.tag = tag;
+    
     this.margin = {
         top: 0,
         right: 30,
         bottom: 58,
         left: 60
     };
-
+    
+    d3.select(titletag).text("AVG Bikes out during the Week");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
@@ -19,7 +21,8 @@ function BarChart1(tag) {
     // Day = 6 is sunday
     this.values = [];
     this.gender = null;
-    this.getBikesForallDays(0,this.gender);
+    this.usertype = null;
+    this.getBikesForallDays(0, this.gender, this.usertype);
 
     // List of all the stations
     this.stations = [];
@@ -116,13 +119,13 @@ BarChart1.prototype.draw = function () {
 }
 
 // For all days...
-BarChart1.prototype.getBikesForallDays = function (station, gender) {
+BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
     for (day = 0; day < 7; day++)
         this.callBack_getBikesPerDay(this, day, station, gender);
 }
 
 /*Load the result into a data structure*/
-BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender) {
+BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender, usertype) {
     // Empty the current values (this.values)
     context.values = [];
 
@@ -134,6 +137,10 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     // check gender
     if(gender != null)
         parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
