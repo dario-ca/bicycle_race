@@ -121,7 +121,7 @@ BarChart1.prototype.draw = function () {
 // For all days...
 BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
     for (day = 0; day < 7; day++)
-        this.callBack_getBikesPerDay(this, day, station, gender);
+        this.callBack_getBikesPerDay(this, day, station, gender, usertype);
 }
 
 /*Load the result into a data structure*/
@@ -142,6 +142,7 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
 
+    console.log(parameters);
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
