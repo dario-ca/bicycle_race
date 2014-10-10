@@ -9,9 +9,9 @@
 		var lineApp;
 		function init(){
 			lineApp1 = new Line_chart1('#line_chart1');
-			lineApp1.setOption('overall');
+			lineApp1.setOption(null,null,null);
 			lineApp2 = new Line_chart2('#line_chart2');
-			lineApp2.setOption('overall');
+			lineApp2.setOption(null,null,null);
 		}
 	</script>
 </head>
@@ -20,7 +20,7 @@
 	<div id="container">
 		<div id="line_chart1"></div>
 		<div id="line_chart2"></div>
-		<select id="stations_dropdown1" onchange="lineApp1.setOption(this.value); lineApp2.setOption(this.value);">
+		<select id="stations_dropdown1" onchange="lineApp1.setOption(5,'Male','Customer'); lineApp2.setOption(5,'Male','Subscriber');">
             <option value="overall">Overall</option>
             <option value="male">Males</option>
             <option value="female">Females</option>
