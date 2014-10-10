@@ -27,6 +27,8 @@ DivvyCircles.prototype.addData = function (data, fill, outline, radius){
         });
         this.circles[i].bindPopup("hello");
     };
+
+    console.log(this.circles);
 };
 
 DivvyCircles.prototype.getCircles = function (){

@@ -14,7 +14,7 @@ function init(DOC) {
     chart4 = DOC.getElementById("chart4");
 	
 	/* Calling functions */
-	drawMap(mapid);
+    BikeMap.init(mapid);
 	drawGraphIcons(graphiconid);
 	drawGraph(graphid);
 	drawQuery_Calendar(queryoptionid);
