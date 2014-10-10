@@ -47,14 +47,19 @@
     //average bikes out for selected day of week in that station
     else if(strcmp($_GET['query'], "q2b") == 0){
         $week_day=$_GET['weekday'];
-        $station_id=$_GET['station_id'];
         $temp = "SELECT avg(bikes) as bikes
                 FROM (
                     SELECT count(*) as bikes
                     FROM divvy_trips_distances
-                    WHERE weekday(starttime)='".$week_day."' and from_station_id = '".$station_id."'
-                    GROUP BY day(starttime)
-                ) as Table_Alias";
+                    WHERE weekday(starttime)='".$week_day."'";
+        // FILTERS
+        if($_GET['station'])
+            $temp = $temp." and from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." and gender = '".$_GET['gender']."'";
+        
+        // end of the query
+        $temp = $temp." GROUP BY day(starttime)) as Table_Alias";
     }
     //two columns, day of week and bikes out, for each day
     else if(strcmp($_GET['query'], "q2c") == 0){

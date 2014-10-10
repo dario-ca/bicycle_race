@@ -18,7 +18,8 @@ function BarChart1(tag) {
     // Day = 0 is monday
     // Day = 6 is sunday
     this.values = [];
-    this.getBikesForallDays(0);
+    this.gender = null;
+    this.getBikesForallDays(0,this.gender);
 
     // List of all the stations
     this.stations = [];
@@ -115,22 +116,26 @@ BarChart1.prototype.draw = function () {
 }
 
 // For all days...
-BarChart1.prototype.getBikesForallDays = function (station) {
+BarChart1.prototype.getBikesForallDays = function (station, gender) {
     for (day = 0; day < 7; day++)
-        this.callBack_getBikesPerDay(this, day, station);
+        this.callBack_getBikesPerDay(this, day, station, gender);
 }
 
 /*Load the result into a data structure*/
-BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station) {
+BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender) {
     // Empty the current values (this.values)
     context.values = [];
 
-    var parameters;
+    var parameters = "query=q2b&weekday=" + day;
     // station id: 0 means ALL
-    if (station == 0)
-        parameters = "query=q2a&weekday=" + day;
-    else
-        parameters = "query=q2b&weekday=" + day + "&station_id=" + station;
+    if (station != 0)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    console.log(parameters);
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
