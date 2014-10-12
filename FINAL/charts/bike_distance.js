@@ -8,7 +8,7 @@ function BarChart2(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("Number of trips by rides distance");
+    d3.select(titletag).text("Number of trips by rides DISTANCE");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
 
     this.canvasWidth = document.getElementById(tag.id).clientWidth;

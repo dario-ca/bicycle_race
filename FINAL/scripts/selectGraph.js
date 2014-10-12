@@ -12,10 +12,10 @@ function selectGraph(DOC,n) {
 	title3 = DOC.getElementById("titlebar3");
 	title4 = DOC.getElementById("titlebar4");
     
-    d3.select(chart1).select("svg").remove();
-    d3.select(chart2).select("svg").remove();
-    d3.select(chart3).select("svg").remove();
-    d3.select(chart4).select("svg").remove();
+    d3.select(chart1).selectAll("*").remove();
+    d3.select(chart2).selectAll("*").remove();
+    d3.select(chart3).selectAll("*").remove();
+    d3.select(chart4).selectAll("*").remove();
 
 	switch(n) {
 		
@@ -28,10 +28,10 @@ function selectGraph(DOC,n) {
 
 		case 2: // DUMMY IMPLEMENTATION
 			// TODO: please check
-			app1 = new BarChart1(chart1,title1);
-			app2 = new BarChart1(chart2,title2);
-			app3 = new BarChart1(chart3,title3);
-			app4 = new BarChart1(chart4,title4);
+			app1 = new BarChart2(chart1,title1);
+			app2 = new BarChart3(chart2,title2);
+			app3 = new BulletChart1(chart3,"app3",title3);
+			app4 = new BulletChart2(chart4,"app4",title4);
 			break;
 	
 	}
