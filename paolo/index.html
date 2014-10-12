@@ -1,41 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="graph.css">
-	<script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-    <script type="text/javascript" src="bike_day_week.js"></script>
-    <script type="text/javascript" src="bike_distance.js"></script>
-    <script type="text/javascript" src="bike_time.js"></script>
-    <script>
-        var bar_App1;
-        var bar_App2;
-        var bar_App3;
-        function init() {
-            bar_App1 = new BarChart1("#bar1");
-            bar_App2 = new BarChart2("#bar2");
-            bar_App3 = new BarChart3("#bar3");
-        }
-    </script>
-</head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="graph.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="distance_bike.js"></script>
+<script type="text/javascript" src="bullet.js"></script>
 
-<body onload="init()" >
-    <h1 id="title">CS424 Project2</h1>
+<script>
     
-    <div id="wrapper1" style="width:30%; margin-top:2px; float: left;">
-        <div id="bar1" style=" margin-top:2px;"></div>
-        <select id="stations_dropdown1" onchange="bar_App1.getBikesForallDays(this.value);">
-            <option value="0">All stations</option>
-        </select>
-    </div>
-    
-    <div id="wrapper2" style="width:30%; margin-top:2px; float: left;">
-        <div id="bar2" style=" margin-top:2px;"></div>
-    </div>
-    
-    <div id="wrapper3" style="width:30%; margin-top:2px; float: left;">
-        <div id="bar3" style=" margin-top:2px;"></div>
-    </div>
-    
-    </body>
-</html>
+    var bul1;
+    function init(){
+        bul1 = new BulletChart1(document.getElementById("bar1"),"#title1");
+    }
+</script>
+
+<body onload="init()">
+    <div id="title1" style="width:500; height:10;"></div>
+    <div id="bar1" style="width:500px; height:500px;"></div>
+    <button onclick="bul1.draw(12);">GO</button>
+</body>
