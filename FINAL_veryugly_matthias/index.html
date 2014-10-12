@@ -1,0 +1,233 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bicycle Race</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/graph.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="lib/control.layers.minimap.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    <!-- Leaflet and D3-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="lib/L.Map.Sync.js"></script>
+    <script src="lib/L.Control.Layers.Minimap.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="scripts/drawGraphIcons.js"></script>
+    <script src="scripts/drawMap.js"></script>
+    <script src="scripts/drawQueryMenu.js"></script>
+	<!--
+    <script src="scripts/drawQuery_Stations.js"></script>
+    <script src="scripts/drawQuery_Demographics.js"></script>
+    <script src="scripts/drawQuery_Week.js"></script>
+    <script src="scripts/drawQuery_Time.js"></script>
+	-->
+    <script src="scripts/clickUpdateQuery.js"></script>
+    <script src="scripts/init.js"></script>
+
+    <script src="scripts/selectGraph.js"></script>
+    <script src="scripts/queryParameters.js"></script>
+
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    
+	
+	<!-- CHARTS -->
+    <script src="charts/bike_day_week.js"></script>
+    <script src="charts/bike_distance.js"></script>
+    <script src="charts/bike_time.js"></script>
+    <script src="charts/bikes_by_date.js"></script>
+    <script src="charts/bikes_by_hour.js"></script>
+    <script src="charts/bike_month_year.js"></script>
+
+    <!-- Custom classes -->
+    <script type="text/javascript" src="lib/divvyCircles.js"></script>
+
+
+	<!-- SLIDER CODE -->
+
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<script>
+$(function() {
+$( "#slider-range" ).slider({
+range: true,
+min: 0,
+max: 110,
+values: [ 0, 110 ],
+slide: function( event, ui ) {
+// console.log(event.type);
+// TODO: function call only on mouse release
+queryParameters_Age(ui.values[0],ui.values[1]);
+$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+}
+});
+$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+" - $" + $( "#slider-range" ).slider( "values", 1 ) );
+});
+</script>
+
+
+<!-- RADIO BUTTON CODE -->
+<script type="text/javascript">
+    function customRadio(radioName){
+        var radioButton = $('input[name="'+ radioName +'"]');
+        $(radioButton).each(function(){
+            $(this).wrap( "<span class='custom-radio'></span>" );
+            if($(this).is(':checked')){
+                $(this).parent().addClass("selected");
+			}
+        });
+        $(radioButton).click(function(){
+            if($(this).is(':checked')){
+                $(this).parent().addClass("selected");
+            }
+            $(radioButton).not(this).each(function(){
+                $(this).parent().removeClass("selected");
+            });
+            
+			var g = $("input[type='radio'][name='gender']:checked");
+			queryParameters_Gender(g.val());
+				
+        });
+    }
+    $(document).ready(function (){
+        customRadio("gender");
+    })
+</script>
+
+
+
+
+
+</head>
+
+<body onload="init(document)">
+
+    <div class="left">
+        <!--	
+			<div id="mapmenu" style="text-align: center; padding-top: 50%;">MAP MENU</div>
+			<h1>LEFT</h1>
+		-->
+        <!-- <svg id="map" viewBox="0 0 1000 1000"></svg> -->
+        <div id="map">
+            <div id="controlButtons">
+                <input type="button" value="Popularity" class="btnStyle" id="heatMap" onclick="BikeMap.colorStations(1)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+
+        <div id="titlebar1">Title 1</div>
+        <div id="chart1"></div>
+
+        <div id="titlebar2">Title 2</div>
+        <div id="chart2">
+            <!--
+            <select id="stations_dropdown1" class="dropdown" onchange="app2.getBikesForallDays(this.value,null,null);">
+                <option value="0">All stations</option>
+            </select> -->
+        </div>
+
+        <div id="titlebar3">Title 3</div>
+        <div id="chart3"></div>
+
+        <div id="titlebar4">Title 4</div>
+        <div id="chart4"></div>
+
+
+    </div>
+
+    <div class="right">
+		
+		<!-- GRAPH SELECTION -->
+		<ul id="graphselection">
+            <li class="active"><a onClick="selectGraph(document,1); return false;">History</a>
+            </li>
+            <li><a onClick="selectGraph(document,2); return false;">Bike Usage</a>
+            </li>
+            <li><a onClick="selectGraph(document,3); return false;">Rider Demographics</a>
+            </li>
+        </ul>
+
+
+        <div class="controlbar">
+			<!-- <h1>Controlbar</h1> -->
+            <svg class="filtericon" id="demographicsfiltericon" viewBox="0 0 100 100">
+				<defs>
+					<pattern id="image" height="50" width="50">
+						<image x="0" y="0" width="50" height="50" background-color="transparent" xlink:href="icons/svg/watch.svg"></image>
+					</pattern>
+				</defs>
+			</svg>
+            <svg class="filtericon" id="timefiltericon" viewBox="0 0 100 100">
+				<defs>
+					<pattern id="image" height="50" width="50">
+						<image x="0" y="0" width="50" height="50" background-color="transparent" xlink:href="icons/svg/watch.svg"></image>
+					</pattern>
+				</defs>
+			</svg>
+            <svg class="filtericon" id="stationfiltericon" viewBox="0 0 100 100">
+				<defs>
+					<pattern id="image" height="50" width="50">
+						<image x="0" y="0" width="50" height="50" background-color="transparent" xlink:href="icons/svg/watch.svg"></image>
+					</pattern>
+				</defs>
+			</svg>
+
+        </div>
+
+	 
+		<div height="500px">
+<p>
+<label for="amount">Price range:</label>
+<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+<div id="slider-range" style="width: 200px;"></div>
+
+</div>
+
+
+
+
+ <form action="../faq/radio-action.php" method="post" style="font-size: 5px;">
+        <label><input type="radio" name="gender" value="M"> Male</label>
+        <label><input type="radio" name="gender" value="F"> Female</label>
+        <label><input type="radio" name="gender" value="U"> Unknown</label>  
+    </form>
+
+
+
+
+        <div id="queryoptions">
+            <svg id="options" , viewBox="0 0 1000 1000"></svg>
+            <div class="querydescription">
+                <h2>DiVVy Bike Chicago</h2>
+                <p>Text Description</p>
+                <p id="iconauthorship">Icon authorship: Freepik (<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>)
+            </div>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    /* Change active tile on click (Query menu) */
+    $('li a').click(function () {
+        $(this).parent().addClass('active').siblings().removeClass('active');
+    });
+</script>
+
+</html>
