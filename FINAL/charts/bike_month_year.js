@@ -21,7 +21,7 @@ function BarChart4(tag, titletag) {
     // Month = 11 is december
     this.values = [];
     this.counter = 0;
-    this.getBikesForallMonths(0, null, null);
+    this.getBikesForallMonths(null, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -131,8 +131,8 @@ BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, statio
     context.values = [];
 
     var parameters = "query=q2b&month=" + (month+6);
-    // station id: 0 means ALL
-    if (station != 0)
+    // station id: null means ALL
+    if (station != null)
         parameters = parameters + "&station=" + station;
     
     // check gender
@@ -142,6 +142,8 @@ BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, statio
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    console.log(parameters);
     
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {

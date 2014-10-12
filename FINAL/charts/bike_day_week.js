@@ -21,7 +21,7 @@ function BarChart1(tag, titletag) {
     // Day = 6 is sunday
     this.values = [];
     this.counter = 0;
-    this.getBikesForallDays(0, null, null);
+    this.getBikesForallDays(null, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -131,8 +131,8 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     context.values = [];
 
     var parameters = "query=q2a&weekday=" + day;
-    // station id: 0 means ALL
-    if (station != 0)
+    // station id: null means ALL
+    if (station != null)
         parameters = parameters + "&station=" + station;
     
     // check gender

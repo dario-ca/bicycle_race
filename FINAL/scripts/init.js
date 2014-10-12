@@ -2,6 +2,8 @@ function init(DOC) {
 	
 	console.log("Initialize Page...");
 	
+    
+    filters = new Filters();
 	/* Getting ID's from HTML document DOC */
 	mapid			= DOC.getElementById("map");
 	graphicon_gender= DOC.getElementById("graphicons_gender");

@@ -28,10 +28,10 @@ function selectGraph(DOC,n) {
 
 		case 2: // DUMMY IMPLEMENTATION
 			// TODO: please check
-			app1 = new BarChart2(chart1,title1);
-			app2 = new BarChart3(chart2,title2);
-			app3 = new BulletChart1(chart3,"app3",title3);
-			app4 = new BulletChart2(chart4,"app4",title4);
+			app1 = new BulletChart1(chart1,"app1",title1);
+			app2 = new BulletChart2(chart2,"app2",title2);
+            app3 = new BarChart2(chart3,title3);
+			app4 = new BarChart3(chart4,title4);
 			break;
 	
 	}
