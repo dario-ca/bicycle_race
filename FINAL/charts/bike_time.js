@@ -74,7 +74,8 @@ BarChart3.prototype.draw = function () {
         .attr("transform", "translate(" + margin.left + "," + height + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("transform", "rotate(20)");
+        .attr("transform", "rotate(-40)")
+        .style("text-anchor", "end");
 
     // BARS
     svg.selectAll(".bar")
