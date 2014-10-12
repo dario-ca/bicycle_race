@@ -206,12 +206,13 @@ p {
     left:               0%;
     width:              100%;
     height:             6%;
+    font-size:          3vh;
 }
 
-#graphicons {
-	position:			absolute;
+.graphicons {
+	position:			relative;
 	top:				0%;
-	right:				0%;
+	left:				0%;
 	height:				100%;
 	width:				20%;
 }

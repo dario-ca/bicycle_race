@@ -82,8 +82,15 @@
         <div id="titlebar4">Title 4</div>
         <div id="chart4"></div>
         <div class="controlbar">
-            <h1>Controlbar</h1>
-            <svg id="graphicons" viewBox="0 0 300 100"></svg>
+            <form>
+                <input type="radio" name="gender" value="Male" onclick="filters.setGender(this.value)">M</input>
+                <input type="radio" name="gender" value="Female" onclick="filters.setGender(this.value)">F</input>
+                <input type="radio" name="gender" value="Unknown" onclick="filters.setGender(this.value)">U</input>
+            </form>
+            <!--
+            <svg id="graphicons_gender" class="graphicons" viewBox="0 0 300 100"></svg>
+            <svg id="graphicons_utype" class="graphicons" viewBox="0 0 300 100"></svg>
+            -->
         </div>
 
     </div>
