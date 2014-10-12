@@ -3,6 +3,7 @@ function Filters(){
 	this.gender=null;
 	this.usertype=null;
 	this.date=null;
+	this.station=null;
 	this.age_min=null;
 	this.age_max=null;
 }
@@ -17,6 +18,10 @@ Filters.prototype.setUsertype=function(type){
 
 Filters.prototype.setDate=function(day){
 	this.date=day;
+}
+
+Filters.prototype.setStation=function(stat){
+	this.station=stat;
 }
 
 Filters.prototype.setAge=function(agemin,agemax){
@@ -34,6 +39,10 @@ Filters.prototype.getUsertype=function(){
 
 Filters.prototype.getDate=function(){
 	return this.date;
+}
+
+Filters.prototype.getStation=function(){
+	return this.station;
 }
 
 Filters.prototype.getAgeMin=function(){
