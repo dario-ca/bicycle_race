@@ -18,7 +18,7 @@ function BarChart3(tag, titletag) {
 
     this.values = [];
     this.counter = 0;
-    this.getBikesFarallIntervals();
+    this.getBikesFarallIntervals(null, null, null);
 }
 
 BarChart3.prototype.draw = function () {
@@ -111,22 +111,34 @@ BarChart3.prototype.draw = function () {
 }
 
 // For all intervals...
-BarChart3.prototype.getBikesFarallIntervals = function () {
+BarChart3.prototype.getBikesFarallIntervals = function (station, gender, usertype) {
     this.counter = 0;
     // First 5 intervals up to 30 mins
     for (minutes = 0, index = 0; minutes < 30; minutes += 5, index++)
-        this.callBack_getBikesPerInterval(this, index, minutes, (minutes + 5) * 0.999);
+        this.callBack_getBikesPerInterval(this, index, minutes, (minutes + 5) * 0.999, station, gender, usertype);
     // Last 2 intervals
-    this.callBack_getBikesPerInterval(this, index, minutes, 59.999);
-    this.callBack_getBikesPerInterval(this, index + 1, 60, 1440);
+    this.callBack_getBikesPerInterval(this, index, minutes, 59.999, station, gender, usertype);
+    this.callBack_getBikesPerInterval(this, index + 1, 60, 1440, station, gender, usertype);
 }
 
 /*Load the result into a data structure*/
-BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min, max) {
+BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype) {
     // Empty the current values (this.values)
     context.values = [];
 
     var parameters = "query=q7&min=" + min + "&max=" + max;
+    
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {

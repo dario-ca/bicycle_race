@@ -37,7 +37,6 @@ BulletChart1.prototype.draw = function (bikeid) {
     var parameters = "query=q8a&bikeid=" + bikeid;
 
     d3.json("db_get.php?" + parameters, function (error, data) {
-        console.log(data);
         var svg = d3.select(tag).selectAll("svg")
             .data(data)
             .enter().append("svg")

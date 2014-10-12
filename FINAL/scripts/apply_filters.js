@@ -1,5 +1,5 @@
 function Filters(){
-
+    
 	this.gender=null;
 	this.usertype=null;
 	this.date=null;
@@ -29,30 +29,6 @@ Filters.prototype.setAge=function(agemin,agemax){
 	this.age_max=agemax;
 }
 
-/*Filters.prototype.getGender=function(){
-	return this.gender;
-}
-
-Filters.prototype.getUsertype=function(){
-	return this.usertype;
-}
-
-Filters.prototype.getDate=function(){
-	return this.date;
-}
-
-Filters.prototype.getStation=function(){
-	return this.station;
-}
-
-Filters.prototype.getAgeMin=function(){
-	return this.age_min;
-}
-
-Filters.prototype.getAgeMax=function(){
-	return this.age_max;
-}*/
-
 Filters.prototype.apply = function(windowNumber){
     switch(windowNumber){
         case 1:
@@ -61,5 +37,18 @@ Filters.prototype.apply = function(windowNumber){
             app3.getBikesForallMonths(this.station, this.gender, this.usertype);
             app4.setOption(this.station, this.gender, this.usertype);
             break;
+        case 2:
+            app3.getBikesFarallIntervals(this.station, this.gender, this.usertype);
+            app4.getBikesFarallIntervals(this.station, this.gender, this.usertype);
+            break;
     }
+}
+
+Filters.prototype.resetFilters = function(){
+    this.gender=null;
+	this.usertype=null;
+	this.date=null;
+	this.station=null;
+	this.age_min=null;
+	this.age_max=null;   
 }

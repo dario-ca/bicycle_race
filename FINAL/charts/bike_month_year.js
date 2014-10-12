@@ -143,8 +143,6 @@ BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, statio
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
     
-    console.log(parameters);
-    
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {

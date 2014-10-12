@@ -84,7 +84,7 @@
     
                 <input id="fus" type="radio" name="utype" value="Subscriber" onclick="filters.setUsertype(this.value)" style="margin-left:4%">Subscribers</input>
                 <input id="fuc" type="radio" name="utype">Customers</input>
-                <button if="fuu" type="button" onclick="filters.apply(1)">Apply Filter</button>
+                <button if="fuu" type="button" onclick="filters.apply(windowNumber)">Apply Filter</button>
             </form>
             <!--
             <svg id="graphicons_gender" class="graphicons" viewBox="0 0 300 100"></svg>
@@ -113,39 +113,37 @@
     $('li a').click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active');
     });
-    
-    // FILTERS
-    // Customer button
-    document.getElementById('fuc').onclick = function() {
+        // Customer button
+    document.getElementById('fuc').onclick = function () {
         document.getElementById('fgm').disabled = true;
         document.getElementById('fgm').checked = false;
-        
+
         document.getElementById('fgf').disabled = true;
         document.getElementById('fgf').checked = false;
-        
+
         document.getElementById('fgu').disabled = false;
-        
+
         filters.setGender(null);
         filters.setUsertype('Customer');
     }
     // Subscriber button
-    document.getElementById('fus').onclick = function() {
+    document.getElementById('fus').onclick = function () {
         document.getElementById('fgm').disabled = false;
-        
+
         document.getElementById('fgf').disabled = false;
-        
+
         document.getElementById('fgu').disabled = true;
         document.getElementById('fgu').checked = false;
-        
-        if( document.getElementById('fgm').checked )
+
+        if (document.getElementById('fgm').checked)
             filters.setGender('Male');
-        else if ( document.getElementById('fgf').checked )
+        else if (document.getElementById('fgf').checked)
             filters.setGender('Female');
         else
             filters.setGender(null);
-        
+
         filters.setUsertype('Subscriber');
-    }
+    }    
 </script>
 
 </html>
