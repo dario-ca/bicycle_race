@@ -13,6 +13,9 @@ function selectFilter(DOC, n) {
 		case 2:
 			filename = 'filter_demographics.html';
 			break;
+		case 3:
+			filename = 'filter_time.html';
+			break;
 		default:
 			filename = 'filter_active.html';
 			break;
