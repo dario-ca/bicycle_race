@@ -52,6 +52,8 @@ BarChart4.prototype.draw = function () {
         .scale(y)
         .orient("left")
         .tickFormat(function (d) {
+            if(d >= 10000)
+                return (d / 1000).toFixed(0) + "K";
             if (d >= 1000)
                 return (d / 1000).toFixed(1) + "K";
             return d;

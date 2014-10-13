@@ -9,7 +9,7 @@ function LineChart2(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("AVG bikes out during the YEAR");
+    d3.select(titletag).text("AVG bikes out per DAY during the YEAR");
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 

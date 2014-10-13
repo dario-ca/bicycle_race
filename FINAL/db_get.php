@@ -44,9 +44,7 @@
     //average bikes out per month
     else if(strcmp($_GET['query'], "q2b") == 0){
         $month=$_GET['month'];
-        $temp = "SELECT avg(bikes) as bikes
-                FROM (
-                    SELECT count(*) as bikes
+        $temp = "SELECT count(*) as bikes
                     FROM divvy_trips_distances
                     WHERE month(starttime)='".$month."'";
         // FILTERS
@@ -56,9 +54,6 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
-        
-        // end of the query
-        $temp = $temp." GROUP BY day(starttime)) as Table_Alias";
     }
 
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 3
