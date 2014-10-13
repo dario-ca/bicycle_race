@@ -139,7 +139,7 @@
                       '' as ranges,
                       sum(meters)*0.0006213 as measures,
                       '' as markers
-               FROM divvy.divvy_trips_distances
+               FROM divvy_trips_distances
                WHERE bikeid = ".$bikeid."
                GROUP BY bikeid";
     }
@@ -150,7 +150,7 @@
                       '' as ranges,
                       sum(seconds)/3600 as measures,
                       '' as markers
-               FROM divvy.divvy_trips_distances
+               FROM divvy_trips_distances
                WHERE bikeid = ".$bikeid."
                GROUP BY bikeid";
     }
