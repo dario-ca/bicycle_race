@@ -17,8 +17,7 @@ function init(DOC) {
 	drawGraphIcons(graphicon_gender);
     drawGraphIcons(graphicon_utype);
 	selectGraph(DOC,1);
-	// drawQuery_Calendar(queryoptionid);
-	// drawQueryMenu(queryoptionid);
+	selectFilter(DOC,1);
     
 	
 	console.log("Done");

@@ -1,9 +1,32 @@
-function selectGraph(DOC, n) {
+function selectFilter(DOC, n) {
 
-    console.log("\t- Draw Graph" + n);
-    windowNumber = n;
-    resetFilters();
+    console.log("\t- Draw Filter Options" + n);
+    // windowNumber = n;
 
+	var filename;
+
+	switch(n) {
+
+		case 1:
+			filename = 'filter_active.html';
+			break;
+		case 2:
+			filename = 'filter_demographics.html';
+			break;
+		default:
+			filename = 'filter_active.html';
+			break;
+
+	}
+
+
+
+
+	$('#dynamicfilter').load('dynamic_html/' + filename);
+
+
+
+	/*
     chart1 = DOC.getElementById("chart1");
     chart2 = DOC.getElementById("chart2");
     chart3 = DOC.getElementById("chart3");
@@ -41,10 +64,6 @@ function selectGraph(DOC, n) {
     function resetFilters() {
         filters.resetFilters();
 
-		// does not work if filter is dynamic html content
-		// better: edit global variables
-		
-		/* 
         DOC.getElementById("fgm").checked = false;
         DOC.getElementById("fgm").disabled = false;
 
@@ -59,6 +78,7 @@ function selectGraph(DOC, n) {
 
         DOC.getElementById("fuc").checked = false;
         DOC.getElementById("fuc").disabled = false;
-		*/
     }
+
+	*/
 }

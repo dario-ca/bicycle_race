@@ -24,6 +24,7 @@
     <script src="scripts/drawMap.js"></script>
     <script src="scripts/clickUpdateQuery.js"></script>
     <script src="scripts/selectGraph.js"></script>
+    <script src="scripts/selectFilter.js"></script>
     <script src="scripts/apply_filters.js"></script>
     <script src="scripts/init.js"></script>
 
@@ -76,25 +77,22 @@
 
         <div id="titlebar4">Title 4</div>
         <div id="chart4"></div>
-        <div class="controlbar">
-            <form>
-                <input id="fgm" type="radio" name="gender" value="Male" onclick="filters.setGender(this.value)" style="margin-left:4%">Male</input>
-                <input id="fgf" type="radio" name="gender" value="Female" onclick="filters.setGender(this.value)">Female</input>
-                <input id="fgu" type="radio" name="gender" value="Unknown" onclick="filters.setGender(this.value)">Unknown</input>
-    
-                <input id="fus" type="radio" name="utype" style="margin-left:4%">Subscribers</input>
-                <input id="fuc" type="radio" name="utype">Customers</input>
-                <button if="fuu" type="button" onclick="filters.apply(windowNumber)">Apply Filter</button>
-            </form>
-            <!--
-            <svg id="graphicons_gender" class="graphicons" viewBox="0 0 300 100"></svg>
-            <svg id="graphicons_utype" class="graphicons" viewBox="0 0 300 100"></svg>
-            -->
-        </div>
 
     </div>
 
     <div class="right">
+
+		<!-- FILTER SELECTION -->
+		<ul style="display: block">
+			<li><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
+			<li><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
+			<li><a onclick="selectFilter(document,3); return false;">Time</a></li>
+		</ul>
+
+		<!-- CURRENT FILTER -->
+		<div id="dynamicfilter"></div>
+
+
         <!-- GRAPH SELECTION -->
         <ul id="graphselection" style="bottom: 0%;">
             <li class="active"><a onclick="selectGraph(document,1); return false;">History</a>
@@ -113,37 +111,6 @@
     $('li a').click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active');
     });
-        // Customer button
-    document.getElementById('fuc').onclick = function () {
-        document.getElementById('fgm').disabled = true;
-        document.getElementById('fgm').checked = false;
-
-        document.getElementById('fgf').disabled = true;
-        document.getElementById('fgf').checked = false;
-
-        document.getElementById('fgu').disabled = false;
-
-        filters.setGender(null);
-        filters.setUsertype('Customer');
-    }
-    // Subscriber button
-    document.getElementById('fus').onclick = function () {
-        document.getElementById('fgm').disabled = false;
-
-        document.getElementById('fgf').disabled = false;
-
-        document.getElementById('fgu').disabled = true;
-        document.getElementById('fgu').checked = false;
-
-        if (document.getElementById('fgm').checked)
-            filters.setGender('Male');
-        else if (document.getElementById('fgf').checked)
-            filters.setGender('Female');
-        else
-            filters.setGender(null);
-
-        filters.setUsertype('Subscriber');
-    }    
 </script>
 
 </html>
