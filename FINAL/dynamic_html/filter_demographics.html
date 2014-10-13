@@ -23,7 +23,7 @@
 	
 	
 	<div class="buttonwrapper">
-	 <input type="submit" value="Apply Filter" class="filterbutton" id="fuu" onclick="filters.apply(windowNumber)"/>
+	 <input type="submit" value="Apply Filter" class="filterbutton" id="fuu" onclick="selectFilter(document,1); filters.apply(windowNumber);"/>
 	</div>
 	
 	<!--
@@ -34,6 +34,12 @@
 
 <script>
 
+	document.getElementById('fgm').checked = (filters.gender === 'Male');
+	document.getElementById('fgf').checked = (filters.gender === 'Female');
+	document.getElementById('fgu').checked = (filters.gender === 'Unknown');
+	document.getElementById('fuc').checked = (filters.usertype === 'Customer');
+	document.getElementById('fus').checked = (filters.usertype === 'Subscriber');
+
 	document.getElementById('fuc').onclick = function () {
 
         document.getElementById('fgm').disabled = true;
@@ -43,6 +49,7 @@
         document.getElementById('fgf').checked = false;
 
         document.getElementById('fgu').disabled = false;
+        document.getElementById('fgu').checked = true;
 
         filters.setGender(null);
         filters.setUsertype('Customer');

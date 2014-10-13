@@ -45,6 +45,7 @@ Filters.prototype.apply = function(windowNumber){
 }
 
 Filters.prototype.resetFilters = function(){
+	console.log("Reset Filters");
     this.gender=null;
 	this.usertype=null;
 	this.date=null;

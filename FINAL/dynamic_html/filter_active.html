@@ -1,16 +1,50 @@
 <h2>Active Filters</h2>
 
 <table id="filtertable" style="font-size: 10px">
+
+	<!-- 
+<col width="300px">
+<col width="200px">
+	<col id="descriptioncolumn">
+	<col id="attributecolumn">
+-->
 <tr>
 <th>Gender</th>
-<td>Male + Female</td>
+<td id="activeFilter_gender"></td>
 </tr>
 <tr>
 <th>Age</th>
-<td>12-34</td>
+<td id="activeFilter_age"></td>
+</tr>
+<tr>
+<th>Customer Type</th>
+<td id="activeFilter_usertype"></td>
 </tr>
 </table>
 
 <div class="buttonwrapper">
-	<input type="submit" value="Reset Filters" class="filterbutton" id="resetfilters" onclick="filters.resetFilters()"/>
+	<input type="submit" value="Reset Filters" class="filterbutton" id="resetfilters" onclick="filters.resetFilters(); selectFilter(document,1); filters.apply(windowNumber);"/>
 </div>
+
+<script>
+	
+	var genderstr = filters.gender;
+	if (genderstr === null) {
+		genderstr = 'all';
+	}
+	$('#activeFilter_gender').html(genderstr);
+
+	var minagestr = filters.age_min;
+	var maxagestr = filters.age_max;
+	if (minagestr === null && maxagestr === null) {
+		agestr = 'all';
+	}
+	$('#activeFilter_age').html(agestr);
+
+	var usertypestr = filters.usertype;
+	if (usertypestr === null) {
+		usertypestr = 'all';
+	}
+	$('#activeFilter_usertype').html(usertypestr);
+
+</script>
