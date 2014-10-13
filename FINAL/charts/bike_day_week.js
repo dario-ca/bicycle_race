@@ -9,7 +9,7 @@ function BarChart1(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out per DAY");
+    d3.select(titletag).text("AVG Bikes out per DAY during the WEEK");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;

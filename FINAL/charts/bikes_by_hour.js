@@ -12,7 +12,7 @@ function LineChart1(tag, titletag) {
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
 
-    d3.select(titletag).text("AVG bikes out per HOUR");
+    d3.select(titletag).text("AVG bikes out per HOUR during the DAY");
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
