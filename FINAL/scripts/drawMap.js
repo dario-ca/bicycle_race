@@ -19,8 +19,6 @@ function drawMap() {
         d3.json("data/chicagoDist.json", function(data){
                 //read in divvy bike location
                 d3.csv("data/stations.csv", function(stations){
-                console.log(data);
-                console.log(stations);
                 divvyCircles.addData(stations, "grey", "black", 5);
                 addLayers(data, divvyCircles.getCircles());
             });
@@ -82,11 +80,11 @@ function drawMap() {
     // future function here
     function testStuff(name){
         console.log(name);
-    }
+    };
 
     // color stations depending on options
     // 1: heatmap
-    function coloStations (option) {
+    function coloStations (option, date) {
         if (divvyCircles == undefined) {
             console.log("divvyCircles object is not defined, did init get called?");
             return;
@@ -95,8 +93,13 @@ function drawMap() {
         // heatmap
         if (option == 1) {
             divvyCircles.colorPop();
+        }
+        // Date station traffic
+        else if (option == 2) {
+            divvyCircles.colorDate(date, map);
         };
-    }
+    };
+
     BikeMap.init = init;
     BikeMap.colorStations = coloStations;
     return BikeMap;

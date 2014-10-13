@@ -2,8 +2,12 @@
 function DivvyCircles (){
     this.circles = [];
     this.showPop = false;
+    this.showDate = false;
     this.fill = "red";      //default
     this.outline = "red";   //default
+
+    // used to control animation
+    this.hour = 0;
 }
 
 DivvyCircles.prototype.addData = function (data, fill, outline, radius){
@@ -12,13 +16,13 @@ DivvyCircles.prototype.addData = function (data, fill, outline, radius){
     for (var i = 0; i < data.length; i++) {
         // add circle objects to array
         this.circles.push( L.circleMarker([data[i]["latitude"], data[i]["longitude"]], {
-            radius : radius,
+            radius: radius,
             color: outline,
             fillColor: fill,
             fillOpacity: 1,
             opacity: 1,
-            stationID : data[i]["station_id"],
-            stationName : data[i]["station_name"]
+            stationID: data[i]["station_id"],
+            stationName: data[i]["station_name"]
         }));
         
         // bind data
@@ -27,17 +31,92 @@ DivvyCircles.prototype.addData = function (data, fill, outline, radius){
         });
         this.circles[i].bindPopup("hello");
     };
-
-    console.log(this.circles);
 };
 
 DivvyCircles.prototype.getCircles = function (){
     return this.circles;
 };
 
+// function that colors the stations based on wheter a trip is incoming or outgoing along with 
+// drawing lines representing the trip
+DivvyCircles.prototype.colorDate = function (date, mapContext){
+    this.showDate = !this.showDate;
+    var context = this;
+    var animationInterval;
+    var polylines; 
+
+    if (context.showDate)
+        animationInterval = setInterval( function() {dataLines(context, mapContext, date)}, 1000);     //call dataLines every sec
+
+    function dataLines(context, mapContext, date){
+        console.log(context.hour);
+        
+        if (context.hour >= 24) {
+            // clear stuff
+            return;
+        }
+        else if (context.hour > 0)
+            mapContext.removeLayer(polylines);
+
+        // normal color circles
+        for (var i = 0; i < context.circles.length; i++) {
+            context.circles[i].setStyle({fillColor: context.fill});
+            context.circles[i].setStyle({color: context.outline});
+        };
+
+        var parameters = "query=m4&hour=" + context.hour + "&date=" + date;
+        d3.json("query.php?" + parameters, function(error, data){
+            if (error){
+                console.warn(error);
+            };
+            console.log(data);
+            var polylineArray = [];
+
+            for (var i = 0; i < data.length; i++) {
+                var fromLatLng = [0,0];
+                var toLatLng = [0,0];
+                for (var q = 0; q < context.circles.length; q++) {
+                    // from locatation
+                    if (data[i]["from_station_id"] == context.circles[q].options.stationID) {
+                        fromLatLng[0] = context.circles[q]._latlng.lat;
+                        fromLatLng[1] = context.circles[q]._latlng.lng;
+
+                        context.circles[q].setStyle({fillColor: "#05A2F0"});
+                        context.circles[q].setStyle({color: "black"});
+                    };
+
+                    // to locations
+                    if (data[i]["to_station_id"] == context.circles[q].options.stationID) {
+                        toLatLng[0] = context.circles[q]._latlng.lat;
+                        toLatLng[1] = context.circles[q]._latlng.lng;
+
+                        context.circles[q].setStyle({fillColor: "#F05305"});
+                        context.circles[q].setStyle({color: "black"});
+                    };
+                };
+
+                polylineArray.push(L.polyline([fromLatLng, toLatLng], 
+                    { 
+                        color: "orange",
+                        weight: 3,
+                        opacity: .5,
+                    })
+                    .on("click", function(target){
+                        target.target.setStyle({color: "red", opacity: 1});;
+                    })
+                );
+            };
+            polylines = L.layerGroup(polylineArray);
+            polylines.addTo(mapContext);
+        });
+        context.hour++;
+    }
+};
+
+// function that makes heat map of pop of the stations
 DivvyCircles.prototype.colorPop = function (){
     this.showPop = !this.showPop;       //toggle
-    context = this;
+    var context = this;
     // heat map of popularity 
     if (this.showPop) {
         // get data
@@ -45,7 +124,6 @@ DivvyCircles.prototype.colorPop = function (){
             if (error){
                 console.warn(error);
             };
-            console.log(data);
 
             var max = 0;
             var min = Number.MAX_VALUE;
@@ -56,8 +134,8 @@ DivvyCircles.prototype.colorPop = function (){
                     min = parseInt(data[i]["count(*)"]);
             };
 
-            console.log(max);
-            console.log(min);
+            // console.log(max);
+            // console.log(min);
 
             // heat map colors
             var heatScale = d3.scale.sqrt()
@@ -68,7 +146,7 @@ DivvyCircles.prototype.colorPop = function (){
             for (var i = 0; i < context.circles.length; i++) {
                 var color = heatScale(getPop(data, context.circles[i].options.stationID));
                 context.circles[i].setStyle({fillColor: color});
-                context.circles[i].setStyle({color: color});
+                context.circles[i].setStyle({color: "black"});
             };
         });
     }
