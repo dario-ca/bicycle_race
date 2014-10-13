@@ -20,6 +20,9 @@
 <th>Customer Type</th>
 <td id="activeFilter_usertype"></td>
 </tr>
+<th>Date</th>
+<td id="activeFilter_date"></td>
+</tr>
 </table>
 
 <div class="buttonwrapper">
@@ -46,5 +49,11 @@
 		usertypestr = 'all';
 	}
 	$('#activeFilter_usertype').html(usertypestr);
+
+	var datestr = filters.date;
+	if (datestr === null) {
+		datestr = 'none';
+	}
+	$('#activeFilter_date').html(datestr);
 
 </script>

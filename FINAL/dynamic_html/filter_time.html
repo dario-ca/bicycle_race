@@ -1,9 +1,9 @@
 <p>Date: <input type="text" id="datepicker"></p>
 
 <div class="buttonwrapper">
-	<input type="submit" value="Apply Filter" class="filterbutton" id="fuu" onclick="calendarOnClick()"/>
+	<input type="submit" value="Apply Filter" class="filterbutton" id="fuu" onclick="selectFilter(document,1); printDate(); filters.apply(windowNumber);"/>
 </div>
- 
+
 <script>
 	$(function() {
 		$( "#datepicker" ).datepicker();
@@ -16,10 +16,10 @@
 
 
 	/* Print Date to Console */
-	function calendarOnClick() {
+	function printDate() {
 		var currentDate = $( "#datepicker" ).datepicker( "getDate" );
 		console.log("Selected Date: " + currentDate);
-		filters.apply(windowNumber)
+		filters.setDate('2013-08-25'); // TODO: parse calendar output
 	}
 
 </script>
