@@ -267,6 +267,7 @@ p {
     width: 100%;
     cursor: pointer;
     height: 6vh;
+	// text-transform: uppercase;
 }
 #graphselection a:hover {
     color: black;
@@ -279,6 +280,7 @@ p {
 #graphselection li.active a {
     color: black;
     background-color: orange;
+	font-weight: 600;
 }
 #graphselection li.active {
     position: relative;
