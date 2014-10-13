@@ -1,7 +1,6 @@
-function BarChart1(tag, titletag) {
+function BarChart3(tag, titletag) {
 
     this.tag = tag;
-    
     this.margin = {
         top: 0,
         right: 30,
@@ -9,33 +8,27 @@ function BarChart1(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out per DAY");
+    d3.select(titletag).text("Number of trips by rides time");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
-    
+
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
     
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
-    // Day = 0 is monday
-    // Day = 6 is sunday
     this.values = [];
     this.counter = 0;
-    this.getBikesForallDays(null, null, null);
-
-    // List of all the stations
-    this.stations = [];
-    this.callBack_getStations(this);
+    this.getBikesFarallIntervals();
 }
 
-BarChart1.prototype.draw = function () {
+BarChart3.prototype.draw = function () {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("rect").remove();
     d3.select(this.tag).selectAll("#tip").remove();
 
     var margin = this.margin;
-    var width = this.canvasWidth -margin.left - margin.right,
+    var width = this.canvasWidth - margin.left - margin.right,
         height = this.canvasHeight - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal()
@@ -53,7 +46,7 @@ BarChart1.prototype.draw = function () {
         .orient("left")
         .tickFormat(function (d) {
             if (d >= 1000)
-                return (d / 1000).toFixed(1) + "K";
+                return (d / 1000).toFixed(0) + "K";
             return d;
         });
 
@@ -62,14 +55,13 @@ BarChart1.prototype.draw = function () {
         .attr('class', 'd3-tip')
         .offset([-10, 0])
         .html(function (d) {
-            return "<strong>AVG bikes out:</strong> <span style='color:orange'>" + dotSeparator(d) + "</span>";
+            return "<strong>Number of Trips:</strong> <span style='color:orange'>" + dotSeparator(d) + "</span>";
         });
 
     var svg = this.svg;
-
     svg.call(tip);
 
-    var xvalues = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    var xvalues = ["0-5", "5-10", "10-15", "15-20", "20-25", "25-30", "30-60", ">60 min"];
     var yvalues = this.values;
 
     var padding = width / xvalues.length - 2;
@@ -79,12 +71,11 @@ BarChart1.prototype.draw = function () {
     // X AXIS
     svg.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate("+margin.left+"," + height + ")")
+        .attr("transform", "translate(" + margin.left + "," + height + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end");
-    
+        .attr("transform", "rotate(20)");
+
     // BARS
     svg.selectAll(".bar")
         .data(yvalues)
@@ -105,70 +96,47 @@ BarChart1.prototype.draw = function () {
         .on('mouseout', tip.hide);
     
     // Y AXIS
-    svg.append("g")
+     svg.append("g")
         .attr("class", "y axis")
-        .attr("transform","translate("+margin.left+",0)")
+        .attr("transform", "translate(" + margin.left + ",0)")
         .call(yAxis)
         .append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("AVG Bikes Out");
+        .text("Trips");
 
 }
 
-// For all days...
-BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
+// For all intervals...
+BarChart3.prototype.getBikesFarallIntervals = function () {
     this.counter = 0;
-    for (day = 0; day < 7; day++)
-        this.callBack_getBikesPerDay(this, day, station, gender, usertype);
+    // First 5 intervals up to 30 mins
+    for (minutes = 0, index = 0; minutes < 30; minutes += 5, index++)
+        this.callBack_getBikesPerInterval(this, index, minutes, (minutes + 5) * 0.999);
+    // Last 2 intervals
+    this.callBack_getBikesPerInterval(this, index, minutes, 59.999);
+    this.callBack_getBikesPerInterval(this, index + 1, 60, 1440);
 }
 
 /*Load the result into a data structure*/
-BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender, usertype) {
+BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min, max) {
     // Empty the current values (this.values)
     context.values = [];
 
-    var parameters = "query=q2a&weekday=" + day;
-    // station id: null means ALL
-    if (station != null)
-        parameters = parameters + "&station=" + station;
-    
-    // check gender
-    if(gender != null)
-        parameters = parameters + "&gender=" + gender;
-    
-    // check usertype
-    if(usertype != null)
-        parameters = parameters + "&usertype=" + usertype;
+    var parameters = "query=q7&min=" + min + "&max=" + max;
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
-            // NB: Don't use the push function! This method is called
-            // asynchronous, so I prefer to directly store the value
-            // in the corresponding index (monday is values[0] , tuesday is values[1]...)
-            context.values[day] = parseFloat(d.bikes).toFixed(0);
+            context.values[index] = d.bikes;
         });
 
-        context.counter ++;
-        // When all the 7 days have been loaded, draw the graph
-        if (context.counter == 7)
+        context.counter++;
+        // When all the 7 intervals have been loaded, draw the graph 
+        if (context.counter == 8)
             context.draw();
-    });
-}
-
-/*Load stations [ID,NAME] into memory */
-BarChart1.prototype.callBack_getStations = function (context) {
-    var dropdown = d3.select("#stations_dropdown1");
-    d3.csv("data/stations.csv", function (error, data) {
-        data.forEach(function (d) {
-            context.stations.push([d.station_id, d.station_name]);
-            dropdown.append("option")
-                .attr("value", d.station_id)
-                .text("Station " + d.station_id + ": " + d.station_name);
-        });
     });
 }
 

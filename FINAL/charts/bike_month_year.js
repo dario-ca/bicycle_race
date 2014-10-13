@@ -9,7 +9,7 @@ function BarChart4(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("AVG Bikes out during per MONTH");
+    d3.select(titletag).text("AVG Bikes out per MONTH");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
@@ -21,7 +21,7 @@ function BarChart4(tag, titletag) {
     // Month = 11 is december
     this.values = [];
     this.counter = 0;
-    this.getBikesForallMonths(0, null, null);
+    this.getBikesForallMonths(null, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -82,7 +82,8 @@ BarChart4.prototype.draw = function () {
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("transform", "rotate(20)");
+        .attr("transform", "rotate(-40)")
+        .style("text-anchor", "end");
     
     // BARS
     svg.selectAll(".bar")
@@ -93,7 +94,7 @@ BarChart4.prototype.draw = function () {
             return i * padding;
         })
         .attr("width", x.rangeBand())
-        .attr("transform", "translate (" + (margin.left + 10) + ",0)")
+        .attr("transform", "translate (" + (margin.left + 10) + ", -2)")
         .attr("y", function (d, i) {
             return y(d);
         })
@@ -130,8 +131,8 @@ BarChart4.prototype.callBack_getBikesPerMonth = function (context, month, statio
     context.values = [];
 
     var parameters = "query=q2b&month=" + (month+6);
-    // station id: 0 means ALL
-    if (station != 0)
+    // station id: null means ALL
+    if (station != null)
         parameters = parameters + "&station=" + station;
     
     // check gender

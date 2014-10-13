@@ -131,29 +131,6 @@
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
         $temp=$temp.";";
     }
-    /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8
-    else if(strcmp($_GET['query'], "q8a") == 0){
-        $bikeid = $_GET['bikeid'];
-        $temp="SELECT bikeid as title,
-	                  'Distance [mi]' as subtitle,
-                      '' as ranges,
-                      sum(meters)*0.0006213 as measures,
-                      '' as markers
-               FROM divvy.divvy_trips_distances
-               WHERE bikeid = ".$bikeid."
-               GROUP BY bikeid";
-    }
-    else if(strcmp($_GET['query'], "q8b") == 0){
-        $bikeid = $_GET['bikeid'];
-        $temp="SELECT bikeid as title,
-	                  'Time [hrs]' as subtitle,
-                      '' as ranges,
-                      sum(seconds)/3600 as measures,
-                      '' as markers
-               FROM divvy.divvy_trips_distances
-               WHERE bikeid = ".$bikeid."
-               GROUP BY bikeid";
-    }
 
     # QUERIES
     $query = $temp;

@@ -86,13 +86,6 @@ LineChart1.prototype.draw = function () {
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
-        .tickFormat(function(d){
-            if (d >= 10000)
-                return (d / 10000).toFixed(0) + "k";
-            if (d >= 1000)
-                return (d / 1000).toFixed(1) + "k";
-            return d;
-        })
         .tickSize(2)
         .tickPadding(7);
 

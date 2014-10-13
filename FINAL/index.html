@@ -21,14 +21,10 @@
 
     <!-- SCRIPTS -->
     <script src="scripts/drawGraphIcons.js"></script>
-    <script src="scripts/drawGraph.js"></script>
     <script src="scripts/drawMap.js"></script>
-    <script src="scripts/drawQuery_Calendar.js"></script>
-    <script src="scripts/drawQuery_Stations.js"></script>
-    <script src="scripts/drawQuery_Demographics.js"></script>
-    <script src="scripts/drawQuery_Week.js"></script>
-    <script src="scripts/drawQuery_Time.js"></script>
     <script src="scripts/clickUpdateQuery.js"></script>
+    <script src="scripts/selectGraph.js"></script>
+    <script src="scripts/apply_filters.js"></script>
     <script src="scripts/init.js"></script>
 
     <!-- CHARTS -->
@@ -38,6 +34,9 @@
     <script src="charts/bikes_by_date.js"></script>
     <script src="charts/bikes_by_hour.js"></script>
     <script src="charts/bike_month_year.js"></script>
+    <script src="charts/distance_bike.js"></script>
+    <script src="charts/time_bike.js"></script>
+    <script src="charts/utils/bullet.js"></script>
 
     <!-- Custom classes -->
     <script type="text/javascript" src="lib/divvyCircles.js"></script>
@@ -78,49 +77,33 @@
         <div id="titlebar4">Title 4</div>
         <div id="chart4"></div>
         <div class="controlbar">
-            <h1>Controlbar</h1>
-            <svg id="graphicons" viewBox="0 0 300 100"></svg>
+            <form>
+                <input id="fgm" type="radio" name="gender" value="Male" onclick="filters.setGender(this.value)" style="margin-left:4%">Male</input>
+                <input id="fgf" type="radio" name="gender" value="Female" onclick="filters.setGender(this.value)">Female</input>
+                <input id="fgu" type="radio" name="gender" value="Unknown" onclick="filters.setGender(this.value)">Unknown</input>
+    
+                <input id="fus" type="radio" name="utype" style="margin-left:4%">Subscribers</input>
+                <input id="fuc" type="radio" name="utype">Customers</input>
+                <button if="fuu" type="button" onclick="filters.apply(windowNumber)">Apply Filter</button>
+            </form>
+            <!--
+            <svg id="graphicons_gender" class="graphicons" viewBox="0 0 300 100"></svg>
+            <svg id="graphicons_utype" class="graphicons" viewBox="0 0 300 100"></svg>
+            -->
         </div>
 
     </div>
 
     <div class="right">
-
-        <ul id="querymenu">
-            <li class="active"><a onClick="clickUpdateQuery(document,1); return false;">A1</a>
+        <!-- GRAPH SELECTION -->
+        <ul id="graphselection" style="bottom: 0%;">
+            <li class="active"><a onclick="selectGraph(document,1); return false;">History</a>
             </li>
-            <li><a onClick="clickUpdateQuery(document,2); return false;">B2</a>
+            <li class=""><a onclick="selectGraph(document,2); return false;">Bike Usage</a>
             </li>
-            <li><a onClick="clickUpdateQuery(document,3); return false;">C3</a>
-            </li>
-            <li><a onClick="clickUpdateQuery(document,4); return false;">D4</a>
-            </li>
-            <li><a onClick="clickUpdateQuery(document,5); return false;">E5</a>
-            </li>
-            <li><a>XY
-					<!--
-					<object data="icons/svg/watch.svg" type="image/svg+xml" color="orange" style="width: 50px; height: 50px; background-color: green;" viewBox="0 0 10 10">
-						<img src="icond/png/watch.png" />
-					</object>
-					-->
-					<!--
-						<svg id="calendaricon" viewBox="0 0 100 100">
-						
-						</svg>
-						-->
-					</a>
+            <li class=""><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
             </li>
         </ul>
-
-        <div id="queryoptions">
-            <svg id="options" , viewBox="0 0 1000 1000"></svg>
-            <div class="querydescription">
-                <h2>DiVVy Bike Chicago</h2>
-                <p>Text Description</p>
-                <p id="iconauthorship">Icon authorship: Freepik (<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>)
-            </div>
-            </p>
-        </div>
     </div>
 
 </body>
@@ -130,6 +113,37 @@
     $('li a').click(function () {
         $(this).parent().addClass('active').siblings().removeClass('active');
     });
+        // Customer button
+    document.getElementById('fuc').onclick = function () {
+        document.getElementById('fgm').disabled = true;
+        document.getElementById('fgm').checked = false;
+
+        document.getElementById('fgf').disabled = true;
+        document.getElementById('fgf').checked = false;
+
+        document.getElementById('fgu').disabled = false;
+
+        filters.setGender(null);
+        filters.setUsertype('Customer');
+    }
+    // Subscriber button
+    document.getElementById('fus').onclick = function () {
+        document.getElementById('fgm').disabled = false;
+
+        document.getElementById('fgf').disabled = false;
+
+        document.getElementById('fgu').disabled = true;
+        document.getElementById('fgu').checked = false;
+
+        if (document.getElementById('fgm').checked)
+            filters.setGender('Male');
+        else if (document.getElementById('fgf').checked)
+            filters.setGender('Female');
+        else
+            filters.setGender(null);
+
+        filters.setUsertype('Subscriber');
+    }    
 </script>
 
 </html>

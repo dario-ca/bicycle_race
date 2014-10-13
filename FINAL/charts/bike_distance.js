@@ -8,7 +8,7 @@ function BarChart2(tag, titletag) {
         left: 60
     };
     
-    d3.select(titletag).text("Number of trips by rides distance");
+    d3.select(titletag).text("Number of trips by rides DISTANCE");
     this.svg = d3.select(this.tag).append("svg").attr("class", "bar_chart_svg");
 
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
@@ -18,7 +18,7 @@ function BarChart2(tag, titletag) {
 
     this.values = [];
     this.counter = 0;
-    this.getBikesFarallIntervals();
+    this.getBikesFarallIntervals(null,null,null);
 }
 
 BarChart2.prototype.draw = function () {
@@ -77,9 +77,28 @@ BarChart2.prototype.draw = function () {
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("transform", "rotate(20)");;
+        .attr("transform", "rotate(-40)")
+        .style("text-anchor", "end");
 
-    svg.append("g")
+    svg.selectAll(".bar")
+        .data(yvalues)
+        .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function (d, i) {
+            return i * padding;
+        })
+        .attr("width", x.rangeBand())
+        .attr("transform", "translate (" + (margin.left + 10) + ", -2)")
+        .attr("y", function (d, i) {
+            return y(d);
+        })
+        .attr("height", function (d, i) {
+            return height - y(d);
+        })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide);
+    
+     svg.append("g")
         .attr("class", "y axis")
      .attr("transform","translate("+margin.left+",0)")
         .call(yAxis)
@@ -90,43 +109,37 @@ BarChart2.prototype.draw = function () {
         .style("text-anchor", "end")
         .text("Trips");
 
-    svg.selectAll(".bar")
-        .data(yvalues)
-        .enter().append("rect")
-        .attr("class", "bar")
-        .attr("x", function (d, i) {
-            return i * padding;
-        })
-        .attr("width", x.rangeBand())
-        .attr("transform", "translate (" + (margin.left + 10) + ",0)")
-        .attr("y", function (d, i) {
-            return y(d);
-        })
-        .attr("height", function (d, i) {
-            return height - y(d);
-        })
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
-
 }
 
 // For all intervals...
-BarChart2.prototype.getBikesFarallIntervals = function () {
+BarChart2.prototype.getBikesFarallIntervals = function (station, gender, usertype) {
     this.counter = 0;
     // First 7 intervals
     for (miles = 0, index = 0; miles < 7; miles++, index++)
-        this.callBack_getBikesPerInterval(this, index, miles, (miles + 1) * 0.999);
+        this.callBack_getBikesPerInterval(this, index, miles, (miles + 1) * 0.999, station, gender, usertype);
     // Last one
-    this.callBack_getBikesPerInterval(this, index, miles, 30000);
+    this.callBack_getBikesPerInterval(this, index, miles, 30000, station, gender, usertype);
 
 }
 
 /*Load the result into a data structure*/
-BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min, max) {
+BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype) {
     // Empty the current values (this.values)
     context.values = [];
 
     var parameters = "query=q6&min=" + min + "&max=" + max;
+    
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+    
+    // check gender
+    if(gender != null)
+        parameters = parameters + "&gender=" + gender;
+    
+    // check usertype
+    if(usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
