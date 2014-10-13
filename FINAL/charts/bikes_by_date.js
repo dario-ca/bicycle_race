@@ -92,8 +92,10 @@ LineChart2.prototype.draw = function () {
         .scale(yScale)
         .orient("left")
         .tickFormat(function (d) {
-            if (d != 0)
+            if (d >= 10000)
                 return (d / 1000).toFixed(0) + "k";
+            if (d >= 1000)
+                return (d / 1000).toFixed(1) + "k";
             else return d;
         })
         .tickSize(2)
