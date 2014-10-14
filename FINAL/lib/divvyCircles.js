@@ -45,8 +45,10 @@ DivvyCircles.prototype.colorDate = function (date, mapContext){
     var animationInterval;
     var polylines; 
 
-    if (context.showDate)
-        animationInterval = setInterval( function() {dataLines(context, mapContext, date)}, 1000);     //call dataLines every sec
+    if (context.showDate){
+        this.hour = 0;
+        animationInterval = setInterval( function() {dataLines(context, mapContext, date)}, 1000);     //call dataLines every 1sec
+    }
 
     function dataLines(context, mapContext, date){
         console.log(context.hour);

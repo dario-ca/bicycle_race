@@ -11,7 +11,7 @@ function drawMap() {
     var BikeMap = new Object();
 
     function init(){
-        map = L.map('map').setView([41.9, -87.7], 12);
+        map = L.map('map', {zoomControl: false}).setView([41.9, -87.7], 12);
         mapArea = $('#map');
         divvyCircles = new DivvyCircles();
 

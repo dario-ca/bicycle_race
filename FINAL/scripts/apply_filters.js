@@ -30,6 +30,8 @@ Filters.prototype.setAge=function(agemin,agemax){
 }
 
 Filters.prototype.apply = function(windowNumber){
+    console.log(windowNumber);
+
     switch(windowNumber){
         case 1:
             app1.setOption(this.station, this.gender, this.usertype);
