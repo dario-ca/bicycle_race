@@ -23,8 +23,8 @@ menu, nav {
 }
 
 html, body {
-	color:				#eee;
-	background-color:	#222;
+	color:				black;
+	background-color:	#ccc;
 	font-family:		Roboto, sans serif;
 	margin-left:		auto;
 	margin-right:		auto;
@@ -52,18 +52,18 @@ h1 {
 	padding-left:		4%;
 	padding-right:		4%;
 	font-size:			12vh;
-    color:				#3db7e4;
+    color:				black;
 }
 
 h2 {
 	font-size:			4vh;
 	text-align:			center;
-    color:				#3db7e4;
+    color:				black;
 }
 
 h3, h4, h5, h6 {
 	font-size:			3.5vh;
-    color:				#3db7e4;
+    color:				black;
 }
 
 li {
@@ -94,7 +94,7 @@ p {
 	left:				85%;
 	width:				15%;
 	height:				100%;
-	background-color:	#444;
+	background-color:	#ccc;
 }
 
 
@@ -236,8 +236,8 @@ p {
 
 .menuselection a {
     padding-left:		10px;
-    color:				#3db7e4;
-    background-color:	#222;
+    color:				black;
+    background-color:	#888;
     display:			block;
     width:				100%;
     cursor:				pointer;
@@ -246,8 +246,8 @@ p {
 }
 
 .menuselection a:hover {
-    color:				black;
-    background-color:	#888;
+    color:				#3db7e4;
+    background-color:	#222;
 }
 .menuselection li.active a {
     color:				black;
@@ -321,7 +321,7 @@ th {
 	text-align:			right;
 	font-weight:		300;
 	font-size:			3vh;
-    color:				#3db7e4;
+    color:				#444;
 }
 
 td {
@@ -335,11 +335,11 @@ td {
 }
 
 .filterbutton {
-    background-color:	#222;
+    background-color:	#ccc;
     -moz-border-radius:	5px;
     -webkit-border-radius: 5px;
     border-radius:		0px; // 6px;
-    color:				#eee;
+    color:				black;
     text-decoration:	none;
     cursor:				pointer;
     border:				none;
@@ -349,8 +349,7 @@ td {
 }
 
 .filterbutton:hover {
-    color:				black;
-    background:			#3db7e4;
+    background-color:	#3db7e4;
     box-shadow:			0px 0px 1px #777;
     border:				solid 1px black;
 }
