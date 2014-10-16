@@ -30,51 +30,118 @@ function PieChart1(tag, titletag) {
 }
 
 PieChart1.prototype.setOption = function (station, gender, usertype) {
-    this.callBack_getData(this, station, gender, usertype);
+    this.callBack_getData(this, station, usertype);
 }
 
-PieChart1.prototype.callBack_getData = function (context, station, gender, usertype) {
+PieChart1.prototype.callBack_getData = function (context, station, usertype) {
 
-    context.xValues = [];
-    context.yValues = [];
+    context.xValue = [];
+    context.yValue = [];
 
-    var parameters;
-    parameters = "query=q3";
+    var parameters = "query=q3";
 
- // station id: null means ALL
+	// add station filter
     if (station != null)
         parameters = parameters + "&station=" + station;
     
-    // check gender
-    if(gender != null)
-        parameters = parameters + "&gender=" + gender;
-    
-    // check usertype
+    // add usertype filter
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
 
+	// start query
     d3.json("db_get.php?" + parameters, function (error, data) {
+		/*
         data.forEach(function (d) {
-            context.xValues[context.xValues.length] = d.hour;
+            context.xValues[context.xValues.length] = d.gender;
             context.yValues[context.yValues.length] = d.num_bikes;
         });
+		*/
+
+		// Dummy
+		context.xValues[0] = 'M';
+		context.xValues[1] = 'F';
+		context.xValues[2] = 'U';
+		context.yValues[0] = 50;
+		context.yValues[1] = 30;
+		context.yValues[2] = 20;
+
         context.draw();
     });
 }
 
 PieChart1.prototype.draw = function () {
 
+	// Clear canvas
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
 
+	// Set parameters
     var margin = this.margin;
-    var width = this.canvasWidth - margin.left - margin.right;
-    var height = this.canvasHeight - margin.top - margin.bottom;
 
     var xValues = this.xValues;
     var yValues = this.yValues;
 
-    var xScale = d3.scale.ordinal()
+	console.log('X Values = ' + xValues);
+	console.log('Y Values = ' + yValues);
+	
+var w = this.canvasWidth - margin.left - margin.right;
+var h = this.canvasHeight - margin.top - margin.bottom;
+var r = h/2;
+var color = d3.scale.category20c();
+
+
+// create data array
+var data = [{"label":xValues[0], "value":yValues[0]}, 
+		          {"label":xValues[1], "value":yValues[1]}, 
+		          {"label":xValues[2], "value":yValues[2]}];
+
+var vis = d3.select('#chart1')
+			.append("svg:svg")
+			.data([data])
+			.attr("width", w).attr("height", h)
+			.append("svg:g")
+			.attr("transform", "translate(" + r + "," + r + ")");
+
+var pie = d3.layout.pie()
+			.value(function(d){return d.value;});
+
+// declare an arc generator function
+var arc = d3.svg.arc().outerRadius(r);
+
+// select paths, use arc generator to draw
+var arcs = vis.selectAll("g.slice")
+				.data(pie).enter()
+				.append("svg:g")
+				.attr("class", "slice");
+
+arcs.append("svg:path")
+    .attr("fill", function(d, i){
+        return color(i);
+    })
+    .attr("d", function (d) {
+        console.log(arc(d)); // log to console
+        return arc(d);
+    });
+
+// add the text
+arcs.append("svg:text").attr("transform", function(d){
+			d.innerRadius = 0;
+			d.outerRadius = r;
+    return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
+    return data[i].label;}
+		);
+
+
+
+
+
+
+
+	// Draw PieChart here!!!
+
+	//////////////////////////////////////////////////////////////////////
+	/* 
+	var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
@@ -143,8 +210,11 @@ PieChart1.prototype.draw = function () {
     gx.selectAll("text")
         .attr("transform", "rotate(-35)")
         .style("text-anchor", "end");
-
-    /*
+	*/
+	//////////////////////////////////////////////////////////////////////
+    
+	
+	/*
     // Vertical Lines
     gx.selectAll("g")
         .classed("xminor", true)
