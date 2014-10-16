@@ -99,15 +99,17 @@ LineChart1.prototype.draw = function () {
         .tickSize(3)
         .tickPadding(7);
     
+    /*
+    //zoom variable
     var zoom = d3.behavior.zoom()
         //.x(xScale)
         .y(yScale)
         .scaleExtent([1, 2])
-        .on("zoom", zoomed);	
+        .on("zoom", zoomed);*/	
 
     var svg = this.svg;
     
-    svg.call(zoom);
+    //svg.call(zoom);
     
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -165,6 +167,8 @@ LineChart1.prototype.draw = function () {
         .style("text-anchor", "end")
         .text("AVG Bikes Out");
     
+    
+    //zoom function
     function zoomed() {
         //svg.select(".x.axis").call(xAxis);
         svg.select(".x.axis")
