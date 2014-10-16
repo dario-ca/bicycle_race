@@ -1,4 +1,3 @@
-Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Conditions
 2013-06-27 00:51:00,71.1,78,7.0,Calm,N/A,Scattered Clouds
 2013-06-27 01:51:00,68.0,84,6.0,Calm,N/A,Haze
 2013-06-27 02:51:00,68.0,87,5.0,4.6,N/A,Partly Cloudy
@@ -16,14 +15,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-06-27 14:51:00,90.0,42,10.0,13.8,N/A,Mostly Cloudy
 2013-06-27 15:51:00,90.0,40,10.0,16.1,N/A,Mostly Cloudy
 2013-06-27 16:51:00,88.0,43,10.0,17.3,N/A,Mostly Cloudy
-2013-06-27 17:43:00,87.8,46,10.0,15.0,0.00,Light Thunderstorms and Rain
 2013-06-27 17:51:00,87.1,46,10.0,15.0,0.00,Light Thunderstorms and Rain
-2013-06-27 18:06:00,80.6,61,1.0,24.2,0.04,Thunderstorms and Rain
-2013-06-27 18:10:00,69.8,88,0.2,40.3,0.27,Heavy Thunderstorms and Rain
-2013-06-27 18:13:00,68.0,88,0.2,27.6,0.37,Heavy Thunderstorms and Rain
-2013-06-27 18:19:00,69.8,83,1.0,21.9,0.57,Heavy Thunderstorms and Rain
-2013-06-27 18:26:00,73.4,73,9.0,11.5,0.59,Light Thunderstorms and Rain
-2013-06-27 18:38:00,73.4,78,10.0,Calm,0.59,Scattered Clouds
 2013-06-27 18:51:00,73.9,76,10.0,Calm,0.59,Scattered Clouds
 2013-06-27 19:51:00,75.9,76,10.0,3.5,N/A,Scattered Clouds
 2013-06-27 20:51:00,75.9,76,10.0,3.5,N/A,Partly Cloudy
@@ -45,10 +37,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-06-28 12:51:00,82.0,41,10.0,18.4,N/A,Scattered Clouds
 2013-06-28 13:51:00,81.0,41,10.0,18.4,N/A,Mostly Cloudy
 2013-06-28 14:51:00,82.9,38,10.0,15.0,N/A,Mostly Cloudy
-2013-06-28 15:07:00,78.8,47,8.0,25.3,0.01,Light Thunderstorms and Rain
-2013-06-28 15:11:00,71.6,69,2.5,19.6,0.10,Thunderstorms and Rain
-2013-06-28 15:15:00,69.8,78,5.0,11.5,0.12,Light Thunderstorms and Rain
-2013-06-28 15:28:00,69.8,73,10.0,9.2,0.13,Light Rain
 2013-06-28 15:51:00,71.1,78,10.0,10.4,0.13,Mostly Cloudy
 2013-06-28 16:51:00,72.0,71,10.0,8.1,0.00,Mostly Cloudy
 2013-06-28 17:51:00,75.0,62,10.0,13.8,N/A,Mostly Cloudy
@@ -61,10 +49,8 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-06-29 00:51:00,68.0,76,10.0,8.1,N/A,Scattered Clouds
 2013-06-29 01:51:00,66.9,81,10.0,8.1,N/A,Mostly Cloudy
 2013-06-29 02:51:00,66.0,78,10.0,5.8,N/A,Mostly Cloudy
-2013-06-29 03:35:00,66.2,83,10.0,8.1,N/A,Mostly Cloudy
 2013-06-29 03:51:00,66.0,81,10.0,8.1,N/A,Overcast
 2013-06-29 04:51:00,64.9,84,10.0,11.5,N/A,Mostly Cloudy
-2013-06-29 05:11:00,64.4,88,10.0,9.2,N/A,Overcast
 2013-06-29 05:51:00,64.9,84,10.0,6.9,N/A,Overcast
 2013-06-29 06:51:00,64.9,87,7.0,10.4,N/A,Overcast
 2013-06-29 07:51:00,64.9,84,8.0,10.4,N/A,Overcast
@@ -76,9 +62,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-06-29 13:51:00,70.0,76,9.0,13.8,N/A,Overcast
 2013-06-29 14:51:00,69.1,75,10.0,15.0,N/A,Overcast
 2013-06-29 15:51:00,69.1,70,10.0,18.4,N/A,Mostly Cloudy
-2013-06-29 16:15:00,69.8,64,10.0,12.7,N/A,Mostly Cloudy
 2013-06-29 16:51:00,71.1,59,10.0,18.4,N/A,Mostly Cloudy
-2013-06-29 17:39:00,69.8,64,10.0,17.3,N/A,Mostly Cloudy
 2013-06-29 17:51:00,69.1,65,10.0,17.3,N/A,Mostly Cloudy
 2013-06-29 18:51:00,66.9,66,10.0,17.3,N/A,Overcast
 2013-06-29 19:51:00,66.9,59,10.0,16.1,N/A,Overcast
@@ -142,24 +126,21 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-02 05:51:00,64.0,60,10.0,11.5,N/A,Mostly Cloudy
 2013-07-02 06:51:00,63.0,65,10.0,9.2,N/A,Mostly Cloudy
 2013-07-02 07:51:00,64.9,61,10.0,11.5,N/A,Mostly Cloudy
+2013-07-02 08:51:00,65.0,60,10.0,12.7,N/A,Mostly Cloudy
 2013-07-02 09:51:00,66.0,60,10.0,12.7,N/A,Mostly Cloudy
 2013-07-02 10:51:00,66.9,61,10.0,11.5,N/A,Mostly Cloudy
 2013-07-02 11:51:00,64.0,73,10.0,15.0,0.00,Light Rain
 2013-07-02 12:51:00,64.0,73,10.0,13.8,0.00,Overcast
-2013-07-02 13:30:00,66.2,68,10.0,15.0,N/A,Overcast
 2013-07-02 13:51:00,66.0,65,10.0,16.1,N/A,Overcast
 2013-07-02 14:51:00,66.9,61,10.0,16.1,N/A,Overcast
 2013-07-02 15:51:00,66.0,63,10.0,15.0,N/A,Overcast
 2013-07-02 16:51:00,64.9,65,10.0,16.1,N/A,Overcast
-2013-07-02 17:10:00,64.4,68,10.0,18.4,N/A,Overcast
-2013-07-02 17:27:00,64.4,68,10.0,12.7,N/A,Overcast
 2013-07-02 17:51:00,64.9,68,10.0,17.3,N/A,Mostly Cloudy
 2013-07-02 18:51:00,64.9,65,10.0,16.1,N/A,Mostly Cloudy
 2013-07-02 19:51:00,63.0,72,10.0,13.8,N/A,Overcast
 2013-07-02 20:51:00,62.1,78,10.0,12.7,N/A,Overcast
 2013-07-02 21:51:00,62.1,78,10.0,10.4,N/A,Overcast
 2013-07-02 22:51:00,62.1,84,10.0,6.9,N/A,Overcast
-2013-07-02 23:23:00,62.6,82,10.0,6.9,N/A,Overcast
 2013-07-02 23:51:00,62.1,86,10.0,5.8,N/A,Overcast
 2013-07-03 00:51:00,62.1,86,10.0,6.9,N/A,Overcast
 2013-07-03 01:51:00,62.1,86,10.0,8.1,N/A,Overcast
@@ -167,7 +148,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-03 03:51:00,62.1,84,10.0,6.9,N/A,Overcast
 2013-07-03 04:51:00,62.1,84,10.0,5.8,N/A,Overcast
 2013-07-03 05:51:00,63.0,81,7.0,4.6,N/A,Overcast
-2013-07-03 06:19:00,62.6,82,7.0,4.6,N/A,Overcast
 2013-07-03 06:51:00,63.0,84,7.0,4.6,N/A,Overcast
 2013-07-03 07:51:00,64.0,80,10.0,3.5,0.00,Overcast
 2013-07-03 08:51:00,66.0,78,10.0,3.5,N/A,Overcast
@@ -177,15 +157,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-03 12:51:00,70.0,71,7.0,3.5,N/A,Overcast
 2013-07-03 13:51:00,71.1,68,8.0,Calm,N/A,Overcast
 2013-07-03 14:51:00,71.1,70,10.0,4.6,N/A,Overcast
-2013-07-03 15:36:00,69.8,73,8.0,5.8,0.01,Light Thunderstorms and Rain
 2013-07-03 15:51:00,69.1,78,10.0,8.1,0.02,Light Thunderstorms and Rain
-2013-07-03 16:00:00,69.8,78,10.0,6.9,0.00,Light Rain
 2013-07-03 16:51:00,66.9,87,7.0,5.8,0.04,Light Rain
 2013-07-03 17:51:00,66.9,87,8.0,5.8,0.01,Mostly Cloudy
 2013-07-03 18:51:00,69.1,84,10.0,Calm,N/A,Overcast
 2013-07-03 19:51:00,69.1,75,10.0,8.1,N/A,Mostly Cloudy
 2013-07-03 20:51:00,69.1,75,10.0,5.8,N/A,Overcast
-2013-07-03 21:41:00,68.0,78,10.0,5.8,N/A,Mostly Cloudy
 2013-07-03 21:51:00,68.0,76,10.0,4.6,N/A,Scattered Clouds
 2013-07-03 22:51:00,66.2,83,8.0,3.5,N/A,Scattered Clouds
 2013-07-03 23:51:00,66.0,81,10.0,4.6,N/A,Scattered Clouds
@@ -294,17 +271,9 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-08 06:51:00,77.0,74,10.0,10.4,N/A,Overcast
 2013-07-08 07:51:00,77.0,74,10.0,12.7,0.00,Light Rain
 2013-07-08 08:51:00,73.9,82,10.0,12.7,0.01,Light Rain
-2013-07-08 09:46:00,73.4,78,1.8,10.4,0.03,Rain
-2013-07-08 09:49:00,71.6,88,1.0,9.2,0.07,Heavy Thunderstorms and Rain
 2013-07-08 09:51:00,72.0,87,1.8,9.2,0.10,Heavy Thunderstorms and Rain
-2013-07-08 09:59:00,71.6,94,4.0,Calm,0.08,Light Rain
-2013-07-08 10:40:00,71.6,88,1.5,9.2,0.33,Heavy Thunderstorms and Rain
 2013-07-08 10:51:00,71.1,90,3.0,6.9,0.41,Light Rain
-2013-07-08 11:03:00,71.6,88,4.0,12.7,0.07,Light Thunderstorms and Rain
-2013-07-08 11:42:00,71.6,83,10.0,10.4,0.20,Light Rain
 2013-07-08 11:51:00,72.0,84,10.0,9.2,0.20,Light Rain
-2013-07-08 12:22:00,71.6,83,10.0,11.5,0.02,Light Thunderstorms and Rain
-2013-07-08 12:48:00,71.6,88,10.0,12.7,0.07,Light Rain
 2013-07-08 12:51:00,72.0,87,10.0,11.5,0.08,Light Rain
 2013-07-08 13:51:00,78.1,74,10.0,13.8,0.04,Mostly Cloudy
 2013-07-08 14:51:00,82.9,67,10.0,17.3,N/A,Partly Cloudy
@@ -550,9 +519,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-18 14:51:00,95.0,43,10.0,16.1,N/A,Scattered Clouds
 2013-07-18 15:51:00,95.0,41,10.0,15.0,N/A,Scattered Clouds
 2013-07-18 16:51:00,93.9,44,10.0,15.0,N/A,Scattered Clouds
-2013-07-18 17:29:00,91.4,52,10.0,11.5,N/A,Thunderstorm
 2013-07-18 17:51:00,88.0,57,10.0,18.4,N/A,Thunderstorm
-2013-07-18 18:09:00,84.2,62,10.0,10.4,N/A,Mostly Cloudy
 2013-07-18 18:51:00,87.1,57,10.0,10.4,N/A,Mostly Cloudy
 2013-07-18 19:51:00,87.1,59,10.0,8.1,N/A,Mostly Cloudy
 2013-07-18 20:51:00,86.0,63,10.0,8.1,N/A,Mostly Cloudy
@@ -581,10 +548,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-19 19:51:00,90.0,46,10.0,16.1,N/A,Scattered Clouds
 2013-07-19 20:51:00,89.1,48,10.0,11.5,N/A,Scattered Clouds
 2013-07-19 21:51:00,88.0,49,10.0,11.5,N/A,Mostly Cloudy
-2013-07-19 21:59:00,86.0,51,10.0,20.7,N/A,Thunderstorm
-2013-07-19 22:14:00,78.8,61,10.0,9.2,N/A,Thunderstorm
 2013-07-19 22:51:00,77.0,78,10.0,15.0,0.00,Thunderstorm
-2013-07-19 23:36:00,75.2,83,10.0,5.8,N/A,Overcast
 2013-07-19 23:51:00,77.0,76,10.0,6.9,N/A,Overcast
 2013-07-20 00:51:00,78.1,71,10.0,6.9,N/A,Mostly Cloudy
 2013-07-20 01:51:00,77.0,74,10.0,9.2,N/A,Overcast
@@ -608,8 +572,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-20 19:51:00,82.0,44,10.0,10.4,N/A,Mostly Cloudy
 2013-07-20 20:51:00,78.1,71,10.0,13.8,N/A,Mostly Cloudy
 2013-07-20 21:51:00,75.0,82,10.0,8.1,0.00,Overcast
-2013-07-20 22:24:00,73.4,88,10.0,8.1,0.00,Light Rain
-2013-07-20 22:43:00,73.4,88,10.0,9.2,0.00,Light Rain
 2013-07-20 22:51:00,73.0,87,10.0,9.2,0.00,Light Rain
 2013-07-20 23:51:00,73.0,79,10.0,6.9,0.00,Mostly Cloudy
 2013-07-21 00:51:00,73.0,76,10.0,8.1,N/A,Overcast
@@ -644,8 +606,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-22 05:51:00,72.0,76,10.0,3.5,N/A,Scattered Clouds
 2013-07-22 06:51:00,72.0,78,10.0,4.6,N/A,Mostly Cloudy
 2013-07-22 07:51:00,73.9,76,10.0,5.8,N/A,Scattered Clouds
-2013-07-22 08:17:00,75.2,73,10.0,8.1,N/A,Mostly Cloudy
-2013-07-22 08:33:00,75.2,73,10.0,10.4,N/A,Scattered Clouds
 2013-07-22 08:51:00,77.0,69,10.0,9.2,N/A,Scattered Clouds
 2013-07-22 09:51:00,80.1,60,10.0,6.9,N/A,Scattered Clouds
 2013-07-22 10:51:00,82.0,54,10.0,8.1,N/A,Scattered Clouds
@@ -662,10 +622,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-22 21:51:00,81.0,58,10.0,6.9,N/A,Overcast
 2013-07-22 22:51:00,81.0,60,10.0,4.6,N/A,Mostly Cloudy
 2013-07-22 23:51:00,81.0,62,10.0,9.2,N/A,Mostly Cloudy
-2013-07-23 00:21:00,80.6,45,10.0,20.7,N/A,Mostly Cloudy
-2013-07-23 00:31:00,73.4,65,5.0,19.6,0.00,Thunderstorms and Rain
 2013-07-23 00:51:00,73.0,66,10.0,12.7,N/A,Light Thunderstorms and Rain
-2013-07-23 01:18:00,73.4,65,10.0,17.3,N/A,Light Rain
 2013-07-23 01:51:00,77.0,50,10.0,5.8,N/A,Mostly Cloudy
 2013-07-23 02:51:00,75.0,57,10.0,5.8,N/A,Mostly Cloudy
 2013-07-23 03:51:00,73.9,57,10.0,10.4,N/A,Mostly Cloudy
@@ -675,10 +632,8 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-23 07:51:00,72.0,68,10.0,6.9,N/A,Scattered Clouds
 2013-07-23 08:51:00,75.0,64,10.0,10.4,N/A,Scattered Clouds
 2013-07-23 09:51:00,78.1,60,10.0,8.1,N/A,Scattered Clouds
-2013-07-23 10:10:00,78.8,57,10.0,9.2,N/A,Mostly Cloudy
 2013-07-23 10:51:00,75.0,64,10.0,13.8,N/A,Overcast
 2013-07-23 11:51:00,78.1,56,10.0,10.4,N/A,Mostly Cloudy
-2013-07-23 12:10:00,77.0,57,10.0,6.9,N/A,Mostly Cloudy
 2013-07-23 12:51:00,77.0,56,10.0,8.1,N/A,Mostly Cloudy
 2013-07-23 13:51:00,77.0,52,10.0,5.8,N/A,Mostly Cloudy
 2013-07-23 14:51:00,75.9,54,10.0,12.7,N/A,Mostly Cloudy
@@ -756,14 +711,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-26 14:51:00,73.9,55,10.0,16.1,N/A,Overcast
 2013-07-26 15:51:00,72.0,64,10.0,17.3,N/A,Overcast
 2013-07-26 16:51:00,72.0,66,10.0,13.8,N/A,Overcast
-2013-07-26 17:06:00,71.6,69,10.0,16.1,N/A,Overcast
 2013-07-26 17:51:00,71.1,68,10.0,12.7,N/A,Overcast
 2013-07-26 18:51:00,70.0,76,10.0,10.4,N/A,Overcast
 2013-07-26 19:51:00,70.0,78,10.0,6.9,N/A,Overcast
-2013-07-26 20:33:00,69.8,78,10.0,11.5,N/A,Mostly Cloudy
 2013-07-26 20:51:00,70.0,78,10.0,9.2,N/A,Mostly Cloudy
-2013-07-26 21:22:00,69.8,83,10.0,10.4,N/A,Overcast
-2013-07-26 21:36:00,69.8,78,10.0,8.1,N/A,Mostly Cloudy
 2013-07-26 21:51:00,70.0,81,10.0,6.9,N/A,Overcast
 2013-07-26 22:51:00,66.9,84,10.0,6.9,N/A,Overcast
 2013-07-26 23:51:00,66.9,76,10.0,8.1,N/A,Overcast
@@ -772,18 +723,13 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-27 02:51:00,62.1,80,10.0,5.8,N/A,Partly Cloudy
 2013-07-27 03:51:00,62.1,80,10.0,6.9,N/A,Mostly Cloudy
 2013-07-27 04:51:00,61.0,81,10.0,6.9,N/A,Mostly Cloudy
-2013-07-27 05:45:00,62.6,77,10.0,12.7,N/A,Overcast
 2013-07-27 05:51:00,61.0,83,10.0,10.4,N/A,Overcast
 2013-07-27 06:51:00,61.0,81,10.0,12.7,N/A,Mostly Cloudy
-2013-07-27 07:20:00,62.6,77,10.0,10.4,N/A,Mostly Cloudy
 2013-07-27 07:51:00,63.0,72,10.0,12.7,N/A,Mostly Cloudy
-2013-07-27 08:43:00,62.6,77,10.0,8.1,N/A,Mostly Cloudy
 2013-07-27 08:51:00,62.1,78,10.0,8.1,N/A,Mostly Cloudy
 2013-07-27 09:51:00,60.1,78,10.0,12.7,N/A,Overcast
-2013-07-27 10:14:00,60.8,77,10.0,9.2,N/A,Overcast
 2013-07-27 10:51:00,64.0,65,10.0,10.4,N/A,Mostly Cloudy
 2013-07-27 11:51:00,64.9,56,10.0,15.0,N/A,Mostly Cloudy
-2013-07-27 12:08:00,66.2,52,10.0,12.7,N/A,Mostly Cloudy
 2013-07-27 12:51:00,64.9,52,10.0,16.1,N/A,Mostly Cloudy
 2013-07-27 13:51:00,64.0,54,10.0,17.3,N/A,Overcast
 2013-07-27 14:51:00,63.0,54,10.0,16.1,N/A,Overcast
@@ -805,9 +751,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-28 06:51:00,55.0,77,10.0,10.4,0.00,Mostly Cloudy
 2013-07-28 07:51:00,55.9,77,10.0,9.2,N/A,Mostly Cloudy
 2013-07-28 08:51:00,59.0,67,10.0,12.7,N/A,Mostly Cloudy
-2013-07-28 09:43:00,60.8,59,10.0,10.4,N/A,Mostly Cloudy
 2013-07-28 09:51:00,61.0,62,10.0,13.8,N/A,Mostly Cloudy
-2013-07-28 10:26:00,62.6,55,10.0,11.5,N/A,Mostly Cloudy
 2013-07-28 10:51:00,62.1,56,10.0,11.5,N/A,Mostly Cloudy
 2013-07-28 11:51:00,64.0,52,10.0,12.7,N/A,Mostly Cloudy
 2013-07-28 12:51:00,64.0,50,10.0,8.1,N/A,Mostly Cloudy
@@ -860,9 +804,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-30 11:51:00,72.0,55,10.0,8.1,0.00,Light Rain
 2013-07-30 12:51:00,71.1,61,10.0,8.1,0.00,Light Rain
 2013-07-30 13:51:00,71.1,61,10.0,10.4,0.00,Overcast
-2013-07-30 14:32:00,71.6,60,10.0,9.2,N/A,Overcast
 2013-07-30 14:51:00,72.0,59,10.0,9.2,N/A,Overcast
-2013-07-30 15:10:00,71.6,60,10.0,9.2,N/A,Overcast
 2013-07-30 15:51:00,72.0,64,10.0,8.1,N/A,Overcast
 2013-07-30 16:51:00,73.0,61,10.0,10.4,N/A,Overcast
 2013-07-30 17:51:00,72.0,64,10.0,9.2,N/A,Overcast
@@ -873,41 +815,26 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-07-30 22:51:00,70.0,68,10.0,5.8,N/A,Overcast
 2013-07-30 23:51:00,70.0,65,10.0,4.6,N/A,Overcast
 2013-07-31 00:51:00,70.0,65,10.0,6.9,N/A,Overcast
-2013-07-31 01:00:00,69.8,68,10.0,5.8,N/A,Overcast
 2013-07-31 01:51:00,70.0,68,10.0,6.9,N/A,Overcast
-2013-07-31 02:37:00,69.8,73,10.0,8.1,N/A,Overcast
 2013-07-31 02:51:00,69.1,73,10.0,6.9,N/A,Overcast
-2013-07-31 03:09:00,69.8,73,10.0,8.1,N/A,Overcast
-2013-07-31 03:31:00,66.2,88,2.0,5.8,0.01,Light Drizzle
 2013-07-31 03:51:00,66.0,90,2.5,Calm,0.01,Light Drizzle
-2013-07-31 04:18:00,66.2,88,2.0,Calm,0.02,Light Drizzle
-2013-07-31 04:41:00,66.2,88,5.0,Calm,0.02,Light Drizzle
 2013-07-31 04:51:00,66.0,90,5.0,Calm,0.02,Overcast
-2013-07-31 05:00:00,66.2,88,1.5,Calm,0.00,Light Drizzle
 2013-07-31 05:51:00,66.0,93,1.5,Calm,0.01,Overcast
-2013-07-31 05:58:00,66.2,94,2.5,Calm,N/A,Overcast
-2013-07-31 06:27:00,66.2,94,1.5,3.5,N/A,Overcast
 2013-07-31 06:51:00,66.0,93,1.2,Calm,0.00,Light Drizzle
-2013-07-31 07:16:00,66.2,94,1.2,Calm,0.00,Light Drizzle
-2013-07-31 07:39:00,66.2,94,2.5,Calm,0.01,Overcast
 2013-07-31 07:51:00,66.9,90,2.5,Calm,0.01,Overcast
-2013-07-31 08:34:00,66.2,94,2.5,Calm,N/A,Overcast
 2013-07-31 08:51:00,68.0,90,2.5,Calm,N/A,Overcast
 2013-07-31 09:51:00,69.1,87,3.0,5.8,N/A,Overcast
-2013-07-31 10:46:00,69.8,83,5.0,6.9,N/A,Haze
 2013-07-31 10:51:00,69.1,84,5.0,5.8,N/A,Haze
 2013-07-31 11:51:00,71.1,78,5.0,5.8,N/A,Haze
 2013-07-31 12:51:00,71.1,78,5.0,4.6,N/A,Haze
 2013-07-31 13:51:00,72.0,76,5.0,5.8,N/A,Haze
 2013-07-31 14:51:00,72.0,76,6.0,8.1,N/A,Haze
 2013-07-31 15:51:00,73.0,71,9.0,5.8,N/A,Overcast
-2013-07-31 16:33:00,73.4,69,9.0,8.1,N/A,Overcast
 2013-07-31 16:51:00,73.0,71,9.0,8.1,N/A,Overcast
 2013-07-31 17:51:00,73.0,68,10.0,8.1,N/A,Mostly Cloudy
 2013-07-31 18:51:00,73.9,66,10.0,4.6,N/A,Scattered Clouds
 2013-07-31 19:51:00,73.0,68,10.0,4.6,N/A,Scattered Clouds
 2013-07-31 20:51:00,72.0,73,10.0,4.6,N/A,Mostly Cloudy
-2013-07-31 21:16:00,71.6,73,8.0,16.1,0.01,Light Thunderstorms and Rain
 2013-07-31 21:51:00,66.0,87,9.0,Calm,0.12,Light Rain
 2013-07-31 22:51:00,64.9,90,10.0,4.6,0.01,Mostly Cloudy
 2013-07-31 23:51:00,64.9,90,9.0,4.6,N/A,Partly Cloudy
@@ -940,15 +867,9 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-02 02:51:00,66.9,68,10.0,11.5,0.00,Overcast
 2013-08-02 03:51:00,68.0,68,10.0,Calm,N/A,Overcast
 2013-08-02 04:51:00,66.9,76,10.0,Calm,0.00,Light Rain
-2013-08-02 05:00:00,66.2,83,9.0,4.6,0.01,Light Thunderstorms and Rain
-2013-08-02 05:31:00,66.2,83,10.0,5.8,0.01,Overcast
 2013-08-02 05:51:00,66.0,84,10.0,6.9,0.01,Overcast
 2013-08-02 06:51:00,66.9,73,10.0,10.4,N/A,Overcast
-2013-08-02 07:17:00,66.2,73,10.0,6.9,0.00,Light Thunderstorms and Rain
-2013-08-02 07:43:00,66.2,73,10.0,5.8,0.00,Overcast
 2013-08-02 07:51:00,66.9,73,10.0,9.2,0.00,Overcast
-2013-08-02 08:04:00,66.2,83,1.5,12.7,0.16,Heavy Rain
-2013-08-02 08:09:00,64.4,88,10.0,8.1,0.17,Light Rain
 2013-08-02 08:51:00,66.9,84,10.0,6.9,0.17,Mostly Cloudy
 2013-08-02 09:51:00,69.1,84,10.0,9.2,0.04,Mostly Cloudy
 2013-08-02 10:51:00,73.9,73,10.0,12.7,N/A,Mostly Cloudy
@@ -1045,18 +966,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-06 05:51:00,68.0,84,10.0,3.5,N/A,Overcast
 2013-08-06 06:51:00,69.1,84,9.0,8.1,N/A,Overcast
 2013-08-06 07:51:00,69.1,84,10.0,12.7,N/A,Mostly Cloudy
-2013-08-06 08:31:00,71.6,78,10.0,11.5,N/A,Mostly Cloudy
 2013-08-06 08:51:00,71.1,81,10.0,13.8,N/A,Mostly Cloudy
 2013-08-06 09:51:00,73.0,76,10.0,12.7,N/A,Mostly Cloudy
-2013-08-06 10:38:00,75.2,73,10.0,9.2,N/A,Scattered Clouds
 2013-08-06 10:51:00,75.0,73,10.0,12.7,N/A,Mostly Cloudy
-2013-08-06 11:48:00,77.0,69,10.0,11.5,N/A,Mostly Cloudy
 2013-08-06 11:51:00,77.0,71,10.0,10.4,N/A,Mostly Cloudy
-2013-08-06 12:17:00,78.8,65,10.0,8.1,N/A,Scattered Clouds
 2013-08-06 12:51:00,80.1,64,10.0,11.5,N/A,Scattered Clouds
-2013-08-06 13:02:00,80.6,61,10.0,10.4,N/A,Mostly Cloudy
 2013-08-06 13:51:00,81.0,62,10.0,9.2,N/A,Mostly Cloudy
-2013-08-06 14:16:00,82.4,58,10.0,9.2,N/A,Mostly Cloudy
 2013-08-06 14:51:00,82.0,60,10.0,8.1,N/A,Mostly Cloudy
 2013-08-06 15:51:00,82.9,56,10.0,9.2,N/A,Mostly Cloudy
 2013-08-06 16:51:00,84.0,55,10.0,10.4,N/A,Mostly Cloudy
@@ -1082,9 +997,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-07 12:51:00,87.1,55,10.0,13.8,N/A,Mostly Cloudy
 2013-08-07 13:51:00,86.0,59,10.0,9.2,0.01,Scattered Clouds
 2013-08-07 14:51:00,91.0,42,10.0,13.8,N/A,Mostly Cloudy
-2013-08-07 15:02:00,89.6,46,10.0,10.4,N/A,Mostly Cloudy
 2013-08-07 15:51:00,86.0,59,10.0,16.1,N/A,Mostly Cloudy
-2013-08-07 16:06:00,82.4,70,10.0,6.9,N/A,Mostly Cloudy
 2013-08-07 16:51:00,82.9,65,10.0,6.9,N/A,Mostly Cloudy
 2013-08-07 17:51:00,81.0,65,10.0,13.8,N/A,Mostly Cloudy
 2013-08-07 18:51:00,79.0,72,10.0,16.1,N/A,Mostly Cloudy
@@ -1099,9 +1012,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-08 03:51:00,70.0,71,10.0,6.9,N/A,Mostly Cloudy
 2013-08-08 04:51:00,70.0,71,10.0,11.5,N/A,Scattered Clouds
 2013-08-08 05:51:00,69.1,78,10.0,9.2,N/A,Mostly Cloudy
-2013-08-08 06:03:00,69.8,78,10.0,13.8,N/A,Mostly Cloudy
 2013-08-08 06:51:00,69.1,78,10.0,11.5,N/A,Mostly Cloudy
-2013-08-08 07:14:00,69.8,73,10.0,11.5,N/A,Scattered Clouds
 2013-08-08 07:51:00,71.1,68,10.0,13.8,N/A,Scattered Clouds
 2013-08-08 08:51:00,71.1,68,10.0,16.1,N/A,Mostly Cloudy
 2013-08-08 09:51:00,73.0,53,10.0,18.4,N/A,Scattered Clouds
@@ -1206,12 +1117,8 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-12 12:51:00,84.0,49,10.0,10.4,N/A,Overcast
 2013-08-12 13:51:00,84.0,47,10.0,10.4,N/A,Overcast
 2013-08-12 14:51:00,75.0,69,0.8,6.9,0.30,Heavy Rain
-2013-08-12 14:55:00,71.6,78,3.0,3.5,0.12,Heavy Rain
-2013-08-12 15:02:00,73.4,78,1.0,12.7,0.33,Heavy Rain
-2013-08-12 15:06:00,73.4,78,4.0,5.8,0.35,Heavy Rain
 2013-08-12 15:51:00,77.0,74,9.0,4.6,0.35,Light Rain
 2013-08-12 16:51:00,79.0,66,10.0,9.2,0.00,Mostly Cloudy
-2013-08-12 17:37:00,75.2,73,10.0,10.4,N/A,Mostly Cloudy
 2013-08-12 17:51:00,75.9,71,10.0,8.1,N/A,Mostly Cloudy
 2013-08-12 18:51:00,75.9,74,10.0,6.9,N/A,Mostly Cloudy
 2013-08-12 19:51:00,73.0,81,6.0,Calm,0.01,Light Rain
@@ -1221,16 +1128,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-12 23:51:00,70.0,87,6.0,5.8,N/A,Partly Cloudy
 2013-08-13 00:51:00,69.1,87,6.0,6.9,N/A,Partly Cloudy
 2013-08-13 01:51:00,69.1,78,10.0,11.5,N/A,Partly Cloudy
-2013-08-13 02:14:00,68.0,78,10.0,11.5,N/A,Mostly Cloudy
 2013-08-13 02:51:00,68.0,76,10.0,12.7,N/A,Mostly Cloudy
-2013-08-13 03:46:00,66.2,68,10.0,15.0,N/A,Scattered Clouds
 2013-08-13 03:51:00,66.0,70,10.0,12.7,N/A,Scattered Clouds
 2013-08-13 04:51:00,64.9,68,10.0,10.4,N/A,Scattered Clouds
 2013-08-13 05:51:00,64.0,65,10.0,15.0,N/A,Scattered Clouds
-2013-08-13 06:21:00,64.4,68,10.0,13.8,N/A,Mostly Cloudy
 2013-08-13 06:51:00,64.0,65,10.0,16.1,N/A,Mostly Cloudy
 2013-08-13 07:51:00,64.0,67,10.0,13.8,N/A,Mostly Cloudy
-2013-08-13 07:57:00,64.4,68,10.0,12.7,N/A,Scattered Clouds
 2013-08-13 08:51:00,66.0,63,10.0,15.0,N/A,Scattered Clouds
 2013-08-13 09:51:00,66.0,56,10.0,15.0,N/A,Scattered Clouds
 2013-08-13 10:51:00,69.1,49,10.0,18.4,N/A,Mostly Cloudy
@@ -1294,6 +1197,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-15 20:51:00,71.1,47,10.0,3.5,N/A,Mostly Cloudy
 2013-08-15 21:51:00,68.0,55,10.0,Calm,N/A,Mostly Cloudy
 2013-08-15 22:51:00,64.0,65,10.0,Calm,N/A,Scattered Clouds
+2013-08-15 23:51:00,64.0,65,10.0,Calm,N/A,Scattered Clouds
 2013-08-16 00:51:00,64.0,67,10.0,Calm,N/A,Scattered Clouds
 2013-08-16 01:51:00,63.0,70,10.0,Calm,N/A,Partly Cloudy
 2013-08-16 02:51:00,61.0,75,10.0,Calm,N/A,Partly Cloudy
@@ -1326,7 +1230,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-17 05:51:00,62.1,84,10.0,Calm,N/A,Partly Cloudy
 2013-08-17 06:51:00,62.1,84,9.0,Calm,N/A,Partly Cloudy
 2013-08-17 07:51:00,71.6,69,10.0,4.6,N/A,Scattered Clouds
-2013-08-17 08:13:00,71.6,64,10.0,4.6,N/A,Scattered Clouds
 2013-08-17 08:51:00,73.4,57,10.0,6.9,N/A,Partly Cloudy
 2013-08-17 09:51:00,75.9,46,10.0,6.9,N/A,Scattered Clouds
 2013-08-17 10:51:00,78.1,40,10.0,10.4,N/A,Scattered Clouds
@@ -1438,7 +1341,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-21 20:51:00,82.9,51,10.0,10.4,N/A,Mostly Cloudy
 2013-08-21 21:51:00,82.0,56,10.0,10.4,N/A,Mostly Cloudy
 2013-08-21 22:51:00,78.1,68,7.0,11.5,0.02,Light Rain
-2013-08-21 23:00:00,77.0,74,5.0,11.5,0.03,Light Thunderstorms and Rain
 2013-08-21 23:51:00,75.9,79,10.0,3.5,0.03,Overcast
 2013-08-22 00:51:00,77.0,74,10.0,8.1,N/A,Mostly Cloudy
 2013-08-22 01:51:00,73.0,76,10.0,12.7,N/A,Overcast
@@ -1451,15 +1353,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-22 08:51:00,72.0,84,10.0,15.0,0.02,Light Rain
 2013-08-22 09:51:00,72.0,87,10.0,11.5,0.03,Overcast
 2013-08-22 10:51:00,72.0,84,10.0,13.8,0.14,Rain
-2013-08-22 11:06:00,71.6,83,10.0,21.9,0.00,Light Rain
 2013-08-22 11:51:00,71.1,87,10.0,10.4,0.07,Light Rain
 2013-08-22 12:51:00,70.0,90,8.0,9.2,0.05,Light Rain
 2013-08-22 13:51:00,71.1,87,10.0,10.4,0.02,Overcast
 2013-08-22 14:51:00,71.1,87,10.0,9.2,0.01,Light Rain
 2013-08-22 15:51:00,72.0,84,10.0,4.6,0.00,Overcast
-2013-08-22 16:08:00,71.6,83,10.0,4.6,N/A,Overcast
 2013-08-22 16:51:00,73.9,79,10.0,Calm,0.00,Overcast
-2013-08-22 17:14:00,73.4,78,10.0,9.2,N/A,Overcast
 2013-08-22 17:51:00,73.0,79,10.0,8.1,N/A,Overcast
 2013-08-22 18:51:00,73.9,71,10.0,Calm,N/A,Mostly Cloudy
 2013-08-22 19:51:00,73.0,73,10.0,3.5,N/A,Scattered Clouds
@@ -1468,7 +1367,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-22 22:51:00,70.0,78,10.0,Calm,N/A,Partly Cloudy
 2013-08-22 23:51:00,70.0,81,9.0,5.8,N/A,Clear
 2013-08-23 00:51:00,66.9,87,8.0,Calm,N/A,Clear
-2013-08-23 01:18:00,66.2,88,4.0,Calm,N/A,Mostly Cloudy
 2013-08-23 01:51:00,66.0,90,4.0,3.5,N/A,Scattered Clouds
 2013-08-23 02:51:00,64.9,93,4.0,3.5,N/A,Clear
 2013-08-23 03:51:00,66.9,87,8.0,3.5,N/A,Clear
@@ -1596,15 +1494,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-28 05:51:00,79.0,62,10.0,5.8,N/A,Mostly Cloudy
 2013-08-28 06:51:00,78.1,64,10.0,4.6,N/A,Mostly Cloudy
 2013-08-28 07:51:00,79.0,74,7.0,3.5,N/A,Partly Cloudy
-2013-08-28 08:46:00,78.8,74,8.0,11.5,N/A,Mostly Cloudy
 2013-08-28 08:51:00,78.1,74,8.0,9.2,N/A,Mostly Cloudy
 2013-08-28 09:51:00,75.9,79,10.0,10.4,N/A,Overcast
 2013-08-28 10:51:00,77.0,76,10.0,8.1,N/A,Overcast
 2013-08-28 11:51:00,79.0,72,10.0,9.2,N/A,Overcast
-2013-08-28 12:03:00,78.8,69,10.0,11.5,N/A,Overcast
 2013-08-28 12:51:00,80.1,67,10.0,11.5,N/A,Overcast
 2013-08-28 13:51:00,79.0,69,10.0,12.7,N/A,Overcast
-2013-08-28 14:29:00,77.0,74,10.0,15.0,N/A,Overcast
 2013-08-28 14:51:00,77.0,74,10.0,11.5,N/A,Overcast
 2013-08-28 15:51:00,77.0,74,10.0,10.4,N/A,Mostly Cloudy
 2013-08-28 16:51:00,75.9,76,10.0,12.7,N/A,Overcast
@@ -1612,30 +1507,18 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-28 18:51:00,75.9,74,10.0,5.8,N/A,Scattered Clouds
 2013-08-28 19:51:00,73.9,79,10.0,8.1,N/A,Scattered Clouds
 2013-08-28 20:51:00,72.0,84,10.0,9.2,N/A,Scattered Clouds
-2013-08-28 20:58:00,71.6,83,10.0,6.9,N/A,Mostly Cloudy
-2013-08-28 21:27:00,73.4,78,10.0,8.1,N/A,Overcast
 2013-08-28 21:51:00,73.0,81,9.0,8.1,N/A,Overcast
 2013-08-28 22:51:00,72.0,87,7.0,6.9,N/A,Overcast
 2013-08-28 23:51:00,71.1,90,5.0,5.8,N/A,Overcast
 2013-08-29 00:51:00,72.0,87,4.0,3.5,N/A,Overcast
 2013-08-29 01:51:00,72.0,84,6.0,5.8,N/A,Haze
-2013-08-29 02:10:00,71.6,83,7.0,3.5,N/A,Scattered Clouds
 2013-08-29 02:51:00,71.1,87,7.0,Calm,N/A,Scattered Clouds
 2013-08-29 03:51:00,70.0,90,5.0,Calm,N/A,Partly Cloudy
 2013-08-29 04:51:00,70.0,87,5.0,3.5,N/A,Partly Cloudy
 2013-08-29 05:51:00,70.0,87,4.0,Calm,N/A,Partly Cloudy
-2013-08-29 06:01:00,69.8,88,3.0,Calm,N/A,Mostly Cloudy
-2013-08-29 06:40:00,69.8,88,2.0,3.5,N/A,Overcast
-2013-08-29 06:44:00,69.8,88,1.5,4.6,N/A,Overcast
 2013-08-29 06:51:00,70.0,90,0.5,4.6,N/A,Fog
-2013-08-29 07:36:00,69.8,94,0.8,Calm,N/A,Overcast
-2013-08-29 07:44:00,69.8,94,1.0,Calm,N/A,Overcast
 2013-08-29 07:51:00,70.0,93,1.8,Calm,N/A,Overcast
-2013-08-29 08:06:00,69.8,94,2.0,Calm,N/A,Overcast
-2013-08-29 08:43:00,71.6,88,3.0,Calm,N/A,Mostly Cloudy
 2013-08-29 08:51:00,72.0,87,4.0,Calm,N/A,Mostly Cloudy
-2013-08-29 09:14:00,75.2,78,5.0,Calm,N/A,Haze
-2013-08-29 09:21:00,75.2,78,5.0,Calm,N/A,Haze
 2013-08-29 09:51:00,77.0,74,6.0,Calm,N/A,Haze
 2013-08-29 10:51:00,82.0,62,10.0,5.8,N/A,Partly Cloudy
 2013-08-29 11:51:00,84.0,53,10.0,8.1,N/A,Partly Cloudy
@@ -1669,63 +1552,37 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-08-30 15:51:00,95.0,41,10.0,10.4,N/A,Mostly Cloudy
 2013-08-30 16:51:00,95.0,43,10.0,16.1,N/A,Mostly Cloudy
 2013-08-30 17:51:00,91.9,47,10.0,12.7,N/A,Mostly Cloudy
-2013-08-30 17:58:00,91.4,49,10.0,13.8,N/A,Thunderstorm
-2013-08-30 18:06:00,84.2,51,3.0,34.5,N/A,Unknown
-2013-08-30 18:15:00,75.2,73,1.0,39.1,0.09,Thunderstorms and Rain
-2013-08-30 18:37:00,73.4,73,5.0,18.4,0.47,Light Thunderstorms and Rain
 2013-08-30 18:51:00,73.9,68,10.0,9.2,0.47,Light Thunderstorms and Rain
-2013-08-30 19:01:00,73.4,69,10.0,15.0,0.00,Mostly Cloudy
 2013-08-30 19:51:00,73.9,73,10.0,Calm,0.00,Light Rain
 2013-08-30 20:51:00,73.0,79,10.0,6.9,0.00,Mostly Cloudy
 2013-08-30 21:51:00,73.9,76,10.0,5.8,N/A,Mostly Cloudy
 2013-08-30 22:51:00,73.0,79,10.0,3.5,N/A,Mostly Cloudy
 2013-08-30 23:51:00,73.9,79,10.0,8.1,N/A,Scattered Clouds
-2013-08-31 00:37:00,73.4,78,10.0,10.4,N/A,Mostly Cloudy
 2013-08-31 00:51:00,73.0,79,10.0,12.7,N/A,Mostly Cloudy
 2013-08-31 01:51:00,72.0,78,10.0,10.4,N/A,Mostly Cloudy
 2013-08-31 02:51:00,71.1,81,10.0,11.5,N/A,Mostly Cloudy
 2013-08-31 03:51:00,72.0,78,10.0,6.9,N/A,Mostly Cloudy
 2013-08-31 04:51:00,72.0,78,10.0,6.9,N/A,Mostly Cloudy
 2013-08-31 05:51:00,72.0,78,10.0,6.9,N/A,Mostly Cloudy
-2013-08-31 06:07:00,71.6,78,10.0,3.5,N/A,Overcast
 2013-08-31 06:51:00,72.0,78,10.0,3.5,N/A,Overcast
 2013-08-31 07:51:00,72.0,78,10.0,Calm,N/A,Mostly Cloudy
 2013-08-31 08:51:00,73.0,76,10.0,3.5,N/A,Mostly Cloudy
-2013-08-31 09:32:00,75.2,69,10.0,8.1,N/A,Thunderstorm
 2013-08-31 09:51:00,73.9,73,10.0,9.2,N/A,Thunderstorm
-2013-08-31 09:57:00,73.4,73,2.0,8.1,0.08,Thunderstorms and Rain
-2013-08-31 09:59:00,73.4,73,1.5,4.6,0.15,Thunderstorms and Rain
-2013-08-31 10:08:00,71.6,83,0.5,3.5,0.39,Heavy Thunderstorms and Rain
-2013-08-31 10:18:00,71.6,88,3.0,4.6,0.52,Light Thunderstorms and Rain
-2013-08-31 10:40:00,71.6,88,10.0,11.5,0.62,Light Thunderstorms and Rain
 2013-08-31 10:51:00,71.1,87,10.0,6.9,0.64,Light Rain
-2013-08-31 11:02:00,71.6,83,10.0,11.5,0.02,Light Thunderstorms and Rain
 2013-08-31 11:51:00,71.1,90,1.0,9.2,0.16,Light Thunderstorms and Rain
-2013-08-31 11:56:00,69.8,94,1.0,9.2,0.09,Thunderstorms and Rain
-2013-08-31 12:05:00,69.8,100,10.0,3.5,0.13,Light Thunderstorms and Rain
-2013-08-31 12:23:00,69.8,94,10.0,9.2,0.15,Light Rain
 2013-08-31 12:51:00,71.1,96,10.0,3.5,0.15,Mostly Cloudy
-2013-08-31 12:57:00,71.6,94,10.0,5.8,N/A,Overcast
 2013-08-31 13:51:00,72.0,87,10.0,6.9,0.01,Mostly Cloudy
-2013-08-31 14:03:00,73.4,83,10.0,9.2,N/A,Mostly Cloudy
-2013-08-31 14:35:00,73.4,83,10.0,4.6,N/A,Mostly Cloudy
 2013-08-31 14:51:00,73.9,79,10.0,4.6,N/A,Mostly Cloudy
 2013-08-31 15:51:00,75.9,74,10.0,5.8,0.00,Mostly Cloudy
-2013-08-31 16:02:00,75.2,73,10.0,5.8,N/A,Mostly Cloudy
 2013-08-31 16:51:00,75.9,71,10.0,10.4,N/A,Mostly Cloudy
-2013-08-31 17:06:00,75.2,73,10.0,11.5,N/A,Mostly Cloudy
 2013-08-31 17:51:00,73.9,73,10.0,10.4,N/A,Overcast
 2013-08-31 18:51:00,73.9,73,10.0,10.4,N/A,Overcast
-2013-08-31 19:33:00,73.4,73,10.0,8.1,N/A,Overcast
 2013-08-31 19:51:00,73.0,76,10.0,9.2,N/A,Overcast
 2013-08-31 20:51:00,73.0,79,10.0,6.9,N/A,Overcast
 2013-08-31 21:51:00,73.0,79,10.0,5.8,N/A,Overcast
-2013-08-31 21:56:00,73.4,78,10.0,5.8,N/A,Overcast
-2013-08-31 22:19:00,73.4,78,10.0,6.9,N/A,Overcast
 2013-08-31 22:51:00,73.0,79,10.0,4.6,N/A,Overcast
 2013-08-31 23:51:00,73.0,81,10.0,9.2,N/A,Overcast
 2013-09-01 00:51:00,73.0,79,10.0,6.9,N/A,Overcast
-2013-09-01 01:38:00,71.6,83,10.0,5.8,N/A,Mostly Cloudy
 2013-09-01 01:51:00,72.0,81,10.0,5.8,N/A,Mostly Cloudy
 2013-09-01 02:51:00,71.1,84,10.0,Calm,N/A,Scattered Clouds
 2013-09-01 03:51:00,70.0,87,10.0,3.5,N/A,Scattered Clouds
@@ -1735,9 +1592,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-01 07:51:00,70.0,90,10.0,Calm,N/A,Clear
 2013-09-01 08:51:00,73.0,81,10.0,3.5,N/A,Clear
 2013-09-01 09:51:00,75.9,74,10.0,4.6,N/A,Scattered Clouds
-2013-09-01 10:33:00,78.8,65,10.0,10.4,N/A,Mostly Cloudy
 2013-09-01 10:51:00,78.1,66,10.0,9.2,N/A,Mostly Cloudy
-2013-09-01 11:44:00,78.8,61,10.0,10.4,N/A,Mostly Cloudy
 2013-09-01 11:51:00,79.0,60,10.0,4.6,N/A,Mostly Cloudy
 2013-09-01 12:51:00,80.1,58,10.0,8.1,N/A,Mostly Cloudy
 2013-09-01 13:51:00,82.0,54,10.0,3.5,N/A,Scattered Clouds
@@ -1748,9 +1603,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-01 18:51:00,81.0,62,10.0,9.2,N/A,Mostly Cloudy
 2013-09-01 19:51:00,81.0,65,10.0,6.9,N/A,Mostly Cloudy
 2013-09-01 20:51:00,79.0,69,10.0,12.7,N/A,Mostly Cloudy
-2013-09-01 21:12:00,78.8,74,10.0,8.1,0.00,Light Thunderstorms and Rain
 2013-09-01 21:51:00,77.0,79,10.0,10.4,0.00,Thunderstorm
-2013-09-01 22:17:00,71.6,83,10.0,3.5,0.02,Light Rain
 2013-09-01 22:51:00,72.0,76,10.0,3.5,0.02,Overcast
 2013-09-01 23:51:00,71.1,78,10.0,8.1,N/A,Scattered Clouds
 2013-09-02 00:51:00,71.1,75,10.0,8.1,N/A,Partly Cloudy
@@ -1763,7 +1616,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-02 07:51:00,69.1,75,10.0,4.6,N/A,Partly Cloudy
 2013-09-02 08:51:00,72.0,73,10.0,5.8,N/A,Scattered Clouds
 2013-09-02 09:51:00,73.0,66,10.0,4.6,N/A,Mostly Cloudy
-2013-09-02 10:27:00,75.2,61,10.0,6.9,N/A,Mostly Cloudy
 2013-09-02 10:51:00,77.0,58,10.0,5.8,N/A,Mostly Cloudy
 2013-09-02 11:51:00,75.0,62,10.0,5.8,N/A,Mostly Cloudy
 2013-09-02 12:51:00,75.0,62,10.0,8.1,N/A,Mostly Cloudy
@@ -1771,16 +1623,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-02 14:51:00,73.9,64,10.0,12.7,N/A,Mostly Cloudy
 2013-09-02 15:51:00,73.0,66,10.0,13.8,N/A,Overcast
 2013-09-02 16:51:00,71.1,68,10.0,12.7,N/A,Mostly Cloudy
-2013-09-02 17:21:00,71.6,64,10.0,15.0,N/A,Mostly Cloudy
 2013-09-02 17:51:00,70.0,68,10.0,11.5,N/A,Overcast
-2013-09-02 17:58:00,69.8,68,10.0,12.7,N/A,Mostly Cloudy
-2013-09-02 18:05:00,69.8,68,10.0,12.7,N/A,Mostly Cloudy
 2013-09-02 18:51:00,69.1,68,10.0,13.8,N/A,Mostly Cloudy
-2013-09-02 19:11:00,68.0,68,10.0,11.5,N/A,Mostly Cloudy
-2013-09-02 19:31:00,68.0,68,10.0,11.5,N/A,Mostly Cloudy
 2013-09-02 19:51:00,68.0,68,10.0,9.2,N/A,Mostly Cloudy
 2013-09-02 20:51:00,68.0,68,10.0,10.4,N/A,Overcast
-2013-09-02 21:38:00,66.2,68,10.0,12.7,N/A,Scattered Clouds
 2013-09-02 21:51:00,66.9,68,10.0,11.5,N/A,Scattered Clouds
 2013-09-02 22:51:00,66.9,66,10.0,10.4,N/A,Scattered Clouds
 2013-09-02 23:51:00,66.0,63,10.0,5.8,N/A,Partly Cloudy
@@ -1836,15 +1682,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-05 01:51:00,70.0,68,10.0,4.6,N/A,Mostly Cloudy
 2013-09-05 02:51:00,69.1,70,10.0,3.5,N/A,Mostly Cloudy
 2013-09-05 03:51:00,70.0,76,10.0,4.6,N/A,Mostly Cloudy
-2013-09-05 04:37:00,71.6,83,10.0,10.4,N/A,Mostly Cloudy
 2013-09-05 04:51:00,71.1,81,10.0,10.4,N/A,Overcast
-2013-09-05 05:14:00,71.6,78,10.0,10.4,N/A,Overcast
-2013-09-05 05:38:00,71.6,73,10.0,6.9,N/A,Mostly Cloudy
 2013-09-05 05:51:00,71.1,78,10.0,6.9,N/A,Mostly Cloudy
-2013-09-05 06:37:00,71.6,78,10.0,9.2,N/A,Mostly Cloudy
 2013-09-05 06:51:00,71.1,78,10.0,10.4,N/A,Mostly Cloudy
 2013-09-05 07:51:00,71.1,73,10.0,11.5,N/A,Mostly Cloudy
-2013-09-05 08:27:00,71.6,60,10.0,15.0,N/A,Mostly Cloudy
 2013-09-05 08:51:00,71.1,61,10.0,15.0,N/A,Mostly Cloudy
 2013-09-05 09:51:00,72.0,46,10.0,16.1,N/A,Mostly Cloudy
 2013-09-05 10:51:00,70.0,53,10.0,17.3,N/A,Mostly Cloudy
@@ -1912,7 +1753,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-08 00:51:00,78.1,64,10.0,4.6,N/A,Mostly Cloudy
 2013-09-08 01:51:00,75.0,71,10.0,10.4,N/A,Partly Cloudy
 2013-09-08 02:51:00,73.0,76,10.0,13.8,N/A,Scattered Clouds
-2013-09-08 03:29:00,73.4,78,10.0,12.7,N/A,Mostly Cloudy
 2013-09-08 03:51:00,73.0,81,10.0,12.7,N/A,Overcast
 2013-09-08 04:51:00,72.0,81,9.0,11.5,N/A,Overcast
 2013-09-08 05:51:00,72.0,81,10.0,8.1,N/A,Overcast
@@ -1921,12 +1761,9 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-08 08:51:00,73.0,79,10.0,13.8,N/A,Overcast
 2013-09-08 09:51:00,72.0,81,10.0,12.7,N/A,Overcast
 2013-09-08 10:51:00,73.0,79,10.0,8.1,N/A,Overcast
-2013-09-08 11:48:00,75.2,73,10.0,15.0,N/A,Scattered Clouds
 2013-09-08 11:51:00,75.9,71,10.0,13.8,N/A,Scattered Clouds
-2013-09-08 12:41:00,75.2,73,10.0,13.8,N/A,Mostly Cloudy
 2013-09-08 12:51:00,75.9,71,10.0,13.8,N/A,Mostly Cloudy
 2013-09-08 13:51:00,77.0,69,10.0,15.0,N/A,Mostly Cloudy
-2013-09-08 14:38:00,75.2,69,10.0,16.1,N/A,Mostly Cloudy
 2013-09-08 14:51:00,77.0,66,10.0,15.0,N/A,Mostly Cloudy
 2013-09-08 15:51:00,77.0,66,10.0,13.8,N/A,Mostly Cloudy
 2013-09-08 16:51:00,77.0,64,10.0,15.0,N/A,Mostly Cloudy
@@ -2025,7 +1862,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-12 13:51:00,82.0,28,10.0,12.7,N/A,Partly Cloudy
 2013-09-12 14:51:00,81.0,29,10.0,16.1,N/A,Partly Cloudy
 2013-09-12 15:51:00,78.1,46,10.0,23.0,N/A,Scattered Clouds
-2013-09-12 16:01:00,75.2,53,10.0,24.2,N/A,Scattered Clouds
 2013-09-12 16:51:00,72.0,61,10.0,18.4,N/A,Mostly Cloudy
 2013-09-12 17:51:00,72.0,55,10.0,13.8,N/A,Scattered Clouds
 2013-09-12 18:51:00,70.0,59,10.0,11.5,N/A,Scattered Clouds
@@ -2098,32 +1934,24 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-15 13:51:00,62.1,72,10.0,Calm,0.01,Light Rain
 2013-09-15 14:51:00,62.1,78,10.0,8.1,0.00,Overcast
 2013-09-15 15:51:00,62.1,78,9.0,Calm,0.01,Light Rain
-2013-09-15 16:07:00,62.6,77,5.0,Calm,0.01,Light Rain
 2013-09-15 16:51:00,61.0,83,8.0,3.5,0.08,Overcast
 2013-09-15 17:51:00,61.0,87,3.0,5.8,0.00,Light Rain
-2013-09-15 18:23:00,60.8,88,5.0,8.1,0.01,Overcast
 2013-09-15 18:51:00,61.0,87,5.0,5.8,0.01,Light Rain
 2013-09-15 19:51:00,60.1,86,8.0,9.2,0.00,Overcast
 2013-09-15 20:51:00,59.0,87,8.0,8.1,N/A,Overcast
 2013-09-15 21:51:00,59.0,87,8.0,8.1,N/A,Overcast
 2013-09-15 22:51:00,60.1,86,6.0,Calm,0.00,Light Drizzle
-2013-09-15 23:25:00,60.8,88,4.0,5.8,0.01,Light Rain
 2013-09-15 23:51:00,60.1,90,6.0,Calm,0.01,Light Rain
 2013-09-16 00:51:00,61.0,90,7.0,5.8,0.00,Overcast
-2013-09-16 01:03:00,60.8,88,7.0,6.9,N/A,Overcast
-2013-09-16 01:45:00,62.6,77,8.0,10.4,N/A,Overcast
 2013-09-16 01:51:00,61.0,83,8.0,10.4,N/A,Overcast
-2013-09-16 02:45:00,62.6,72,10.0,16.1,0.00,Overcast
 2013-09-16 02:51:00,62.1,75,10.0,18.4,0.00,Overcast
 2013-09-16 03:51:00,61.0,70,10.0,17.3,N/A,Overcast
 2013-09-16 04:51:00,61.0,67,10.0,15.0,N/A,Overcast
 2013-09-16 05:51:00,60.1,60,10.0,12.7,N/A,Mostly Cloudy
-2013-09-16 06:23:00,60.8,63,10.0,12.7,N/A,Overcast
 2013-09-16 06:51:00,57.9,72,10.0,13.8,N/A,Overcast
 2013-09-16 07:51:00,55.0,74,10.0,13.8,N/A,Overcast
 2013-09-16 08:51:00,55.0,74,10.0,10.4,N/A,Overcast
 2013-09-16 09:51:00,59.0,60,10.0,12.7,N/A,Mostly Cloudy
-2013-09-16 10:09:00,60.8,59,10.0,13.8,N/A,Mostly Cloudy
 2013-09-16 10:51:00,61.0,54,10.0,15.0,N/A,Mostly Cloudy
 2013-09-16 11:51:00,62.1,56,10.0,17.3,N/A,Scattered Clouds
 2013-09-16 12:51:00,64.0,52,10.0,15.0,N/A,Scattered Clouds
@@ -2134,9 +1962,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-16 17:51:00,60.1,57,10.0,15.0,N/A,Scattered Clouds
 2013-09-16 18:51:00,57.9,60,10.0,12.7,N/A,Scattered Clouds
 2013-09-16 19:51:00,57.0,67,10.0,8.1,N/A,Scattered Clouds
-2013-09-16 20:41:00,57.2,67,10.0,4.6,N/A,Mostly Cloudy
 2013-09-16 20:51:00,57.9,67,10.0,4.6,N/A,Mostly Cloudy
-2013-09-16 21:07:00,57.2,67,10.0,5.8,N/A,Scattered Clouds
 2013-09-16 21:51:00,57.9,75,10.0,8.1,N/A,Partly Cloudy
 2013-09-16 22:51:00,60.1,69,10.0,9.2,N/A,Scattered Clouds
 2013-09-16 23:51:00,59.0,69,10.0,8.1,N/A,Scattered Clouds
@@ -2180,21 +2006,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-18 13:51:00,81.0,50,10.0,12.7,N/A,Mostly Cloudy
 2013-09-18 14:51:00,82.0,51,10.0,10.4,N/A,Overcast
 2013-09-18 15:51:00,81.0,52,10.0,9.2,N/A,Overcast
-2013-09-18 16:27:00,80.6,54,10.0,10.4,0.00,Light Thunderstorms and Rain
 2013-09-18 16:51:00,75.0,69,9.0,17.3,0.00,Light Thunderstorms and Rain
-2013-09-18 17:39:00,71.6,83,8.0,8.1,0.08,Light Rain
-2013-09-18 17:44:00,71.6,83,7.0,6.9,0.09,Light Thunderstorms and Rain
 2013-09-18 17:51:00,71.1,87,7.0,9.2,0.10,Light Thunderstorms and Rain
-2013-09-18 18:02:00,71.6,83,10.0,8.1,0.00,Light Rain
-2013-09-18 18:38:00,71.6,78,10.0,4.6,0.01,Light Thunderstorms and Rain
 2013-09-18 18:51:00,71.1,84,5.0,20.7,0.03,Light Thunderstorms and Rain
-2013-09-18 18:56:00,69.8,83,2.5,17.3,0.07,Thunderstorms and Rain
-2013-09-18 19:03:00,69.8,83,2.0,17.3,0.13,Heavy Thunderstorms and Rain
-2013-09-18 19:15:00,69.8,88,2.0,18.4,0.21,Heavy Thunderstorms and Rain
-2013-09-18 19:37:00,68.0,83,5.0,17.3,0.38,Thunderstorms and Rain
 2013-09-18 19:51:00,69.1,84,5.0,12.7,0.38,Unknown
 2013-09-18 20:51:00,70.0,71,8.0,17.3,N/A,Thunderstorm
-2013-09-18 21:08:00,71.6,69,10.0,12.7,N/A,Overcast
 2013-09-18 21:51:00,70.0,76,10.0,6.9,N/A,Overcast
 2013-09-18 22:51:00,69.1,75,10.0,8.1,N/A,Overcast
 2013-09-18 23:51:00,70.0,73,10.0,6.9,N/A,Mostly Cloudy
@@ -2205,20 +2021,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-19 04:51:00,70.0,84,8.0,10.4,N/A,Scattered Clouds
 2013-09-19 05:51:00,70.0,84,8.0,11.5,N/A,Mostly Cloudy
 2013-09-19 06:51:00,70.0,84,7.0,5.8,N/A,Mostly Cloudy
-2013-09-19 07:16:00,69.8,88,8.0,8.1,N/A,Overcast
-2013-09-19 07:44:00,69.8,88,6.0,9.2,N/A,Overcast
 2013-09-19 07:51:00,70.0,87,7.0,3.5,N/A,Overcast
-2013-09-19 08:09:00,71.6,83,7.0,Calm,0.00,Light Rain
 2013-09-19 08:51:00,72.0,84,6.0,9.2,0.00,Light Rain
 2013-09-19 09:51:00,73.0,84,6.0,Calm,0.00,Haze
-2013-09-19 10:35:00,73.4,83,5.0,8.1,N/A,Haze
 2013-09-19 10:51:00,72.0,87,4.0,5.8,N/A,Overcast
-2013-09-19 10:52:00,-9999,N/A,-9999.0,-9999.0,N/A,Unknown
-2013-09-19 11:07:00,71.6,88,4.0,8.1,N/A,Overcast
-2013-09-19 11:20:00,71.6,88,5.0,9.2,N/A,Overcast
 2013-09-19 11:51:00,73.0,84,5.0,11.5,N/A,Haze
-2013-09-19 12:08:00,73.4,88,6.0,11.5,N/A,Haze
-2013-09-19 12:40:00,75.2,83,6.0,12.7,N/A,Haze
 2013-09-19 12:51:00,75.9,79,6.0,12.7,N/A,Haze
 2013-09-19 13:51:00,79.0,72,10.0,11.5,N/A,Mostly Cloudy
 2013-09-19 14:51:00,81.0,69,10.0,15.0,N/A,Mostly Cloudy
@@ -2232,24 +2039,16 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-19 22:51:00,78.1,68,10.0,10.4,N/A,Mostly Cloudy
 2013-09-19 23:51:00,77.0,71,10.0,6.9,N/A,Mostly Cloudy
 2013-09-20 00:51:00,75.9,74,10.0,8.1,N/A,Overcast
-2013-09-20 01:07:00,75.2,69,10.0,12.7,0.00,Light Thunderstorms and Rain
-2013-09-20 01:27:00,73.4,73,10.0,13.8,0.00,Mostly Cloudy
 2013-09-20 01:51:00,71.1,78,7.0,12.7,0.01,Light Rain
 2013-09-20 02:51:00,69.1,87,10.0,6.9,0.01,Overcast
 2013-09-20 03:51:00,69.1,87,10.0,10.4,0.00,Scattered Clouds
-2013-09-20 04:46:00,69.8,83,10.0,11.5,N/A,Mostly Cloudy
 2013-09-20 04:51:00,69.1,87,10.0,10.4,N/A,Mostly Cloudy
-2013-09-20 05:34:00,69.8,83,10.0,8.1,N/A,Overcast
 2013-09-20 05:51:00,69.1,84,9.0,11.5,N/A,Overcast
-2013-09-20 06:38:00,68.0,88,10.0,10.4,N/A,Overcast
 2013-09-20 06:51:00,68.0,87,10.0,9.2,N/A,Overcast
 2013-09-20 07:51:00,69.1,84,10.0,13.8,N/A,Overcast
 2013-09-20 08:51:00,70.0,81,10.0,12.7,N/A,Overcast
-2013-09-20 09:45:00,71.6,78,10.0,16.1,N/A,Overcast
 2013-09-20 09:51:00,71.1,78,10.0,11.5,N/A,Overcast
 2013-09-20 10:51:00,71.1,78,10.0,11.5,N/A,Overcast
-2013-09-20 11:20:00,71.6,78,10.0,10.4,N/A,Overcast
-2013-09-20 11:47:00,73.4,73,10.0,12.7,N/A,Overcast
 2013-09-20 11:51:00,73.9,71,10.0,9.2,N/A,Overcast
 2013-09-20 12:51:00,75.9,62,10.0,13.8,N/A,Overcast
 2013-09-20 13:51:00,75.0,60,10.0,12.7,N/A,Overcast
@@ -2456,10 +2255,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-28 22:51:00,77.0,47,10.0,11.5,N/A,Overcast
 2013-09-28 23:51:00,75.9,50,10.0,12.7,N/A,Overcast
 2013-09-29 00:51:00,68.0,90,6.0,12.7,0.00,Light Rain
-2013-09-29 01:24:00,68.0,88,2.0,8.1,0.11,Rain
 2013-09-29 01:51:00,64.9,90,3.0,17.3,0.21,Rain
-2013-09-29 01:57:00,64.4,88,4.0,17.3,0.00,Light Rain
-2013-09-29 02:12:00,62.6,94,6.0,16.1,0.01,Light Rain
 2013-09-29 02:51:00,62.1,90,6.0,13.8,0.02,Light Rain
 2013-09-29 03:51:00,59.0,81,10.0,6.9,0.01,Overcast
 2013-09-29 04:51:00,57.9,84,10.0,10.4,N/A,Mostly Cloudy
@@ -2469,7 +2265,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-29 08:51:00,59.0,72,10.0,12.7,N/A,Scattered Clouds
 2013-09-29 09:51:00,61.0,67,10.0,9.2,N/A,Scattered Clouds
 2013-09-29 10:51:00,64.0,58,10.0,6.9,N/A,Mostly Cloudy
-2013-09-29 11:29:00,64.4,56,10.0,6.9,N/A,Mostly Cloudy
 2013-09-29 11:51:00,64.9,51,10.0,8.1,N/A,Mostly Cloudy
 2013-09-29 12:51:00,66.0,50,10.0,10.4,N/A,Scattered Clouds
 2013-09-29 13:51:00,66.9,43,10.0,9.2,N/A,Partly Cloudy
@@ -2487,7 +2282,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-09-30 01:51:00,52.0,86,10.0,Calm,N/A,Clear
 2013-09-30 02:51:00,53.1,80,10.0,Calm,N/A,Clear
 2013-09-30 03:51:00,52.0,83,10.0,Calm,N/A,Clear
-2013-09-30 04:44:00,51.8,82,10.0,Calm,N/A,Partly Cloudy
 2013-09-30 04:51:00,50.0,86,10.0,3.5,N/A,Partly Cloudy
 2013-09-30 05:51:00,51.1,83,10.0,Calm,N/A,Clear
 2013-09-30 06:51:00,51.1,86,10.0,Calm,N/A,Mostly Cloudy
@@ -2512,16 +2306,13 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-01 01:51:00,64.0,73,10.0,12.7,N/A,Clear
 2013-10-01 02:51:00,63.0,81,10.0,8.1,N/A,Clear
 2013-10-01 03:51:00,62.1,84,10.0,8.1,N/A,Clear
-2013-10-01 04:40:00,62.6,88,10.0,9.2,N/A,Mostly Cloudy
 2013-10-01 04:51:00,62.1,90,5.0,9.2,N/A,Overcast
 2013-10-01 05:51:00,62.1,96,4.0,10.4,N/A,Overcast
 2013-10-01 06:51:00,63.0,96,4.0,9.2,N/A,Overcast
 2013-10-01 07:51:00,64.9,87,6.0,11.5,N/A,Overcast
 2013-10-01 08:51:00,66.0,84,7.0,15.0,N/A,Overcast
-2013-10-01 09:41:00,66.2,83,8.0,13.8,N/A,Overcast
 2013-10-01 09:51:00,66.9,81,8.0,12.7,N/A,Overcast
 2013-10-01 10:51:00,68.0,78,10.0,11.5,N/A,Overcast
-2013-10-01 11:22:00,69.8,73,10.0,11.5,N/A,Overcast
 2013-10-01 11:51:00,70.0,73,10.0,15.0,N/A,Overcast
 2013-10-01 12:51:00,71.1,73,10.0,16.1,N/A,Overcast
 2013-10-01 13:51:00,75.0,62,10.0,20.7,N/A,Scattered Clouds
@@ -2555,54 +2346,31 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-02 17:51:00,71.1,35,10.0,9.2,N/A,Mostly Cloudy
 2013-10-02 18:51:00,69.1,42,10.0,8.1,N/A,Mostly Cloudy
 2013-10-02 19:51:00,69.1,51,10.0,8.1,N/A,Mostly Cloudy
-2013-10-02 20:37:00,68.0,60,10.0,5.8,N/A,Mostly Cloudy
 2013-10-02 20:51:00,68.0,56,10.0,5.8,N/A,Mostly Cloudy
 2013-10-02 21:51:00,68.0,59,10.0,4.6,N/A,Scattered Clouds
 2013-10-02 22:51:00,66.0,65,10.0,4.6,N/A,Scattered Clouds
 2013-10-02 23:51:00,66.9,63,10.0,Calm,N/A,Scattered Clouds
 2013-10-03 00:51:00,66.0,65,6.0,Calm,N/A,Haze
 2013-10-03 01:51:00,64.9,73,6.0,Calm,N/A,Haze
-2013-10-03 02:31:00,64.4,83,6.0,5.8,N/A,Haze
 2013-10-03 02:51:00,66.0,84,5.0,4.6,N/A,Haze
-2013-10-03 03:05:00,66.2,88,5.0,3.5,N/A,Mostly Cloudy
 2013-10-03 03:51:00,66.0,87,4.0,5.8,N/A,Mostly Cloudy
-2013-10-03 04:06:00,66.2,88,3.0,5.8,N/A,Overcast
-2013-10-03 04:39:00,66.2,88,0.5,8.1,N/A,Fog
 2013-10-03 04:51:00,66.0,93,0.2,6.9,N/A,Fog
-2013-10-03 05:14:00,66.2,94,0.5,4.6,N/A,Fog
-2013-10-03 05:32:00,66.2,94,0.8,3.5,N/A,Mist
-2013-10-03 05:41:00,66.2,94,1.0,5.8,N/A,Overcast
 2013-10-03 05:51:00,66.0,93,1.0,4.6,N/A,Overcast
-2013-10-03 06:12:00,66.2,94,3.0,5.8,N/A,Overcast
-2013-10-03 06:34:00,66.2,94,3.0,6.9,N/A,Overcast
-2013-10-03 06:44:00,66.2,94,2.0,5.8,N/A,Overcast
 2013-10-03 06:51:00,66.9,93,1.8,6.9,N/A,Overcast
 2013-10-03 07:51:00,68.0,93,1.0,5.8,N/A,Overcast
 2013-10-03 08:51:00,68.0,93,1.5,8.1,0.00,Light Drizzle
-2013-10-03 09:21:00,68.0,94,2.0,6.9,0.01,Light Rain
-2013-10-03 09:34:00,69.8,88,3.0,9.2,0.02,Light Rain
 2013-10-03 09:51:00,69.1,90,4.0,10.4,0.03,Light Rain
-2013-10-03 10:41:00,69.8,88,8.0,11.5,0.00,Light Rain
 2013-10-03 10:51:00,70.0,87,7.0,9.2,0.01,Light Rain
-2013-10-03 11:06:00,69.8,88,4.0,6.9,0.02,Light Rain
-2013-10-03 11:22:00,69.8,88,3.0,5.8,0.06,Light Rain
 2013-10-03 11:51:00,69.1,90,10.0,6.9,0.08,Light Rain
-2013-10-03 12:42:00,71.6,83,10.0,6.9,0.00,Overcast
 2013-10-03 12:51:00,72.0,84,10.0,11.5,0.00,Overcast
 2013-10-03 13:51:00,75.0,76,10.0,5.8,N/A,Mostly Cloudy
 2013-10-03 14:51:00,77.0,69,10.0,12.7,N/A,Mostly Cloudy
 2013-10-03 15:51:00,78.1,66,10.0,11.5,N/A,Scattered Clouds
 2013-10-03 16:51:00,77.0,69,10.0,5.8,N/A,Mostly Cloudy
-2013-10-03 17:04:00,77.0,69,10.0,8.1,N/A,Thunderstorm
-2013-10-03 17:19:00,75.2,78,2.0,15.0,0.11,Heavy Thunderstorms and Rain
-2013-10-03 17:30:00,71.6,78,10.0,16.1,0.19,Thunderstorm
 2013-10-03 17:51:00,71.1,78,10.0,10.4,0.19,Mostly Cloudy
 2013-10-03 18:51:00,70.0,84,10.0,3.5,N/A,Overcast
 2013-10-03 19:51:00,71.1,81,10.0,6.9,N/A,Overcast
-2013-10-03 20:17:00,71.6,78,10.0,6.9,N/A,Thunderstorm
 2013-10-03 20:51:00,70.0,84,10.0,9.2,0.04,Light Thunderstorms and Rain
-2013-10-03 21:18:00,68.0,88,1.5,12.7,0.29,Heavy Thunderstorms and Rain
-2013-10-03 21:38:00,69.8,83,10.0,6.9,0.43,Light Thunderstorms and Rain
 2013-10-03 21:51:00,69.1,84,10.0,8.1,0.45,Light Rain
 2013-10-03 22:51:00,69.1,84,10.0,9.2,0.00,Mostly Cloudy
 2013-10-03 23:51:00,68.0,84,10.0,10.4,N/A,Mostly Cloudy
@@ -2612,18 +2380,14 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-04 03:51:00,66.9,81,10.0,4.6,N/A,Overcast
 2013-10-04 04:51:00,68.0,81,10.0,6.9,N/A,Overcast
 2013-10-04 05:51:00,66.9,84,10.0,6.9,N/A,Overcast
-2013-10-04 06:10:00,66.2,88,10.0,Calm,N/A,Overcast
 2013-10-04 06:51:00,66.9,84,10.0,8.1,N/A,Mostly Cloudy
 2013-10-04 07:51:00,68.0,84,10.0,9.2,N/A,Mostly Cloudy
 2013-10-04 08:51:00,71.1,78,10.0,9.2,N/A,Mostly Cloudy
 2013-10-04 09:51:00,73.0,79,10.0,11.5,N/A,Mostly Cloudy
-2013-10-04 10:08:00,71.6,83,8.0,8.1,N/A,Overcast
 2013-10-04 10:51:00,73.0,81,9.0,4.6,N/A,Overcast
 2013-10-04 11:51:00,73.0,79,9.0,5.8,N/A,Overcast
-2013-10-04 11:58:00,73.4,78,9.0,4.6,N/A,Overcast
 2013-10-04 12:51:00,73.0,76,8.0,5.8,N/A,Overcast
 2013-10-04 13:51:00,75.0,73,8.0,Calm,N/A,Mostly Cloudy
-2013-10-04 14:08:00,75.2,73,8.0,Calm,N/A,Mostly Cloudy
 2013-10-04 14:51:00,75.0,73,8.0,5.8,N/A,Mostly Cloudy
 2013-10-04 15:51:00,75.0,73,8.0,3.5,N/A,Mostly Cloudy
 2013-10-04 16:51:00,75.0,73,8.0,5.8,N/A,Mostly Cloudy
@@ -2641,50 +2405,26 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-05 04:51:00,71.1,84,5.0,6.9,N/A,Haze
 2013-10-05 05:51:00,70.0,87,5.0,6.9,N/A,Mostly Cloudy
 2013-10-05 06:51:00,70.0,87,5.0,6.9,N/A,Mostly Cloudy
-2013-10-05 07:25:00,69.8,88,7.0,5.8,N/A,Mostly Cloudy
 2013-10-05 07:51:00,70.0,90,7.0,4.6,N/A,Mostly Cloudy
-2013-10-05 08:33:00,71.6,83,8.0,8.1,N/A,Mostly Cloudy
 2013-10-05 08:51:00,72.0,84,8.0,9.2,N/A,Overcast
-2013-10-05 09:44:00,73.4,83,7.0,6.9,N/A,Overcast
 2013-10-05 09:51:00,73.0,84,8.0,6.9,N/A,Overcast
 2013-10-05 10:51:00,73.9,82,8.0,9.2,N/A,Overcast
-2013-10-05 11:37:00,75.2,78,9.0,9.2,N/A,Overcast
 2013-10-05 11:51:00,75.9,76,9.0,9.2,N/A,Overcast
 2013-10-05 12:51:00,78.1,71,9.0,6.9,N/A,Overcast
-2013-10-05 13:26:00,80.6,65,10.0,6.9,N/A,Mostly Cloudy
 2013-10-05 13:51:00,81.0,65,10.0,6.9,N/A,Mostly Cloudy
 2013-10-05 14:51:00,80.1,67,10.0,8.1,N/A,Mostly Cloudy
-2013-10-05 15:28:00,80.6,61,10.0,9.2,N/A,Overcast
-2013-10-05 15:49:00,78.8,69,5.0,15.0,0.02,Light Thunderstorms and Rain
 2013-10-05 15:51:00,78.1,71,7.0,16.1,0.02,Light Thunderstorms and Rain
-2013-10-05 15:56:00,78.8,74,6.0,17.3,0.02,Light Thunderstorms and Rain
-2013-10-05 16:14:00,75.2,83,2.0,9.2,0.10,Thunderstorms and Rain
-2013-10-05 16:22:00,75.2,83,1.5,8.1,0.18,Thunderstorms and Rain
-2013-10-05 16:38:00,73.4,88,3.0,8.1,0.24,Light Thunderstorms and Rain
 2013-10-05 16:51:00,73.9,85,4.0,11.5,0.27,Light Rain
-2013-10-05 17:21:00,73.4,88,6.0,11.5,0.00,Overcast
 2013-10-05 17:51:00,72.0,81,10.0,8.1,0.00,Overcast
-2013-10-05 18:20:00,71.6,88,1.0,9.2,0.25,Heavy Rain
-2013-10-05 18:28:00,71.6,88,2.5,8.1,0.37,Heavy Thunderstorms and Rain
-2013-10-05 18:38:00,71.6,88,6.0,12.7,0.38,Light Thunderstorms and Rain
-2013-10-05 18:48:00,71.6,83,8.0,8.1,0.38,Mostly Cloudy
 2013-10-05 18:51:00,71.1,87,8.0,8.1,0.38,Mostly Cloudy
 2013-10-05 19:51:00,70.0,87,9.0,10.4,N/A,Overcast
-2013-10-05 20:25:00,69.8,88,10.0,9.2,N/A,Overcast
 2013-10-05 20:51:00,69.1,87,10.0,8.1,N/A,Overcast
 2013-10-05 21:51:00,70.0,87,10.0,8.1,0.00,Overcast
-2013-10-05 21:57:00,69.8,88,10.0,10.4,N/A,Overcast
 2013-10-05 22:51:00,70.0,87,10.0,8.1,N/A,Overcast
-2013-10-05 23:13:00,69.8,88,10.0,5.8,N/A,Overcast
-2013-10-05 23:34:00,69.8,88,7.0,9.2,0.00,Light Rain
 2013-10-05 23:51:00,69.1,90,7.0,6.9,0.00,Light Rain
-2013-10-06 00:40:00,66.2,88,7.0,12.7,0.00,Light Rain
-2013-10-06 00:46:00,66.2,88,7.0,13.8,0.01,Light Rain
 2013-10-06 00:51:00,66.9,84,9.0,12.7,0.01,Overcast
 2013-10-06 01:51:00,62.1,84,9.0,16.1,N/A,Overcast
-2013-10-06 02:09:00,60.8,77,9.0,10.4,N/A,Overcast
 2013-10-06 02:51:00,60.1,80,10.0,13.8,N/A,Overcast
-2013-10-06 03:24:00,57.2,82,10.0,10.4,0.00,Light Rain
 2013-10-06 03:51:00,55.9,87,4.0,6.9,0.00,Light Drizzle
 2013-10-06 04:51:00,55.0,86,10.0,6.9,0.04,Light Rain
 2013-10-06 05:51:00,55.0,86,6.0,8.1,0.02,Light Drizzle
@@ -2709,18 +2449,13 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-07 00:51:00,48.0,71,10.0,9.2,N/A,Mostly Cloudy
 2013-10-07 01:51:00,46.0,76,10.0,9.2,N/A,Scattered Clouds
 2013-10-07 02:51:00,46.0,79,10.0,11.5,N/A,Mostly Cloudy
-2013-10-07 03:12:00,46.4,81,10.0,10.4,N/A,Mostly Cloudy
 2013-10-07 03:51:00,46.0,83,10.0,11.5,N/A,Overcast
 2013-10-07 04:51:00,46.9,80,10.0,8.1,N/A,Overcast
 2013-10-07 05:51:00,46.0,83,10.0,11.5,N/A,Mostly Cloudy
 2013-10-07 06:51:00,46.0,83,10.0,11.5,N/A,Mostly Cloudy
-2013-10-07 07:26:00,46.4,81,10.0,12.7,N/A,Overcast
-2013-10-07 07:40:00,46.4,87,10.0,10.4,N/A,Overcast
 2013-10-07 07:51:00,46.9,83,10.0,11.5,N/A,Overcast
 2013-10-07 08:51:00,48.9,83,10.0,12.7,N/A,Overcast
 2013-10-07 09:51:00,50.0,83,10.0,11.5,N/A,Overcast
-2013-10-07 10:05:00,51.8,76,10.0,10.4,N/A,Overcast
-2013-10-07 10:24:00,53.6,72,10.0,12.7,N/A,Overcast
 2013-10-07 10:51:00,55.9,67,10.0,11.5,N/A,Scattered Clouds
 2013-10-07 11:51:00,60.1,55,10.0,11.5,N/A,Partly Cloudy
 2013-10-07 12:51:00,63.0,45,10.0,15.0,N/A,Partly Cloudy
@@ -2846,9 +2581,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-12 12:51:00,73.0,55,10.0,9.2,N/A,Overcast
 2013-10-12 13:51:00,70.0,65,10.0,11.5,N/A,Overcast
 2013-10-12 14:51:00,70.0,68,10.0,11.5,N/A,Overcast
-2013-10-12 15:45:00,68.0,78,10.0,12.7,0.01,Mostly Cloudy
 2013-10-12 15:51:00,68.0,76,10.0,9.2,0.01,Mostly Cloudy
-2013-10-12 16:13:00,69.8,73,8.0,12.7,N/A,Mostly Cloudy
 2013-10-12 16:51:00,68.0,78,6.0,11.5,N/A,Haze
 2013-10-12 17:51:00,66.9,79,10.0,12.7,N/A,Scattered Clouds
 2013-10-12 18:51:00,64.0,78,10.0,6.9,N/A,Clear
@@ -2918,20 +2651,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-15 10:51:00,62.1,67,10.0,12.7,N/A,Overcast
 2013-10-15 11:51:00,64.0,65,10.0,13.8,N/A,Overcast
 2013-10-15 12:51:00,64.9,68,10.0,11.5,N/A,Overcast
-2013-10-15 13:30:00,62.6,82,2.0,12.7,0.02,Rain
-2013-10-15 13:45:00,62.6,82,2.5,12.7,0.04,Light Rain
 2013-10-15 13:51:00,62.1,86,2.5,11.5,0.05,Light Rain
-2013-10-15 14:04:00,60.8,88,1.8,10.4,0.02,Light Rain
-2013-10-15 14:26:00,62.6,82,1.8,12.7,0.03,Light Rain
-2013-10-15 14:38:00,62.6,88,2.0,15.0,0.04,Light Rain
 2013-10-15 14:51:00,62.1,90,2.0,10.4,0.04,Light Rain
-2013-10-15 15:28:00,62.6,88,5.0,13.8,0.00,Overcast
 2013-10-15 15:51:00,63.0,87,6.0,12.7,0.00,Overcast
 2013-10-15 16:51:00,64.0,87,6.0,10.4,N/A,Overcast
-2013-10-15 17:35:00,64.4,88,6.0,11.5,N/A,Overcast
 2013-10-15 17:51:00,64.0,87,6.0,10.4,N/A,Overcast
-2013-10-15 18:17:00,64.4,88,6.0,11.5,N/A,Mostly Cloudy
-2013-10-15 18:33:00,64.4,88,6.0,9.2,N/A,Scattered Clouds
 2013-10-15 18:51:00,64.0,87,6.0,8.1,N/A,Scattered Clouds
 2013-10-15 19:51:00,64.0,87,6.0,9.2,N/A,Mostly Cloudy
 2013-10-15 20:51:00,60.1,69,10.0,12.7,N/A,Mostly Cloudy
@@ -2942,7 +2666,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-16 01:51:00,48.9,74,10.0,9.2,N/A,Partly Cloudy
 2013-10-16 02:51:00,48.0,74,10.0,9.2,N/A,Clear
 2013-10-16 03:51:00,46.9,77,10.0,9.2,N/A,Partly Cloudy
-2013-10-16 04:18:00,48.2,71,10.0,11.5,N/A,Mostly Cloudy
 2013-10-16 04:51:00,48.0,74,10.0,8.1,N/A,Overcast
 2013-10-16 05:51:00,48.9,74,10.0,11.5,N/A,Overcast
 2013-10-16 06:51:00,48.9,74,10.0,15.0,N/A,Overcast
@@ -2964,31 +2687,19 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-16 22:51:00,52.0,74,10.0,10.4,N/A,Overcast
 2013-10-16 23:51:00,51.1,77,10.0,6.9,N/A,Overcast
 2013-10-17 00:51:00,51.1,80,10.0,6.9,0.00,Light Drizzle
-2013-10-17 01:46:00,50.0,82,6.0,8.1,0.00,Haze
 2013-10-17 01:51:00,50.0,83,6.0,8.1,0.00,Haze
 2013-10-17 02:51:00,50.0,83,10.0,8.1,N/A,Overcast
 2013-10-17 03:51:00,50.0,83,6.0,8.1,N/A,Haze
-2013-10-17 04:17:00,48.2,93,4.0,5.8,0.00,Light Drizzle
 2013-10-17 04:51:00,48.9,90,10.0,6.9,0.00,Overcast
 2013-10-17 05:51:00,50.0,86,7.0,4.6,0.00,Light Rain
 2013-10-17 06:51:00,48.9,90,7.0,6.9,0.02,Light Rain
-2013-10-17 07:06:00,48.2,93,6.0,5.8,0.00,Light Rain
 2013-10-17 07:51:00,48.9,90,6.0,6.9,0.03,Light Rain
-2013-10-17 08:20:00,48.2,93,6.0,6.9,0.01,Light Rain
-2013-10-17 08:44:00,48.2,93,4.0,6.9,0.03,Light Rain
 2013-10-17 08:51:00,48.9,90,3.0,9.2,0.04,Light Rain
-2013-10-17 09:01:00,48.2,93,4.0,8.1,0.00,Light Rain
 2013-10-17 09:51:00,48.9,93,8.0,10.4,0.02,Light Rain
-2013-10-17 10:44:00,48.2,93,9.0,10.4,0.02,Light Rain
 2013-10-17 10:51:00,48.9,93,10.0,11.5,0.02,Light Rain
-2013-10-17 11:46:00,50.0,94,9.0,12.7,0.03,Light Rain
 2013-10-17 11:51:00,50.0,93,8.0,12.7,0.03,Light Rain
-2013-10-17 12:46:00,50.0,94,10.0,11.5,0.01,Light Rain
 2013-10-17 12:51:00,50.0,93,10.0,17.3,0.01,Light Rain
-2013-10-17 13:11:00,50.0,94,10.0,15.0,0.00,Light Rain
-2013-10-17 13:36:00,51.8,88,10.0,13.8,0.00,Light Rain
 2013-10-17 13:51:00,52.0,89,10.0,11.5,0.00,Mostly Cloudy
-2013-10-17 14:06:00,51.8,82,10.0,8.1,N/A,Overcast
 2013-10-17 14:51:00,51.1,71,10.0,13.8,N/A,Mostly Cloudy
 2013-10-17 15:51:00,51.1,68,10.0,15.0,N/A,Mostly Cloudy
 2013-10-17 16:51:00,52.0,66,10.0,10.4,N/A,Mostly Cloudy
@@ -3008,16 +2719,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-18 06:51:00,43.0,80,10.0,6.9,N/A,Scattered Clouds
 2013-10-18 07:51:00,43.0,82,10.0,9.2,N/A,Partly Cloudy
 2013-10-18 08:51:00,46.0,76,10.0,9.2,N/A,Partly Cloudy
-2013-10-18 09:30:00,44.6,81,10.0,17.3,N/A,Mostly Cloudy
-2013-10-18 09:39:00,42.8,81,10.0,15.0,N/A,Mostly Cloudy
 2013-10-18 09:51:00,43.0,86,10.0,13.8,N/A,Overcast
 2013-10-18 10:51:00,45.0,86,7.0,11.5,N/A,Overcast
 2013-10-18 11:51:00,46.9,83,10.0,12.7,N/A,Overcast
 2013-10-18 12:51:00,48.0,74,10.0,12.7,N/A,Overcast
-2013-10-18 13:16:00,48.2,71,10.0,10.4,N/A,Overcast
 2013-10-18 13:51:00,48.9,71,10.0,13.8,N/A,Overcast
 2013-10-18 14:51:00,48.9,69,10.0,10.4,N/A,Overcast
-2013-10-18 15:36:00,48.2,66,10.0,12.7,N/A,Overcast
 2013-10-18 15:51:00,48.9,66,10.0,9.2,N/A,Overcast
 2013-10-18 16:51:00,50.0,63,10.0,8.1,N/A,Overcast
 2013-10-18 17:51:00,48.9,64,10.0,8.1,N/A,Overcast
@@ -3082,12 +2789,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-21 04:51:00,51.1,86,10.0,8.1,0.01,Overcast
 2013-10-21 05:51:00,50.0,83,10.0,11.5,N/A,Mostly Cloudy
 2013-10-21 06:51:00,48.0,80,10.0,8.1,N/A,Mostly Cloudy
-2013-10-21 07:00:00,48.2,82,10.0,8.1,N/A,Overcast
 2013-10-21 07:51:00,46.0,73,10.0,16.1,N/A,Mostly Cloudy
 2013-10-21 08:51:00,45.0,71,10.0,10.4,N/A,Overcast
 2013-10-21 09:51:00,43.0,68,10.0,13.8,N/A,Overcast
 2013-10-21 10:51:00,44.1,63,10.0,10.4,N/A,Mostly Cloudy
-2013-10-21 11:35:00,44.6,61,10.0,11.5,N/A,Mostly Cloudy
 2013-10-21 11:51:00,45.0,60,10.0,12.7,N/A,Mostly Cloudy
 2013-10-21 12:51:00,46.9,54,10.0,11.5,N/A,Mostly Cloudy
 2013-10-21 13:51:00,46.9,52,10.0,12.7,N/A,Mostly Cloudy
@@ -3116,12 +2821,8 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-22 12:51:00,37.9,76,10.0,8.1,0.00,Light Rain
 2013-10-22 13:51:00,37.9,86,10.0,6.9,0.00,Light Rain
 2013-10-22 14:51:00,37.9,89,6.0,6.9,0.02,Light Rain
-2013-10-22 15:40:00,37.4,93,6.0,5.8,0.01,Light Rain
 2013-10-22 15:51:00,37.9,93,6.0,3.5,0.01,Light Rain
-2013-10-22 16:01:00,37.4,93,6.0,Calm,0.00,Light Rain
-2013-10-22 16:11:00,37.4,93,6.0,Calm,0.00,Light Rain
 2013-10-22 16:51:00,39.0,86,6.0,Calm,0.00,Light Rain
-2013-10-22 17:17:00,39.2,87,8.0,Calm,0.00,Light Rain
 2013-10-22 17:51:00,39.0,86,9.0,3.5,0.00,Light Drizzle
 2013-10-22 18:51:00,39.0,86,9.0,3.5,0.00,Overcast
 2013-10-22 19:51:00,39.0,89,9.0,4.6,N/A,Overcast
@@ -3130,7 +2831,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-22 22:51:00,37.9,89,10.0,4.6,N/A,Mostly Cloudy
 2013-10-22 23:51:00,37.0,93,7.0,5.8,N/A,Partly Cloudy
 2013-10-23 00:51:00,36.0,89,7.0,5.8,N/A,Clear
-2013-10-23 01:56:00,35.6,87,8.0,6.9,N/A,Clear
+2013-10-23 01:51:00,34.0,89,10.0,6.9,N/A,Clear
 2013-10-23 02:51:00,34.0,89,10.0,6.9,N/A,Clear
 2013-10-23 03:51:00,34.0,85,10.0,8.1,N/A,Clear
 2013-10-23 04:51:00,33.1,85,10.0,8.1,N/A,Clear
@@ -3257,8 +2958,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-28 05:51:00,37.0,79,10.0,Calm,N/A,Clear
 2013-10-28 06:51:00,37.0,79,10.0,5.8,N/A,Clear
 2013-10-28 07:51:00,37.9,79,10.0,Calm,N/A,Scattered Clouds
-2013-10-28 08:00:00,39.2,81,10.0,Calm,N/A,Mostly Cloudy
-2013-10-28 08:37:00,44.6,76,10.0,3.5,N/A,Scattered Clouds
 2013-10-28 08:51:00,48.9,74,10.0,13.8,N/A,Partly Cloudy
 2013-10-28 09:51:00,51.1,71,10.0,16.1,N/A,Scattered Clouds
 2013-10-28 10:51:00,53.1,66,10.0,15.0,N/A,Mostly Cloudy
@@ -3269,15 +2968,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-28 15:51:00,51.1,68,10.0,13.8,N/A,Mostly Cloudy
 2013-10-28 16:51:00,50.0,68,10.0,16.1,N/A,Mostly Cloudy
 2013-10-28 17:51:00,48.9,71,10.0,12.7,N/A,Mostly Cloudy
-2013-10-28 18:15:00,48.2,71,10.0,11.5,N/A,Mostly Cloudy
 2013-10-28 18:51:00,48.0,74,10.0,12.7,N/A,Scattered Clouds
 2013-10-28 19:51:00,48.0,74,10.0,11.5,N/A,Scattered Clouds
 2013-10-28 20:51:00,46.9,74,10.0,11.5,N/A,Scattered Clouds
-2013-10-28 21:44:00,48.2,71,10.0,12.7,N/A,Mostly Cloudy
 2013-10-28 21:51:00,48.0,74,10.0,11.5,N/A,Mostly Cloudy
 2013-10-28 22:51:00,48.0,74,10.0,11.5,N/A,Overcast
 2013-10-28 23:51:00,48.0,74,10.0,13.8,N/A,Overcast
-2013-10-29 00:25:00,46.4,76,10.0,10.4,N/A,Mostly Cloudy
 2013-10-29 00:51:00,46.9,77,10.0,11.5,N/A,Scattered Clouds
 2013-10-29 01:51:00,46.0,79,10.0,8.1,N/A,Scattered Clouds
 2013-10-29 02:51:00,46.0,79,10.0,8.1,N/A,Mostly Cloudy
@@ -3298,108 +2994,61 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-10-29 17:51:00,53.1,61,10.0,6.9,N/A,Mostly Cloudy
 2013-10-29 18:51:00,54.0,62,10.0,4.6,N/A,Overcast
 2013-10-29 19:51:00,55.0,53,10.0,8.1,N/A,Overcast
-2013-10-29 20:44:00,53.6,54,10.0,10.4,N/A,Overcast
 2013-10-29 20:51:00,53.1,61,10.0,6.9,0.00,Light Rain
 2013-10-29 21:51:00,53.1,66,10.0,5.8,0.00,Light Rain
 2013-10-29 22:51:00,52.0,69,10.0,6.9,0.00,Overcast
 2013-10-29 23:51:00,52.0,74,10.0,5.8,N/A,Overcast
-2013-10-30 00:00:00,51.8,76,10.0,3.5,N/A,Overcast
-2013-10-30 00:36:00,51.8,82,6.0,4.6,N/A,Haze
 2013-10-30 00:51:00,52.0,80,6.0,Calm,N/A,Haze
 2013-10-30 01:51:00,50.0,83,6.0,Calm,N/A,Haze
 2013-10-30 02:51:00,48.0,89,5.0,4.6,N/A,Partly Cloudy
 2013-10-30 03:51:00,48.0,86,4.0,3.5,N/A,Clear
-2013-10-30 04:44:00,46.4,87,3.0,4.6,N/A,Partly Cloudy
 2013-10-30 04:51:00,48.0,86,3.0,4.6,N/A,Partly Cloudy
-2013-10-30 05:24:00,48.2,87,5.0,5.8,N/A,Mostly Cloudy
 2013-10-30 05:51:00,48.0,86,4.0,3.5,N/A,Overcast
 2013-10-30 06:51:00,48.0,93,4.0,5.8,N/A,Overcast
-2013-10-30 07:02:00,48.2,93,1.5,5.8,N/A,Overcast
-2013-10-30 07:05:00,48.2,93,1.5,4.6,N/A,Overcast
 2013-10-30 07:51:00,48.9,93,1.2,6.9,N/A,Overcast
-2013-10-30 08:17:00,48.2,100,2.0,5.8,N/A,Overcast
 2013-10-30 08:51:00,50.0,93,2.5,5.8,N/A,Overcast
-2013-10-30 09:09:00,51.8,88,3.0,8.1,N/A,Overcast
 2013-10-30 09:51:00,52.0,86,3.0,5.8,N/A,Overcast
 2013-10-30 10:51:00,54.0,90,4.0,9.2,N/A,Overcast
 2013-10-30 11:51:00,57.0,83,5.0,5.8,N/A,Haze
-2013-10-30 12:06:00,57.2,82,6.0,5.8,N/A,Haze
 2013-10-30 12:51:00,57.9,81,6.0,6.9,N/A,Haze
-2013-10-30 13:17:00,57.2,88,6.0,9.2,N/A,Haze
 2013-10-30 13:51:00,59.0,81,7.0,8.1,N/A,Overcast
 2013-10-30 14:51:00,59.0,83,5.0,6.9,N/A,Haze
-2013-10-30 15:39:00,59.0,88,3.0,4.6,0.01,Overcast
 2013-10-30 15:51:00,59.0,90,2.0,11.5,0.03,Light Rain
-2013-10-30 15:57:00,57.2,94,1.5,5.8,0.07,Light Rain
-2013-10-30 16:05:00,57.2,94,3.0,6.9,0.08,Light Rain
 2013-10-30 16:51:00,57.9,93,3.0,6.9,0.08,Light Rain
-2013-10-30 17:12:00,57.2,94,2.0,6.9,0.00,Light Rain
-2013-10-30 17:20:00,57.2,100,1.5,8.1,0.00,Light Rain
 2013-10-30 17:51:00,57.9,97,1.5,5.8,0.00,Light Rain
 2013-10-30 18:51:00,57.9,97,1.2,4.6,0.22,Heavy Rain
-2013-10-30 19:20:00,59.0,94,2.0,3.5,0.10,Light Rain
-2013-10-30 19:37:00,59.0,94,2.0,4.6,0.11,Light Rain
 2013-10-30 19:51:00,59.0,96,2.0,5.8,0.13,Light Rain
 2013-10-30 20:51:00,59.0,100,2.0,6.9,0.17,Rain
 2013-10-30 21:51:00,59.0,96,2.0,3.5,0.02,Light Rain
-2013-10-30 22:25:00,59.0,94,3.0,3.5,0.00,Light Rain
 2013-10-30 22:51:00,60.1,96,4.0,10.4,0.01,Light Rain
 2013-10-30 23:51:00,63.0,97,3.0,10.4,0.10,Rain
-2013-10-31 00:14:00,62.6,100,1.2,6.9,0.15,Heavy Rain
-2013-10-31 00:38:00,62.6,100,3.0,8.1,0.35,Light Rain
 2013-10-31 00:51:00,63.0,97,3.0,6.9,0.39,Light Rain
-2013-10-31 00:57:00,62.6,100,7.0,9.2,0.01,Light Rain
-2013-10-31 01:38:00,64.4,94,6.0,13.8,0.03,Light Rain
 2013-10-31 01:51:00,64.9,93,4.0,13.8,0.05,Light Rain
-2013-10-31 02:47:00,64.4,94,2.0,9.2,0.15,Rain
 2013-10-31 02:51:00,64.0,93,2.0,9.2,0.18,Rain
-2013-10-31 03:23:00,62.6,100,3.0,11.5,0.24,Rain
 2013-10-31 03:51:00,63.0,93,1.0,10.4,0.49,Heavy Rain
-2013-10-31 04:12:00,62.6,94,3.0,13.8,0.14,Rain
 2013-10-31 04:51:00,62.1,93,1.5,6.9,0.42,Heavy Rain
-2013-10-31 05:28:00,62.6,94,2.0,Calm,0.18,Rain
-2013-10-31 05:41:00,62.6,94,2.0,Calm,0.23,Rain
 2013-10-31 05:51:00,62.1,96,2.0,5.8,0.26,Rain
-2013-10-31 05:55:00,62.6,94,3.0,5.8,0.01,Light Rain
-2013-10-31 06:38:00,62.6,100,2.5,8.1,0.13,Rain
 2013-10-31 06:51:00,62.1,96,2.5,6.9,0.18,Rain
-2013-10-31 07:11:00,62.6,94,3.0,4.6,0.03,Light Rain
 2013-10-31 07:51:00,62.1,100,5.0,9.2,0.06,Light Rain
 2013-10-31 08:51:00,62.1,100,4.0,9.2,0.05,Light Rain
 2013-10-31 09:51:00,63.0,93,8.0,10.4,0.03,Light Rain
 2013-10-31 10:51:00,63.0,93,8.0,9.2,0.01,Light Rain
-2013-10-31 11:14:00,62.6,94,9.0,6.9,0.00,Light Rain
 2013-10-31 11:51:00,64.0,90,10.0,10.4,0.00,Light Rain
-2013-10-31 12:31:00,64.4,88,10.0,8.1,0.00,Light Rain
 2013-10-31 12:51:00,64.0,87,10.0,9.2,0.00,Light Rain
-2013-10-31 13:38:00,62.6,94,2.5,6.9,0.06,Rain
 2013-10-31 13:51:00,62.1,93,3.0,9.2,0.08,Light Rain
-2013-10-31 14:28:00,62.6,94,2.0,10.4,0.03,Light Rain
 2013-10-31 14:51:00,61.0,97,2.5,9.2,0.07,Light Rain
-2013-10-31 15:04:00,60.8,100,3.0,8.1,0.02,Light Rain
-2013-10-31 15:12:00,60.8,100,2.0,11.5,0.03,Light Rain
 2013-10-31 15:51:00,61.0,93,1.5,9.2,0.05,Light Rain
-2013-10-31 16:04:00,60.8,94,2.5,11.5,0.02,Light Rain
-2013-10-31 16:11:00,60.8,94,5.0,12.7,0.02,Light Rain
 2013-10-31 16:51:00,62.1,93,6.0,12.7,0.02,Light Rain
-2013-10-31 17:07:00,62.6,94,2.0,8.1,0.05,Light Rain
-2013-10-31 17:21:00,60.8,100,3.0,6.9,0.06,Light Rain
-2013-10-31 17:35:00,60.8,94,5.0,9.2,0.06,Overcast
 2013-10-31 17:51:00,61.0,93,9.0,12.7,0.06,Overcast
-2013-10-31 18:44:00,59.0,88,10.0,19.6,0.01,Overcast
 2013-10-31 18:51:00,57.9,90,10.0,16.1,0.01,Overcast
-2013-10-31 19:43:00,55.4,82,10.0,12.7,0.00,Light Rain
 2013-10-31 19:51:00,55.0,83,9.0,17.3,0.00,Light Rain
 2013-10-31 20:51:00,53.1,86,10.0,11.5,0.02,Light Rain
 2013-10-31 21:51:00,51.1,83,10.0,13.8,0.00,Overcast
 2013-10-31 22:51:00,50.0,83,10.0,11.5,0.00,Overcast
-2013-10-31 23:34:00,48.2,87,10.0,18.4,N/A,Overcast
 2013-10-31 23:51:00,48.0,83,10.0,20.7,N/A,Overcast
-2013-11-01 00:42:00,46.4,81,10.0,24.2,N/A,Overcast
 2013-11-01 00:51:00,46.9,80,10.0,19.6,N/A,Overcast
 2013-11-01 01:51:00,46.0,76,10.0,27.6,N/A,Mostly Cloudy
 2013-11-01 02:51:00,45.0,76,10.0,21.9,N/A,Overcast
-2013-11-01 03:38:00,44.6,76,10.0,19.6,N/A,Partly Cloudy
 2013-11-01 03:51:00,45.0,76,10.0,20.7,N/A,Overcast
 2013-11-01 04:51:00,45.0,76,10.0,18.4,N/A,Overcast
 2013-11-01 05:51:00,46.0,73,10.0,15.0,N/A,Overcast
@@ -3407,7 +3056,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-01 07:51:00,46.0,71,10.0,15.0,N/A,Overcast
 2013-11-01 08:51:00,46.9,68,10.0,11.5,N/A,Overcast
 2013-11-01 09:51:00,46.9,71,10.0,13.8,N/A,Overcast
-2013-11-01 10:23:00,46.4,76,10.0,16.1,N/A,Overcast
 2013-11-01 10:51:00,46.9,74,10.0,13.8,N/A,Overcast
 2013-11-01 11:51:00,46.9,77,10.0,10.4,N/A,Overcast
 2013-11-01 12:51:00,46.9,77,10.0,13.8,N/A,Overcast
@@ -3417,16 +3065,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-01 16:51:00,48.0,77,10.0,13.8,N/A,Overcast
 2013-11-01 17:51:00,46.9,83,4.0,9.2,0.00,Light Rain
 2013-11-01 18:51:00,46.0,89,7.0,11.5,0.01,Light Rain
-2013-11-01 19:35:00,46.4,93,5.0,8.1,0.02,Light Rain
 2013-11-01 19:51:00,46.0,93,5.0,9.2,0.02,Light Rain
-2013-11-01 20:14:00,46.4,93,5.0,8.1,0.01,Light Rain
-2013-11-01 20:49:00,46.4,93,5.0,4.6,0.02,Light Rain
 2013-11-01 20:51:00,46.0,93,5.0,3.5,0.02,Light Rain
 2013-11-01 21:51:00,46.0,93,5.0,4.6,0.03,Light Rain
-2013-11-01 22:34:00,46.4,93,6.0,4.6,0.00,Light Drizzle
 2013-11-01 22:51:00,46.9,90,6.0,6.9,0.00,Light Drizzle
 2013-11-01 23:51:00,46.0,93,7.0,5.8,0.00,Overcast
-2013-11-02 00:41:00,46.4,87,7.0,6.9,N/A,Mostly Cloudy
 2013-11-02 00:51:00,46.0,89,7.0,6.9,N/A,Overcast
 2013-11-02 01:51:00,44.1,89,6.0,5.8,N/A,Scattered Clouds
 2013-11-02 02:51:00,43.0,89,6.0,6.9,N/A,Scattered Clouds
@@ -3435,21 +3078,16 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-02 05:51:00,39.9,93,5.0,6.9,N/A,Scattered Clouds
 2013-11-02 06:51:00,39.0,93,6.0,8.1,N/A,Scattered Clouds
 2013-11-02 07:51:00,39.0,93,5.0,8.1,N/A,Scattered Clouds
-2013-11-02 08:28:00,39.2,93,5.0,8.1,N/A,Mostly Cloudy
 2013-11-02 08:51:00,41.0,89,7.0,8.1,N/A,Mostly Cloudy
 2013-11-02 09:51:00,42.1,89,7.0,9.2,N/A,Overcast
 2013-11-02 10:51:00,44.1,85,7.0,11.5,N/A,Overcast
-2013-11-02 11:08:00,44.6,81,8.0,9.2,N/A,Overcast
 2013-11-02 11:51:00,46.0,79,10.0,11.5,N/A,Overcast
 2013-11-02 12:51:00,46.0,79,10.0,9.2,N/A,Overcast
 2013-11-02 13:51:00,46.0,79,10.0,8.1,N/A,Overcast
 2013-11-02 14:51:00,46.9,71,10.0,6.9,N/A,Overcast
-2013-11-02 15:21:00,46.4,76,10.0,5.8,N/A,Overcast
 2013-11-02 15:51:00,46.9,71,10.0,10.4,N/A,Overcast
 2013-11-02 16:51:00,46.0,73,10.0,9.2,N/A,Overcast
-2013-11-02 17:41:00,44.6,71,10.0,12.7,0.00,Light Rain
 2013-11-02 17:51:00,42.1,82,10.0,6.9,0.01,Light Rain
-2013-11-02 18:09:00,42.8,81,10.0,6.9,0.01,Light Rain
 2013-11-02 18:51:00,43.0,86,10.0,4.6,0.01,Overcast
 2013-11-02 19:51:00,43.0,86,10.0,3.5,N/A,Mostly Cloudy
 2013-11-02 20:51:00,43.0,82,10.0,8.1,N/A,Overcast
@@ -3458,7 +3096,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-02 23:51:00,43.0,80,10.0,4.6,N/A,Overcast
 2013-11-03 00:51:00,41.0,89,10.0,4.6,N/A,Mostly Cloudy
 2013-11-03 01:51:00,39.0,93,10.0,4.6,N/A,Partly Cloudy
-2013-11-03 01:51:00,37.0,96,10.0,4.6,N/A,Clear
 2013-11-03 02:51:00,37.0,93,10.0,Calm,N/A,Clear
 2013-11-03 03:51:00,37.0,93,10.0,Calm,N/A,Clear
 2013-11-03 04:51:00,35.1,92,10.0,Calm,N/A,Clear
@@ -3480,6 +3117,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-03 20:51:00,46.0,68,10.0,10.4,N/A,Overcast
 2013-11-03 21:51:00,45.0,71,10.0,12.7,N/A,Mostly Cloudy
 2013-11-03 22:51:00,45.0,74,10.0,11.5,N/A,Overcast
+2013-11-03 23:51:00,45.0,74,10.0,11.5,N/A,Overcast
 2013-11-04 00:51:00,44.1,73,10.0,9.2,N/A,Overcast
 2013-11-04 01:51:00,44.1,73,10.0,12.7,N/A,Overcast
 2013-11-04 02:51:00,44.1,73,10.0,10.4,N/A,Overcast
@@ -3515,17 +3153,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-05 08:51:00,53.1,74,10.0,6.9,N/A,Overcast
 2013-11-05 09:51:00,55.0,74,10.0,6.9,N/A,Overcast
 2013-11-05 10:51:00,55.0,74,10.0,8.1,N/A,Overcast
-2013-11-05 11:13:00,55.4,72,10.0,10.4,N/A,Overcast
 2013-11-05 11:51:00,55.0,74,10.0,9.2,N/A,Overcast
-2013-11-05 12:15:00,53.6,88,2.5,9.2,0.00,Light Drizzle
-2013-11-05 12:24:00,53.6,94,2.5,6.9,0.00,Light Drizzle
-2013-11-05 12:45:00,53.6,94,3.0,5.8,0.00,Light Rain
 2013-11-05 12:51:00,53.1,93,3.0,8.1,0.00,Light Rain
-2013-11-05 13:32:00,53.6,88,10.0,9.2,0.01,Overcast
 2013-11-05 13:51:00,54.0,86,10.0,11.5,0.01,Overcast
-2013-11-05 14:08:00,53.6,88,9.0,9.2,N/A,Overcast
 2013-11-05 14:51:00,54.0,86,9.0,9.2,0.00,Overcast
-2013-11-05 15:12:00,53.6,88,9.0,10.4,0.00,Overcast
 2013-11-05 15:51:00,55.0,83,9.0,10.4,0.00,Overcast
 2013-11-05 16:51:00,55.0,77,10.0,8.1,0.00,Light Rain
 2013-11-05 17:51:00,55.9,72,10.0,10.4,0.00,Overcast
@@ -3533,37 +3164,26 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-05 19:51:00,55.0,67,10.0,13.8,N/A,Overcast
 2013-11-05 20:51:00,55.9,64,10.0,12.7,N/A,Overcast
 2013-11-05 21:51:00,54.0,80,8.0,15.0,0.00,Light Drizzle
-2013-11-05 22:27:00,53.6,82,4.0,16.1,0.00,Light Drizzle
 2013-11-05 22:51:00,53.1,89,4.0,10.4,0.01,Light Rain
-2013-11-05 23:28:00,53.6,82,10.0,10.4,0.00,Overcast
 2013-11-05 23:51:00,54.0,80,10.0,12.7,0.00,Light Rain
 2013-11-06 00:51:00,53.1,89,3.0,10.4,0.09,Light Rain
 2013-11-06 01:51:00,54.0,86,10.0,13.8,0.08,Light Rain
-2013-11-06 02:33:00,55.4,88,7.0,16.1,0.02,Light Rain
 2013-11-06 02:51:00,55.0,86,5.0,17.3,0.04,Light Rain
-2013-11-06 03:15:00,55.4,88,3.0,11.5,0.08,Rain
 2013-11-06 03:51:00,55.0,93,3.0,13.8,0.13,Light Rain
 2013-11-06 04:51:00,55.0,93,4.0,12.7,0.08,Light Rain
 2013-11-06 05:51:00,55.9,93,3.0,15.0,0.18,Light Rain
 2013-11-06 06:51:00,55.9,93,5.0,17.3,0.06,Light Rain
 2013-11-06 07:51:00,55.9,93,3.0,18.4,0.11,Light Rain
-2013-11-06 08:42:00,55.4,94,2.5,18.4,0.08,Light Rain
 2013-11-06 08:51:00,55.9,93,2.5,15.0,0.10,Light Rain
-2013-11-06 09:09:00,55.4,94,5.0,13.8,0.02,Light Rain
 2013-11-06 09:51:00,57.0,93,9.0,12.7,0.04,Light Rain
 2013-11-06 10:51:00,57.0,93,10.0,16.1,0.00,Overcast
-2013-11-06 11:41:00,53.6,94,4.0,17.3,0.00,Light Rain
 2013-11-06 11:51:00,53.1,89,4.0,21.9,0.01,Light Rain
-2013-11-06 12:03:00,50.0,94,10.0,13.8,0.00,Light Rain
-2013-11-06 12:34:00,48.2,93,10.0,12.7,0.00,Overcast
 2013-11-06 12:51:00,48.0,89,10.0,19.6,0.00,Overcast
 2013-11-06 13:51:00,45.0,86,10.0,17.3,0.00,Overcast
 2013-11-06 14:51:00,44.1,82,10.0,16.1,N/A,Overcast
-2013-11-06 15:19:00,44.6,76,10.0,16.1,N/A,Overcast
 2013-11-06 15:51:00,44.1,79,10.0,11.5,N/A,Overcast
 2013-11-06 16:51:00,43.0,80,10.0,16.1,N/A,Overcast
 2013-11-06 17:51:00,43.0,74,10.0,16.1,N/A,Mostly Cloudy
-2013-11-06 18:11:00,42.8,76,10.0,9.2,N/A,Mostly Cloudy
 2013-11-06 18:51:00,42.1,79,10.0,6.9,N/A,Scattered Clouds
 2013-11-06 19:51:00,42.1,79,10.0,6.9,N/A,Mostly Cloudy
 2013-11-06 20:51:00,41.0,76,10.0,10.4,N/A,Scattered Clouds
@@ -3585,9 +3205,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-07 12:51:00,43.0,58,10.0,13.8,N/A,Overcast
 2013-11-07 13:51:00,43.0,62,10.0,13.8,N/A,Overcast
 2013-11-07 14:51:00,42.1,65,10.0,10.4,N/A,Overcast
-2013-11-07 15:28:00,42.8,66,10.0,11.5,N/A,Mostly Cloudy
 2013-11-07 15:51:00,41.0,67,10.0,13.8,N/A,Mostly Cloudy
-2013-11-07 16:44:00,39.2,70,10.0,12.7,N/A,Scattered Clouds
 2013-11-07 16:51:00,39.0,70,10.0,13.8,N/A,Scattered Clouds
 2013-11-07 17:51:00,37.0,76,10.0,8.1,N/A,Clear
 2013-11-07 18:51:00,37.0,76,10.0,11.5,N/A,Mostly Cloudy
@@ -3679,27 +3297,12 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-11 08:51:00,46.9,59,10.0,8.1,N/A,Overcast
 2013-11-11 09:51:00,48.0,56,10.0,5.8,N/A,Overcast
 2013-11-11 10:51:00,45.0,74,3.0,11.5,0.00,Light Rain
-2013-11-11 11:20:00,44.6,76,5.0,9.2,0.00,Light Rain
 2013-11-11 11:51:00,43.0,82,10.0,10.4,0.01,Light Rain
 2013-11-11 12:51:00,41.0,86,7.0,13.8,0.01,Light Rain
-2013-11-11 13:05:00,39.2,87,5.0,18.4,0.00,Light Rain
-2013-11-11 13:30:00,37.4,93,4.0,18.4,0.01,Light Rain
 2013-11-11 13:51:00,37.0,89,3.0,13.8,0.03,Light Rain
-2013-11-11 14:02:00,35.6,93,2.0,13.8,0.01,Light Rain
-2013-11-11 14:27:00,35.6,93,1.8,11.5,0.03,Light Snow
 2013-11-11 14:51:00,35.1,96,1.5,11.5,0.04,Light Snow
-2013-11-11 15:33:00,33.8,87,1.2,19.6,0.01,Light Snow
 2013-11-11 15:51:00,32.0,96,1.0,16.1,0.01,Light Snow
-2013-11-11 16:09:00,32.0,93,0.8,17.3,0.00,Light Snow
-2013-11-11 16:23:00,32.0,87,0.8,19.6,0.00,Light Snow
-2013-11-11 16:27:00,30.2,93,0.5,13.8,0.00,Snow
-2013-11-11 16:38:00,30.2,100,0.8,12.7,0.00,Light Snow
-2013-11-11 16:46:00,30.2,93,1.0,12.7,0.00,Light Snow
 2013-11-11 16:51:00,30.9,92,1.0,15.0,0.00,Light Snow
-2013-11-11 17:00:00,30.2,93,2.0,17.3,0.00,Light Snow
-2013-11-11 17:09:00,30.2,93,2.5,12.7,0.00,Light Snow
-2013-11-11 17:18:00,30.2,93,7.0,13.8,0.00,Light Snow
-2013-11-11 17:37:00,30.2,86,10.0,13.8,0.00,Overcast
 2013-11-11 17:51:00,30.0,75,10.0,15.0,0.00,Overcast
 2013-11-11 18:51:00,30.0,66,10.0,17.3,N/A,Overcast
 2013-11-11 19:51:00,30.0,66,10.0,13.8,N/A,Overcast
@@ -3805,38 +3408,25 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-15 23:51:00,45.0,68,10.0,10.4,N/A,Partly Cloudy
 2013-11-16 00:51:00,44.1,76,10.0,9.2,N/A,Scattered Clouds
 2013-11-16 01:51:00,44.1,79,10.0,11.5,N/A,Mostly Cloudy
-2013-11-16 02:34:00,44.6,81,10.0,10.4,N/A,Overcast
 2013-11-16 02:51:00,44.1,85,10.0,8.1,N/A,Overcast
 2013-11-16 03:51:00,45.0,90,6.0,10.4,N/A,Overcast
-2013-11-16 04:33:00,46.4,87,7.0,11.5,N/A,Overcast
 2013-11-16 04:51:00,46.9,86,7.0,9.2,N/A,Overcast
 2013-11-16 05:51:00,48.0,83,8.0,8.1,N/A,Overcast
-2013-11-16 06:31:00,48.2,87,8.0,8.1,N/A,Overcast
 2013-11-16 06:51:00,48.0,86,8.0,11.5,N/A,Overcast
 2013-11-16 07:51:00,48.0,89,2.0,12.7,0.00,Light Drizzle
-2013-11-16 08:21:00,48.2,93,1.5,12.7,0.00,Light Drizzle
 2013-11-16 08:51:00,48.9,93,2.0,11.5,0.00,Light Drizzle
-2013-11-16 09:27:00,50.0,94,3.0,13.8,0.00,Light Drizzle
 2013-11-16 09:51:00,50.0,93,3.0,16.1,0.00,Light Drizzle
-2013-11-16 10:18:00,51.8,88,2.0,18.4,0.00,Light Drizzle
-2013-11-16 10:36:00,51.8,88,3.0,17.3,0.00,Light Drizzle
 2013-11-16 10:51:00,51.1,92,5.0,16.1,0.00,Overcast
 2013-11-16 11:51:00,52.0,93,5.0,19.6,N/A,Overcast
 2013-11-16 12:51:00,53.1,89,4.0,17.3,N/A,Overcast
 2013-11-16 13:51:00,54.0,86,5.0,16.1,N/A,Overcast
 2013-11-16 14:51:00,55.9,84,6.0,15.0,0.00,Light Drizzle
-2013-11-16 15:11:00,57.2,82,8.0,15.0,0.00,Overcast
-2013-11-16 15:32:00,57.2,82,9.0,15.0,0.00,Overcast
 2013-11-16 15:51:00,57.9,78,9.0,18.4,0.00,Light Rain
 2013-11-16 16:51:00,57.9,84,6.0,21.9,0.03,Light Rain
 2013-11-16 17:51:00,57.0,87,7.0,17.3,0.04,Light Rain
-2013-11-16 18:27:00,57.2,88,9.0,24.2,0.01,Light Rain
 2013-11-16 18:51:00,57.9,84,10.0,18.4,0.01,Light Rain
 2013-11-16 19:51:00,57.9,90,5.0,21.9,0.12,Light Rain
-2013-11-16 20:11:00,57.2,94,2.5,20.7,0.05,Light Rain
 2013-11-16 20:51:00,57.9,93,2.0,17.3,0.09,Light Rain
-2013-11-16 21:06:00,59.0,88,5.0,15.0,0.00,Light Rain
-2013-11-16 21:38:00,59.0,88,9.0,18.4,0.00,Overcast
 2013-11-16 21:51:00,59.0,90,9.0,16.1,0.01,Overcast
 2013-11-16 22:51:00,60.1,86,10.0,19.6,N/A,Overcast
 2013-11-16 23:51:00,60.1,90,10.0,16.1,N/A,Overcast
@@ -3844,27 +3434,17 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-17 01:51:00,61.0,87,10.0,13.8,N/A,Overcast
 2013-11-17 02:51:00,61.0,87,10.0,13.8,N/A,Overcast
 2013-11-17 03:51:00,61.0,90,10.0,8.1,0.00,Overcast
-2013-11-17 04:07:00,60.8,88,10.0,19.6,N/A,Mostly Cloudy
-2013-11-17 04:28:00,60.8,88,10.0,12.7,N/A,Mostly Cloudy
 2013-11-17 04:51:00,61.0,93,10.0,15.0,N/A,Overcast
 2013-11-17 05:51:00,62.1,90,10.0,16.1,N/A,Overcast
-2013-11-17 06:24:00,62.6,94,2.0,16.1,0.19,Heavy Thunderstorms and Rain
-2013-11-17 06:29:00,62.6,94,4.0,15.0,0.19,Light Thunderstorms and Rain
 2013-11-17 06:51:00,63.0,90,10.0,20.7,0.19,Overcast
 2013-11-17 07:51:00,64.9,87,10.0,20.7,N/A,Overcast
 2013-11-17 08:51:00,64.9,87,10.0,18.4,N/A,Overcast
 2013-11-17 09:51:00,66.9,81,10.0,23.0,N/A,Overcast
 2013-11-17 10:51:00,68.0,81,10.0,20.7,N/A,Overcast
 2013-11-17 11:51:00,68.0,81,10.0,27.6,N/A,Overcast
-2013-11-17 12:35:00,62.6,77,4.0,21.9,0.01,Light Thunderstorms and Rain
-2013-11-17 12:42:00,57.2,82,1.0,29.9,0.14,Heavy Thunderstorms and Rain
 2013-11-17 12:51:00,55.9,90,0.8,26.5,0.40,Heavy Thunderstorms and Rain
-2013-11-17 13:02:00,57.2,88,3.0,34.5,0.11,Thunderstorms and Rain
-2013-11-17 13:33:00,60.8,77,10.0,26.5,0.13,Light Rain
 2013-11-17 13:51:00,59.0,87,2.0,26.5,0.16,Rain
-2013-11-17 13:56:00,57.2,94,4.0,16.1,0.01,Light Rain
 2013-11-17 14:51:00,60.1,80,10.0,17.3,0.01,Mostly Cloudy
-2013-11-17 15:18:00,59.0,77,10.0,32.2,N/A,Mostly Cloudy
 2013-11-17 15:51:00,52.0,80,10.0,36.8,0.01,Light Rain
 2013-11-17 16:51:00,50.0,77,10.0,25.3,0.00,Overcast
 2013-11-17 17:51:00,48.0,77,10.0,27.6,N/A,Overcast
@@ -3872,7 +3452,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-17 19:51:00,48.0,66,10.0,27.6,N/A,Overcast
 2013-11-17 20:51:00,46.9,66,10.0,26.5,N/A,Mostly Cloudy
 2013-11-17 21:51:00,46.0,71,10.0,20.7,N/A,Mostly Cloudy
-2013-11-17 22:47:00,44.6,71,10.0,16.1,N/A,Partly Cloudy
 2013-11-17 22:51:00,44.1,73,10.0,18.4,N/A,Partly Cloudy
 2013-11-17 23:51:00,44.1,71,10.0,15.0,N/A,Clear
 2013-11-18 00:51:00,43.0,74,10.0,17.3,N/A,Partly Cloudy
@@ -3881,12 +3460,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-18 03:51:00,41.0,73,10.0,17.3,N/A,Partly Cloudy
 2013-11-18 04:51:00,39.0,73,10.0,17.3,N/A,Clear
 2013-11-18 05:51:00,37.9,76,10.0,15.0,N/A,Scattered Clouds
-2013-11-18 06:19:00,37.4,75,10.0,16.1,N/A,Mostly Cloudy
 2013-11-18 06:51:00,37.9,73,10.0,15.0,N/A,Overcast
 2013-11-18 07:51:00,37.0,70,10.0,18.4,N/A,Mostly Cloudy
 2013-11-18 08:51:00,37.9,70,10.0,23.0,N/A,Overcast
 2013-11-18 09:51:00,39.0,62,10.0,24.2,N/A,Mostly Cloudy
-2013-11-18 10:04:00,39.2,61,10.0,20.7,N/A,Scattered Clouds
 2013-11-18 10:51:00,41.0,60,10.0,18.4,N/A,Partly Cloudy
 2013-11-18 11:51:00,42.1,55,10.0,24.2,N/A,Partly Cloudy
 2013-11-18 12:51:00,42.1,55,10.0,20.7,N/A,Partly Cloudy
@@ -3965,42 +3542,29 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-21 13:51:00,50.0,77,10.0,8.1,N/A,Overcast
 2013-11-21 14:51:00,50.0,80,9.0,6.9,0.00,Light Rain
 2013-11-21 15:51:00,48.9,86,6.0,6.9,0.00,Light Rain
-2013-11-21 16:11:00,48.2,87,4.0,6.9,0.01,Light Rain
 2013-11-21 16:51:00,48.0,93,3.0,4.6,0.02,Light Rain
-2013-11-21 17:05:00,46.4,100,3.0,4.6,0.00,Light Rain
-2013-11-21 17:32:00,48.2,93,5.0,4.6,0.00,Light Rain
 2013-11-21 17:51:00,46.9,97,3.0,3.5,0.00,Light Rain
-2013-11-21 17:59:00,46.4,100,3.0,3.5,0.01,Light Rain
-2013-11-21 18:49:00,46.4,100,3.0,3.5,0.02,Light Rain
 2013-11-21 18:51:00,46.9,97,5.0,3.5,0.02,Light Drizzle
-2013-11-21 19:16:00,46.4,100,2.5,3.5,0.00,Light Rain
 2013-11-21 19:51:00,46.9,97,2.0,3.5,0.01,Light Rain
 2013-11-21 20:51:00,46.9,97,2.5,4.6,0.00,Light Drizzle
-2013-11-21 21:17:00,46.4,100,2.5,4.6,0.00,Light Drizzle
-2013-11-21 21:29:00,46.4,93,2.5,10.4,0.00,Overcast
 2013-11-21 21:51:00,45.0,90,2.5,9.2,0.00,Overcast
-2013-11-21 22:22:00,44.6,93,2.5,6.9,N/A,Overcast
 2013-11-21 22:51:00,45.0,90,4.0,6.9,N/A,Overcast
-2013-11-21 23:47:00,44.6,81,5.0,6.9,N/A,Overcast
 2013-11-21 23:51:00,44.1,85,5.0,8.1,N/A,Overcast
 2013-11-22 00:51:00,44.1,85,4.0,9.2,N/A,Overcast
 2013-11-22 01:51:00,43.0,89,3.0,9.2,0.00,Light Drizzle
 2013-11-22 02:51:00,43.0,86,3.0,9.2,0.00,Light Rain
 2013-11-22 03:51:00,42.1,89,3.0,10.4,0.01,Light Rain
 2013-11-22 04:51:00,42.1,89,3.0,12.7,0.02,Light Rain
-2013-11-22 05:18:00,41.0,87,3.0,13.8,0.00,Light Rain
 2013-11-22 05:51:00,41.0,89,5.0,10.4,0.00,Light Drizzle
 2013-11-22 06:51:00,39.9,89,5.0,17.3,0.00,Light Drizzle
 2013-11-22 07:51:00,37.9,89,9.0,10.4,0.00,Light Drizzle
 2013-11-22 08:51:00,37.0,86,8.0,17.3,0.00,Light Drizzle
 2013-11-22 09:51:00,36.0,82,10.0,13.8,0.00,Overcast
-2013-11-22 10:06:00,37.4,75,10.0,17.3,N/A,Overcast
 2013-11-22 10:51:00,36.0,82,10.0,13.8,N/A,Overcast
 2013-11-22 11:51:00,37.0,76,10.0,12.7,N/A,Mostly Cloudy
 2013-11-22 12:51:00,37.9,68,10.0,10.4,N/A,Mostly Cloudy
 2013-11-22 13:51:00,37.0,67,10.0,15.0,N/A,Mostly Cloudy
 2013-11-22 14:51:00,37.0,67,10.0,10.4,N/A,Overcast
-2013-11-22 15:37:00,37.4,65,10.0,8.1,N/A,Mostly Cloudy
 2013-11-22 15:51:00,37.0,67,10.0,9.2,N/A,Mostly Cloudy
 2013-11-22 16:51:00,36.0,64,10.0,10.4,N/A,Mostly Cloudy
 2013-11-22 17:51:00,34.0,70,10.0,5.8,N/A,Scattered Clouds
@@ -4070,19 +3634,9 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-25 09:51:00,30.0,51,10.0,15.0,N/A,Overcast
 2013-11-25 10:51:00,32.0,45,10.0,13.8,N/A,Overcast
 2013-11-25 11:51:00,30.9,64,8.0,18.4,0.00,Light Snow
-2013-11-25 12:09:00,30.2,75,2.5,17.3,0.00,Light Snow
-2013-11-25 12:39:00,30.2,80,4.0,13.8,0.00,Light Snow
 2013-11-25 12:51:00,30.0,79,4.0,18.4,0.00,Light Snow
-2013-11-25 13:23:00,30.2,80,7.0,17.3,0.00,Light Snow
 2013-11-25 13:51:00,30.0,79,7.0,11.5,0.00,Light Snow
-2013-11-25 14:09:00,30.2,80,4.0,16.1,0.00,Light Snow
-2013-11-25 14:13:00,30.2,80,1.5,17.3,0.00,Light Snow
-2013-11-25 14:38:00,30.2,80,2.5,13.8,0.00,Light Snow
-2013-11-25 14:43:00,30.2,86,5.0,10.4,0.00,Light Snow
 2013-11-25 14:51:00,30.0,85,5.0,11.5,0.00,Light Snow
-2013-11-25 15:22:00,30.2,86,2.0,13.8,0.00,Light Snow
-2013-11-25 15:28:00,30.2,86,1.5,15.0,0.00,Light Snow
-2013-11-25 15:37:00,30.2,86,3.0,15.0,0.00,Light Snow
 2013-11-25 15:51:00,30.0,85,5.0,13.8,0.00,Light Snow
 2013-11-25 16:51:00,30.9,82,8.0,9.2,0.00,Overcast
 2013-11-25 17:51:00,30.9,82,9.0,10.4,N/A,Overcast
@@ -4105,17 +3659,13 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-11-26 10:51:00,35.1,70,10.0,6.9,N/A,Overcast
 2013-11-26 11:51:00,36.0,67,10.0,8.1,N/A,Overcast
 2013-11-26 12:51:00,35.1,70,10.0,9.2,N/A,Overcast
-2013-11-26 13:25:00,35.6,70,10.0,8.1,N/A,Overcast
 2013-11-26 13:51:00,34.0,73,10.0,10.4,N/A,Overcast
 2013-11-26 14:51:00,33.1,61,10.0,15.0,N/A,Overcast
-2013-11-26 15:36:00,30.2,69,5.0,16.1,0.00,Light Snow
 2013-11-26 15:51:00,30.9,69,7.0,12.7,0.00,Light Snow
 2013-11-26 16:51:00,30.9,59,10.0,10.4,0.00,Overcast
 2013-11-26 17:51:00,30.9,54,10.0,12.7,N/A,Overcast
-2013-11-26 18:46:00,28.4,69,6.0,21.9,0.00,Light Snow
 2013-11-26 18:51:00,28.0,72,7.0,20.7,0.00,Light Snow
 2013-11-26 19:51:00,26.1,63,8.0,18.4,0.00,Light Snow
-2013-11-26 20:07:00,26.6,64,9.0,18.4,0.00,Light Snow
 2013-11-26 20:51:00,25.0,53,10.0,21.9,0.00,Light Snow
 2013-11-26 21:51:00,21.9,51,10.0,19.6,0.00,Mostly Cloudy
 2013-11-26 22:51:00,19.0,52,10.0,17.3,N/A,Mostly Cloudy
@@ -4224,10 +3774,7 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-01 05:51:00,33.1,85,8.0,3.5,N/A,Mostly Cloudy
 2013-12-01 06:51:00,34.0,82,8.0,8.1,N/A,Overcast
 2013-12-01 07:51:00,35.1,82,7.0,6.9,N/A,Overcast
-2013-12-01 07:54:00,35.6,81,7.0,6.9,N/A,Overcast
-2013-12-01 08:44:00,37.4,81,7.0,6.9,N/A,Overcast
 2013-12-01 08:51:00,37.0,82,7.0,6.9,N/A,Overcast
-2013-12-01 09:43:00,39.2,81,7.0,5.8,N/A,Mostly Cloudy
 2013-12-01 09:51:00,39.9,79,7.0,5.8,N/A,Mostly Cloudy
 2013-12-01 10:51:00,42.1,70,7.0,8.1,N/A,Mostly Cloudy
 2013-12-01 11:51:00,43.0,68,8.0,4.6,N/A,Mostly Cloudy
@@ -4248,8 +3795,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-02 02:51:00,35.1,89,5.0,Calm,N/A,Overcast
 2013-12-02 03:51:00,35.1,92,5.0,Calm,N/A,Overcast
 2013-12-02 04:51:00,36.0,89,4.0,Calm,N/A,Overcast
-2013-12-02 05:08:00,35.6,93,4.0,Calm,N/A,Overcast
-2013-12-02 05:43:00,37.4,81,5.0,4.6,N/A,Haze
 2013-12-02 05:51:00,37.0,82,6.0,5.8,N/A,Haze
 2013-12-02 06:51:00,36.0,82,6.0,3.5,N/A,Haze
 2013-12-02 07:51:00,36.0,73,10.0,5.8,N/A,Mostly Cloudy
@@ -4266,21 +3811,16 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-02 18:51:00,39.9,65,9.0,10.4,0.00,Light Rain
 2013-12-02 19:51:00,37.9,79,5.0,8.1,0.01,Light Rain
 2013-12-02 20:51:00,37.9,86,5.0,8.1,0.01,Light Rain
-2013-12-02 21:26:00,37.4,93,4.0,9.2,0.03,Light Rain
 2013-12-02 21:51:00,37.0,93,3.0,10.4,0.05,Light Rain
 2013-12-02 22:51:00,37.0,93,2.0,10.4,0.02,Light Rain
-2013-12-02 23:23:00,37.4,93,3.0,9.2,0.00,Overcast
 2013-12-02 23:51:00,37.9,93,3.0,10.4,0.00,Overcast
 2013-12-03 00:51:00,37.9,89,4.0,11.5,N/A,Overcast
 2013-12-03 01:51:00,37.9,93,3.0,8.1,N/A,Overcast
 2013-12-03 02:51:00,37.9,93,3.0,6.9,N/A,Overcast
 2013-12-03 03:51:00,37.9,93,3.0,6.9,N/A,Overcast
 2013-12-03 04:51:00,37.9,93,3.0,6.9,N/A,Overcast
-2013-12-03 05:45:00,39.2,93,2.0,8.1,N/A,Overcast
 2013-12-03 05:51:00,39.0,93,2.0,6.9,N/A,Overcast
-2013-12-03 06:39:00,39.2,93,3.0,8.1,N/A,Overcast
 2013-12-03 06:51:00,39.9,89,3.0,5.8,N/A,Overcast
-2013-12-03 07:43:00,41.0,87,2.5,6.9,N/A,Overcast
 2013-12-03 07:51:00,41.0,93,2.5,5.8,N/A,Overcast
 2013-12-03 08:51:00,42.1,89,2.5,5.8,N/A,Overcast
 2013-12-03 09:51:00,43.0,89,2.5,6.9,N/A,Overcast
@@ -4290,10 +3830,8 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-03 13:51:00,48.9,90,2.5,8.1,N/A,Overcast
 2013-12-03 14:51:00,50.0,89,2.0,6.9,N/A,Overcast
 2013-12-03 15:51:00,50.0,93,2.0,10.4,0.00,Overcast
-2013-12-03 16:14:00,50.0,94,1.2,6.9,N/A,Overcast
 2013-12-03 16:51:00,50.0,96,1.0,6.9,N/A,Overcast
 2013-12-03 17:51:00,50.0,96,1.8,6.9,0.00,Light Drizzle
-2013-12-03 18:00:00,50.0,94,2.0,9.2,0.00,Overcast
 2013-12-03 18:51:00,50.0,93,2.5,6.9,0.00,Overcast
 2013-12-03 19:51:00,50.0,93,2.5,9.2,N/A,Overcast
 2013-12-03 20:51:00,50.0,93,2.5,8.1,0.00,Light Rain
@@ -4303,51 +3841,36 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-04 00:51:00,50.0,93,3.0,6.9,N/A,Overcast
 2013-12-04 01:51:00,50.0,89,3.0,8.1,N/A,Overcast
 2013-12-04 02:51:00,48.9,93,3.0,10.4,N/A,Overcast
-2013-12-04 03:09:00,48.2,93,4.0,6.9,N/A,Overcast
 2013-12-04 03:51:00,48.9,93,4.0,6.9,N/A,Overcast
 2013-12-04 04:51:00,48.0,93,4.0,5.8,N/A,Overcast
 2013-12-04 05:51:00,48.0,93,4.0,8.1,N/A,Overcast
 2013-12-04 06:51:00,48.0,96,3.0,9.2,N/A,Overcast
-2013-12-04 07:04:00,48.2,93,2.5,11.5,N/A,Overcast
-2013-12-04 07:39:00,48.2,93,2.0,10.4,N/A,Overcast
 2013-12-04 07:51:00,48.0,93,2.0,10.4,N/A,Overcast
 2013-12-04 08:51:00,48.9,93,2.5,10.4,N/A,Overcast
 2013-12-04 09:51:00,48.9,97,2.0,12.7,N/A,Overcast
-2013-12-04 10:27:00,50.0,94,3.0,8.1,N/A,Overcast
 2013-12-04 10:51:00,51.1,92,4.0,8.1,N/A,Overcast
 2013-12-04 11:51:00,52.0,93,3.0,8.1,N/A,Overcast
 2013-12-04 12:51:00,53.1,93,3.0,11.5,N/A,Overcast
-2013-12-04 13:00:00,53.6,94,2.5,12.7,N/A,Overcast
-2013-12-04 13:35:00,53.6,94,3.0,12.7,N/A,Overcast
 2013-12-04 13:51:00,54.0,93,3.0,11.5,N/A,Overcast
-2013-12-04 14:08:00,53.6,94,2.0,13.8,0.00,Light Drizzle
-2013-12-04 14:43:00,53.6,100,2.0,10.4,0.00,Light Drizzle
 2013-12-04 14:51:00,54.0,97,1.5,11.5,0.00,Light Drizzle
 2013-12-04 15:51:00,55.0,96,2.0,10.4,0.00,Light Drizzle
-2013-12-04 16:43:00,55.4,94,3.0,10.4,0.00,Overcast
 2013-12-04 16:51:00,55.9,90,3.0,11.5,0.00,Overcast
-2013-12-04 17:23:00,57.2,88,4.0,13.8,N/A,Overcast
 2013-12-04 17:51:00,57.0,89,5.0,11.5,N/A,Overcast
 2013-12-04 18:51:00,57.0,83,7.0,13.8,N/A,Overcast
 2013-12-04 19:51:00,55.9,84,7.0,15.0,N/A,Overcast
 2013-12-04 20:51:00,55.9,80,8.0,12.7,N/A,Overcast
-2013-12-04 21:23:00,55.4,82,8.0,19.6,N/A,Overcast
 2013-12-04 21:51:00,50.0,80,8.0,18.4,N/A,Overcast
 2013-12-04 22:51:00,46.0,76,8.0,17.3,N/A,Overcast
 2013-12-04 23:51:00,43.0,76,10.0,19.6,N/A,Overcast
-2013-12-05 00:28:00,39.2,81,10.0,21.9,N/A,Overcast
 2013-12-05 00:51:00,37.9,79,10.0,16.1,N/A,Overcast
-2013-12-05 01:43:00,35.6,81,10.0,20.7,N/A,Overcast
 2013-12-05 01:51:00,35.1,82,10.0,19.6,N/A,Overcast
 2013-12-05 02:51:00,34.0,79,10.0,18.4,N/A,Overcast
 2013-12-05 03:51:00,32.0,79,10.0,16.1,N/A,Overcast
-2013-12-05 04:43:00,30.2,80,10.0,13.8,N/A,Overcast
 2013-12-05 04:51:00,30.9,79,10.0,13.8,N/A,Overcast
 2013-12-05 05:51:00,30.0,79,10.0,15.0,N/A,Overcast
 2013-12-05 06:51:00,28.9,78,10.0,13.8,N/A,Overcast
 2013-12-05 07:51:00,28.0,75,10.0,19.6,N/A,Overcast
 2013-12-05 08:51:00,28.0,69,10.0,19.6,N/A,Overcast
-2013-12-05 09:39:00,26.6,69,10.0,16.1,N/A,Mostly Cloudy
 2013-12-05 09:51:00,28.0,66,10.0,15.0,N/A,Mostly Cloudy
 2013-12-05 10:51:00,28.0,63,10.0,16.1,N/A,Mostly Cloudy
 2013-12-05 11:51:00,28.0,63,10.0,11.5,N/A,Mostly Cloudy
@@ -4413,43 +3936,27 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-07 23:51:00,17.1,59,10.0,6.9,N/A,Overcast
 2013-12-08 00:51:00,17.1,62,10.0,4.6,N/A,Overcast
 2013-12-08 01:51:00,17.1,56,10.0,3.5,N/A,Overcast
-2013-12-08 02:27:00,17.6,53,10.0,6.9,N/A,Overcast
 2013-12-08 02:51:00,17.1,56,10.0,3.5,N/A,Overcast
 2013-12-08 03:51:00,17.1,59,10.0,3.5,N/A,Mostly Cloudy
-2013-12-08 04:11:00,17.6,58,10.0,3.5,N/A,Overcast
 2013-12-08 04:51:00,18.0,62,10.0,Calm,N/A,Overcast
 2013-12-08 05:51:00,18.0,68,10.0,4.6,N/A,Overcast
 2013-12-08 06:51:00,19.9,68,10.0,4.6,N/A,Overcast
 2013-12-08 07:51:00,23.0,72,10.0,13.8,N/A,Overcast
 2013-12-08 08:51:00,24.1,65,10.0,17.3,N/A,Overcast
-2013-12-08 09:33:00,24.8,59,10.0,16.1,N/A,Overcast
 2013-12-08 09:51:00,24.1,60,10.0,15.0,N/A,Overcast
 2013-12-08 10:51:00,24.1,69,4.0,13.8,0.00,Light Snow
-2013-12-08 11:22:00,24.8,74,2.0,11.5,0.00,Light Snow
 2013-12-08 11:51:00,24.1,77,2.5,15.0,0.00,Light Snow
-2013-12-08 12:11:00,24.8,80,2.0,15.0,0.00,Light Snow
-2013-12-08 12:32:00,24.8,80,2.5,15.0,0.00,Light Snow
 2013-12-08 12:51:00,24.1,81,3.0,12.7,0.00,Light Snow
 2013-12-08 13:51:00,25.0,75,5.0,15.0,0.00,Light Snow
-2013-12-08 14:32:00,24.8,80,3.0,13.8,0.00,Light Snow
 2013-12-08 14:51:00,25.0,78,2.5,12.7,0.00,Light Snow
-2013-12-08 15:04:00,24.8,80,1.5,11.5,0.00,Light Snow
 2013-12-08 15:51:00,25.0,85,1.5,11.5,0.00,Light Snow
-2013-12-08 16:06:00,24.8,86,2.5,10.4,0.00,Light Snow
-2013-12-08 16:28:00,24.8,86,1.5,9.2,0.00,Light Snow
 2013-12-08 16:51:00,25.0,88,0.8,11.5,0.01,Light Snow
-2013-12-08 17:01:00,24.8,86,1.5,11.5,0.00,Light Snow
 2013-12-08 17:51:00,25.0,92,1.2,10.4,0.02,Light Snow
-2013-12-08 18:33:00,24.8,93,1.5,8.1,0.01,Light Snow
 2013-12-08 18:51:00,25.0,92,1.8,4.6,0.01,Light Snow
 2013-12-08 19:51:00,25.0,92,1.0,3.5,0.04,Light Snow
-2013-12-08 20:10:00,24.8,93,1.5,5.8,0.01,Light Snow
 2013-12-08 20:51:00,25.0,92,1.8,4.6,0.01,Light Snow
-2013-12-08 21:05:00,24.8,93,2.0,3.5,0.00,Light Snow
-2013-12-08 21:33:00,24.8,86,4.0,5.8,0.00,Overcast
 2013-12-08 21:51:00,25.0,92,4.0,4.6,0.00,Light Snow
 2013-12-08 22:51:00,25.0,88,4.0,5.8,0.01,Light Snow
-2013-12-08 23:22:00,24.8,86,4.0,6.9,0.00,Overcast
 2013-12-08 23:51:00,25.0,88,4.0,9.2,0.00,Overcast
 2013-12-09 00:51:00,26.1,84,4.0,13.8,0.00,Light Snow
 2013-12-09 01:51:00,25.0,85,4.0,11.5,0.00,Light Snow
@@ -4463,7 +3970,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-09 09:51:00,19.9,78,7.0,11.5,0.00,Light Snow
 2013-12-09 10:51:00,21.0,74,10.0,15.0,0.00,Mostly Cloudy
 2013-12-09 11:51:00,19.9,71,7.0,16.1,0.00,Light Snow
-2013-12-09 12:30:00,19.4,68,10.0,18.4,0.00,Mostly Cloudy
 2013-12-09 12:51:00,19.9,65,10.0,15.0,0.00,Scattered Clouds
 2013-12-09 13:51:00,19.0,68,10.0,17.3,N/A,Mostly Cloudy
 2013-12-09 14:51:00,18.0,65,10.0,17.3,0.00,Mostly Cloudy
@@ -4501,26 +4007,17 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-10 22:51:00,17.1,62,10.0,10.4,N/A,Overcast
 2013-12-10 23:51:00,17.1,62,10.0,9.2,N/A,Overcast
 2013-12-11 00:51:00,17.1,65,7.0,8.1,0.00,Light Snow
-2013-12-11 01:20:00,15.8,73,1.5,9.2,0.00,Light Snow
-2013-12-11 01:41:00,15.8,79,3.0,6.9,0.00,Light Snow
 2013-12-11 01:51:00,16.0,81,3.0,4.6,0.00,Light Snow
 2013-12-11 02:51:00,16.0,84,5.0,3.5,0.00,Light Snow
-2013-12-11 03:14:00,15.8,86,1.5,4.6,0.00,Light Snow
-2013-12-11 03:24:00,15.8,86,1.2,3.5,0.00,Light Snow
 2013-12-11 03:51:00,16.0,88,1.2,4.6,0.00,Light Snow
 2013-12-11 04:51:00,17.1,84,1.2,8.1,0.00,Light Snow
 2013-12-11 05:51:00,17.1,88,1.2,8.1,0.00,Light Snow
 2013-12-11 06:51:00,17.1,88,1.8,5.8,0.01,Light Snow
 2013-12-11 07:51:00,18.0,84,2.0,5.8,0.00,Light Snow
-2013-12-11 08:12:00,17.6,86,2.5,6.9,0.00,Light Snow
-2013-12-11 08:23:00,17.6,79,4.0,8.1,0.00,Light Snow
 2013-12-11 08:51:00,18.0,81,8.0,8.1,0.00,Light Snow
-2013-12-11 09:29:00,17.6,79,6.0,9.2,0.00,Light Snow
 2013-12-11 09:51:00,18.0,78,8.0,10.4,0.00,Light Snow
-2013-12-11 10:29:00,19.4,68,10.0,11.5,0.00,Scattered Clouds
 2013-12-11 10:51:00,19.9,68,10.0,12.7,0.00,Mostly Cloudy
 2013-12-11 11:51:00,19.9,65,10.0,8.1,0.00,Mostly Cloudy
-2013-12-11 12:14:00,19.4,63,10.0,12.7,N/A,Scattered Clouds
 2013-12-11 12:51:00,19.9,60,10.0,13.8,N/A,Mostly Cloudy
 2013-12-11 13:51:00,19.0,59,10.0,16.1,N/A,Mostly Cloudy
 2013-12-11 14:51:00,17.1,54,10.0,15.0,N/A,Partly Cloudy
@@ -4578,64 +4075,36 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-13 18:51:00,30.0,66,9.0,8.1,N/A,Overcast
 2013-12-13 19:51:00,30.9,67,9.0,9.2,N/A,Overcast
 2013-12-13 20:51:00,30.0,72,9.0,10.4,N/A,Overcast
-2013-12-13 21:02:00,30.2,69,9.0,8.1,0.00,Light Snow
 2013-12-13 21:51:00,30.9,69,2.0,8.1,0.00,Light Snow
-2013-12-13 21:58:00,30.2,80,1.8,9.2,0.00,Light Snow
-2013-12-13 22:19:00,28.4,86,1.0,6.9,0.00,Light Snow
 2013-12-13 22:51:00,28.9,89,1.0,5.8,0.02,Light Snow
-2013-12-13 23:10:00,28.4,93,1.2,5.8,0.01,Light Snow
-2013-12-13 23:40:00,28.4,93,1.5,5.8,0.01,Light Snow
 2013-12-13 23:51:00,28.9,92,1.2,8.1,0.02,Light Snow
 2013-12-14 00:51:00,28.9,96,1.2,6.9,0.01,Light Snow
 2013-12-14 01:51:00,30.0,92,1.2,9.2,0.01,Light Snow
-2013-12-14 02:30:00,30.2,93,1.0,9.2,0.02,Light Snow
 2013-12-14 02:51:00,30.0,92,1.0,9.2,0.02,Light Snow
-2013-12-14 03:26:00,30.2,93,1.0,8.1,0.02,Light Snow
 2013-12-14 03:51:00,30.0,92,1.2,8.1,0.02,Light Snow
 2013-12-14 04:51:00,28.9,92,1.0,10.4,0.01,Light Snow
-2013-12-14 05:30:00,28.4,93,1.0,9.2,0.01,Light Snow
 2013-12-14 05:51:00,30.0,92,1.2,11.5,0.01,Light Snow
-2013-12-14 06:01:00,30.2,93,1.2,10.4,0.00,Light Snow
-2013-12-14 06:19:00,30.2,93,1.2,11.5,0.00,Light Snow
 2013-12-14 06:51:00,30.0,92,1.0,11.5,0.01,Light Snow
-2013-12-14 07:02:00,30.2,93,0.8,9.2,0.00,Light Snow
-2013-12-14 07:12:00,30.2,93,1.0,10.4,0.00,Light Snow
-2013-12-14 07:38:00,30.2,93,0.8,11.5,0.00,Light Snow
 2013-12-14 07:51:00,30.0,92,0.5,11.5,0.00,Snow
-2013-12-14 08:04:00,30.2,93,1.0,10.4,0.00,Light Snow
 2013-12-14 08:51:00,30.0,88,1.2,12.7,0.00,Light Snow
-2013-12-14 09:14:00,28.4,93,2.0,12.7,0.00,Light Snow
-2013-12-14 09:22:00,28.4,93,1.0,12.7,0.00,Light Snow
-2013-12-14 09:44:00,28.4,93,0.8,12.7,0.00,Light Snow
 2013-12-14 09:51:00,28.9,92,0.8,11.5,0.00,Light Snow
-2013-12-14 10:08:00,30.2,86,0.5,10.4,0.01,Snow
-2013-12-14 10:12:00,30.2,93,0.5,13.8,0.01,Snow
-2013-12-14 10:31:00,28.4,93,0.8,12.7,0.01,Light Snow
 2013-12-14 10:51:00,28.9,92,1.2,15.0,0.01,Light Snow
 2013-12-14 11:51:00,30.0,88,1.2,11.5,0.00,Light Snow
-2013-12-14 11:59:00,28.4,93,2.0,12.7,0.00,Light Snow
-2013-12-14 12:12:00,30.2,86,3.0,13.8,0.00,Light Snow
 2013-12-14 12:51:00,30.0,85,4.0,13.8,0.00,Light Snow
-2013-12-14 13:13:00,30.2,86,2.5,11.5,0.00,Light Snow
-2013-12-14 13:29:00,30.2,86,3.0,10.4,0.00,Light Snow
 2013-12-14 13:51:00,30.0,85,2.5,11.5,0.00,Light Snow
-2013-12-14 14:27:00,30.2,86,3.0,10.4,0.00,Light Snow
 2013-12-14 14:51:00,30.0,88,5.0,11.5,0.00,Light Snow
 2013-12-14 15:51:00,30.0,88,6.0,12.7,0.00,Light Snow
 2013-12-14 16:51:00,30.0,82,10.0,13.8,0.00,Overcast
 2013-12-14 17:51:00,30.0,82,10.0,13.8,N/A,Overcast
 2013-12-14 18:51:00,30.0,82,10.0,12.7,N/A,Overcast
 2013-12-14 19:51:00,28.9,78,10.0,15.0,N/A,Overcast
-2013-12-14 20:34:00,28.4,80,10.0,11.5,N/A,Overcast
 2013-12-14 20:51:00,28.0,81,10.0,10.4,N/A,Overcast
 2013-12-14 21:51:00,27.0,81,10.0,11.5,N/A,Overcast
 2013-12-14 22:51:00,25.0,85,10.0,8.1,N/A,Scattered Clouds
 2013-12-14 23:51:00,24.1,81,10.0,8.1,N/A,Mostly Cloudy
 2013-12-15 00:51:00,21.9,85,7.0,10.4,N/A,Overcast
 2013-12-15 01:51:00,21.0,85,7.0,9.2,N/A,Mostly Cloudy
-2013-12-15 02:16:00,19.4,86,7.0,15.0,N/A,Overcast
 2013-12-15 02:51:00,19.9,85,6.0,11.5,N/A,Overcast
-2013-12-15 03:28:00,19.4,86,10.0,15.0,N/A,Overcast
 2013-12-15 03:51:00,19.9,78,10.0,17.3,N/A,Overcast
 2013-12-15 04:51:00,18.0,81,7.0,17.3,0.00,Light Snow
 2013-12-15 05:51:00,16.0,71,10.0,13.8,0.00,Light Snow
@@ -4659,9 +4128,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-15 23:51:00,12.9,65,10.0,6.9,N/A,Overcast
 2013-12-16 00:51:00,12.9,62,10.0,4.6,N/A,Overcast
 2013-12-16 01:51:00,12.9,67,4.0,4.6,0.00,Light Snow
-2013-12-16 02:07:00,12.2,67,2.0,4.6,0.00,Light Snow
-2013-12-16 02:11:00,12.2,73,1.5,4.6,0.00,Light Snow
-2013-12-16 02:39:00,12.2,73,4.0,5.8,0.00,Light Snow
 2013-12-16 02:51:00,12.0,70,7.0,Calm,0.00,Light Snow
 2013-12-16 03:51:00,12.0,70,9.0,Calm,0.00,Overcast
 2013-12-16 04:51:00,12.0,59,10.0,3.5,N/A,Mostly Cloudy
@@ -4675,30 +4141,16 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-16 12:51:00,21.0,65,10.0,6.9,N/A,Overcast
 2013-12-16 13:51:00,21.9,66,10.0,6.9,N/A,Overcast
 2013-12-16 14:51:00,21.9,66,10.0,6.9,N/A,Overcast
-2013-12-16 15:36:00,21.2,68,2.0,5.8,0.00,Light Snow
-2013-12-16 15:49:00,21.2,74,1.8,5.8,0.00,Light Snow
 2013-12-16 15:51:00,21.0,74,1.2,4.6,0.00,Light Snow
-2013-12-16 15:59:00,21.2,80,1.0,4.6,0.00,Light Snow
-2013-12-16 16:21:00,21.2,80,0.8,3.5,0.00,Light Snow
-2013-12-16 16:32:00,21.2,86,1.2,4.6,0.00,Light Snow
 2013-12-16 16:51:00,19.9,89,1.8,4.6,0.00,Light Snow
-2013-12-16 17:10:00,19.4,93,2.0,3.5,0.01,Light Snow
-2013-12-16 17:28:00,19.4,93,2.0,3.5,0.01,Light Snow
 2013-12-16 17:51:00,19.9,85,2.5,5.8,0.01,Light Snow
-2013-12-16 18:21:00,19.4,86,5.0,4.6,0.00,Light Snow
 2013-12-16 18:51:00,19.9,85,5.0,3.5,0.00,Light Snow
-2013-12-16 19:12:00,19.4,86,5.0,4.6,0.00,Light Snow
 2013-12-16 19:51:00,19.9,85,4.0,8.1,0.00,Light Snow
-2013-12-16 20:13:00,19.4,86,6.0,6.9,0.00,Overcast
-2013-12-16 20:41:00,19.4,86,6.0,9.2,0.00,Overcast
 2013-12-16 20:51:00,19.9,85,6.0,8.1,0.00,Overcast
-2013-12-16 21:11:00,19.4,86,5.0,8.1,N/A,Overcast
-2013-12-16 21:29:00,19.4,93,2.5,8.1,N/A,Overcast
 2013-12-16 21:51:00,21.0,85,5.0,8.1,N/A,Overcast
-2013-12-16 22:20:00,21.2,86,6.0,9.2,N/A,Overcast
 2013-12-16 22:51:00,19.9,85,6.0,11.5,N/A,Overcast
+2013-12-16 23:51:00,17.1,84,10.0,13.8,N/A,Scattered Clouds
 2013-12-17 00:51:00,17.1,84,10.0,13.8,N/A,Scattered Clouds
-2013-12-17 01:33:00,17.6,79,6.0,10.4,N/A,Mostly Cloudy
 2013-12-17 01:51:00,17.1,88,6.0,10.4,N/A,Overcast
 2013-12-17 02:51:00,18.0,92,3.0,13.8,N/A,Overcast
 2013-12-17 03:51:00,19.0,88,4.0,10.4,N/A,Overcast
@@ -4708,21 +4160,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-17 07:51:00,19.9,92,4.0,15.0,N/A,Overcast
 2013-12-17 08:51:00,21.9,89,4.0,11.5,N/A,Overcast
 2013-12-17 09:51:00,24.1,88,3.0,16.1,0.00,Light Snow
-2013-12-17 09:59:00,24.8,80,2.0,13.8,0.00,Light Snow
-2013-12-17 10:12:00,24.8,86,1.5,17.3,0.00,Light Snow
-2013-12-17 10:25:00,24.8,86,0.8,16.1,0.00,Light Snow
-2013-12-17 10:38:00,24.8,86,0.8,15.0,0.00,Light Snow
-2013-12-17 10:48:00,24.8,86,3.0,13.8,0.00,Light Snow
 2013-12-17 10:51:00,25.0,88,3.0,16.1,0.00,Light Snow
-2013-12-17 11:09:00,24.8,86,4.0,12.7,0.00,Light Snow
 2013-12-17 11:51:00,28.0,81,6.0,15.0,0.00,Haze
-2013-12-17 12:43:00,28.4,86,7.0,11.5,N/A,Mostly Cloudy
 2013-12-17 12:51:00,28.0,85,8.0,13.8,N/A,Mostly Cloudy
-2013-12-17 13:26:00,32.0,75,10.0,11.5,N/A,Scattered Clouds
 2013-12-17 13:51:00,33.1,70,10.0,11.5,N/A,Scattered Clouds
-2013-12-17 14:48:00,33.8,65,10.0,11.5,N/A,Mostly Cloudy
 2013-12-17 14:51:00,33.1,66,10.0,13.8,N/A,Mostly Cloudy
-2013-12-17 15:42:00,32.0,75,10.0,10.4,N/A,Scattered Clouds
 2013-12-17 15:51:00,32.0,73,10.0,13.8,N/A,Scattered Clouds
 2013-12-17 16:51:00,32.0,61,10.0,10.4,N/A,Partly Cloudy
 2013-12-17 17:51:00,30.9,57,10.0,16.1,N/A,Partly Cloudy
@@ -4769,133 +4211,78 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-19 10:51:00,41.0,76,10.0,Calm,N/A,Overcast
 2013-12-19 11:51:00,42.1,76,10.0,Calm,N/A,Overcast
 2013-12-19 12:51:00,43.0,74,10.0,Calm,N/A,Overcast
-2013-12-19 13:16:00,37.4,81,7.0,10.4,N/A,Overcast
 2013-12-19 13:51:00,37.0,79,8.0,8.1,N/A,Overcast
 2013-12-19 14:51:00,37.0,82,10.0,4.6,N/A,Overcast
 2013-12-19 15:51:00,37.0,82,10.0,6.9,N/A,Overcast
 2013-12-19 16:51:00,37.0,82,8.0,5.8,N/A,Overcast
 2013-12-19 17:51:00,37.9,83,7.0,4.6,N/A,Overcast
 2013-12-19 18:51:00,37.9,89,5.0,3.5,N/A,Overcast
-2013-12-19 19:30:00,37.4,93,2.5,4.6,N/A,Overcast
 2013-12-19 19:51:00,37.9,93,2.0,4.6,N/A,Overcast
-2013-12-19 20:03:00,37.4,93,1.5,4.6,N/A,Overcast
 2013-12-19 20:51:00,37.9,97,1.8,3.5,N/A,Overcast
-2013-12-19 21:12:00,37.4,100,1.5,3.5,0.00,Light Rain
 2013-12-19 21:51:00,37.9,97,1.0,3.5,0.02,Light Rain
 2013-12-19 22:51:00,37.0,100,1.0,3.5,0.02,Light Rain
 2013-12-19 23:51:00,36.0,100,1.0,3.5,0.01,Light Drizzle
-2013-12-20 00:15:00,37.4,100,0.8,3.5,0.00,Light Drizzle
 2013-12-20 00:51:00,36.0,100,0.5,Calm,0.00,Drizzle
-2013-12-20 01:03:00,35.6,100,0.2,4.6,0.00,Heavy Drizzle
-2013-12-20 01:38:00,35.6,100,0.2,Calm,0.00,Fog
 2013-12-20 01:51:00,37.0,96,0.2,Calm,0.00,Fog
 2013-12-20 02:51:00,37.0,96,0.2,5.8,0.02,Heavy Drizzle
-2013-12-20 02:57:00,37.4,93,0.8,5.8,0.00,Light Drizzle
-2013-12-20 03:20:00,37.4,93,1.2,5.8,0.00,Light Drizzle
 2013-12-20 03:51:00,37.0,96,1.8,6.9,0.00,Light Drizzle
-2013-12-20 04:03:00,35.6,100,2.0,6.9,0.00,Light Drizzle
 2013-12-20 04:51:00,36.0,97,2.0,8.1,0.01,Light Drizzle
 2013-12-20 05:51:00,36.0,97,2.5,11.5,0.01,Light Drizzle
 2013-12-20 06:51:00,36.0,97,3.0,11.5,0.00,Light Drizzle
-2013-12-20 07:39:00,35.6,93,5.0,10.4,0.01,Light Drizzle
 2013-12-20 07:51:00,35.1,96,5.0,11.5,0.01,Light Drizzle
 2013-12-20 08:51:00,36.0,93,5.0,11.5,0.01,Light Rain
 2013-12-20 09:51:00,35.1,96,7.0,10.4,0.01,Light Rain
 2013-12-20 10:51:00,36.0,93,5.0,9.2,0.01,Light Rain
 2013-12-20 11:51:00,36.0,93,6.0,6.9,0.03,Light Rain
-2013-12-20 12:36:00,35.6,93,2.0,8.1,0.00,Overcast
 2013-12-20 12:51:00,36.0,93,2.5,6.9,0.00,Overcast
-2013-12-20 13:11:00,35.6,93,1.5,10.4,0.00,Light Rain
-2013-12-20 13:34:00,35.6,100,3.0,9.2,0.02,Light Rain
-2013-12-20 13:40:00,35.6,93,6.0,9.2,0.02,Overcast
 2013-12-20 13:51:00,36.0,93,6.0,9.2,0.02,Overcast
-2013-12-20 14:12:00,35.6,93,2.0,10.4,0.00,Light Rain
-2013-12-20 14:21:00,35.6,93,3.0,9.2,0.00,Overcast
 2013-12-20 14:51:00,35.1,96,3.0,8.1,0.00,Overcast
-2013-12-20 15:26:00,35.6,93,1.8,8.1,N/A,Overcast
 2013-12-20 15:51:00,35.1,96,1.8,6.9,0.00,Light Drizzle
-2013-12-20 16:02:00,35.6,93,2.0,6.9,0.00,Overcast
 2013-12-20 16:51:00,35.1,96,1.8,8.1,0.00,Light Drizzle
 2013-12-20 17:51:00,35.1,96,2.0,6.9,0.00,Overcast
-2013-12-20 18:14:00,35.6,100,5.0,8.1,N/A,Overcast
-2013-12-20 18:41:00,35.6,100,2.0,6.9,N/A,Overcast
 2013-12-20 18:51:00,36.0,97,2.0,8.1,N/A,Overcast
-2013-12-20 19:16:00,35.6,100,1.5,6.9,0.00,Light Drizzle
 2013-12-20 19:51:00,35.1,96,1.5,8.1,0.00,Light Drizzle
 2013-12-20 20:51:00,34.0,100,1.5,9.2,0.00,Light Drizzle
 2013-12-20 21:51:00,34.0,96,1.5,8.1,0.00,Overcast
-2013-12-20 22:27:00,33.8,100,2.0,4.6,N/A,Overcast
 2013-12-20 22:51:00,34.0,96,2.0,5.8,N/A,Overcast
 2013-12-20 23:51:00,34.0,96,1.5,4.6,N/A,Overcast
 2013-12-21 00:51:00,34.0,96,1.2,5.8,N/A,Overcast
 2013-12-21 01:51:00,33.1,100,1.2,3.5,N/A,Overcast
 2013-12-21 02:51:00,33.1,100,1.2,3.5,N/A,Overcast
-2013-12-21 03:23:00,33.8,93,0.5,5.8,N/A,Fog
 2013-12-21 03:51:00,32.0,100,0.5,Calm,N/A,Fog
 2013-12-21 04:51:00,32.0,100,0.5,Calm,N/A,Fog
-2013-12-21 05:45:00,32.0,93,0.8,4.6,N/A,Overcast
 2013-12-21 05:51:00,32.0,100,0.8,3.5,N/A,Overcast
-2013-12-21 06:34:00,32.0,100,2.0,5.8,N/A,Overcast
 2013-12-21 06:51:00,32.0,100,3.0,4.6,N/A,Overcast
-2013-12-21 06:58:00,32.0,93,5.0,5.8,N/A,Overcast
 2013-12-21 07:51:00,32.0,100,3.0,4.6,N/A,Overcast
-2013-12-21 08:03:00,33.8,93,1.5,5.8,N/A,Overcast
-2013-12-21 08:39:00,33.8,93,2.0,6.9,N/A,Overcast
 2013-12-21 08:51:00,33.1,96,1.0,8.1,N/A,Overcast
-2013-12-21 09:33:00,33.8,93,2.0,6.9,N/A,Overcast
-2013-12-21 09:48:00,33.8,93,3.0,5.8,N/A,Overcast
 2013-12-21 09:51:00,33.1,96,3.0,5.8,N/A,Overcast
-2013-12-21 10:49:00,33.8,93,2.0,6.9,N/A,Overcast
 2013-12-21 10:51:00,33.1,96,1.5,5.8,N/A,Overcast
-2013-12-21 11:32:00,33.8,93,2.0,4.6,N/A,Overcast
-2013-12-21 11:44:00,33.8,93,3.0,4.6,N/A,Overcast
 2013-12-21 11:51:00,34.0,92,3.0,4.6,N/A,Overcast
-2013-12-21 12:37:00,33.8,93,2.0,6.9,0.01,Light Rain
 2013-12-21 12:51:00,34.0,92,3.0,9.2,0.01,Light Rain
-2013-12-21 12:58:00,33.8,93,3.0,9.2,0.01,Light Rain
-2013-12-21 13:06:00,33.8,93,3.0,8.1,0.01,Light Rain
 2013-12-21 13:51:00,34.0,96,3.0,9.2,0.01,Light Rain
 2013-12-21 14:51:00,35.1,92,3.0,8.1,0.00,Light Rain
-2013-12-21 15:26:00,35.6,93,1.5,6.9,0.00,Light Rain
-2013-12-21 15:34:00,35.6,93,1.2,12.7,0.01,Light Rain
 2013-12-21 15:51:00,36.0,97,1.2,12.7,0.02,Light Rain
-2013-12-21 16:09:00,35.6,100,2.5,11.5,0.00,Light Rain
-2013-12-21 16:31:00,35.6,100,3.0,5.8,0.02,Light Rain
 2013-12-21 16:51:00,36.0,93,3.0,13.8,0.03,Light Rain
-2013-12-21 17:07:00,35.6,93,3.0,13.8,0.02,Light Rain
-2013-12-21 17:23:00,35.6,93,2.5,12.7,0.03,Light Rain
-2013-12-21 17:41:00,35.6,100,2.0,9.2,0.05,Light Rain
 2013-12-21 17:51:00,36.0,97,2.5,10.4,0.06,Light Rain
-2013-12-21 18:10:00,35.6,93,3.0,15.0,0.01,Light Rain
 2013-12-21 18:51:00,36.0,97,3.0,15.0,0.04,Light Rain
 2013-12-21 19:51:00,35.1,100,5.0,17.3,0.03,Light Rain
 2013-12-21 20:51:00,35.1,92,6.0,15.0,0.04,Light Rain
 2013-12-21 21:51:00,35.1,92,6.0,20.7,0.02,Light Drizzle
 2013-12-21 22:51:00,35.1,92,10.0,19.6,0.00,Overcast
 2013-12-21 23:51:00,35.1,92,5.0,13.8,0.00,Light Rain
-2013-12-22 00:44:00,33.8,100,7.0,8.1,0.00,Light Rain
 2013-12-22 00:51:00,34.0,96,6.0,9.2,0.00,Light Rain
 2013-12-22 01:51:00,34.0,92,4.0,18.4,0.02,Light Rain
 2013-12-22 02:51:00,34.0,92,3.0,19.6,0.00,Light Drizzle
 2013-12-22 03:51:00,34.0,92,3.0,16.1,0.00,Light Drizzle
-2013-12-22 04:29:00,33.8,93,4.0,12.7,0.00,Light Drizzle
 2013-12-22 04:51:00,34.0,92,6.0,15.0,0.00,Light Drizzle
 2013-12-22 05:51:00,34.0,89,10.0,12.7,0.00,Overcast
-2013-12-22 06:41:00,33.8,93,4.0,5.8,0.01,Light Rain
 2013-12-22 06:51:00,34.0,92,4.0,5.8,0.01,Light Rain
-2013-12-22 07:23:00,33.8,93,2.5,5.8,0.01,Light Rain
-2013-12-22 07:37:00,33.8,93,1.5,8.1,0.02,Light Rain
 2013-12-22 07:51:00,33.1,96,1.5,5.8,0.02,Light Snow
-2013-12-22 08:21:00,33.8,93,2.5,8.1,0.00,Light Snow
-2013-12-22 08:35:00,33.8,93,3.0,6.9,0.00,Overcast
 2013-12-22 08:51:00,33.1,96,6.0,6.9,0.00,Overcast
 2013-12-22 09:51:00,33.1,92,10.0,9.2,N/A,Overcast
-2013-12-22 10:40:00,33.8,87,10.0,11.5,N/A,Overcast
 2013-12-22 10:51:00,33.1,89,10.0,9.2,N/A,Overcast
 2013-12-22 11:51:00,34.0,85,10.0,9.2,N/A,Overcast
 2013-12-22 12:51:00,33.1,85,10.0,10.4,N/A,Overcast
-2013-12-22 13:07:00,33.8,81,10.0,8.1,N/A,Overcast
-2013-12-22 13:41:00,32.0,87,10.0,6.9,N/A,Overcast
 2013-12-22 13:51:00,32.0,88,10.0,6.9,N/A,Overcast
 2013-12-22 14:51:00,32.0,85,10.0,9.2,N/A,Overcast
 2013-12-22 15:51:00,32.0,82,10.0,10.4,N/A,Overcast
@@ -4906,22 +4293,16 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-22 20:51:00,27.0,81,9.0,11.5,0.00,Light Snow
 2013-12-22 21:51:00,26.1,81,9.0,11.5,0.00,Light Snow
 2013-12-22 22:51:00,26.1,81,8.0,10.4,0.00,Light Snow
-2013-12-22 23:37:00,26.6,74,10.0,10.4,0.00,Light Snow
 2013-12-22 23:51:00,26.1,78,10.0,12.7,0.00,Light Snow
 2013-12-23 00:51:00,26.1,78,10.0,9.2,0.00,Light Snow
-2013-12-23 01:12:00,26.6,80,8.0,8.1,0.00,Light Snow
-2013-12-23 01:46:00,26.6,80,7.0,6.9,0.00,Light Snow
 2013-12-23 01:51:00,26.1,84,7.0,8.1,0.00,Light Snow
 2013-12-23 02:51:00,26.1,84,4.0,10.4,0.00,Light Snow
 2013-12-23 03:51:00,25.0,81,6.0,12.7,0.00,Light Snow
 2013-12-23 04:51:00,24.1,84,6.0,12.7,0.00,Light Snow
 2013-12-23 05:51:00,23.0,81,7.0,11.5,0.00,Light Snow
 2013-12-23 06:51:00,21.0,81,8.0,13.8,0.00,Light Snow
-2013-12-23 07:46:00,19.4,86,7.0,11.5,0.00,Light Snow
 2013-12-23 07:51:00,19.9,81,7.0,9.2,0.00,Light Snow
-2013-12-23 08:35:00,19.4,80,7.0,11.5,0.00,Light Snow
 2013-12-23 08:51:00,19.0,81,8.0,15.0,0.00,Light Snow
-2013-12-23 09:18:00,17.6,79,9.0,15.0,0.00,Light Snow
 2013-12-23 09:51:00,18.0,78,10.0,16.1,0.00,Mostly Cloudy
 2013-12-23 10:51:00,16.0,71,10.0,16.1,N/A,Scattered Clouds
 2013-12-23 11:51:00,16.0,71,10.0,12.7,N/A,Scattered Clouds
@@ -4940,14 +4321,11 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-24 00:51:00,-0.0,76,10.0,11.5,N/A,Partly Cloudy
 2013-12-24 01:51:00,-0.0,72,10.0,11.5,N/A,Partly Cloudy
 2013-12-24 02:51:00,-0.0,76,10.0,11.5,0.00,Light Snow
-2013-12-24 03:25:00,-0.4,78,10.0,9.2,0.00,Light Snow
 2013-12-24 03:51:00,-0.0,76,10.0,10.4,0.00,Light Snow
 2013-12-24 04:51:00,-0.0,72,10.0,11.5,0.00,Light Snow
 2013-12-24 05:51:00,-0.9,75,10.0,11.5,0.00,Partly Cloudy
 2013-12-24 06:51:00,-0.0,76,10.0,8.1,N/A,Partly Cloudy
-2013-12-24 07:43:00,1.4,72,10.0,8.1,N/A,Mostly Cloudy
 2013-12-24 07:51:00,1.0,75,9.0,6.9,0.00,Light Snow
-2013-12-24 08:14:00,1.4,78,10.0,8.1,0.00,Light Snow
 2013-12-24 08:51:00,3.0,76,9.0,8.1,0.00,Light Snow
 2013-12-24 09:51:00,5.0,73,10.0,4.6,0.00,Scattered Clouds
 2013-12-24 10:51:00,7.0,70,10.0,9.2,N/A,Scattered Clouds
@@ -4969,48 +4347,30 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-25 02:51:00,19.9,65,10.0,12.7,N/A,Overcast
 2013-12-25 03:51:00,21.0,65,10.0,10.4,N/A,Overcast
 2013-12-25 04:51:00,21.0,68,7.0,12.7,0.00,Light Snow
-2013-12-25 05:28:00,21.2,74,4.0,10.4,0.00,Light Snow
 2013-12-25 05:51:00,21.0,74,6.0,10.4,0.00,Light Snow
-2013-12-25 06:21:00,21.2,80,3.0,10.4,0.00,Light Snow
 2013-12-25 06:51:00,21.0,85,5.0,8.1,0.01,Light Snow
 2013-12-25 07:51:00,21.9,82,10.0,10.4,0.00,Overcast
-2013-12-25 08:37:00,21.2,86,8.0,10.4,N/A,Overcast
 2013-12-25 08:51:00,21.9,85,7.0,10.4,N/A,Overcast
 2013-12-25 09:51:00,23.0,85,7.0,11.5,N/A,Overcast
 2013-12-25 10:51:00,24.1,84,9.0,10.4,0.00,Light Snow
 2013-12-25 11:51:00,25.0,81,9.0,12.7,0.00,Light Snow
 2013-12-25 12:51:00,26.1,81,9.0,10.4,0.00,Light Snow
-2013-12-25 13:39:00,26.6,80,10.0,8.1,0.00,Light Snow
 2013-12-25 13:51:00,27.0,78,10.0,8.1,0.00,Overcast
 2013-12-25 14:51:00,27.0,81,7.0,10.4,0.00,Light Snow
 2013-12-25 15:51:00,27.0,85,7.0,8.1,0.00,Overcast
-2013-12-25 16:37:00,26.6,86,7.0,10.4,N/A,Overcast
 2013-12-25 16:51:00,27.0,85,7.0,10.4,N/A,Overcast
 2013-12-25 17:51:00,27.0,89,7.0,10.4,0.00,Light Snow
-2013-12-25 18:33:00,26.6,93,2.0,9.2,0.00,Light Snow
 2013-12-25 18:51:00,27.0,89,2.0,9.2,0.00,Light Snow
-2013-12-25 19:14:00,26.6,93,1.5,6.9,0.00,Light Snow
-2013-12-25 19:34:00,26.6,93,2.0,8.1,0.01,Light Snow
 2013-12-25 19:51:00,27.0,92,2.5,8.1,0.01,Light Snow
-2013-12-25 20:31:00,26.6,93,3.0,11.5,0.00,Light Snow
-2013-12-25 20:41:00,26.6,93,2.0,12.7,0.00,Light Snow
 2013-12-25 20:51:00,27.0,89,1.2,10.4,0.00,Light Snow
-2013-12-25 21:23:00,26.6,93,2.0,9.2,0.00,Light Snow
 2013-12-25 21:51:00,27.0,89,2.5,10.4,0.00,Light Snow
-2013-12-25 22:22:00,26.6,86,5.0,10.4,0.00,Light Snow
 2013-12-25 22:51:00,27.0,85,5.0,13.8,0.00,Light Snow
 2013-12-25 23:51:00,26.1,88,5.0,9.2,0.00,Light Snow
-2013-12-26 00:29:00,26.6,74,6.0,15.0,0.00,Light Snow
 2013-12-26 00:51:00,25.0,78,8.0,12.7,0.00,Light Snow
-2013-12-26 01:20:00,24.8,74,9.0,18.4,0.00,Light Snow
 2013-12-26 01:51:00,24.1,77,9.0,15.0,0.00,Light Snow
-2013-12-26 02:26:00,19.4,80,9.0,18.4,0.00,Light Snow
 2013-12-26 02:51:00,19.0,74,9.0,16.1,0.00,Light Snow
-2013-12-26 03:25:00,19.4,74,9.0,10.4,0.00,Overcast
 2013-12-26 03:51:00,19.0,77,10.0,13.8,0.00,Overcast
 2013-12-26 04:51:00,18.0,78,10.0,15.0,N/A,Overcast
-2013-12-26 05:09:00,17.6,79,10.0,12.7,N/A,Overcast
-2013-12-26 05:32:00,17.6,73,10.0,10.4,N/A,Overcast
 2013-12-26 05:51:00,17.1,74,10.0,12.7,0.00,Light Snow
 2013-12-26 06:51:00,16.0,74,10.0,5.8,0.00,Partly Cloudy
 2013-12-26 07:51:00,15.1,77,10.0,8.1,N/A,Partly Cloudy
@@ -5018,7 +4378,6 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-26 09:51:00,19.9,74,10.0,9.2,N/A,Overcast
 2013-12-26 10:51:00,21.9,75,10.0,11.5,0.00,Light Snow
 2013-12-26 11:51:00,24.1,77,10.0,8.1,0.00,Light Snow
-2013-12-26 12:42:00,26.6,74,10.0,8.1,0.00,Overcast
 2013-12-26 12:51:00,27.0,72,10.0,9.2,0.00,Overcast
 2013-12-26 13:51:00,30.0,72,10.0,9.2,N/A,Mostly Cloudy
 2013-12-26 14:51:00,32.0,69,10.0,10.4,N/A,Mostly Cloudy
@@ -5088,33 +4447,17 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-29 06:51:00,36.0,79,10.0,9.2,N/A,Overcast
 2013-12-29 07:51:00,34.0,82,10.0,9.2,N/A,Mostly Cloudy
 2013-12-29 08:51:00,35.1,78,10.0,10.4,N/A,Overcast
-2013-12-29 09:30:00,35.6,81,9.0,16.1,N/A,Overcast
-2013-12-29 09:40:00,33.8,87,9.0,23.0,N/A,Overcast
 2013-12-29 09:51:00,33.1,85,9.0,23.0,N/A,Overcast
-2013-12-29 10:15:00,30.2,93,8.0,19.6,0.00,Light Freezing Drizzle
-2013-12-29 10:48:00,30.2,86,5.0,17.3,0.00,Light Freezing Drizzle
 2013-12-29 10:51:00,30.0,85,6.0,20.7,0.00,Light Freezing Drizzle
 2013-12-29 11:51:00,28.9,85,5.0,16.1,0.00,Light Freezing Drizzle
 2013-12-29 12:51:00,28.0,81,9.0,13.8,0.00,Light Freezing Drizzle
-2013-12-29 13:48:00,26.6,93,5.0,11.5,0.00,Light Freezing Drizzle
 2013-12-29 13:51:00,27.0,89,4.0,11.5,0.00,Light Freezing Drizzle
-2013-12-29 14:25:00,26.6,86,6.0,10.4,0.00,Light Freezing Drizzle
-2013-12-29 14:39:00,26.6,86,6.0,12.7,0.00,Light Freezing Drizzle
 2013-12-29 14:51:00,26.1,88,5.0,16.1,0.00,Light Freezing Drizzle
-2013-12-29 15:15:00,24.8,86,6.0,13.8,0.00,Light Freezing Drizzle
-2013-12-29 15:25:00,26.6,80,9.0,11.5,0.00,Overcast
 2013-12-29 15:51:00,25.0,81,7.0,17.3,0.00,Overcast
-2013-12-29 16:15:00,24.8,80,10.0,13.8,N/A,Overcast
 2013-12-29 16:51:00,24.1,75,10.0,11.5,N/A,Overcast
 2013-12-29 17:51:00,24.1,69,10.0,11.5,N/A,Overcast
-2013-12-29 18:08:00,23.0,74,10.0,12.7,N/A,Overcast
 2013-12-29 18:51:00,21.9,66,10.0,15.0,0.00,Light Snow
 2013-12-29 19:51:00,21.0,71,4.0,15.0,0.00,Light Snow
-2013-12-29 19:56:00,21.2,68,2.0,12.7,0.00,Light Snow
-2013-12-29 20:04:00,19.4,80,1.5,15.0,0.00,Light Snow
-2013-12-29 20:25:00,19.4,80,2.0,10.4,0.00,Light Snow
-2013-12-29 20:32:00,19.4,74,5.0,12.7,0.00,Light Snow
-2013-12-29 20:44:00,19.4,74,8.0,16.1,0.00,Light Snow
 2013-12-29 20:51:00,19.0,71,8.0,15.0,0.00,Light Snow
 2013-12-29 21:51:00,17.1,65,10.0,16.1,0.00,Light Snow
 2013-12-29 22:51:00,15.1,68,10.0,11.5,0.00,Mostly Cloudy
@@ -5138,23 +4481,10 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-30 16:51:00,12.9,56,10.0,8.1,N/A,Overcast
 2013-12-30 17:51:00,12.9,59,10.0,6.9,N/A,Overcast
 2013-12-30 18:51:00,12.9,71,2.0,8.1,0.00,Light Snow
-2013-12-30 18:59:00,12.2,73,1.8,5.8,0.00,Light Snow
-2013-12-30 19:11:00,12.2,79,2.0,5.8,0.00,Light Snow
-2013-12-30 19:32:00,12.2,79,1.0,6.9,0.00,Light Snow
 2013-12-30 19:51:00,10.9,81,1.2,6.9,0.00,Light Snow
-2013-12-30 19:58:00,10.4,85,0.5,6.9,0.00,Snow
-2013-12-30 20:06:00,10.4,85,1.0,5.8,0.00,Light Snow
-2013-12-30 20:31:00,10.4,85,1.5,6.9,0.00,Light Snow
 2013-12-30 20:51:00,10.9,81,2.0,5.8,0.00,Light Snow
-2013-12-30 21:08:00,10.4,85,5.0,6.9,0.00,Light Snow
-2013-12-30 21:18:00,10.4,85,2.0,6.9,0.00,Light Snow
-2013-12-30 21:27:00,10.4,85,1.5,5.8,0.00,Light Snow
-2013-12-30 21:47:00,10.4,85,5.0,5.8,0.00,Light Snow
 2013-12-30 21:51:00,10.9,84,5.0,5.8,0.00,Light Snow
-2013-12-30 21:59:00,10.4,85,1.8,4.6,0.00,Light Snow
-2013-12-30 22:23:00,10.4,85,4.0,5.8,0.00,Light Snow
 2013-12-30 22:51:00,10.9,81,2.0,8.1,0.00,Light Snow
-2013-12-30 23:38:00,10.4,85,3.0,9.2,0.00,Light Snow
 2013-12-30 23:51:00,10.9,77,2.0,10.4,0.00,Light Snow
 2013-12-31 00:51:00,10.0,80,5.0,9.2,0.01,Light Snow
 2013-12-31 01:51:00,9.0,77,9.0,8.1,0.00,Mostly Cloudy
@@ -5170,24 +4500,13 @@ Datetime,TemperatureF,Humidity,VisibilityMPH,Wind SpeedMPH,PrecipitationIn,Condi
 2013-12-31 11:51:00,10.9,70,10.0,11.5,N/A,Mostly Cloudy
 2013-12-31 12:51:00,12.0,67,10.0,8.1,N/A,Overcast
 2013-12-31 13:51:00,12.9,67,10.0,10.4,0.00,Light Snow
-2013-12-31 14:07:00,12.2,73,2.0,11.5,0.00,Light Snow
-2013-12-31 14:18:00,12.2,79,1.2,9.2,0.00,Light Snow
 2013-12-31 14:51:00,12.9,77,1.0,4.6,0.00,Light Snow
-2013-12-31 15:33:00,12.2,85,0.5,3.5,0.00,Snow
-2013-12-31 15:44:00,12.2,85,1.0,5.8,0.00,Light Snow
 2013-12-31 15:51:00,12.0,84,1.0,4.6,0.01,Light Snow
 2013-12-31 16:51:00,12.9,81,2.0,3.5,0.00,Light Snow
-2013-12-31 16:59:00,12.2,85,1.5,3.5,0.00,Light Snow
-2013-12-31 17:14:00,12.2,85,1.5,3.5,0.01,Light Snow
 2013-12-31 17:51:00,12.9,84,1.2,Calm,0.01,Light Snow
-2013-12-31 18:49:00,12.2,85,2.0,3.5,0.01,Light Snow
 2013-12-31 18:51:00,12.9,84,2.0,3.5,0.01,Light Snow
 2013-12-31 19:51:00,12.9,84,2.0,3.5,0.00,Light Snow
-2013-12-31 20:27:00,14.0,79,1.5,4.6,0.01,Light Snow
 2013-12-31 20:51:00,14.0,80,1.0,5.8,0.02,Light Snow
-2013-12-31 21:08:00,14.0,86,1.0,8.1,0.00,Light Snow
-2013-12-31 21:17:00,14.0,86,2.0,6.9,0.00,Light Snow
-2013-12-31 21:30:00,14.0,86,5.0,8.1,0.00,Light Snow
 2013-12-31 21:51:00,14.0,80,5.0,9.2,0.01,Light Snow
 2013-12-31 22:51:00,14.0,80,5.0,10.4,0.00,Light Snow
 2013-12-31 23:51:00,14.0,84,6.0,6.9,0.01,Light Snow
