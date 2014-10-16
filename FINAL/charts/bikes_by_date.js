@@ -5,7 +5,7 @@ function LineChart2(tag, titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 40,
+        bottom: 43,
         left: 60
     };
     
@@ -85,7 +85,7 @@ LineChart2.prototype.draw = function () {
         .tickValues(xScale.domain().filter(function (d, i) {
             return !(i % 12);
         }))
-        .tickSize(2)
+        .tickSize(3)
         .tickPadding(7);
 
     var yAxis = d3.svg.axis()
@@ -98,7 +98,7 @@ LineChart2.prototype.draw = function () {
                 return (d / 1000).toFixed(1) + "k";
             else return d;
         })
-        .tickSize(2)
+        .tickSize(3)
         .tickPadding(7);
 
     var svg = this.svg;

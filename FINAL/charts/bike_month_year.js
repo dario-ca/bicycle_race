@@ -5,7 +5,7 @@ function BarChart4(tag, titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 30,
+        bottom: 33,
         left: 60
     };
     
@@ -84,7 +84,7 @@ BarChart4.prototype.draw = function () {
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
-        .attr("transform", "rotate(-40)")
+        .attr("transform", "rotate(-35)")
         .style("text-anchor", "end");
     
     // BARS

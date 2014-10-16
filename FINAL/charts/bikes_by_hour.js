@@ -4,7 +4,7 @@ function LineChart1(tag, titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 30,
+        bottom: 38,
         left: 60
     };
 
@@ -80,7 +80,10 @@ LineChart1.prototype.draw = function () {
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        .tickSize(2)
+        .tickValues(xScale.domain().filter(function (d, i) {
+            return !(i % 2);
+        }))
+        .tickSize(3)
         .tickPadding(7);
 
     var yAxis = d3.svg.axis()
@@ -93,11 +96,19 @@ LineChart1.prototype.draw = function () {
                 return (d / 1000).toFixed(1) + "k";
             return d;
         })
-        .tickSize(2)
+        .tickSize(3)
         .tickPadding(7);
+    
+    var zoom = d3.behavior.zoom()
+        //.x(xScale)
+        .y(yScale)
+        .scaleExtent([1, 10])
+        .on("zoom", zoomed);	
 
     var svg = this.svg;
-
+    
+    svg.call(zoom);
+    
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     var line = d3.svg.line()
@@ -111,7 +122,8 @@ LineChart1.prototype.draw = function () {
     svg.append("path")
         .datum(yValues)
         .attr("class", "chart line")
-        .attr("d", line).attr("transform", "translate(" + margin.left + ",0)");
+        .attr("d", line)
+        .attr("transform", "translate(" + margin.left + ",0)");
 
     var padding = width / xValues.length;
 
@@ -126,7 +138,7 @@ LineChart1.prototype.draw = function () {
         .call(yAxis);
 
     gx.selectAll("text")
-        .attr("transform", "rotate(-40)")
+        .attr("transform", "rotate(-35)")
         .style("text-anchor", "end");
 
     /*
@@ -152,10 +164,45 @@ LineChart1.prototype.draw = function () {
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .text("AVG Bikes Out");
+    
+    function zoomed() {
+        //svg.select(".x.axis").call(xAxis);
+        svg.select(".x.axis")
+            .call(xAxis.scale(xScale.rangePoints([0, width * d3.event.scale],.1 * d3.event.scale)));
+        
+        svg.select(".y.axis").call(yAxis);   
+        
+        svg.selectAll(".chart.line").attr('d', line)
+            //.attr("transform", "translate(" + d3.event.translate[0]+",0)");
+        
+        gy.selectAll("g")
+            .classed("yminor", true)
+            .select("line")
+            .attr("x2", function (d, i) {
+            return width;
+        });
+        
+        gx.selectAll("text")
+            .attr("transform","rotate(-35)")
+            .style("text-anchor", "end");
+        
+        /*gx.selectAll("text")        
+            .attr("transform", "translate(" + d3.event.translate[0]+",0) rotate(-35)")
+        .style("text-anchor", "end");*/
+        
+        /*d3.scale.ordinal()
+        .rangePoints([0, width], 0).domain(xValues)*/
+        
+        /*svg.selectAll(".chart.line").attr('d', line)
+            .attr("transform", "translate(" + d3.event.translate[0]+",0)")
+            .call(xAxis.scale(xScale.rangePoints([0, width],0)));*/
+    }
 
 }
 
 //////////////////////////////////////////UTILS
+
+
 function dotSeparator(val) {
     while (/(\d+)(\d{3})/.test(val.toString())) {
         val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
