@@ -102,7 +102,7 @@ LineChart1.prototype.draw = function () {
     var zoom = d3.behavior.zoom()
         //.x(xScale)
         .y(yScale)
-        .scaleExtent([1, 10])
+        .scaleExtent([1, 1.5])
         .on("zoom", zoomed);	
 
     var svg = this.svg;
@@ -168,12 +168,13 @@ LineChart1.prototype.draw = function () {
     function zoomed() {
         //svg.select(".x.axis").call(xAxis);
         svg.select(".x.axis")
-            .call(xAxis.scale(xScale.rangePoints([0, width * d3.event.scale],.1 * d3.event.scale)));
+            .call(xAxis.scale(xScale.rangePoints([0, width * d3.event.scale],.001 * d3.event.scale)));
+        
         
         svg.select(".y.axis").call(yAxis);   
         
         svg.selectAll(".chart.line").attr('d', line)
-            //.attr("transform", "translate(" + d3.event.translate[0]+",0)");
+            .attr("transform", "translate(" + zoom.translate()+")"+"scale(" + zoom.scale() + ")");
         
         gy.selectAll("g")
             .classed("yminor", true)
@@ -182,9 +183,12 @@ LineChart1.prototype.draw = function () {
             return width;
         });
         
-        gx.selectAll("text")
+        /*gx.selectAll("text")
             .attr("transform","rotate(-35)")
-            .style("text-anchor", "end");
+            .style("text-anchor", "end");*/
+        
+        gx.selectAll("text")
+            .attr("transform", "translate(" + zoom.translate()+") scale(" + zoom.scale() + ") rotate(-35)");
         
         /*gx.selectAll("text")        
             .attr("transform", "translate(" + d3.event.translate[0]+",0) rotate(-35)")
