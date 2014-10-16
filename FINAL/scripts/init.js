@@ -16,7 +16,7 @@ function init(DOC) {
     BikeMap.init(mapid);
 	drawGraphIcons(graphicon_gender);
     drawGraphIcons(graphicon_utype);
-	selectGraph(DOC,1);
+	selectGraph(DOC,0);
 	selectFilter(DOC,1);
     
 	

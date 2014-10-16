@@ -69,56 +69,42 @@
         </div>
     </div>
 
-    <div class="center">
-
-        <div id="titlebar1" class="titlebar">Title 1</div>
-        <div id="chart1" class="chart"></div>
-
-        <div id="titlebar2" class="titlebar">Title 2</div>
-        <div id="chart2" class="chart">
-            <!--
-            <select id="stations_dropdown1" class="dropdown" onchange="app2.getBikesForallDays(this.value,null,null);">
-                <option value="0">All stations</option>
-            </select> -->
-        </div>
-
-        <div id="titlebar3" class="titlebar">Title 3</div>
-        <div id="chart3" class="chart"></div>
-
-        <div id="titlebar4" class="titlebar">Title 4</div>
-        <div id="chart4" class="chart"></div>
-
-    </div>
+    <div id="center"></div>
 
     <div class="right">
 
-		<!-- FILTER SELECTION -->
-		<ul id="styleselection" class="menuselection">
-			<li><a onclick="setTheme('index.css')">Dark Theme</a></li>
-			<li><a onclick="setTheme('index_light.css')">Light Theme</a></li>
-		</ul>
+		<div id="logo_header">
+			<a href="https://www.divvybikes.com/" target="_blank"><img id="logo" src="img/divvy_logo.svg" alt="Divvy"></a>
+			<h3 id="subtitle1" class="subtitle">bicycle race</h3><h3 id="subtitle2" class="subtitle">through Chicago<h3>
+		</div>
+
+		<div id="menu">
+
+			<!-- CURRENT FILTER -->
+			<div id="dynamicfilter"></div>
 
 
-		<!-- CURRENT FILTER -->
-		<div id="dynamicfilter"></div>
+			<!-- GRAPH SELECTION -->
+		
+			<div id="bottomright">
 
-
-        <!-- GRAPH SELECTION -->
-	
-		<div id="bottomright">
-			<ul id="filterselection" class="menuselection">
-				<li class="active"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
-				<li><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
-				<li><a onclick="selectFilter(document,3); return false;">Time</a></li>
-			</ul>
-			<ul id="graphselection" class="menuselection">
-				<li class="active"><a onclick="selectGraph(document,1); return false;">History</a>
-				</li>
-				<li class=""><a onclick="selectGraph(document,2); return false;">Bike Usage</a>
-				</li>
-				<li class=""><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
-				</li>
-			</ul>
+					<!-- FILTER SELECTION -->
+					<ul id="filterselection" class="menuselection">
+						<li class="active"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
+						<li><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
+						<li><a onclick="selectFilter(document,3); return false;">Time</a></li>
+					</ul>
+				
+					<!-- GRAPH SELECTION -->
+					<ul id="graphselection" class="menuselection">
+						<li class="active"><a onclick="selectGraph(document,1); return false;">History</a>
+						</li>
+						<li class=""><a onclick="selectGraph(document,2); return false;">Bike Usage</a>
+						</li>
+						<li class=""><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
+						</li>
+					</ul>
+			</div>
 		</div>
 	</div>
 
