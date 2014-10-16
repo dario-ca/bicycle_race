@@ -1,3 +1,4 @@
+datetime,temperatureF,humidity,visibilityMPH,windSpeedMPH,precipitationIn,conditions
 2013-06-27 00:51:00,71.1,78,7.0,Calm,N/A,Scattered Clouds
 2013-06-27 01:51:00,68.0,84,6.0,Calm,N/A,Haze
 2013-06-27 02:51:00,68.0,87,5.0,4.6,N/A,Partly Cloudy
