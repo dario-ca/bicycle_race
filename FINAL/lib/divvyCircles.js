@@ -8,57 +8,25 @@ function DivvyCircles (){
 
     // used to control animation
     this.hour = 0;
-}
+    this.animationOn = false;
+    this.animationInterval;
+    // true means start
+    this.pauseStart = false;
 
-DivvyCircles.prototype.addData = function (data, fill, outline, radius){
-    this.fill = fill;
-    this.outline = outline;
-    for (var i = 0; i < data.length; i++) {
-        // add circle objects to array
-        this.circles.push( L.circleMarker([data[i]["latitude"], data[i]["longitude"]], {
-            radius: radius,
-            color: outline,
-            fillColor: fill,
-            fillOpacity: 1,
-            opacity: 1,
-            stationID: data[i]["station_id"],
-            stationName: data[i]["station_name"]
-        }));
-        
-        // bind data
-        this.circles[i].on('click', function(d){
-            console.log(d.target.options.stationName);
-        });
-        this.circles[i].bindPopup("hello");
-    };
-};
+    this.polylines = null; 
 
-DivvyCircles.prototype.getCircles = function (){
-    return this.circles;
-};
+    // animation function
+    this.dataLines = function(context, mapContext, date, spinner){
 
-// function that colors the stations based on wheter a trip is incoming or outgoing along with 
-// drawing lines representing the trip
-DivvyCircles.prototype.colorDate = function (date, mapContext){
-    this.showDate = !this.showDate;
-    var context = this;
-    var animationInterval;
-    var polylines; 
-
-    if (context.showDate){
-        this.hour = 0;
-        animationInterval = setInterval( function() {dataLines(context, mapContext, date)}, 1000);     //call dataLines every 1sec
-    }
-
-    function dataLines(context, mapContext, date){
-        console.log(context.hour);
-        
-        if (context.hour >= 24) {
+        if (context.hour > 23) {
             // clear stuff
+            this.animationOn = false;
+            clearInterval(this.animationInterval);
             return;
         }
-        else if (context.hour > 0)
-            mapContext.removeLayer(polylines);
+        else if (context.polylines != null){
+            mapContext.removeLayer(context.polylines);
+        }
 
         // normal color circles
         for (var i = 0; i < context.circles.length; i++) {
@@ -108,11 +76,88 @@ DivvyCircles.prototype.colorDate = function (date, mapContext){
                     })
                 );
             };
-            polylines = L.layerGroup(polylineArray);
-            polylines.addTo(mapContext);
+            context.polylines = L.layerGroup(polylineArray);
+            context.polylines.addTo(mapContext);
         });
-        context.hour++;
+
+        
+        
+        if (this.animationOn){
+            spinner.spinner("value", context.hour);
+            context.hour++;
+        }
     }
+}
+
+DivvyCircles.prototype.addData = function (data, fill, outline, radius){
+    this.fill = fill;
+    this.outline = outline;
+    for (var i = 0; i < data.length; i++) {
+        // add circle objects to array
+        this.circles.push( L.circleMarker([data[i]["latitude"], data[i]["longitude"]], {
+            radius: radius,
+            color: outline,
+            fillColor: fill,
+            fillOpacity: 1,
+            opacity: 1,
+            stationID: data[i]["station_id"],
+            stationName: data[i]["station_name"]
+        }));
+        
+        // bind data
+        this.circles[i].on('click', function(d){
+            console.log(d.target.options.stationName);
+        });
+        this.circles[i].bindPopup("hello");
+    };
+};
+
+DivvyCircles.prototype.getCircles = function (){
+    return this.circles;
+};
+
+// function that colors the stations based on wheter a trip is incoming or outgoing along with 
+// drawing lines representing the trip
+DivvyCircles.prototype.colorDate = function (date, hour, pause, mapContext, spinner, stop){
+    this.showDate = !this.showDate;
+    this.hour = hour;
+    var context = this;
+
+    if (pause && !this.pauseStart) {
+        this.pauseStart = true;
+        this.animationOn = !this.animationOn;
+    }
+    else if (this.pauseStart && pause) {
+        this.pauseStart = false;
+    };
+
+    // run animation
+    if (this.animationOn && this.pauseStart){
+        this.animationOn = true;
+        this.animationInterval = setInterval( function() {context.dataLines(context, mapContext, date, spinner)}, 1000);     //call dataLines every 1sec
+    }
+    // stop animation
+    else if (this.animationOn && !this.pauseStart) {
+        clearInterval(this.animationInterval);
+        this.animationOn = false;
+    }
+    // manual control
+    else if (!this.animationOn && !pause && !stop) {
+        spinner.spinner("value", this.hour);
+        this.dataLines(context, mapContext, date)
+    }
+    // clear
+    else if(stop){
+        console.log("hello!");
+        clearInterval(this.animationInterval);
+        this.animationOn = false;
+        this.hour = 0;
+        spinner.spinner("value", 0);
+        if (this.polylines != null){
+            mapContext.removeLayer(this.polylines);
+        }
+    };
+
 };
 
 // function that makes heat map of pop of the stations
@@ -170,3 +215,11 @@ DivvyCircles.prototype.colorPop = function (){
         };
     }
 }
+
+DivvyCircles.prototype.returnToNormal = function(){
+    var context = this;
+    for (var i = 0; i < context.circles.length; i++) {
+            context.circles[i].setStyle({fillColor: context.fill});
+            context.circles[i].setStyle({color: context.outline});
+    };
+};

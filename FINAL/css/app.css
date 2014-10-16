@@ -10,35 +10,67 @@
     height: inherit;
 }
 
-
-/*clean this up!*/
-/*.btnStyle {
-    background-color: #4D90FE;
-    border: 1px solid #3079ED;  
-    color: #FFFFFF;
-    padding: 4px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width:10%;
-    font-size: 1vh;
-}*/
-
-#controlButtons{
-    bottom: 0px;
-    right: 0px;
-    z-index: 100;
-    position: absolute;
-    width: 100%;
+/*heat map on off button*/
+#heatButton {
+    width: 8vh;
+    font-size: 1.5vh;
+    background-color: #3db7e4;
+    border: 1px solid black;  
+    color: black;
 }
 
-#heatMap{
-    border-radius: 50px;
-    background-color: #4D90FE;
-    border: 1px solid #3079ED;  
-    color: #FFFFFF;
-    padding: 4px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width:15%;
+/*heat map legend*/
+.legend {
+    /*position: absolute;*/
+    line-height: 1.5vh;
+    color: #222;
+    width: 8vh;
+    height: 20%;
+    background-color: white;
+    border: black 1px solid;
+}
+
+.legend p{
     font-size: 1.5vh;
+}
+
+.legend i {
+    width: 1.5vh;
+    height: 1.5vh;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+/*spinner*/
+.animationControl {
+    margin-left: 20%;
+    height: 3.5vh;
+}
+
+.animationControl p{
+    color: #222;
+    width: 25%;
+    float: left;
+}
+
+.animationControl .ui-spinner{
+    height: 100%;
+    font-size: 2.5vh;
+    float: left;
+}
+
+.animationControl .ui-spinner .ui-spinner-input{
+    width: 50%;
+    height: 100%;
+    font-size: 2.5vh;
+}
+
+/*control buttons*/
+#pause, #close{
+    width: 3.5vh;
+    height: 3.5vh;
+    float: left;
+    margin-left: 10px;
+    opacity: 0.7;
 }

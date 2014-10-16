@@ -6,9 +6,47 @@ function drawMap() {
 	var map;
     var mapArea;
     var divvyCircles;
+    var date;
 
     // function object
     var BikeMap = new Object();
+
+    // boolean globals
+    var heatmap = false;
+    var legendOn = false;
+    
+    // dom elements and controls
+    var legend = L.control({position: 'bottomleft'});
+    var animationControl = L.control({position: 'bottomleft'});
+    var heatButton = L.control({position: "bottomleft"});
+
+    legend.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'legend');  //create div elelemt
+        var grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+            labels = [];
+
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + "red" + '"></i> ' + '<p>' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</p><br>' : '+');
+        };
+
+        return div;
+    };
+
+    animationControl.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'animationControl');
+        div.innerHTML = '<p> <input id=\"hourChooser\" name=\"value\"> </p>' + 
+            '<i id="pause" style="background:' + "green" + '"></i> <i id="close" style="background:' + "red" + '"></i>';
+        return div;
+    };
+
+    heatButton.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'heatButtonWrapper');
+        div.innerHTML = "<input type=\"button\" id=\"heatButton\" value=\"Popularity\" />";
+        return div;
+    }
+
 
     function init(){
         map = L.map('map', {zoomControl: false}).setView([41.9, -87.7], 12);
@@ -74,6 +112,12 @@ function drawMap() {
 
             for (var i = 0; i < stationCircles.length; i++)
                 stationCircles[i].addTo(map);
+
+            // add heatbutton
+            heatButton.addTo(map);
+            $('#heatButton').click( function(){
+                BikeMap.colorStations(1)}
+            );
         };
     };
 
@@ -84,7 +128,7 @@ function drawMap() {
 
     // color stations depending on options
     // 1: heatmap
-    function coloStations (option, date) {
+    function coloStations (option, pickedDate) {
         if (divvyCircles == undefined) {
             console.log("divvyCircles object is not defined, did init get called?");
             return;
@@ -92,13 +136,69 @@ function drawMap() {
 
         // heatmap
         if (option == 1) {
+            heatmap = !heatmap
+
+            // add/remove legend
+            if (heatmap) {
+                legend.addTo(map)
+                legendOn = !legendOn;
+            }
+            else{
+                legend.removeFrom(map);
+                legendOn = !legendOn;
+            }
+
             divvyCircles.colorPop();
         }
         // Date station traffic
         else if (option == 2) {
-            divvyCircles.colorDate(date, map);
+            // remove legend and heat button
+            date = pickedDate;
+            switchButtons(2);
+            divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
         };
     };
+
+    function switchButtons(toWhat){
+        if (toWhat == 1) {
+            animationControl.removeFrom(map);
+
+            // add heatbutton
+            heatButton.addTo(map);
+            $('#heatButton').click( function(){
+                BikeMap.colorStations(1)}
+            );
+
+            legendOn = false;
+        }
+        else if (toWhat == 2) {
+            heatButton.removeFrom(map);
+            if (legendOn){
+                legend.removeFrom(map);
+                divvyCircles.returnToNormal();
+            }
+
+            // add controls
+            animationControl.addTo(map);
+            var spinner = $( "#hourChooser" ).spinner();
+            // $("#spinner").spinner({ numberFormat: "d2" });
+            $( "#hourChooser" ).spinner( "option", "max", 23 );
+            $( "#hourChooser" ).spinner( "option", "min", 0 );
+
+            // add the listners
+            $('.ui-spinner-button').click(function (){
+                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), false);
+            });
+            $('#pause').click(function (){
+                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), true, map, $("#hourChooser"), false);
+            });
+            $('#close').click(function (){
+                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
+                divvyCircles.returnToNormal();
+                switchButtons(1); 
+            });
+        };
+    }
 
     BikeMap.init = init;
     BikeMap.colorStations = coloStations;
