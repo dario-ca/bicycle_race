@@ -9,11 +9,11 @@ function selectGraph(DOC, n) {
 		case 0:
 			$('#center').load('dynamic_html/center_welcome.html');
 			break;
-
+/*
 		case 3:
 			$('#center').load('dynamic_html/center_comingsoon.html');
 			break;
-
+*/
 		default:
 			$('#center').load('dynamic_html/center_4graphs.html');
 			prepareGraph4();
@@ -79,6 +79,13 @@ function selectGraph(DOC, n) {
 				app4 = new BarChart3(chart4, title4);
 				break;
 
+			case 3:
+				clearGraph4();
+				app1 = new PieChart1(chart1, title1);
+				/*app2 = new BarChart1(chart2, title2);
+				app3 = new BarChart4(chart3, title3);
+				app4 = new LineChart2(chart4, title4);*/
+				break;
 		}
 
 	}

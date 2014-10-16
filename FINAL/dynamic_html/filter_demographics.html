@@ -1,29 +1,47 @@
 <div class="filter">
-	<h3>Gender:</h3>
-	<form>
-		<p>
-		<input id="fgm" type="radio" name="gender" value="Male" onclick="filters.setGender(this.value)">Male</input>
-		</p>
-		<p>
-		<input id="fgf" type="radio" name="gender" value="Female" onclick="filters.setGender(this.value)">Female</input>
-		</p>
-		<p>
-		<input id="fgu" type="radio" name="gender" value="Unknown" onclick="filters.setGender(this.value)">Unknown</input>
-		</p>
-	</form>
-	<h3>Payment Type:</h3>
-	<form>
-		<p>
-		<input id="fus" type="radio" name="utype">Subscribers</input>
-		</p>
-		<p>
-		<input id="fuc" type="radio" name="utype">Customers</input>
-		</p>
-	</form>
+	<table>
+		<tr>
+			<td>Gender:</td>
+			<td>Payment Type:</td>
+		</tr>
+		<tr>
+			<td>
+				<form>
+					<p>
+					<input id="fgm" type="radio" name="gender" value="Male" onclick="filters.setGender(this.value)">Male</input>
+					</p>
+					<p>
+					<input id="fgf" type="radio" name="gender" value="Female" onclick="filters.setGender(this.value)">Female</input>
+					</p>
+					<p>
+					<input id="fgu" type="radio" name="gender" value="Unknown" onclick="filters.setGender(this.value)">Unknown</input>
+					</p>
+				</form>
+			</td>
+			<td>
+				<form>
+					<p>
+					<input id="fus" type="radio" name="utype">Subscribers</input>
+					</p>
+					<p>
+					<input id="fuc" type="radio" name="utype">Customers</input>
+					</p>
+				</form>
+			</td>
+		</tr>
+	</table>
+
+	<!-- Age Slider -->
+	<p>
+		<label for="age">Age: </label>
+		<input type="text" id="age" readonly style="border:0">
+	</p>
+	<div id="slider-range" style="width: 80%; text-align: center; margin-left: auto; margin-right: auto;"></div>
+
 	
 	
 	<div class="buttonwrapper">
-	 <input type="submit" value="Apply Filter" class="filterbutton" id="fuu" onclick="selectFilter(document,1); filters.apply(windowNumber);"/>
+	 <input type="submit" value="Apply Filter" class="filterbutton color_button" id="fuu" onclick="selectFilter(document,1); filters.apply(windowNumber);"/>
 	</div>
 	
 	<!--
@@ -31,6 +49,8 @@
 	<svg id="graphicons_utype" class="graphicons" viewBox="0 0 300 100"></svg>
 	-->
 </div>
+
+
 
 <script>
 
@@ -73,5 +93,20 @@
 
         filters.setUsertype('Subscriber');
     } 
+
+
+	/* Range selector tool */
+	$(function() {
+		$( "#slider-range" ).slider({
+			range: true,
+			min: 0,
+			max: 110,
+			values: [ 0, 110 ],
+			slide: function( event, ui ) {
+				$( "#age" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+			}
+		});
+		$( "#age" ).val( $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+	});
 
 </script>

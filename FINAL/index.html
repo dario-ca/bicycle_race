@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" href="lib/control.layers.minimap.css" />
+	<link rel="stylesheet" href="css/jquery-ui.css">
 
     <!-- Leaflet and D3-->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -35,6 +36,7 @@
     <script src="charts/bikes_by_date.js"></script>
     <script src="charts/bikes_by_hour.js"></script>
     <script src="charts/bike_month_year.js"></script>
+    <script src="charts/gender_distribution.js"></script>
     <script src="charts/distance_bike.js"></script>
     <script src="charts/time_bike.js"></script>
     <script src="charts/utils/bullet.js"></script>
@@ -49,12 +51,13 @@
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 
-
+	<!-- Slidebar -->
+	<script src="widgets/jquery-ui.js"></script>
 
 
 </head>
 
-<body onload="init(document)">
+<body onload="init(document)" class="color_text color_bg">
 
     <div class="left">
         <!--	
@@ -71,9 +74,18 @@
 
     <div id="center"></div>
 
-    <div class="right">
+	<div id="filterbar">
+		<!-- FILTER SELECTION -->
+		<ul id="filterselection" class="menuselection color_tab">
+			<li class="active color_tab"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
+			<li class="color_tab"><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
+			<li class="color_tab"><a onclick="selectFilter(document,3); return false;">Time</a></li>
+		</ul>
+	</div>
 
-		<div id="logo_header">
+    <div class="right color_filter_bg">
+
+		<div id="logo_header" class="color_divvy">
 			<a href="https://www.divvybikes.com/" target="_blank"><img id="logo" src="img/divvy_logo.svg" alt="Divvy"></a>
 			<h3 id="subtitle1" class="subtitle">bicycle race</h3><h3 id="subtitle2" class="subtitle">through Chicago<h3>
 		</div>
@@ -83,29 +95,19 @@
 			<!-- CURRENT FILTER -->
 			<div id="dynamicfilter"></div>
 
-
 			<!-- GRAPH SELECTION -->
-		
-			<div id="bottomright">
+			<ul id="graphselection" class="menuselection color_tab">
+				<li class="active color_tab"><a onclick="selectGraph(document,0); return false;">Home</a>
+				<li><a onclick="selectGraph(document,1); return false;">History</a>
+				</li>
+				<li class="color_tab"><a onclick="selectGraph(document,2); return false;">Bike Usage</a>
+				</li>
+				<li class="color_tab"><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
+				</li>
+			</ul>
 
-					<!-- FILTER SELECTION -->
-					<ul id="filterselection" class="menuselection">
-						<li class="active"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
-						<li><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
-						<li><a onclick="selectFilter(document,3); return false;">Time</a></li>
-					</ul>
-				
-					<!-- GRAPH SELECTION -->
-					<ul id="graphselection" class="menuselection">
-						<li class="active"><a onclick="selectGraph(document,1); return false;">History</a>
-						</li>
-						<li class=""><a onclick="selectGraph(document,2); return false;">Bike Usage</a>
-						</li>
-						<li class=""><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
-						</li>
-					</ul>
-			</div>
 		</div>
+
 	</div>
 
 </body>
@@ -122,6 +124,7 @@
 		var stylepath = 'css/' + filename;
 		document.getElementById('stylesheet').href=stylepath;
 	}
+
 
 </script>
 

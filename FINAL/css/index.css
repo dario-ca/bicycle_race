@@ -1,5 +1,48 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 
+/* Only define colors here!! makes changes much easier */
+
+.color_text {
+	color:				#eee;
+}
+
+.color_header {
+    color:				#3db7e4;
+}
+
+.color_bg {
+	background-color:	#222;
+}
+
+.color_filter_bg {
+	background-color:	#222; // #444;
+}
+
+.color_tab {
+    color:				#3db7e4;
+    background-color:	#222;
+}
+
+.color_tab a:hover {
+    color:				black;
+    background-color:	#888;
+}
+
+.color_tab li.active {
+    color:				black;
+    background-color:	#3db7e4;
+}
+
+.color_button {
+	background-color:	#888;
+}
+
+.color_divvy {
+	color:				black;
+    background-color:	#3db7e4;
+}
+
+
 * {
 	padding:			0;
 	margin:				0;
@@ -23,8 +66,6 @@ menu, nav {
 }
 
 html, body {
-	color:				#eee;
-	background-color:	#222;
 	font-family:		Roboto, sans serif;
 	margin-left:		auto;
 	margin-right:		auto;
@@ -52,18 +93,15 @@ h1 {
 	padding-left:		4%;
 	padding-right:		4%;
 	font-size:			12vh;
-    color:				#3db7e4;
 }
 
 h2 {
 	font-size:			4vh;
 	text-align:			center;
-    color:				#3db7e4;
 }
 
 h3, h4, h5, h6 {
 	font-size:			3.5vh;
-    color:				#3db7e4;
 }
 
 li {
@@ -77,24 +115,30 @@ p {
 .left {
 	position:			absolute;
 	left:				0%;
-	width:				30%;
+	width:				28%;
 	float:				left;
 	height:				100%;
 }
 
 #center {
 	position:			absolute;
-	left:				30%;
-	width:				55%;
+	left:				28%;
+	width:				52%;
+	height:				100%;
+}
+
+#filterbar {
+	position:			absolute;
+	left:				80%;
+	width:				4%;
 	height:				100%;
 }
 
 .right {
 	position:			absolute;
-	left:				85%;
-	width:				15%;
+	left:				84%;
+	right:				0%;
 	height:				100%;
-	background-color:	#444;
 }
 
 
@@ -222,7 +266,7 @@ p {
 
 .menuselection {
     padding:			0;
-    padding-top:		.6em;
+    margin-top:			.6em;
 /*    position: absolute;
     left: 0%;
     width: 100%;
@@ -236,8 +280,6 @@ p {
 
 .menuselection a {
     padding-left:		10px;
-    color:				#3db7e4;
-    background-color:	#222;
     display:			block;
     width:				100%;
     cursor:				pointer;
@@ -245,20 +287,23 @@ p {
 	// text-transform: uppercase;
 }
 
-.menuselection a:hover {
-    color:				black;
-    background-color:	#888;
-}
 .menuselection li.active a {
-    color:				black;
-    background-color:	#3db7e4;
 	font-weight:		600;
+}
+
+
+#graphselection {
+	position:			absolute;
+	bottom:				0%;
+	left:				0%;
+	width:				100%;
 }
 
 #graphselection li.active {
     position:			relative;
 }
 #graphselection li.active::before {
+    color:				#3db7e4;
     content:			"";
     width:				0px;
     height:				0px;
@@ -321,7 +366,6 @@ th {
 	text-align:			right;
 	font-weight:		300;
 	font-size:			3vh;
-    color:				#3db7e4;
 }
 
 td {
@@ -335,11 +379,9 @@ td {
 }
 
 .filterbutton {
-    background-color:	#222;
     -moz-border-radius:	5px;
     -webkit-border-radius: 5px;
     border-radius:		0px; // 6px;
-    color:				#eee;
     text-decoration:	none;
     cursor:				pointer;
     border:				none;
@@ -349,7 +391,6 @@ td {
 }
 
 .filterbutton:hover {
-    color:				black;
     background:			#3db7e4;
     box-shadow:			0px 0px 1px #777;
     border:				solid 1px black;
@@ -360,7 +401,7 @@ form {
 }
 
 input[type="radio"] {
-	margin-right:		4%;
+	// margin-right:		4%;
 }
 
 
@@ -377,17 +418,7 @@ input[type="radio"] {
 
 
 
-#bottomright {
-	// TODO: remove
-	position:			absolute;
-	bottom:				0%;
-	left:				0%;
-	width:				100%;
-}
-
-
 #logo_header {
-    background-color:	#3db7e4;
 	position:			absolute;
 	top:				0%;
 	left:				0%;
@@ -402,7 +433,7 @@ input[type="radio"] {
 }
 	
 #logo {
-	width:				60%;
+	height:				10vh;
 	padding-top:		2vh;
 	padding-bottom:		2vh;
 }
@@ -456,7 +487,6 @@ input[type="radio"] {
 }
 
 .link {
-    color:				#3db7e4;
 	text-align:			center;
 	padding-top:		2vh;
 	padding-bottom:		2vh;

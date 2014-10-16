@@ -1,4 +1,4 @@
-<h2>Active Filters</h2>
+<h2 class="color_header">Active Filters</h2>
 
 <table id="filtertable" style="font-size: 10px">
 
@@ -9,24 +9,24 @@
 	<col id="attributecolumn">
 -->
 <tr>
-<th>Gender</th>
+<th class="color_header">Gender</th>
 <td id="activeFilter_gender"></td>
 </tr>
 <tr>
-<th>Age</th>
+<th class="color_header">Age</th>
 <td id="activeFilter_age"></td>
 </tr>
 <tr>
-<th>Customer Type</th>
+<th class="color_header">Customer Type</th>
 <td id="activeFilter_usertype"></td>
 </tr>
-<th>Date</th>
+<th class="color_header">Date</th>
 <td id="activeFilter_date"></td>
 </tr>
 </table>
 
 <div class="buttonwrapper">
-	<input type="submit" value="Reset Filters" class="filterbutton" id="resetfilters" onclick="filters.resetFilters(); selectFilter(document,1); filters.apply(windowNumber);"/>
+	<input type="submit" value="Reset Filters" class="filterbutton color_button" id="resetfilters" onclick="filters.resetFilters(); selectFilter(document,1); filters.apply(windowNumber);"/>
 </div>
 
 <script>
