@@ -45,6 +45,8 @@ Filters.prototype.apply = function(windowNumber){
             break;
         case 4:
             app1.setOption(this.station, this.gender, this.usertype, this.date);
+            app2.setOption(this.station, this.gender, this.usertype);
+            app3.setOption(this.date);
     }
 }
 

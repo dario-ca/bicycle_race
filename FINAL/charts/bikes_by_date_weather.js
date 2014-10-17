@@ -14,7 +14,7 @@ function LineChart3(tag, appname, titletag) {
 
     d3.select(titletag).text("Weather during the YEAR");
     d3.select(tag).append("button").attr("onclick", appname + ".draw('temp')").style("margin-left","30%").text("Temperature");
-    d3.select(tag).append("button").attr("onclick", appname + ".draw('prec')").style("margin-left","10%").text("Rain / Snow");
+    d3.select(tag).append("button").attr("onclick", appname + ".draw('prec')").style("margin-left","10%").text("Precipitations");
     
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;

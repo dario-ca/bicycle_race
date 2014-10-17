@@ -1,19 +1,25 @@
-function LineChart1(tag, titletag) {
+function LineChart4(tag, appname, titletag) {
 
     this.tag = tag;
     this.titletag = titletag;
+    
+    this.temp = 'temp';
+    this.prec = 'prec';
+    
     this.margin = {
-        top: 0,
+        top: 10,
         right: 30,
-        bottom: 38,
+        bottom: 40,
         left: 60
     };
 
+     d3.select(titletag).text("Weather during the DAY");
+    d3.select(tag).append("button").attr("onclick", appname + ".draw('temp')").style("margin-left","30%").text("Temperature");
+    d3.select(tag).append("button").attr("onclick", appname + ".draw('prec')").style("margin-left","10%").text("Precipitations");
+    
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
-
-    d3.select(titletag).text("AVG bikes out per HOUR during the DAY");
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
@@ -23,53 +29,48 @@ function LineChart1(tag, titletag) {
     //hours of the day
     this.xValues = [];
     //number of bikes
-    this.yValues = [];
-    this.setOption(null,null,null,null);
+    this.yValuesTemp = [];
+    this.yValuesPrec = [];
+    this.setOption(null);
 }
 
-LineChart1.prototype.setOption = function (station, gender, usertype, date) {
-    this.callBack_getData(this, station, gender, usertype, date);
+LineChart4.prototype.setOption = function (date) {
+    this.xValues = [];
+    this.yValuesTemp = [];
+    this.yValuesPrec = [];
+    this.callBack_getData(this, date);
 }
 
-LineChart1.prototype.callBack_getData = function (context, station, gender, usertype, date) {
-
+LineChart4.prototype.callBack_getData = function (context, date) {
+    if(date == null)
+        return;
+    
+    var dParam = new Date(date);
     context.xValues = [];
     context.yValues = [];
-    d3.select(this.titletag).text("AVG bikes out per HOUR during the DAY");
+    d3.select(this.titletag).text("Weather on "+dayName(dParam)+" "+(dParam.getMonth()+1)+"/"+dParam.getDate()+"/"+dParam.getFullYear());
     
-    var parameters;
-    parameters = "query=q3";
-
-    // station id: null means ALL
-    if (station != null)
-        parameters = parameters + "&station=" + station;
-    
-    // check gender
-    if(gender != null)
-        parameters = parameters + "&gender=" + gender;
-    
-    // check usertype
-    if(usertype != null)
-        parameters = parameters + "&usertype=" + usertype;
-    
-    // check specific date
-    if(date != null){
-        var d = new Date(date);
-        parameters = parameters + "&day=" + d.getDate();
-        parameters = parameters + "&month=" + (d.getMonth()+1);
-        d3.select(this.titletag).text("Bikes out on "+dayName(d)+" "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear());
-    }
-
-    d3.json("db_get.php?" + parameters, function (error, data) {
-        data.forEach(function (d) {
-            context.xValues[context.xValues.length] = d.hour;
-            context.yValues[context.yValues.length] = d.num_bikes;
+    d3.csv("data/weather.csv", function (error, data) {
+        
+        var dayData = [];
+        
+        data.forEach(function (d, i) {
+            var dCurrent = new Date(d.datetime);
+            if(dParam.getMonth() == dCurrent.getMonth() && dParam.getDate() == dCurrent.getDate()){
+                context.xValues[context.xValues.length] = dCurrent.getHours();
+                context.yValuesTemp[context.yValuesTemp.length] = parseFloat(d.temperatureF);
+                if(d.precipitationIn == "N/A")
+                    context.yValuesPrec[context.yValuesPrec.length] = 0;
+                else
+                context.yValuesPrec[context.yValuesPrec.length] = parseFloat(d.precipitationIn);
+            }
         });
-        context.draw();
+
+        context.draw('temp');
     });
 }
 
-LineChart1.prototype.draw = function () {
+LineChart4.prototype.draw = function (whatToDraw) {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
@@ -79,13 +80,26 @@ LineChart1.prototype.draw = function () {
     var height = this.canvasHeight - margin.top - margin.bottom;
 
     var xValues = this.xValues;
-    var yValues = this.yValues;
-
+    var yValues;
+    var yLabel;
+    var maxVal;
+    
+    if(whatToDraw == this.temp){
+        yValues = this.yValuesTemp;
+        yLabel = "Temperature [F]";
+        maxVal = 90;
+    }
+    else{
+        yValues = this.yValuesPrec;
+        yLabel = "Precipitation [In]";
+        maxVal =  max(yValues) * 1.1;
+    }
+    
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0, max(yValues) * 1.1]);
+        .range([height, 0]).domain([0,maxVal]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
@@ -94,16 +108,17 @@ LineChart1.prototype.draw = function () {
             return !(i % 2);
         }))
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7)
+        .tickFormat(function(d){
+            return hourAMPM(d);
+        });
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
         .tickFormat(function(d){
-            if (d >= 10000)
-                return (d / 10000).toFixed(0) + "k";
-            if (d >= 1000)
-                return (d / 1000).toFixed(1) + "k";
+           if(d >= 0.001 && d <= 0.999)
+                return (d*1000)+"m";
             return d;
         })
         .tickSize(3)
@@ -175,7 +190,7 @@ LineChart1.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Bikes Out");
+        .text(yLabel);
     
     
     //zoom function
@@ -219,6 +234,17 @@ LineChart1.prototype.draw = function () {
 }
 
 //////////////////////////////////////////UTILS
+function hourAMPM(hour){
+    if(hour == 0)
+        return "12AM";
+    if(hour >= 1 && hour <= 11)
+        return hour+"AM";
+    if(hour == 12)
+        return "12PM";
+    if(hour >= 13 && hour <= 23)
+        return (hour-12)+"PM";
+}
+
 function dayName(date){
     var dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     return dayNames[date.getDay()];
