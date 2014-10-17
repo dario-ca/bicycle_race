@@ -6,7 +6,7 @@ function LineChart3(tag, appname, titletag) {
     this.prec = 'prec';
     
     this.margin = {
-        top: 0,
+        top: 10,
         right: 30,
         bottom: 40,
         left: 60

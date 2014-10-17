@@ -43,8 +43,8 @@ Filters.prototype.apply = function(windowNumber){
             app3.getBikesFarallIntervals(this.station, this.gender, this.usertype);
             app4.getBikesFarallIntervals(this.station, this.gender, this.usertype);
             break;
-        case 3:
-            
+        case 4:
+            app1.setOption(this.station, this.gender, this.usertype, this.date);
     }
 }
 

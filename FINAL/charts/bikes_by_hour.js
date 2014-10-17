@@ -1,6 +1,7 @@
 function LineChart1(tag, titletag) {
 
     this.tag = tag;
+    this.titletag = titletag;
     this.margin = {
         top: 0,
         right: 30,
@@ -23,22 +24,23 @@ function LineChart1(tag, titletag) {
     this.xValues = [];
     //number of bikes
     this.yValues = [];
-    this.setOption(null,null,null);
+    this.setOption(null,null,null,null);
 }
 
-LineChart1.prototype.setOption = function (station, gender, usertype) {
-    this.callBack_getData(this, station, gender, usertype);
+LineChart1.prototype.setOption = function (station, gender, usertype, date) {
+    this.callBack_getData(this, station, gender, usertype, date);
 }
 
-LineChart1.prototype.callBack_getData = function (context, station, gender, usertype) {
+LineChart1.prototype.callBack_getData = function (context, station, gender, usertype, date) {
 
     context.xValues = [];
     context.yValues = [];
-
+    d3.select(this.titletag).text("AVG bikes out per HOUR during the DAY");
+    
     var parameters;
     parameters = "query=q3";
 
- // station id: null means ALL
+    // station id: null means ALL
     if (station != null)
         parameters = parameters + "&station=" + station;
     
@@ -49,7 +51,16 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    // check specific date
+    if(date != null){
+        var d = new Date(date);
+        parameters = parameters + "&day=" + d.getDate();
+        parameters = parameters + "&month=" + (d.getMonth()+1);
+        d3.select(this.titletag).text("Bikes out on "+dayName(d)+" "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear());
+    }
 
+    console.log(parameters);
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
             context.xValues[context.xValues.length] = d.hour;
@@ -165,7 +176,7 @@ LineChart1.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("AVG Bikes Out");
+        .text("Bikes Out");
     
     
     //zoom function
@@ -209,7 +220,10 @@ LineChart1.prototype.draw = function () {
 }
 
 //////////////////////////////////////////UTILS
-
+function dayName(date){
+    var dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    return dayNames[date.getDay()];
+}
 
 function dotSeparator(val) {
     while (/(\d+)(\d{3})/.test(val.toString())) {
