@@ -143,6 +143,7 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
 
+    console.log(parameters);
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {

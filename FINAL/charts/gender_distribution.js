@@ -48,6 +48,7 @@ PieChart1.prototype.callBack_getData = function (context, station, usertype) {
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
 
+    console.log(parameters);
 	// start query
     d3.json("db_get.php?" + parameters, function (error, data) {
 		/*
