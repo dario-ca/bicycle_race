@@ -90,6 +90,8 @@ p {
 	left:				81vw;
 	width:				3vw;
 	height:				100vh;
+	padding-right:		.4vw;
+	padding-top:		1vh;
 }
 
 .right {

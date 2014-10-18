@@ -22,7 +22,7 @@ function init(DOC) {
 	function goToTime() { selectFilter(DOC,2); }
 		
     BikeMap.init(mapid);
-    drawGraphIcon(graphicon_home,'house28',goToHome);
+    drawDarkGraphIcon(graphicon_home,'house28',goToHome);
     drawGraphIcon(graphicon_active,'active4',goToActive);
 	drawGraphIcon(graphicon_demographics,'female105',goToDemographics);
     drawGraphIcon(graphicon_time,'calendar68',goToTime);
