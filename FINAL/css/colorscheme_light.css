@@ -39,3 +39,12 @@
 	color:				black;
     background-color:	#3db7e4;
 }
+
+#graphselection li.active::before {
+    color:				#3db7e4;
+}
+
+.subtitle {
+	color:				black;
+}
+
