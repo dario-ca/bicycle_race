@@ -1,48 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 
-/* Only define colors here!! makes changes much easier */
-
-.color_text {
-	color:				#eee;
-}
-
-.color_header {
-    color:				#3db7e4;
-}
-
-.color_bg {
-	background-color:	#222;
-}
-
-.color_filter_bg {
-	background-color:	#222; // #444;
-}
-
-.color_tab {
-    color:				#3db7e4;
-    background-color:	#222;
-}
-
-.color_tab a:hover {
-    color:				black;
-    background-color:	#888;
-}
-
-.color_tab li.active {
-    color:				black;
-    background-color:	#3db7e4;
-}
-
-.color_button {
-	background-color:	#888;
-}
-
-.color_divvy {
-	color:				black;
-    background-color:	#3db7e4;
-}
-
-
 * {
 	padding:			0;
 	margin:				0;
@@ -316,7 +273,7 @@ p {
     border:				0.4em solid transparent;
     position:			absolute;
     left:				-0.9em;
-    top:				40%;
+    top:				20%;
     border-right:		.6em solid #3db7e4;
 }
 

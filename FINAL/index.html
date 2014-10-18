@@ -5,7 +5,8 @@
     <title>Bicycle Race</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" id="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/colorscheme_dark.css" id="colorscheme" />
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/graph.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -129,7 +130,7 @@
 	/* Dyncamically change theme */
 	function setTheme(filename) {
 		var stylepath = 'css/' + filename;
-		document.getElementById('stylesheet').href=stylepath;
+		document.getElementById('colorscheme').href=stylepath;
 	}
 
 
