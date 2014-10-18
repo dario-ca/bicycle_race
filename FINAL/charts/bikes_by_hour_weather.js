@@ -87,7 +87,7 @@ LineChart4.prototype.draw = function (whatToDraw) {
     if(whatToDraw == this.temp){
         yValues = this.yValuesTemp;
         yLabel = "Temperature [F]";
-        maxVal = 90;
+        maxVal = 96;
     }
     else{
         yValues = this.yValuesPrec;
