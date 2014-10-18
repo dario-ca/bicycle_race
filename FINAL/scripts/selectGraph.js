@@ -91,9 +91,14 @@ function selectGraph(DOC, n) {
 				clearGraph4();
 				app1 = new LineChart1(chart1, title1);
 				app2 = new LineChart2(chart2, title2);
-				// app2 = new BarChart1(chart2, title2);
-				// app3 = new BarChart4(chart3, title3);
+                app3 = new LineChart4(chart3, "app3", title3);
+				app4 = new LineChart3(chart4, "app4", title4);
 				break;
+            
+            case 5:
+                clearGraph4();
+                app1 = new LineChart1(chart1,title1,"app1");
+                break;
 
 		}
 	}

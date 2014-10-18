@@ -74,7 +74,11 @@
         if($_GET['gender'])
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
-            $temp = $temp." and usertype = '".$_GET['usertype']."'";  
+            $temp = $temp." and usertype = '".$_GET['usertype']."'"; 
+        if($_GET['day'])
+            $temp = $temp." and day(starttime) = '".$_GET['day']."'";
+        if($_GET['month'])
+            $temp = $temp." and month(starttime) = '".$_GET['month']."'";
 
         $temp=$temp."GROUP BY hour(starttime),date(starttime)
                     ) as tablex

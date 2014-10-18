@@ -4,7 +4,7 @@ function BarChart3(tag, titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 30,
+        bottom: 40,
         left: 60
     };
     

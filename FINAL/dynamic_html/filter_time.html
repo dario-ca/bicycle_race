@@ -18,8 +18,7 @@
 	/* Print Date to Console */
 	function printDate() {
 		var currentDate = $( "#datepicker" ).datepicker( "getDate" );
-		console.log("Selected Date: " + currentDate);
-		filters.setDate('2013-08-25'); // TODO: parse calendar output
+		filters.setDate(currentDate);
 	};
 
 	// function that simply sends the date to the map object
