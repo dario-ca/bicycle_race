@@ -7,13 +7,13 @@ function selectFilter(DOC, n) {
 
 	switch(n) {
 
-		case 1:
+		case 0:
 			filename = 'filter_active.html';
 			break;
-		case 2:
+		case 1:
 			filename = 'filter_demographics.html';
 			break;
-		case 3:
+		case 2:
 			filename = 'filter_time.html';
 			break;
 		default:
