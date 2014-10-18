@@ -42,8 +42,9 @@ LineChart4.prototype.setOption = function (date) {
 }
 
 LineChart4.prototype.callBack_getData = function (context, date) {
-    if(date == null)
+    if(date == null){
         return;
+    }
     
     var dParam = new Date(date);
     context.xValues = [];

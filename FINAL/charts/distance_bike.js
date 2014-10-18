@@ -10,7 +10,7 @@ function BulletChart1(tag, appname, titletag) {
     };
 
     d3.select(titletag).text("Total DISTANCE per BIKE");
-    d3.select(tag).append("input").attr("class", "inputnumber").attr("placeholder","Bike ID").attr("type", "number").attr("min", "1").attr("max", "5000").attr("onchange", appname + ".draw(this.value)");
+    d3.select(tag).append("input").attr("class", "inputnumber").attr("placeholder", "Bike ID").attr("type", "number").attr("min", "1").attr("max", "5000").attr("onchange", appname + ".draw(this.value)");
 
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = this.canvasWidth * 0.2;
@@ -22,6 +22,7 @@ BulletChart1.prototype.draw = function (bikeid) {
     var tag = this.tag;
 
     d3.select(tag).select("svg").remove();
+    d3.select(tag).select("p").remove();
 
     var margin = this.margin;
     var canvasWidth = this.canvasWidth;
@@ -37,6 +38,13 @@ BulletChart1.prototype.draw = function (bikeid) {
     var parameters = "query=q8a&bikeid=" + bikeid;
 
     d3.json("db_get.php?" + parameters, function (error, data) {
+
+        // if No bike found
+        if (data.length == 0) {
+            var svg = d3.select(tag).append("p").attr("style", "text-align:center; margin-top:" + canvasHeight / 2).text("No Bike Found");
+            return;
+        }
+
         var svg = d3.select(tag).selectAll("svg")
             .data(data)
             .enter().append("svg")
@@ -61,7 +69,7 @@ BulletChart1.prototype.draw = function (bikeid) {
             .call(chart);
 
         // AVG tick
-        svg.append("text").text("All bikes AVG").attr("x", "130").attr("class", "tick").attr("transform", "translate(0,-2)");
+        svg.append("text").text("All bikes AVG").attr("x", canvasWidth/4).attr("class", "tick").attr("transform", "translate(0,-3)");
 
         var title = svg.append("g")
             .style("text-anchor", "end")
