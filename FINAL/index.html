@@ -76,12 +76,10 @@
 
 	<div id="filterbar">
 		<!-- FILTER SELECTION -->
-		<p>TODO: replace text by icons</p>
-		<ul id="filterselection" class="menuselection color_tab">
-			<li class="active color_tab"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
-			<li class="color_tab"><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
-			<li class="color_tab"><a onclick="selectFilter(document,3); return false;">Time</a></li>
-		</ul>
+		<div id="graphicon_topspacing"><svg id="graphicon_home" class="icon" viewBox="0 0 100 100"></svg></div>
+		<svg id="graphicon_active" class="icon" viewBox="0 0 100 100"></svg>
+		<svg id="graphicon_demographics" class="icon" viewBox="0 0 100 100"></svg>
+		<svg id="graphicon_time" class="icon" viewBox="0 0 100 100"></svg>
 	</div>
 
     <div class="right color_filter_bg">
@@ -92,7 +90,7 @@
 		</div>
 
 		<div id="menu">
-
+			
 			<!-- CURRENT FILTER -->
 			<div id="dynamicfilter"></div>
 
