@@ -6,7 +6,7 @@ function BulletChart2(tag, appname, titletag) {
         top: 10,
         right: 30,
         bottom: 30,
-        left: 80
+        left: 100
     };
 
     d3.select(titletag).text("Total TIME per BIKE");
