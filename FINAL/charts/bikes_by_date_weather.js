@@ -40,7 +40,7 @@ LineChart3.prototype.setOption = function () {
 }
 
 LineChart3.prototype.callBack_getData = function (context) {
-
+    
     context.xValues = [];
     context.yValuesTemp = [];
 
