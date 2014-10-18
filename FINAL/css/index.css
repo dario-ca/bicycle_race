@@ -114,32 +114,32 @@ p {
 
 .left {
 	position:			absolute;
-	left:				0%;
-	width:				28%;
+	left:				0;
+	width:				28vw;
 	float:				left;
-	height:				100%;
+	height:				100vh;
 }
 
 #center {
 	position:			absolute;
-	left:				28%;
-	width:				52%;
-	top: 0%;
-	bottom: 0%;
+	left:				28vw;
+	width:				53vw;
+	top:				0%;
+	bottom:				0%;
 }
 
 #filterbar {
 	position:			absolute;
-	left:				80%;
-	width:				4%;
-	height:				100%;
+	left:				81vw;
+	width:				3vw;
+	height:				100vh;
 }
 
 .right {
 	position:			absolute;
-	left:				84%;
-	right:				0%;
-	height:				100%;
+	left:				84vw;
+	right:				0vw;
+	height:				100vh;
 }
 
 
@@ -239,23 +239,28 @@ p {
     height:             43%;
 }
 
-/*
-.graphicons {
-	position:			relative;
-	top:				0%;
-	left:				0%;
-	height:				100%;
-	width:				20%;
-}
-
 .icon {
-	width:				40px;
-	height:				40px;
+	width:				100%;
 	fill:				#555;
 	stroke:				#111;
 	border:				none;
+	height:				3vw;
+	display:			block;
+	padding:			0;
+	margin:				0;
 }
 
+#graphicon_topspacing {
+	height: 25%;
+}
+
+#graphicon_home {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/*
 .icon:hover {
 	fill:				#3db7e4;
 	stroke:				#000;
