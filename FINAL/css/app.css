@@ -14,9 +14,9 @@
 #heatButton {
     width: 8vh;
     font-size: 1.5vh;
-    background-color: #3db7e4;
+    background-color: #222;
     border: 1px solid black;  
-    color: black;
+    color: white;
 }
 
 /*heat map legend*/
@@ -73,4 +73,40 @@
     float: left;
     margin-left: 10px;
     opacity: 0.7;
+}
+
+/*station information pannel*/
+.stationInformation{
+    background-color: #222;
+    color: white;
+    width: 13vh;
+    padding: 5px;
+}
+
+.stationInformation h5{
+    font-size: 2.5vh;
+}
+
+.stationInformation p{
+    font-size: 1.5vh;
+}
+
+#flow{
+    font-size: 1.5vh;
+}
+
+#flow .ui-corner-left{
+    float: left;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5vh;
+    /*background-color: red;*/
+}
+
+#flow .ui-corner-right{
+    float: right;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5vh;
+    /*background-color: blue;*/
 }
