@@ -66,6 +66,7 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
             context.yValues[context.yValues.length] = d.num_bikes;
         });
         context.draw();
+        console.log(context.yValues);
     });
 }
 

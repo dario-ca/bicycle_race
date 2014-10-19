@@ -11,10 +11,14 @@ function Line_chart1(tag){
                 .attr("viewBox","0 0 "+this.canvasWidth+" "+this.canvasHeight)
                 .attr("preserveAspectRatio","xMinYMin meet");
 
+    d3.select(this.tag).append("input").attr("class", "inputnumber").attr("placeholder","Station id").attr("type", "number").attr("min", "1").attr("max", "5000").attr("onchange","this.add(this.value)");
+
     //hours of the day
     this.xValues=[];
     //number of bikes
     this.yValues=[];
+    //all station to filter
+    this.stations=[];
 }
 
 Line_chart1.prototype.setOption = function(station,gender,usertype){
