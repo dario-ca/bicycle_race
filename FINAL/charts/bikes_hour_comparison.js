@@ -1,4 +1,4 @@
-function LineChart5(tag,appname, titletag) {
+function LineChart5(tag,appname,titletag) {
 
     this.tag = tag;
     this.titletag = titletag;
@@ -12,7 +12,7 @@ function LineChart5(tag,appname, titletag) {
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
-
+    console.log("LINECHART 5");
     d3.select(titletag).text("AVG bikes out per HOUR - Stations Comparison");
     this.svg = d3.select(this.tag)
         .append("svg")
