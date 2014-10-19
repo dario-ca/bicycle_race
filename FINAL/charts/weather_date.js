@@ -80,20 +80,23 @@ LineChart3.prototype.draw = function (whatToDraw) {
     var xValues = this.xValues;
     var yValues ;
     var yLabel;
+    var maxLabel;
     
     if(whatToDraw == this.temp){
         yValues = this.yValuesTemp;
         yLabel = "Temperature [F]";
+        maxLabel = max(yValues) * 1.1;
     }
     else{
         yValues = this.yValuesPrec;
         yLabel = "Precipitation [In]";
+        maxLabel = 0.105
     }
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0, max(yValues) * 1.1]);
+        .range([height, 0]).domain([0, maxLabel]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
