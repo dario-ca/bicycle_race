@@ -50,6 +50,20 @@
                         ." AND date(starttime)='" .$date ."');";
     }
 
+    // get the inflow stations and count for given station
+    else if (strcmp($_GET['query'], "m5") == 0) {
+        $stationID = $_GET['id'];
+        $query = "SELECT from_station_id, count(*) FROM divvy_trips_distances WHERE(to_station_id=" .$stationID
+            .") GROUP BY from_station_id";
+    }
+
+    // get the outflow stations and count for given station
+    else if (strcmp($_GET['query'], "m6") == 0) {
+        $stationID = $_GET['id'];
+        $query = "SELECT to_station_id, count(*) FROM divvy_trips_distances WHERE(from_station_id=" .$stationID
+            .") GROUP BY to_station_id";
+    }
+
     // execute query
     $result = mysql_query($query);
     if (!$result) {

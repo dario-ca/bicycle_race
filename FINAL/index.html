@@ -5,7 +5,8 @@
     <title>Bicycle Race</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/index.css" id="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/colorscheme_dark.css" id="colorscheme" />
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/graph.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -34,11 +35,18 @@
     <script src="charts/bike_distance.js"></script>
     <script src="charts/bike_time.js"></script>
     <script src="charts/bikes_by_date.js"></script>
+<<<<<<< HEAD
     <script src="charts/bikes_by_hour.js"></script>
     <script src="charts/bikes_hour_comparison.js"></script>
     <script src="charts/bike_month_year.js"></script>
     <script src="charts/bikes_by_date_weather.js"></script>
+=======
+    <script src="charts/bikes_by_hour_history.js"></script>
+>>>>>>> 1c189cdefb0f3c559373b24c81e22da9df4498e6
     <script src="charts/bikes_by_hour_weather.js"></script>
+    <script src="charts/bike_month_year.js"></script>
+    <script src="charts/weather_date.js"></script>
+    <script src="charts/weather_hour.js"></script>
     <script src="charts/gender_distribution.js"></script>
     <script src="charts/distance_bike.js"></script>
     <script src="charts/time_bike.js"></script>
@@ -79,12 +87,10 @@
 
 	<div id="filterbar">
 		<!-- FILTER SELECTION -->
-		<p>TODO: replace text by icons</p>
-		<ul id="filterselection" class="menuselection color_tab">
-			<li class="active color_tab"><a onclick="selectFilter(document,1); return false;">Active Filters</a></li>
-			<li class="color_tab"><a onclick="selectFilter(document,2); return false;">Demographics</a></li>
-			<li class="color_tab"><a onclick="selectFilter(document,3); return false;">Time</a></li>
-		</ul>
+		<div id="graphicon_topspacing"><svg id="graphicon_home" class="icon" viewBox="0 0 100 100"></svg></div>
+		<svg id="graphicon_active" class="icon" viewBox="0 0 100 100"></svg>
+		<svg id="graphicon_demographics" class="icon" viewBox="0 0 100 100"></svg>
+		<svg id="graphicon_time" class="icon" viewBox="0 0 100 100"></svg>
 	</div>
 
     <div class="right color_filter_bg">
@@ -95,7 +101,7 @@
 		</div>
 
 		<div id="menu">
-
+			
 			<!-- CURRENT FILTER -->
 			<div id="dynamicfilter"></div>
 
@@ -132,7 +138,7 @@
 	/* Dyncamically change theme */
 	function setTheme(filename) {
 		var stylepath = 'css/' + filename;
-		document.getElementById('stylesheet').href=stylepath;
+		document.getElementById('colorscheme').href=stylepath;
 	}
 
 

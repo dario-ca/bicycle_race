@@ -20,6 +20,7 @@ function drawMap() {
     var animationControl = L.control({position: 'bottomleft'});
     var heatButton = L.control({position: "bottomleft"});
 
+    // dom buttons init functions
     legend.onAdd = function(map){
         var div = L.DomUtil.create('div', 'legend');  //create div elelemt
         var grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
@@ -46,8 +47,9 @@ function drawMap() {
         div.innerHTML = "<input type=\"button\" id=\"heatButton\" value=\"Popularity\" />";
         return div;
     }
+    // end of buttons init code
 
-
+    // init function for object
     function init(){
         map = L.map('map', {zoomControl: false}).setView([41.9, -87.7], 12);
         mapArea = $('#map');
@@ -57,7 +59,7 @@ function drawMap() {
         d3.json("data/chicagoDist.json", function(data){
                 //read in divvy bike location
                 d3.csv("data/stations.csv", function(stations){
-                divvyCircles.addData(stations, "grey", "black", 5);
+                divvyCircles.init(stations, "grey", "black", 5, map);
                 addLayers(data, divvyCircles.getCircles());
             });
         });
@@ -102,11 +104,11 @@ function drawMap() {
             };
 
             // add control and streets layer and bicycle stations
-           
             // removed minimaps :(
             // var layersControl = L.control.layers.minimap(baseLayers, overlays, {
             //     collapsed: false
             // }).addTo(map);
+
             L.control.layers(baseLayers, overlays).addTo(map);
             baseLayers['Streets'].addTo(map);
 
@@ -128,6 +130,7 @@ function drawMap() {
 
     // color stations depending on options
     // 1: heatmap
+    // 2: date
     function coloStations (option, pickedDate) {
         if (divvyCircles == undefined) {
             console.log("divvyCircles object is not defined, did init get called?");
@@ -137,7 +140,6 @@ function drawMap() {
         // heatmap
         if (option == 1) {
             heatmap = !heatmap
-
             // add/remove legend
             if (heatmap) {
                 legend.addTo(map)
@@ -146,8 +148,7 @@ function drawMap() {
             else{
                 legend.removeFrom(map);
                 legendOn = !legendOn;
-            }
-
+            };
             divvyCircles.colorPop();
         }
         // Date station traffic
@@ -159,6 +160,7 @@ function drawMap() {
         };
     };
 
+    // helper function for switching buttons
     function switchButtons(toWhat){
         if (toWhat == 1) {
             animationControl.removeFrom(map);
@@ -170,7 +172,9 @@ function drawMap() {
             );
 
             legendOn = false;
+            heatmap = false;
         }
+
         else if (toWhat == 2) {
             heatButton.removeFrom(map);
             if (legendOn){

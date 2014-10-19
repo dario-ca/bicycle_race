@@ -47,16 +47,17 @@ PieChart1.prototype.callBack_getData = function (context, station, usertype) {
     // add usertype filter
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+			
+	
+	console.log(">>>>>>>> " + parameters);
 
     console.log(parameters);
 	// start query
     d3.json("db_get.php?" + parameters, function (error, data) {
-		/*
         data.forEach(function (d) {
             context.xValues[context.xValues.length] = d.gender;
             context.yValues[context.yValues.length] = d.num_bikes;
         });
-		*/
 
 		// Dummy
 		context.xValues[0] = 'M';

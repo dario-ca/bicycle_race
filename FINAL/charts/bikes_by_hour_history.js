@@ -24,18 +24,17 @@ function LineChart1(tag, titletag) {
     this.xValues = [];
     //number of bikes
     this.yValues = [];
-    this.setOption(null,null,null,null);
+    this.setOption(null,null,null);
 }
 
-LineChart1.prototype.setOption = function (station, gender, usertype, date) {
-    this.callBack_getData(this, station, gender, usertype, date);
+LineChart1.prototype.setOption = function (station, gender, usertype) {
+    this.callBack_getData(this, station, gender, usertype);
 }
 
-LineChart1.prototype.callBack_getData = function (context, station, gender, usertype, date) {
+LineChart1.prototype.callBack_getData = function (context, station, gender, usertype) {
 
     context.xValues = [];
     context.yValues = [];
-    d3.select(this.titletag).text("AVG bikes out per HOUR during the DAY");
     
     var parameters;
     parameters = "query=q3";
@@ -51,14 +50,6 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
-    
-    // check specific date
-    if(date != null){
-        var d = new Date(date);
-        parameters = parameters + "&day=" + d.getDate();
-        parameters = parameters + "&month=" + (d.getMonth()+1);
-        d3.select(this.titletag).text("Bikes out on "+dayName(d)+" "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear());
-    }
 
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
