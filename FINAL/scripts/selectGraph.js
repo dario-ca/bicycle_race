@@ -98,7 +98,7 @@ function selectGraph(DOC, n) {
             
             case 5:
                 clearGraph4();
-                app1 = new LineChart5(chart1,"app1",title1);
+                app1 = new LineChart6(chart1,"app1",title1);
                 break;
 
 		}

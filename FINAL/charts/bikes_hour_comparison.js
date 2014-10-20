@@ -1,4 +1,4 @@
-function LineChart5(tag,appname,titletag) {
+function LineChart6(tag,appname,titletag) {
 
     this.tag = tag;
     this.titletag = titletag;
@@ -12,7 +12,6 @@ function LineChart5(tag,appname,titletag) {
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
-    console.log("LINECHART 5");
     d3.select(titletag).text("AVG bikes out per HOUR - Stations Comparison");
     this.svg = d3.select(this.tag)
         .append("svg")
@@ -37,20 +36,19 @@ function LineChart5(tag,appname,titletag) {
     this.setOption(null,null,null,null);
 }
 
-LineChart5.prototype.addStation = function (station_id){
+LineChart6.prototype.addStation = function (station_id){
     if(station_id!="")
         this.stations[this.stations.length]=station_id;
-    console.log(this.stations);
     
     this.setOption(null,null,null);
 }
     
 
-LineChart5.prototype.setOption = function (gender, usertype, date) {
+LineChart6.prototype.setOption = function (gender, usertype, date) {
     this.callBack_getData(this, gender, usertype, date);
 }
 
-LineChart5.prototype.callBack_getData = function (context, gender, usertype, date) {
+LineChart6.prototype.callBack_getData = function (context, gender, usertype, date) {
 
     context.xValues = [];
     context.yValues = [];
@@ -90,11 +88,7 @@ LineChart5.prototype.callBack_getData = function (context, gender, usertype, dat
             });
             context.all_yValues[context.all_yValues.length]=yValues;
             context.all_xValues[context.all_xValues.length]=xValues;
-            console.log(i);
-            console.log(context.stations.length);
             if(i==context.stations.length){
-                console.log("YYY"+context.all_yValues);
-                console.log("XXX"+context.all_xValues);
                 context.draw(context.all_xValues,context.all_yValues);
             }
         });
@@ -102,25 +96,20 @@ LineChart5.prototype.callBack_getData = function (context, gender, usertype, dat
     
 }
 
-LineChart5.prototype.draw = function (all_xValues,all_yValues) {
+LineChart6.prototype.draw = function (all_xValues,all_yValues) {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
-    
-    console.log("DRAW: "+all_yValues);
     
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
     var height = this.canvasHeight - margin.top - margin.bottom;
 
-    //var xValues = this.xValues;
-    //var yValues = this.yValues;
-
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(all_xValues[0]);
-
+    
     var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0,800]);//.domain([0, max(yValues) * 1.1]);
+        .range([height, 0]).domain([0, maxValue(all_yValues) * 1.1]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
@@ -209,6 +198,13 @@ function dotSeparator(val) {
     return val;
 }
 
-function max(array) {
-    return Math.max.apply(Math, array);
+function maxValue(arrayOfArray) {
+    var max=0;
+    for(i=0;i<arrayOfArray.length;i++){
+        var temp = Math.max.apply(Math, arrayOfArray[i]);
+        if(temp > max)
+            max = temp;
+    }
+    console.log(max);
+    return max;
 }
