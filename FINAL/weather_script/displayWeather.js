@@ -40,7 +40,7 @@ WeatherForecast.prototype.draw = function (dateParameter) {
 /*Load all the dates+hours into memory*/
 WeatherForecast.prototype.callBack_getWeather = function (context) {
 
-    d3.csv("weather.csv", function (error, data) {
+    d3.csv("../data/weather.csv", function (error, data) {
         data.forEach(function (d) {
             var date = new Date(d.datetime);
             context.values.push(d);
