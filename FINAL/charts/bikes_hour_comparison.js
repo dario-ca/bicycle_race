@@ -136,7 +136,6 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
     var svg = this.svg;
     
     for(ind=0; ind<all_yValues.length; ind++){
-        console.log("AAAA");
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -205,6 +204,5 @@ function maxValue(arrayOfArray) {
         if(temp > max)
             max = temp;
     }
-    console.log(max);
     return max;
 }
