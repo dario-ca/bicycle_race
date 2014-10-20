@@ -8,8 +8,6 @@ function WeatherForecast(tag, temperatureBox) {
 
     this.iconId = "weatherIcon";
     this.tempVal = temperatureBox;
-    
-    this.draw(null);
 }
 
 /* Pass the full date in input (yyyy-MM-dd hh:mm:ss), and the icon and temp will be drawn.
