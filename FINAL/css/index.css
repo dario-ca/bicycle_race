@@ -305,10 +305,6 @@ p {
 	width:				100%;
 }
 
-.filter p {
-	padding-left:		20%;
-}
-
 .filter h3 {
 	padding-left:		4%;
 }
@@ -333,8 +329,7 @@ th {
 }
 
 td {
-	padding-left:		10%;
-	width:				100%;
+	width:				50%;
 	font-size:			3vh;
 }
 
