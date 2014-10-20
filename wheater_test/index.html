@@ -1,56 +1,24 @@
 <html>
 
 <head>
-    <!-- Calendar SRC -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="test.css">
     <script src="http://d3js.org/d3.v3.min.js"></script>
     <script src="loadData.js"></script>
-
 </head>
 
 <script>
-    var wapp = new WeatherForecast("#box");
+    var wapp = new WeatherForecast("#weatherIconBox", "tempPar");
 </script>
 
 <body>
     <div id="container" style="width:10%; height:30%;">
-        <div id="box">
-            <div id="tempBox">
-                <img class="dataIcon" src="weather_icons/tempicon.png">
-                <div class="textBox"><p id="tempVal">Temperature</p></div>
+        <div id="tempBox">
+            <div id="textBox">
+                <p id="tempPar">Temperature</p>
             </div>
-            <div id="weatherIconBox">
-                <img id="weatherIcon" src="weather_icons/Unknown.png">
-            </div>
-            
-         <!--   <div id="infoBox">
-                <table class="tg">
-                    <tr>
-                        <th class="tg-s6z2" colspan="2">Weather Info</th>
-                    </tr>
-                    <tr>
-                        <td class="tg-031e">Temperature</td>
-                        <td id="tempVal" class="tg-0ord">F</td>
-                    </tr>
-                    <tr>
-                        <td class="tg-031e">Wind Speed</td>
-                        <td id="windVal" class="tg-0ord">mi/h</td>
-                    </tr>
-                    <tr>
-                        <td class="tg-031e">Humidity</td>
-                        <td id="humVal" class="tg-0ord">%</td>
-                    </tr>
-                    <tr>
-                        <td class="tg-031e">Visibility</td>
-                        <td id="visVal" class="tg-0ord">mi</td>
-                    </tr>
-                </table>
-            </div>-->
-            
+        </div>
+        <div id="weatherIconBox">
+            <img id="weatherIcon" src="weather_icons/Unknown.png">
         </div>
     </div>
     <select id="dropdown" onchange="wapp.draw(this.value)"></select>
