@@ -20,10 +20,21 @@ function DivvyCircles (){
     this.polylines = null; 
 
     // used for showing the correct information in the div
+    var selectedStationsHTML = '';
     var stationClicked = 0;
+    var selectedStations = [];
+    var allowHover = true;
 
     // used for switching between flowlines
     flowOn = false;
+
+    // helper method
+    function indexOfObject(theArray, property, value) {
+        for (var i = 0, len = theArray.length; i < len; i++) {
+            if (theArray[i][property] === value) return i;
+        }
+        return -1;
+    };
 
     // top left div showing information and controls
     var stationInformation = L.control({position: 'topleft'});
@@ -35,17 +46,48 @@ function DivvyCircles (){
     };
 
     stationInformation.update = function(info, ShowFlow){
+        // show hovered station
         if (!ShowFlow){
-            this._div.innerHTML = '<h5>Station:</h5>' + (info ? '<p>ID:' + info.id + '<br>Name:' + info.name + 
-                '</p>' : '<p>Hover or Click on Station</p>');
+            if (info != null) {
+
+                if (selectedStations.length == 0) {
+                   this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>Name:' + info.name + '</p>'; 
+                }
+                else{
+                this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>Name:' + info.name + '</p>'
+                    + selectedStationsHTML;
+                    addFlowButtons(this);
+                };
+            }
+            else
+                this._div.innerHTML = '<h5>Stations:</h5> <hr> <p>Hover or Click on Stations</p>';
         }
+        // show clicked stations
         else if (ShowFlow) {
-            this._div.innerHTML = '<h5>Station:</h5>' + (info ? '<p>ID:' + info.id + '<br>Name:' + info.name +
-                '<hr><p>Flow:</p>' +
+            this._div.innerHTML = '<h5>Stations:</h5>';
+            selectedStationsHTML = '';
+
+            if (info.length > 5) {
+                selectedStationsHTML = '<hr> <p>' + info.length + ' stations selected<p>';
+                this._div.innerHTML += '<hr> <p>' + info.length + ' stations selected<p>';
+            }
+            else{
+                for (var i = 0; i < info.length; i++) {
+                    this._div.innerHTML += '<hr><p>ID:' + info[i].id + '<br>Name:' + info[i].name +'</p>'
+                    selectedStationsHTML += '<hr><p>ID:' + info[i].id + '<br>Name:' + info[i].name +'</p>';
+                };
+            }
+
+            // add checkboxes/buttons
+            addFlowButtons(this);
+        };
+
+        function addFlowButtons(elem){
+            elem._div.innerHTML += '<hr><p>Flow:</p>' +
                 '</p> <div id="flow">' + 
                 '<input type="checkbox" id="check1"><label for="check1">In</label>' +
                 '<input type="checkbox" id="check2"><label for="check2">Out</label>' +
-                '</div>' : '<p>Hover or Click on Station</p>');
+                '</div>';
 
             $( "#check1" ).button();
             $( "#check2" ).button();
@@ -59,7 +101,7 @@ function DivvyCircles (){
             $( "#check2" ).on("click", function(){
                 flowLines(2);
             });
-        };
+        }
     };
 
     function flowLines (flow){
@@ -76,88 +118,100 @@ function DivvyCircles (){
         var parameters;
         var hiColor = "";
         var loColor = "";
+        var allTrips = [];
+        var sumOfTotalFlow = [];
+
+        var dataCount = 0;
 
         loColor = "#fff7bc";
         hiColor = "#f03b20";
 
         // inflow
         if (flow == 1) {
-            parameters = "query=m5&id=" + stationClicked;
-            
+            for (var i = 0; i < selectedStations.length; i++) {
+                parameters = "query=m5&id=" + selectedStations[i].options.stationID;
+                getData(parameters, "from_station_id", selectedStations[i].options.stationID);
+            };
         }
         // outflow
         else if (flow == 2) {
-            parameters = "query=m6&id=" + stationClicked;
+            for (var i = 0; i < selectedStations.length; i++) {
+                parameters = "query=m6&id=" + selectedStations[i].options.stationID;
+                getData(parameters, "to_station_id", selectedStations[i].options.stationID);
+            };
         };
 
-        d3.json("query.php?" + parameters, function(error, data){
+        // using the agregated data make lines showing the flow
+        function makeLines(fromOrTo){
             // find range
             var max = 0;
             var min = Number.MAX_VALUE;
 
-            for (var i = data.length - 1; i >= 0; i--) {
-                if(data[i]["count(*)"] > max)
-                    max = data[i]["count(*)"];
-                if (data[i]["count(*)"] < min)
-                    min = data[i]["count(*)"];
+            console.log(sumOfTotalFlow.length);
+
+            for (var i = sumOfTotalFlow.length - 1; i >= 0; i--) {
+                if(sumOfTotalFlow[i]["count(*)"] > max)
+                    max = sumOfTotalFlow[i]["count(*)"];
+                if (sumOfTotalFlow[i]["count(*)"] < min)
+                    min = sumOfTotalFlow[i]["count(*)"];
             };
+
+            console.log(max);
+            console.log(min);
 
             // heat map colors
             var heatScale = d3.scale.linear()
                 .domain([min, max])
                 .range([loColor, hiColor]);
 
-            // inflow/outflow var
-            var whichDir = "";
-            if (flow == 1)
-                whichDir = "from_station_id";
-            else
-                whichDir = "to_station_id";
-
+            // array containing the lines
             var polylineArray = [];
 
-            for (var i = 0; i < data.length; i++) {
+            // start creating lines!!!
+            for (var i = 0; i < allTrips.length; i++) {
                 var fromLatLng = [0,0];
                 var toLatLng = [0,0];
+
                 for (var q = 0; q < circles.length; q++) {
                     // flow stations
-                    var color = heatScale(data[i]["count(*)"]);
+                    var index = indexOfObject(sumOfTotalFlow, fromOrTo, allTrips[i]["theOtherStationID"]);
+                    var color = heatScale(sumOfTotalFlow[index]["count(*)"]);
 
-                    if (data[i][whichDir] == circles[q].options.stationID) {
+                    if (allTrips[i]["theOtherStationID"] == circles[q].options.stationID) {
                         fromLatLng[0] = circles[q]._latlng.lat;
                         fromLatLng[1] = circles[q]._latlng.lng;
                         
                         circles[q].setStyle({fillColor: color});
-                        // circles[q].setStyle({color: "black"});
-
-                        // for some reason this is not working :(
-                        // circles[q].bringToFront();
                     };
 
-                    // clicked station
-                    if (stationClicked == circles[q].options.stationID) {
+                    // // selected stations
+                    if (allTrips[i]["selectedStationID"] == circles[q].options.stationID) {
                         toLatLng[0] = circles[q]._latlng.lat;
                         toLatLng[1] = circles[q]._latlng.lng;
 
-                        if (flow == 1)
-                            circles[q].setStyle({fillColor: "#F05305"});   
-                        else
-                            circles[q].setStyle({fillColor: "#05A2F0"});
+                        circles[q].setStyle({color: "green"});
 
-                        circles[q].setStyle({color: "black"});
                     };
                 };
 
+                // choose the correct line color for the flow lines
                 lineColor = "";
                 if (flow == 1)
                     lineColor = "#F05305"
                 else
                     lineColor = "#05A2F0";
 
+                // to fix later, color the lines that are in the set of stations clicked
+                // var index = indexOfObject(sumOfTotalFlow, fromOrTo, allTrips[i]["theOtherStationID"]);
+                // if (sumOfTotalFlow[index][fromOrTo] == allTrips[i]["selectedStationID"]){
+                //     lineColor = "green";
+                //     console.log("hi");
+                // }
+
                 polylineArray.push(L.polyline([fromLatLng, toLatLng], 
                     {   
                         color: lineColor,
-                        weight: 3,
+                        weight: 1,
                         opacity: .5,
                         clickable: false
                     })
@@ -165,7 +219,44 @@ function DivvyCircles (){
             };
             context.polylines = L.layerGroup(polylineArray);
             context.polylines.addTo(map);
-        }); 
+
+            for (var i = 0; i < allTrips.length; i++) {
+                for (var q = 0; q < circles.length; q++) {
+                    if (allTrips[i]["theOtherStationID"] == circles[q].options.stationID || 
+                        allTrips[i]["selectedStationID"] == circles[q].options.stationID) {
+
+                        circles[q].bringToFront();
+                    };
+                }
+            };
+
+        };
+
+        // retrieves and parses the data that comes from the database
+        function getData(params, fromOrTo, station){
+            d3.json("query.php?" + params, function(data){
+                // combine all the values of the diff stations
+                for (var i = 0; i < data.length; i++) {
+                    // keep track of the from and to for each trip
+                    allTrips.push({selectedStationID : station, theOtherStationID : data[i][fromOrTo]});
+
+                    // make count vals ints
+                    data[i]["count(*)"] = parseInt(data[i]["count(*)"])
+                    // find index and either update or push values
+                    var index = indexOfObject(sumOfTotalFlow, fromOrTo, data[i][fromOrTo]);
+                    if (index < 0) {
+                        sumOfTotalFlow.push(data[i]);
+                    }
+                    else
+                        sumOfTotalFlow[index]["count(*)"] += data[i]["count(*)"];
+                };
+
+                dataCount ++;
+                if (dataCount == selectedStations.length) {
+                    makeLines(fromOrTo);
+                };
+            });
+        };
     };
 
     // animation function
@@ -262,37 +353,81 @@ function DivvyCircles (){
                 var info = {id : d.target.options.stationID, name : d.target.options.stationName};
 
                 // is it safe to change info div
-                var flow = false;
-                if (stationClicked == info.id){
-                    flow = false;
-                    stationClicked = 0;
-                }
-                else{
-                    flow = true;
-                    stationClicked = info.id;
-                }
-
-                // clear lines if drawn
-                if (flowOn) {
-                    map.removeLayer(polylines);
-                    returnToNormal();
-                    flowOn = false;
+                var index = -1;
+                for (var i = selectedStations.length - 1; i >= 0; i--) {
+                    if (selectedStations[i].options.stationID === info.id) {
+                        index = i;
+                        break;
+                    };
                 };
+
+                if (index > -1) {
+                    selectedStations.splice(index, 1);
+                }
+                else
+                    selectedStations.push(d.target);
+
+                showInfo();
+
+                // var flow = false;
+                // if (stationClicked == info.id){
+                //     flow = false;
+                //     stationClicked = 0;
+                // }
+                // else{
+                //     flow = true;
+                //     stationClicked = info.id;
+                // }
+
+                // // clear lines if drawn
+                // if (flowOn) {
+                //     map.removeLayer(polylines);
+                //     returnToNormal();
+                //     flowOn = false;
+                // };
                 
-                // update info div
-                stationInformation.update(info, flow);
+                // // update info div
+                // stationInformation.update(info, flow);
             });
             circles[i].on("mouseover", function(d){
-                if (stationClicked == 0) {
-                    var info = {id : d.target.options.stationID, name : d.target.options.stationName};
-                    stationInformation.update(info, false);
-                };
+                var info = {id : d.target.options.stationID, name : d.target.options.stationName};
+                stationInformation.update(info, false);
             });
         };
 
         // add station info div
         stationInformation.addTo(mapContext);
     };
+
+    function showInfo(){
+        // color staions default
+        returnToNormal()
+        // color selected green
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            selectedStations[i].setStyle({fillColor: "green"})
+            selectedStations[i].bringToFront();
+        };
+
+        // check to see if hover can be used again
+        if (selectedStations.length == 0) {
+            if (flowOn) {
+                map.removeLayer(polylines);
+                returnToNormal();
+                flowOn = false;
+            };
+            // show nothing in info div
+            stationInformation.update(null, false);
+        }
+        // show info regarding the selected stations
+        else{
+            var info = [];
+            for (var i = selectedStations.length - 1; i >= 0; i--) {
+                info.push({id: selectedStations[i].options.stationID, name : selectedStations[i].options.stationName});
+            };
+            stationInformation.update(info, true);
+        };
+
+    }
 
     function getCircles(){
         return circles;
