@@ -12,8 +12,9 @@
 
 /*heat map on off button*/
 #heatButton {
-    width: 8vh;
-    font-size: 1.5vh;
+    width: 20vh;
+    height: 6vh;
+    font-size: 3vh;
     background-color: #222;
     border: 1px solid black;  
     color: white;
@@ -115,16 +116,16 @@
 .stationInformation{
     background-color: #222;
     color: white;
-    width: 13vh;
+    width: 30vh;
     padding: 5px;
 }
 
 .stationInformation h5{
-    font-size: 2.5vh;
+    font-size: 3vh;
 }
 
 .stationInformation p{
-    font-size: 1.5vh;
+    font-size: 2.5vh;
 }
 
 #flow{

@@ -55,10 +55,10 @@ function DivvyCircles (){
             if (info != null) {
 
                 if (selectedStations.length == 0) {
-                   this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>Name:' + info.name + '</p>'; 
+                   this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>' + info.name + '</p>'; 
                 }
                 else{
-                this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>Name:' + info.name + '</p>'
+                this._div.innerHTML = '<h5>Stations:</h5> <hr>' +'<p>ID:' + info.id + '<br>' + info.name + '</p>'
                     + selectedStationsHTML;
                     addFlowButtons(this);
                 };
