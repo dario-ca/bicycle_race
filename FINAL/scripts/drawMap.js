@@ -7,6 +7,7 @@ function drawMap() {
     var mapArea;
     var divvyCircles;
     var date;
+    var weatherIcon;
 
     // function object
     var BikeMap = new Object();
@@ -51,7 +52,7 @@ function drawMap() {
     
     weather.onAdd = function(map){
         var div = L.DomUtil.create('div', 'weatherWrapper');
-        div.innerHTML = "<div id=\"tempBox\"><div id=\"textBox\"><p id=\"tempPar\" style=\"color: black; font-weight: bold;\">Temp</p></div></div><div id=\"weatherIconBox\"><img id=\"weatherIcon\" src=\"weather_script/weather_icons/Unknown.png\"></div>";
+        div.innerHTML = "<div id=\"tempBox\"><div id=\"textBox\"><p id=\"tempPar\" style=\"color: black; font-weight: bold;\"></p></div></div><div id=\"weatherIconBox\"></div>";
         return div;
         
         /*
@@ -222,9 +223,19 @@ function drawMap() {
             });
         };
     }
+    
+    function setWeatherIcon(wIc, dateVal){
+        weatherIcon = wIc;
+        var pickedDate = new Date(dateVal);
+        pickedDate.setDate(pickedDate.getDate()+1);
+        pickedDate.setHours(0);
+        weatherIcon.draw(pickedDate);
+        divvyCircles.setWeatherInfo(weatherIcon, pickedDate);
+    }
 
     BikeMap.init = init;
     BikeMap.colorStations = coloStations;
+    BikeMap.setWeatherIcon = setWeatherIcon;
     return BikeMap;
 }
 

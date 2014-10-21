@@ -24,7 +24,11 @@ function DivvyCircles (){
     var stationClicked = 0;
     var selectedStations = [];
     var allowHover = true;
-
+    
+    //Weather
+    this.weatherIcon = null;
+    this.pickedDate = null;
+    
     // used for switching between flowlines
     flowOn = false;
 
@@ -262,7 +266,7 @@ function DivvyCircles (){
     // animation function
     function dataLines (context, mapContext, date, spinner){
 
-        console.log(context.hour);
+        console.log("dataLines hour: "+context.hour);
 
         if (context.hour > 23) {
             // clear stuff
@@ -329,6 +333,13 @@ function DivvyCircles (){
             spinner.spinner("value", context.hour);
             context.hour++;
         }
+        
+        if(context.pickedDate != null){
+            // Change weather icon
+            context.pickedDate.setHours(context.hour);
+            context.weatherIcon.draw(context.pickedDate);
+        }
+            
     }; //end of datalines function
 
     function init(data, fill, outline, radius, mapContext){
@@ -452,7 +463,7 @@ function DivvyCircles (){
         if (animationOn && this.pauseStart){
             animationOn = true;
             //call dataLines every 1sec
-            this.animationInterval = setInterval( function() {dataLines(context, mapContext, date, spinner)}, 1000);
+            this.animationInterval = setInterval( function() {dataLines(context, mapContext, date, spinner)}, 3000);
         }
         // stop animation
         else if (animationOn && !this.pauseStart) {
@@ -462,7 +473,7 @@ function DivvyCircles (){
         // manual control
         else if (!animationOn && !pause && !stop) {
             spinner.spinner("value", this.hour);
-            dataLines(context, mapContext, date)
+            dataLines(context, mapContext, date);
         }
         // clear
         else if(stop){
@@ -541,11 +552,18 @@ function DivvyCircles (){
         };
     };
 
+    function setWeatherInfo(wIc, pd){
+        this.weatherIcon = wIc;
+        this.pickedDate = pd;
+        console.log("SET!");
+    }
+    
     stationObj.init = init;
     stationObj.getCircles = getCircles;
     stationObj.colorPop = colorPop;
     stationObj.colorDate = colorDate;
     stationObj.returnToNormal = returnToNormal;
+    stationObj.setWeatherInfo = setWeatherInfo;
     return stationObj
 };
 

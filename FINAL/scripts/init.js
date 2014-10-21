@@ -22,6 +22,7 @@ function init(DOC) {
 	function goToTime() { selectFilter(DOC,2); }
 		
     BikeMap.init(mapid);
+    weatherIcon = new WeatherForecast("#weatherIconBox","tempPar");
     drawDarkGraphIcon(graphicon_home,'house28',goToHome);
     drawGraphIcon(graphicon_active,'active4',goToActive);
 	drawGraphIcon(graphicon_demographics,'female105',goToDemographics);
