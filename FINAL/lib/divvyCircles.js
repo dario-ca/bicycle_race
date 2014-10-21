@@ -555,7 +555,6 @@ function DivvyCircles (){
     function setWeatherInfo(wIc, pd){
         this.weatherIcon = wIc;
         this.pickedDate = pd;
-        console.log("SET!");
     }
     
     stationObj.init = init;
