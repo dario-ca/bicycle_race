@@ -33,14 +33,16 @@ function LineChart6(tag,appname,titletag) {
     //stations for comparisons
     this.stations=[];
     
-    this.setOption(null,null,null,null);
+    this.counter=0;
+    
 }
 
 LineChart6.prototype.addStation = function (station_id){
-    if(station_id!="")
+    if(station_id!=""){
         this.stations[this.stations.length]=station_id;
+        this.setOption(null,null,null);
+    }
     
-    this.setOption(null,null,null);
 }
     
 
@@ -49,14 +51,18 @@ LineChart6.prototype.setOption = function (gender, usertype, date) {
 }
 
 LineChart6.prototype.callBack_getData = function (context, gender, usertype, date) {
-
-    context.xValues = [];
-    context.yValues = [];
+    
+    context.counter=0;
+    
+    console.log("entrato in callback");
+    console.log(context.stations.length);
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
     var parameters;
     parameters = "query=q3";
+    
     for(i=0;i<context.stations.length;i++){
+        console.log("outer index "+i);
         // station id: null means ALL
         if (context.stations[i] != null)
             parameters = parameters + "&station=" + context.stations[i];
@@ -88,9 +94,14 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
             });
             context.all_yValues[context.all_yValues.length]=yValues;
             context.all_xValues[context.all_xValues.length]=xValues;
-            if(i==context.stations.length){
+            if(context.counter==context.stations.length-1){
                 context.draw(context.all_xValues,context.all_yValues);
+                context.all_xValues=[];
+                context.all_yValues=[];
+                console.log("stations "+context.stations);
+                console.log("stations lenght "+context.stations.length);
             }
+            context.counter++;
         });
     }
     
@@ -134,8 +145,13 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
         .tickPadding(7);
     
     var svg = this.svg;
+    var all_colors=["#1f77b4","#ff7f0e","#98df8a","#bcbd22","#c7c7c7","#f7b6d2","#dbdb8d","#c5b0d5","#ffbb78","#aec7e8"];
+
+    console.log("lenght yValues"+all_yValues.length);
     
     for(ind=0; ind<all_yValues.length; ind++){
+        console.log("color "+all_colors[ind]);
+        console.log("index "+ind);
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -148,7 +164,9 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
             .datum(all_yValues[ind])
             .attr("class", "chart line")
             .attr("d", line)
-            .attr("transform", "translate(" + this.margin.left + ",0)");
+            .attr("transform", "translate(" + this.margin.left + ",0)")
+            .style("stroke", function(d) { return all_colors[ind]; });
+        
     }
     
     var padding = width / all_xValues[0].length;
