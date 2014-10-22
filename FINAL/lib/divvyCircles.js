@@ -398,10 +398,10 @@ function DivvyCircles() {
                         for(var i=0;i<selectedStations.length;i++){
                             app1.stations[app1.stations.length]=selectedStations[i].options.stationID;
                         }
-                        
+                        app1.setOption(null,null,null);
                     }
                     
-                    app1.setOption(null,null,null);
+                    
                 } else{
                     selectedStations.push(d.target);
                     

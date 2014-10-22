@@ -13,18 +13,20 @@ function LineChart6(tag,appname,titletag) {
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
     d3.select(titletag).text("AVG bikes out per HOUR - Stations Comparison");
+    
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
         .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
-        //.attr("preserveAspectRatio", "xMinYMin meet");
     
-    d3.select("#chart2").append("input")
+    d3.select(this.tag).append("input")
         .attr("class", "inputnumber")
         .attr("placeholder", "station id")
         .attr("type", "number")
         .attr("min", "1").attr("max", "5000")
         .attr("onchange", appname + ".addStation(this.value)");
+    
+    
 
     //hours of the day
     this.all_xValues=[];
