@@ -56,6 +56,10 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     
     console.log("ENTRATO IN CALLBACK");
     console.log("num station: "+context.stations.length);
+    if(context.stations.length==0){
+        d3.select(this.tag).selectAll("g").remove();
+        d3.select(this.tag).selectAll("path").remove();
+    }
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
     var parameters;
