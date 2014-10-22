@@ -1,17 +1,17 @@
-function WeatherForecast(tag) {
+/* - Tag is the div where to place the weather icon
+   - temperatureBox is the div where to place the temperature value*/
+function WeatherForecast(tag, temperatureBox) {
 
     this.tag = tag;
-    this.callBack_getWeather(this);
     this.values = [];
+    this.callBack_getWeather(this);
 
-    this.iconBoxId = "weatherIconBox";
     this.iconId = "weatherIcon";
-    
-    this.tempVal = "tempVal";
-    
-    this.draw(null,null);
+    this.tempVal = temperatureBox;
 }
 
+/* Pass the full date in input (yyyy-MM-dd hh:mm:ss), and the icon and temp will be drawn.
+   EX: 2013-08-12 12:51:00 */
 WeatherForecast.prototype.draw = function (dateParameter) {
 
     var dateParameter = new Date(dateParameter);
@@ -21,36 +21,30 @@ WeatherForecast.prototype.draw = function (dateParameter) {
 
     var box = d3.select(this.tag);
 
-    box.select("#"+this.iconBoxId).remove();
-    box.append("div").attr("id", this.iconBoxId);
-
-    var iconBox = d3.select("#" + this.iconBoxId);
+    box.selectAll("*").remove();
 
     for (i = 0; i < this.values.length; i++) {
         var value = this.values[i];
         var date = new Date(value.datetime);
-
         // Display Infos
         if (date.getMonth() == month && date.getDate() == day && date.getHours() == hour) {
             var imageName = getImage(value.conditions, date.getHours());
-            iconBox.append("img").attr("id", this.iconId).attr("src", "weather_icons/" + imageName);
-            d3.select("#"+this.tempVal).text(value.temperatureF+" F");
-            console.log("The conditions on date " + value.datetime + " are " + value.conditions);
+            box.append("img").attr("id", this.iconId).attr("src", "img/weather_icons/" + imageName);
+            // Escape ° symbol
+            d3.select("#"+this.tempVal).html(value.temperatureF+" &#x00b0;F");
         }
     }
-
 }
 
 /*Load all the dates+hours into memory*/
 WeatherForecast.prototype.callBack_getWeather = function (context) {
 
-    d3.csv("weather.csv", function (error, data) {
+    d3.csv("data/weather.csv", function (error, data) {
         data.forEach(function (d) {
             var date = new Date(d.datetime);
             context.values.push(d);
-            // To populate the dropdown menu
-            d3.select("#dropdown").append("option").attr("value", date).text(date);
         });
+        //context.draw("2013-12-08 11:00:00");
     });
 }
 

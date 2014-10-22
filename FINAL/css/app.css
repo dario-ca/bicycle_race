@@ -12,11 +12,48 @@
 
 /*heat map on off button*/
 #heatButton {
-    width: 8vh;
-    font-size: 1.5vh;
+    width: 20vh;
+    height: 6vh;
+    font-size: 3vh;
     background-color: #222;
     border: 1px solid black;  
     color: white;
+}
+
+/* WEATHER ICON*/
+.weatherWrapper{
+    width: 20vh;
+    height: 20vh;
+}
+
+#weatherIconBox {
+    float: left;
+    width: 100%;
+    height: 80%;
+}
+
+#weatherIcon {
+    max-width: 100%;
+    max-height: 90%;
+}
+
+#tempBox{
+    font-size: 3vmin;
+    float: left;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+}
+
+#textBox{
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+#tempVal{
+    font-family: sans-serif;
+    font-weight: bold;
 }
 
 /*heat map legend*/
@@ -79,16 +116,16 @@
 .stationInformation{
     background-color: #222;
     color: white;
-    width: 13vh;
+    width: 30vh;
     padding: 5px;
 }
 
 .stationInformation h5{
-    font-size: 2.5vh;
+    font-size: 3vh;
 }
 
 .stationInformation p{
-    font-size: 1.5vh;
+    font-size: 2.5vh;
 }
 
 #flow{

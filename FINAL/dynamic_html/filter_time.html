@@ -26,6 +26,7 @@
 	function sendToMap(){
 		// get displayed date and send it to Bikemap
 		BikeMap.colorStations(2, $('#datepicker').datepicker().val());
+        BikeMap.setWeatherIcon(weatherIcon, $('#datepicker').datepicker().val());
 	};
 
 </script>

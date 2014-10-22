@@ -7,6 +7,7 @@ function drawMap() {
     var mapArea;
     var divvyCircles;
     var date;
+    var weatherIcon;
 
     // function object
     var BikeMap = new Object();
@@ -19,6 +20,7 @@ function drawMap() {
     var legend = L.control({position: 'bottomleft'});
     var animationControl = L.control({position: 'bottomleft'});
     var heatButton = L.control({position: "bottomleft"});
+    var weather = L.control({position: "bottomright"});
 
     // dom buttons init functions
     legend.onAdd = function(map){
@@ -47,11 +49,28 @@ function drawMap() {
         div.innerHTML = "<input type=\"button\" id=\"heatButton\" value=\"Popularity\" />";
         return div;
     }
+    
+    weather.onAdd = function(map){
+        var div = L.DomUtil.create('div', 'weatherWrapper');
+        div.innerHTML = "<div id=\"tempBox\"><div id=\"textBox\"><p id=\"tempPar\" style=\"color: black; font-weight: bold;\"></p></div></div><div id=\"weatherIconBox\"></div>";
+        return div;
+        
+        /*
+        <div id="tempBox">
+            <div id="textBox">
+                <p id="tempPar">Temperature</p>
+            </div>
+        </div>
+        <div id="weatherIconBox">
+            <img id="weatherIcon" src="weather_icons/Unknown.png">
+        </div>
+        */
+    }
     // end of buttons init code
 
     // init function for object
     function init(){
-        map = L.map('map', {zoomControl: false}).setView([41.9, -87.7], 12);
+        map = L.map('map', {zoomControl: false}).setView([41.9, -87.65], 12);
         mapArea = $('#map');
         divvyCircles = new DivvyCircles();
 
@@ -117,6 +136,7 @@ function drawMap() {
 
             // add heatbutton
             heatButton.addTo(map);
+            weather.addTo(map);
             $('#heatButton').click( function(){
                 BikeMap.colorStations(1)}
             );
@@ -203,9 +223,19 @@ function drawMap() {
             });
         };
     }
+    
+    function setWeatherIcon(wIc, dateVal){
+        weatherIcon = wIc;
+        var pickedDate = new Date(dateVal);
+        pickedDate.setDate(pickedDate.getDate()+1);
+        pickedDate.setHours(0);
+        weatherIcon.draw(pickedDate);
+        divvyCircles.setWeatherInfo(weatherIcon, pickedDate);
+    }
 
     BikeMap.init = init;
     BikeMap.colorStations = coloStations;
+    BikeMap.setWeatherIcon = setWeatherIcon;
     return BikeMap;
 }
 
