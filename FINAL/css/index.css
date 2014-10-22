@@ -69,6 +69,7 @@ p {
 	font-size:			3vmin;
 }
 
+/*
 .left {
 	position:			absolute;
 	left:				0;
@@ -100,7 +101,7 @@ p {
 	right:				0vw;
 	height:				100vh;
 }
-
+*/
 
 /* LEFT */
 
@@ -211,6 +212,9 @@ p {
 	bottom:				0%;
 	left:				50%;
 	width:				50%;
+	margin: 20px;
+	padding: 50px;
+	background-color: #111;
     // height:             43%;
 }
 
@@ -346,6 +350,7 @@ th {
 	text-align:			right;
 	font-weight:		300;
 	font-size:			3vh;
+	padding-right:		1rem;
 }
 
 td {
@@ -469,3 +474,9 @@ input[type="radio"] {
 	padding-top:		2vh;
 	padding-bottom:		2vh;
 }
+
+#demographicsradiotable {
+	margin-left: auto;
+	margin-right: auto;
+}
+

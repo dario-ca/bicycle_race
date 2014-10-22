@@ -6,6 +6,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/colorscheme_dark.css" id="colorscheme" />
+    <link rel="stylesheet" type="text/css" href="css/index_1map.css" id="mapscheme" />
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/graph.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -73,6 +74,7 @@
                 <input type="button" value="Popularity" id="heatMap" onclick="BikeMap.colorStations(1)" />
             </div> -->
         </div>
+		<div id="map2"></div>
     </div>
 
     <div id="center"></div>
@@ -133,6 +135,12 @@
 		document.getElementById('colorscheme').href=stylepath;
 	}
 
+	/* Toggle 2nd map */
+	function toggle2Map(filename) {
+		console.log('TOGGLE 2nd MAP');
+		var stylepath = 'css/index_2map.css';
+		document.getElementById('mapscheme').href=stylepath;
+	}
 
 </script>
 

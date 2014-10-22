@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
+
+.left {
+	position:			absolute;
+	left:				0;
+	width:				34vw;
+	float:				left;
+	height:				100vh;
+}
+
+
+
+#map {
+    border:				solid 5px black;
+	position:			absolute;
+	left:				0%;
+	width:				50%;
+	top:				0%;
+	height:				100%;
+}
+
+#map2 {
+    border:				solid 5px black;
+	position:			absolute;
+	left:				50%;
+	width:				50%;
+	top:				0%;
+	height:				100%;
+	background-color:	#1b5;
+}
+
+#center {
+	position:			absolute;
+	left:				34vw;
+	width:				47vw;
+	top:				0%;
+	bottom:				0%;
+}
+
+#filterbar {
+	position:			absolute;
+	left:				81vw;
+	width:				3vw;
+	height:				100vh;
+	padding-right:		.4vw;
+	padding-top:		1vh;
+}
+
+.right {
+	position:			absolute;
+	left:				84vw;
+	right:				0vw;
+	height:				100vh;
+}
+
