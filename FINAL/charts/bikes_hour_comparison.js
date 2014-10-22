@@ -23,8 +23,8 @@ function LineChart6(tag,appname,titletag) {
         .attr("class", "inputnumber")
         .attr("placeholder", "station id")
         .attr("type", "number")
-        .attr("min", "1").attr("max", "5000")
-        .attr("onchange", appname + ".addStation(this.value)");
+        .attr("min", "1").attr("max", "5000");
+      //  .attr("onchange", appname + ".addStation(this.value)");
     
     
 
@@ -70,8 +70,8 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     for(i=0;i<context.stations.length;i++){
         console.log("outer index "+i);
         // station id: null means ALL
-        if (context.stations[i] != null)
-            parameters = parameters + "&station=" + context.stations[i];
+        if (context.stations[i].options.stationID != null)
+            parameters = parameters + "&station=" + context.stations[i].options.stationID;
         
         // check gender
         if(gender != null)
@@ -105,7 +105,7 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
                 context.draw(context.all_xValues,context.all_yValues);
                 context.all_xValues=[];
                 context.all_yValues=[];
-                console.log("stations "+context.stations);
+                console.log("stations ");console.log(context.stations);
                 console.log("stations lenght "+context.stations.length);
             }
             context.counter++;
@@ -152,7 +152,8 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
         .tickPadding(7);
     
     var svg = this.svg;
-    var all_colors=["#1f77b4","#ff7f0e","#98df8a","#bcbd22","#c7c7c7","#f7b6d2","#dbdb8d","#c5b0d5","#ffbb78","#aec7e8"];
+    
+    var all_colors= give_colors();
 
     console.log("lenght yValues: "+all_yValues.length);
     console.log(all_yValues);
@@ -174,6 +175,15 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
             .attr("d", line)
             .attr("transform", "translate(" + this.margin.left + ",0)")
             .style("stroke", function(d) { return all_colors[ind]; });
+        
+        svg.append("rect")
+            .attr("x",width+margin.left+2)
+            .attr("y","25")
+            .attr("width","30")
+            .attr("height","30")
+            .style("fill","none")
+            .style("stroke","white")
+            .style("stroke-width","2vh");
         
     }
     
@@ -219,6 +229,11 @@ function dayName(date){
 function hourLabels(){
     var labels= ["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"];
     return labels;
+}
+
+function give_colors(){
+    var allcolors=["#1f77b4","#ff7f0e","#98df8a","#bcbd22","#c7c7c7","#f7b6d2","#dbdb8d","#c5b0d5","#ffbb78","#aec7e8"];
+    return allcolors;
 }
 
 function dotSeparator(val) {
