@@ -393,13 +393,13 @@ function DivvyCircles() {
                     selectedStations.splice(index, 1);
                     
                     //this is for removing deselected stations
-                    //if(i am in the right page){
+                    if(windowNumber==5){
                         app1.stations=[];
                         for(var i=0;i<selectedStations.length;i++){
                             app1.stations[app1.stations.length]=selectedStations[i].options.stationID;
                         }
                         
-                   // }
+                    }
                     
                     app1.setOption(null,null,null);
                 } else{
@@ -407,15 +407,14 @@ function DivvyCircles() {
                     
                     //this is for adding lines to charts in the comparison section
                     
-                    //if("i am in the right page"){
-                        //app1.addStation(d.target.options.stationID);
+                    if(windowNumber==5){
                         app1.stations=[];
                         for(var i=0;i<selectedStations.length;i++){
                             app1.stations[app1.stations.length]=selectedStations[i].options.stationID;
                         }
                         app1.setOption(null,null,null);
                         
-                    //}
+                    }
                 }
 
                 showInfo();
