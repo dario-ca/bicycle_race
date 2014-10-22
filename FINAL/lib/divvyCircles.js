@@ -393,10 +393,18 @@ function DivvyCircles() {
                     selectedStations.splice(index, 1);
                 } else{
                     selectedStations.push(d.target);
+                    
                     //this is for adding lines to charts in the comparison section
-                    if("sono nella pagina giusta"){
-                        app1.addStation(d.target.options.stationID);
-                    }
+                    
+                    //if("sono nella pagina giusta"){
+                        //app1.addStation(d.target.options.stationID);
+                        app1.stations=[];
+                        for(var i=0;i<selectedStations.length;i++){
+                            app1.stations[app1.stations.length]=selectedStations[i].options.stationID;
+                        }
+                        app1.setOption(null,null,null);
+                        
+                    //}
                 }
 
                 showInfo();

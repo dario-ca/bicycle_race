@@ -44,9 +44,9 @@ LineChart6.prototype.addStation = function (station_id){
     }
     
 }
-    
-
+   
 LineChart6.prototype.setOption = function (gender, usertype, date) {
+    console.log("ENTRATO IN SET OPTION");
     this.callBack_getData(this, gender, usertype, date);
 }
 
@@ -54,8 +54,8 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     
     context.counter=0;
     
-    console.log("entrato in callback");
-    console.log(context.stations.length);
+    console.log("ENTRATO IN CALLBACK");
+    console.log("num station: "+context.stations.length);
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
     var parameters;
@@ -95,6 +95,7 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
             context.all_yValues[context.all_yValues.length]=yValues;
             context.all_xValues[context.all_xValues.length]=xValues;
             if(context.counter==context.stations.length-1){
+                console.log("lenght all_yValues: "+context.all_yValues.length);
                 context.draw(context.all_xValues,context.all_yValues);
                 context.all_xValues=[];
                 context.all_yValues=[];
@@ -117,7 +118,7 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
     var height = this.canvasHeight - margin.top - margin.bottom;
 
     var xScale = d3.scale.ordinal()
-        .rangePoints([0, width], 0).domain(all_xValues[0]);
+        .rangePoints([0, width], 0).domain(hourLabels());
     
     var yScale = d3.scale.linear()
         .range([height, 0]).domain([0, maxValue(all_yValues) * 1.1]);
@@ -147,11 +148,12 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
     var svg = this.svg;
     var all_colors=["#1f77b4","#ff7f0e","#98df8a","#bcbd22","#c7c7c7","#f7b6d2","#dbdb8d","#c5b0d5","#ffbb78","#aec7e8"];
 
-    console.log("lenght yValues"+all_yValues.length);
+    console.log("lenght yValues: "+all_yValues.length);
+    console.log(all_yValues);
     
     for(ind=0; ind<all_yValues.length; ind++){
         console.log("color "+all_colors[ind]);
-        console.log("index "+ind);
+        console.log("index line: "+ind);
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -206,6 +208,11 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
 function dayName(date){
     var dayNames = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     return dayNames[date.getDay()];
+}
+
+function hourLabels(){
+    var labels= ["12AM", "1AM", "2AM", "3AM", "4AM", "5AM", "6AM", "7AM", "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM", "9PM", "10PM", "11PM"];
+    return labels;
 }
 
 function dotSeparator(val) {
