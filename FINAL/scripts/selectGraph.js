@@ -108,7 +108,7 @@ function selectGraph(DOC, n) {
 				app1 = new BulletChart1(chart1, "app1", title1);
 				app2 = new BulletChart2(chart2, "app2", title2);
 				app3 = new BarChart2(chart3, title3);
-				app4 = new AgeDistributionChart(chart4, title4);
+				app4 = new BarChart3(chart4, title4);
 				break;
 
 			case 3:
