@@ -159,6 +159,45 @@
                GROUP BY bikeid";
     }
 
+	///////////////////////////////////////////////////////////////////////////
+	// SECTION QUERY X (MATTHIAS)
+	///////////////////////////////////////////////////////////////////////////
+		
+	// get gender / customer types
+	else if(strcmp($_GET['query'], "qXgender") == 0){
+        $temp = "SELECT gender, COUNT(*) as count
+			FROM divvy_trips_distances";
+		
+		// FILTERS
+		if($_GET['station'])
+            $temp = $temp." WHERE from_station_id = '".$_GET['station']."'";  
+
+        $temp = $temp." GROUP BY gender";
+    }
+
+    // rides per age
+    else if(strcmp($_GET['query'], "qXage") == 0){   
+		
+		console.log("AGE QUERY");
+
+        $temp = "SELECT birthyear, COUNT(*) as count
+			FROM divvy_trips_distances
+			WHERE NOT birthyear = 'Unknown' ";
+		
+        if($_GET['station'])
+            $temp = $temp." AND from_station_id = '".$_GET['station']."'";  
+        if($_GET['gender'])
+            $temp = $temp." AND gender = '".$_GET['gender']."'";
+        if($_GET['usertype'])
+			$temp = $temp." AND usertype = '".$_GET['usertype']."'";
+
+		$temp=$temp." GROUP BY birthyear;";
+	}
+
+
+
+
+
     # QUERIES
     $query = $temp;
     $result = mysql_query($query);

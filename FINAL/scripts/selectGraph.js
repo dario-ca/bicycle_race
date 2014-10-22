@@ -9,16 +9,44 @@ function selectGraph(DOC, n) {
 		case 0:
 			$('#center').load('dynamic_html/center_welcome.html');
 			break;
-/*
+		
 		case 3:
-			$('#center').load('dynamic_html/center_comingsoon.html');
+			$('#center').load('dynamic_html/center_2graphs.html');
+			prepareGraph2();
 			break;
-*/
+		
 		default:
 			$('#center').load('dynamic_html/center_4graphs.html');
 			prepareGraph4();
 			break;
 	}
+
+
+	function prepareGraph2() {
+
+		var waitForLoad = function () {
+			
+			chart5 = DOC.getElementById("chart5");
+			chart6 = DOC.getElementById("chart6");
+
+			title1 = DOC.getElementById("titlebar1");
+			title2 = DOC.getElementById("titlebar2");
+		
+			var chartsready = (typeof chart5 !== "undefined") && (typeof chart6 !== "undefined");
+			var titlesready = (typeof title1 !== "undefined") && (typeof title2 !== "undefined");
+			if (chartsready && titlesready) {
+				console.log("OK - dynamic html loaded");
+				drawAfterLoad();
+				// invoke any methods defined in your JS files to begin execution       
+			} else {
+				console.log("dynamic html not loaded..");
+				window.setTimeout(waitForLoad, 500);
+			}
+		 };
+
+		 window.setTimeout(waitForLoad, 500);   
+	}
+
 
 	function prepareGraph4() {
 
@@ -57,6 +85,10 @@ function selectGraph(DOC, n) {
 	}
 
 
+	function clearGraph2() {
+		d3.select(chart5).selectAll("*").remove();
+		d3.select(chart6).selectAll("*").remove();
+	}
 
 
 	function drawAfterLoad() {
@@ -76,15 +108,13 @@ function selectGraph(DOC, n) {
 				app1 = new BulletChart1(chart1, "app1", title1);
 				app2 = new BulletChart2(chart2, "app2", title2);
 				app3 = new BarChart2(chart3, title3);
-				app4 = new BarChart3(chart4, title4);
+				app4 = new AgeDistributionChart(chart4, title4);
 				break;
 
 			case 3:
-				clearGraph4();
-				app1 = new PieChart1(chart1, title1);
-				/*app2 = new BarChart1(chart2, title2);
-				app3 = new BarChart4(chart3, title3);
-				app4 = new LineChart2(chart4, title4);*/
+				clearGraph2();
+//				app1 = new PieChart1(chart5, title1);
+				app2 = new AgeDistributionChart(chart6, title2);
 				break;
 			
             // WEATHER

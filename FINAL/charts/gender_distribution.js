@@ -1,103 +1,235 @@
 function PieChart1(tag, titletag) {
 
-	// Draw image to tag
-	
     this.tag = tag;
-    this.margin = {
-        top: 0,
-        right: 30,
-        bottom: 38,
-        left: 60
+    
+	// TODO: edit	
+	this.margin = {
+        top: 10,
+        right: 10,
+        bottom: 10,
+        left: 10
     };
+    
+    d3.select(titletag).text("Distribution of Gender and Usertype");
+
+    this.svg = d3.select(this.tag).append("svg"); // .attr("class", "bar_chart_svg");
 
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
+   
+    this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
+	this.gendername = [];
+	this.gendercount = [];
+	this.counter = 0;
 
-	// Write title to titletag
-    d3.select(titletag).text("Gender distribution");
-    this.svg = d3.select(this.tag)
-        .append("svg")
-        // .attr("class", "line_chart_svg")
-        .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
-        //.attr("preserveAspectRatio", "xMinYMin meet");
+	this.getGenderDistribution(null);
 
-    //hours of the day
-    this.xValues = [];
-    //number of bikes
-    this.yValues = [];
-    this.setOption(null,null,null);
+	this.callBack_getGenderDistribution(this);
+
 }
 
-PieChart1.prototype.setOption = function (station, gender, usertype) {
-    this.callBack_getData(this, station, usertype);
+
+PieChart1.prototype.getGenderDistribution = function(station) {
+	this.callBack_getGenderDistribution(this,station)
 }
 
-PieChart1.prototype.callBack_getData = function (context, station, usertype) {
+	
+	
+// Loading result into data structure
+PieChart1.prototype.callBack_getGenderDistribution = function(context,station) {
 
-    context.xValue = [];
-    context.yValue = [];
+	context.gendername = [];
+	context.gendercount = [];
 
-    var parameters = "query=q3";
+	var parameters = "query=qXgender";
+	
+	if(station != null) {
+		parameters = parameters + "&station=" + station;
+	}
 
-	// add station filter
-    if (station != null)
-        parameters = parameters + "&station=" + station;
-    
-    // add usertype filter
-    if(usertype != null)
-        parameters = parameters + "&usertype=" + usertype;
+	// console.log("PARAMETERS: " + parameters);
+
+	d3.json("db_get.php?" + parameters, function (error,data) {
+		for(i=0; i<3; ++i) {
+			context.gendername[i] = data[i].gender;
+			context.gendercount[i] = data[i].count;
+		}
+		context.draw();
+	});
+	
+}
+
+
+PieChart1.prototype.draw = function() {
+	
+	console.log("\tDraw PieChart");
+
+	var	gendername = this.gendername;
+	var	gendercount = this.gendercount;
+
+
+/*
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+	*/
+
+	var svg = this.svg;
+	
+	svg.selectAll("g").remove();
+	svg.selectAll("path").remove(); // TODO: ???
+
+	/*
+	svg.append("rect")
+		.attr("x","50").attr("y","50")
+		.attr("width",this.gendercount[0]/1000).attr("height","50")
+
+	svg.append("rect")
+		.attr("x","50").attr("y","100")
+		.attr("width",this.gendercount[1]/1000).attr("height","50")
+
+	svg.append("rect")
+		.attr("x","50").attr("y","150")
+		.attr("width",this.gendercount[2]/1000).attr("height","50")
+*/
+
+/*
+	var dataset = [{"label":gendername[0], "value":gendercount[0]}, 
+				{"label":gendername[1], "value":gendercount[1]}, 
+				{"label":gendername[2], "value":gendercount[2]}];
+*/
+
+
+
+
+
+
+
+
+
+var w = 3000, //width
+h = 3000, //height
+r = 500, //radius
+color = d3.scale.category20c(); //builtin range of colors
+ 
+data = [{"label":"one", "value":20},
+{"label":"two", "value":50},
+{"label":"three", "value":30}];
+var vis = d3.select("#center")
+.append("svg:svg") //create the SVG element inside the <body>
+.data([data]) //associate our data with the document
+.attr("width", w) //set the width and height of our visualization (these will be attributes of the <svg> tag
+.attr("height", h)
+.append("svg:g") //make a group to hold our pie chart
+.attr("transform", "translate(" + r + "," + r + ")") //move the center of the pie chart from 0, 0 to radius, radius
+ 
+var arc = d3.svg.arc() //this will create <path> elements for us using arc data
+.outerRadius(r);
+ 
+var pie = d3.layout.pie() //this will create arc data for us given a list of values
+.value(function(d) { return d.value; }); //we must tell it out to access the value of each element in our data array
+ 
+var arcs = vis.selectAll("g.slice") //this selects all <g> elements with class slice (there aren't any yet)
+.data(pie) //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
+.enter() //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+.append("svg:g") //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
+.attr("class", "slice"); //allow us to style things in the slices (like text)
+ 
+arcs.append("svg:path")
+.attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+.attr("d", arc); //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+ 
+arcs.append("svg:text") //add a label to each slice
+.attr("transform", function(d) { //set the label's origin to the center of the arc
+//we have to make sure to set these before calling arc.centroid
+d.innerRadius = 0;
+d.outerRadius = r;
+return "translate(" + arc.centroid(d) + ")"; //this gives us a pair of coordinates like [50, 50]
+})
+.attr("text-anchor", "middle") //center the text on it's origin
+.text(function(d, i) { return data[i].label; }); //get the label from our original data array
+
+// Rectangle
+vis.append("rect")
+.attr("x",50).attr("y",50)
+.attr("width",200).attr("height",200)
+
+
+
+
+
+
+
+
+
+	/* WORKING EXAMPLE
+	 *
+	 *
+			var dataset1 = [ {"label":"M","value":20},
+							{"label":"F","value":30},
+							{"label":"U","value":50}];
+
+			dataset2 = [gendercount[0],gendercount[1],gendercount[2]];
 			
-	
-	console.log(">>>>>>>> " + parameters);
+			var margin = this.margin;
 
-    console.log(parameters);
-	// start query
-    d3.json("db_get.php?" + parameters, function (error, data) {
-        data.forEach(function (d) {
-            context.xValues[context.xValues.length] = d.gender;
-            context.yValues[context.yValues.length] = d.num_bikes;
-        });
+			var w = this.canvasWidth - margin.left - margin.right;
+			var h = this.canvasHeight - margin.top - margin.bottom;
+			var outerRadius = Math.min(w,h)/2;
+			var innerRadius = outerRadius/2;
 
-		// Dummy
-		context.xValues[0] = 'M';
-		context.xValues[1] = 'F';
-		context.xValues[2] = 'U';
-		context.yValues[0] = 50;
-		context.yValues[1] = 30;
-		context.yValues[2] = 20;
+			// var color = d3.scale.category10();
+			// var color = d3.scale.category20c();
+			var color = ['#0066cc','#cc66ff','#ffcc66'];
 
-        context.draw();
-    });
-}
+			var arc = d3.svg.arc()
+							.innerRadius(innerRadius)
+							.outerRadius(outerRadius);
+			
+			var pie = d3.layout.pie();
+			
+			//Set up groups
+			var arcs = svg.selectAll("g.arc")
+						  .data(pie(dataset2))
+						  .enter()
+						  .append("g")
+						  .attr("class", "arc")
+						  .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");
+			
+			//Draw arc paths
+			arcs.append("path")
+			    .attr("fill", function(d, i) {
+			    	return color[i];
+			    })
+			    .attr("d", arc);
+			
+			//Labels
+			arcs.append("text")
+			    .attr("transform", function(d) {
+			    	return "translate(" + arc.centroid(d) + ")";
+			    })
+			    .attr("text-anchor", "middle")
+			    .text(function(d) {
+			    	return d.value;
+			    });
+*/
+	// Gender Bar
+/*
+	var male = this.gendercount[0];
+	var female = this.gendercount[1];
+	var malefemale = male + female;
 
-PieChart1.prototype.draw = function () {
+	svg.append("rect")
+		.attr("x","50").attr("y","150")
+		.attr("width",male/malefemale).attr("height","50")
 
-	// Clear canvas
-    d3.select(this.tag).selectAll("g").remove();
-    d3.select(this.tag).selectAll("path").remove();
+	svg.append("rect")
+		.attr("x",50 + male/malefemale).attr("y","150")
+		.attr("width",female/malefemale).attr("height","50")
+*/
 
-	// Set parameters
-    var margin = this.margin;
-
-    var xValues = this.xValues;
-    var yValues = this.yValues;
-
-	console.log('X Values = ' + xValues);
-	console.log('Y Values = ' + yValues);
-	
-var w = this.canvasWidth - margin.left - margin.right;
-var h = this.canvasHeight - margin.top - margin.bottom;
-var r = h/2;
-var color = d3.scale.category20c();
-
-
-// create data array
-var data = [{"label":xValues[0], "value":yValues[0]}, 
-		          {"label":xValues[1], "value":yValues[1]}, 
-		          {"label":xValues[2], "value":yValues[2]}];
-
-var vis = d3.select('#chart1')
+/*
+var vis = d3.select('#chart5')
 			.append("svg:svg")
 			.data([data])
 			.attr("width", w).attr("height", h)
@@ -133,160 +265,92 @@ arcs.append("svg:text").attr("transform", function(d){
     return data[i].label;}
 		);
 
-
-
-
-
-
-
-	// Draw PieChart here!!!
-
-	//////////////////////////////////////////////////////////////////////
-	/* 
-	var xScale = d3.scale.ordinal()
-        .rangePoints([0, width], 0).domain(xValues);
-
-    var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0, max(yValues) * 1.1]);
-
-    var xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom")
-        .tickValues(xScale.domain().filter(function (d, i) {
-            return !(i % 2);
-        }))
-        .tickSize(3)
-        .tickPadding(7);
-
-    var yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left")
-        .tickFormat(function(d){
-            if (d >= 10000)
-                return (d / 10000).toFixed(0) + "k";
-            if (d >= 1000)
-                return (d / 1000).toFixed(1) + "k";
-            return d;
-        })
-        .tickSize(3)
-        .tickPadding(7);
-    
-    var zoom = d3.behavior.zoom()
-        //.x(xScale)
-        .y(yScale)
-        .scaleExtent([1, 10])
-        .on("zoom", zoomed);	
-
-    var svg = this.svg;
-    
-    svg.call(zoom);
-    
-    //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    var line = d3.svg.line()
-        .x(function (d, i) {
-            return xScale(xValues[i]);
-        })
-        .y(function (d, i) {
-            return yScale(yValues[i]);
-        });
-
-    svg.append("path")
-        .datum(yValues)
-        .attr("class", "chart line")
-        .attr("d", line)
-        .attr("transform", "translate(" + margin.left + ",0)");
-
-    var padding = width / xValues.length;
-
-    var gx = svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(" + margin.left + "," + height + ")")
-        .call(xAxis);
-
-    var gy = svg.append("g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(" + margin.left + ",0)")
-        .call(yAxis);
-
-    gx.selectAll("text")
-        .attr("transform", "rotate(-35)")
-        .style("text-anchor", "end");
-	*/
-	//////////////////////////////////////////////////////////////////////
-    
+*/	
+	
+	
+	
+	
 	
 	/*
-    // Vertical Lines
-    gx.selectAll("g")
-        .classed("xminor", true)
-        .select("line")
-        .attr("y2", function (d, i) {
-            return -height + yScale(yValues[i]);
-        });
-    */
-/*
-    gy.selectAll("g")
-        .classed("yminor", true)
-        .select("line")
-        .attr("x2", function (d, i) {
-            return width;
-        });
+var arc = d3.svg.arc()
+    .outerRadius(r - 10)
+    .innerRadius(0);
 
-    gy.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("AVG Bikes Out");
- */   
-    function zoomed() {
-        //svg.select(".x.axis").call(xAxis);
-		//
-		/*
-        svg.select(".x.axis")
-            .call(xAxis.scale(xScale.rangePoints([0, width * d3.event.scale],.1 * d3.event.scale)));
-        
-        svg.select(".y.axis").call(yAxis);   
-        
-        svg.selectAll(".chart.line").attr('d', line)
-            //.attr("transform", "translate(" + d3.event.translate[0]+",0)");
-        
-        gy.selectAll("g")
-            .classed("yminor", true)
-            .select("line")
-            .attr("x2", function (d, i) {
-            return width;
-        });
-        
-        gx.selectAll("text")
-            .attr("transform","rotate(-35)")
-            .style("text-anchor", "end");
-       */ 
-        /*gx.selectAll("text")        
-            .attr("transform", "translate(" + d3.event.translate[0]+",0) rotate(-35)")
-        .style("text-anchor", "end");*/
-        
-        /*d3.scale.ordinal()
-        .rangePoints([0, width], 0).domain(xValues)*/
-        
-        /*svg.selectAll(".chart.line").attr('d', line)
-            .attr("transform", "translate(" + d3.event.translate[0]+",0)")
-            .call(xAxis.scale(xScale.rangePoints([0, width],0)));*/
-    }
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.count; });
 
-}
-
-//////////////////////////////////////////UTILS
+svg.attr("width", w)
+    .attr("height", h)
+  .append("g")
+    .attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
 
 
-function dotSeparator(val) {
-    while (/(\d+)(\d{3})/.test(val.toString())) {
-        val = val.toString().replace(/(\d+)(\d{3})/, '$1' + ',' + '$2');
-    }
-    return val;
-}
+var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
 
-function max(array) {
-    return Math.max.apply(Math, array);
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", "black");
+ */ 
+  /*
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.data.age; });
+*/
+
+	/*
+	var chart = svg.models.pieChart()
+		.x(function(d) { return d.label })
+		.y(function(d) { return d.value })
+		.showLabels(true);
+
+	d3.select(tag)
+		.datum(data)
+		.transition().duration(340)
+		.call(chart);
+*/
+
+	/*
+	svg.append("svg:svg")
+								.data([data])
+								.attr("width", w).attr("height", h)
+								.append("svg:g")
+								.attr("transform", "translate(" + r + "," + r + ")");
+
+					var pie = d3.layout.pie()
+								.value(function(d){return d.value;});
+
+					// declare an arc generator function
+					var arc = d3.svg.arc().outerRadius(r);
+
+					// select paths, use arc generator to draw
+					var arcs = svg.selectAll("g.slice")
+									.data(pie).enter()
+									.append("svg:g")
+									.attr("class", "slice");
+
+					arcs.append("svg:path")
+						.attr("fill", function(d, i){
+							return color(i);
+						})
+						.attr("d", function (d) {
+							console.log(arc(d)); // log to console
+							return arc(d);
+						});
+
+					// add the text
+					arcs.append("svg:text").attr("transform", function(d){
+								d.innerRadius = 0;
+								d.outerRadius = r;
+						return "translate(" + arc.centroid(d) + ")";}).attr("text-anchor", "middle").text( function(d, i) {
+						return data[i].label;}
+							);
+							*/
+
+
 }
