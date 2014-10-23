@@ -288,6 +288,14 @@ function DivvyCircles() {
             });
         };
 
+        // color the selected stations green
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            selectedStations[i].setStyle({
+                fillColor: "green"
+            })
+            selectedStations[i].bringToFront();
+        };
+
         var parameters = "query=m4&hour=" + context.hour + "&date=" + date;
         d3.json("query.php?" + parameters, function (error, data) {
             if (error) {
@@ -328,8 +336,8 @@ function DivvyCircles() {
 
                 polylineArray.push(L.polyline([fromLatLng, toLatLng], {
                         color: "orange",
-                        weight: 3,
-                        opacity: .5,
+                        weight: 2,
+                        opacity: 1,
                     })
                     .on("click", function (target) {
                         target.target.setStyle({
@@ -495,6 +503,7 @@ function DivvyCircles() {
         var context = this;
 
         if (pause && !this.pauseStart) {
+            // true means start
             this.pauseStart = true;
             animationOn = !animationOn;
         } else if (this.pauseStart && pause) {
@@ -502,15 +511,15 @@ function DivvyCircles() {
         };
 
         // run animation
-        if (animationOn && this.pauseStart) {
+        if (animationOn && this.pauseStart && !stop) {
             animationOn = true;
             //call dataLines every 1sec
             this.animationInterval = setInterval(function () {
                 dataLines(context, mapContext, date, spinner)
-            }, 3000);
+            }, 1000);
         }
-        // stop animation
-        else if (animationOn && !this.pauseStart) {
+        // pause animation
+        else if (animationOn && !this.pauseStart && !stop) {
             clearInterval(this.animationInterval);
             animationOn = false;
         }
@@ -529,7 +538,6 @@ function DivvyCircles() {
                 mapContext.removeLayer(this.polylines);
             }
         };
-
     };
 
     // function that makes heat map of pop of the stations
@@ -611,7 +619,75 @@ function DivvyCircles() {
     function setWeatherInfo(wIc, pd) {
         this.weatherIcon = wIc;
         this.pickedDate = pd;
-    }
+    };
+
+    function selectStationsInside(community) {
+        // format coordinates to be used in the utils library
+        var poly = {
+            "type": "Polygon",
+            "coordinates": community.coordinates[0][0]
+        };
+
+        var communityStations = [];
+        for (var i = 0; i < circles.length; i++) {
+            var point = {
+                "type": "Point", 
+                "coordinates": [circles[i]._latlng.lng, circles[i]._latlng.lat]
+            };
+
+            if (gju.pointInPolygon(point, poly))
+                communityStations.push(circles[i]);
+        };
+
+        // remove stations if all the stations in the community area are already selected
+        var count = 0;
+        for (var i = 0; i < communityStations.length; i++) {
+            for (var q = selectedStations.length - 1; q >= 0; q--) {
+                if (selectedStations[q].options.stationID == communityStations[i].options.stationID){
+                    count++
+                    break;
+                };
+            };
+        };
+
+        var remove = false;
+        if (count === communityStations.length)
+            remove = true;
+
+        if (remove) {
+            for (var i = 0; i < communityStations.length; i++) {
+                for (var q = selectedStations.length - 1; q >= 0; q--) {
+                    if (selectedStations[q].options.stationID === communityStations[i].options.stationID) {
+                        selectedStations.splice(q, 1);
+                    };
+                };
+            };
+        }
+        else{
+            for (var i = 0; i < communityStations.length; i++) {
+                var add = true;
+                for (var q = selectedStations.length - 1; q >= 0; q--) {
+                    console.log("I should be inside");
+                    if (selectedStations[q].options.stationID === communityStations[i].options.stationID){
+                        add = false;
+                        break;
+                    }
+                };
+                if (add)
+                    selectedStations.push(communityStations[i]);
+            };
+        };
+
+        showInfo();
+    };
+
+    function selectedStationsContainsID(ID){
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            if (selectedStations[i].options.stationID === info.id)
+               return true; 
+        };
+        return false;
+    };
 
     stationObj.init = init;
     stationObj.getCircles = getCircles;
@@ -619,5 +695,6 @@ function DivvyCircles() {
     stationObj.colorDate = colorDate;
     stationObj.returnToNormal = returnToNormal;
     stationObj.setWeatherInfo = setWeatherInfo;
+    stationObj.selectStationsInside = selectStationsInside;
     return stationObj
 };
