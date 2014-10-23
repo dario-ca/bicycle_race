@@ -206,8 +206,8 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
             .attr("width","40")
             .attr("height","30")
             .style("fill",cur_color)
-            .style("stroke","white")
-            .style("stroke-width","4");
+            .style("stroke","black")
+            .style("stroke-width","2");
        
         legend_svg.append("text")
             .attr("class","legendText")
