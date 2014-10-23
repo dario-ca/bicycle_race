@@ -64,8 +64,8 @@
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 3
     //two columns: hour of day and bikes out
     else if(strcmp($_GET['query'], "q3") == 0){
-        $temp="SELECT date_format(starttime,'%l%p') as hour,avg(bikes) as num_bikes FROM (
-                    SELECT starttime, count(*) AS bikes
+        $temp="SELECT date_format(starttime,'%l%p') as hour,avg(bikes) as num_bikes,station FROM (
+                    SELECT starttime, count(*) AS bikes, from_station_id AS station
                     FROM divvy_trips_distances
                     WHERE 1=1 ";
         // FILTERS

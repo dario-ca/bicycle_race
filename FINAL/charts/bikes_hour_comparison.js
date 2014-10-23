@@ -1,6 +1,7 @@
-function LineChart6(tag,appname,titletag) {
+function LineChart6(tag,legendtag,appname,titletag) {
 
     this.tag = tag;
+    this.legendtag = legendtag;
     this.titletag = titletag;
     this.margin = {
         top: 0,
@@ -18,13 +19,19 @@ function LineChart6(tag,appname,titletag) {
         .append("svg")
         .attr("class", "line_chart_svg")
         .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
+
+    this.legend_svg = d3.select(this.legendtag)
+        .append("svg")
+        .attr("class", "legend_svg")
+        .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight)
+        .attr("preserveAspectRatio","xMinYMin meet");
     
-    d3.select(this.tag).append("input")
+   /* d3.select(this.tag).append("input")
         .attr("class", "inputnumber")
         .attr("placeholder", "station id")
         .attr("type", "number")
         .attr("min", "1").attr("max", "5000");
-      //  .attr("onchange", appname + ".addStation(this.value)");
+      //  .attr("onchange", appname + ".addStation(this.value)");*/
     
     
 
@@ -34,8 +41,13 @@ function LineChart6(tag,appname,titletag) {
     this.all_yValues=[];
     //stations for comparisons
     this.stations=[];
-    
+    this.stat_names=[];
+    this.stat_ID=[];
     this.counter=0;
+    this.csvStations=[];
+    
+    all_stat_and_id(this);
+
     
 }
 
@@ -48,7 +60,6 @@ LineChart6.prototype.addStation = function (station_id){
 }
    
 LineChart6.prototype.setOption = function (gender, usertype, date) {
-    console.log("ENTRATO IN SET OPTION");
     this.callBack_getData(this, gender, usertype, date);
 }
 
@@ -56,11 +67,11 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     
     context.counter=0;
     
-    console.log("ENTRATO IN CALLBACK");
-    console.log("num station: "+context.stations.length);
     if(context.stations.length==0){
         d3.select(this.tag).selectAll("g").remove();
         d3.select(this.tag).selectAll("path").remove();
+        d3.select(this.legendtag).selectAll("rect").remove();
+        d3.select(this.legendtag).selectAll("text").remove();
     }
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
@@ -68,7 +79,7 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     parameters = "query=q3";
     
     for(i=0;i<context.stations.length;i++){
-        console.log("outer index "+i);
+        
         // station id: null means ALL
         if (context.stations[i].options.stationID != null)
             parameters = parameters + "&station=" + context.stations[i].options.stationID;
@@ -94,19 +105,29 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
         d3.json("db_get.php?" + parameters, function (error, data) {
             var xValues=[];
             var yValues=[];
+            var station_ID = null;
+            var station_Name = null;
             data.forEach(function (d) {
                 yValues[yValues.length] = d.num_bikes;
                 xValues[xValues.length] = d.hour;
+                station_ID = d.station;
             });
-            context.all_yValues[context.all_yValues.length]=yValues;
-            context.all_xValues[context.all_xValues.length]=xValues;
+            
+            context.all_yValues[context.counter]=yValues;
+            context.all_xValues[context.counter]=xValues;
+            context.stat_ID[context.counter]=station_ID;
+            
+            for(var index=0;index<context.csvStations.length;index++){
+                    if(context.csvStations[index][0]==station_ID){
+                        station_Name = context.csvStations[index][1];
+                        context.stat_names[context.counter]=station_Name;
+                    }
+            }
+            
             if(context.counter==context.stations.length-1){
-                console.log("lenght all_yValues: "+context.all_yValues.length);
-                context.draw(context.all_xValues,context.all_yValues);
+                context.draw(context.all_xValues,context.all_yValues,context.stat_ID,context.stat_names);
                 context.all_xValues=[];
                 context.all_yValues=[];
-                console.log("stations ");console.log(context.stations);
-                console.log("stations lenght "+context.stations.length);
             }
             context.counter++;
         });
@@ -114,10 +135,12 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
     
 }
 
-LineChart6.prototype.draw = function (all_xValues,all_yValues) {
+LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names) {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
+    d3.select(this.legendtag).selectAll("rect").remove();
+    d3.select(this.legendtag).selectAll("text").remove();
     
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
@@ -152,15 +175,12 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
         .tickPadding(7);
     
     var svg = this.svg;
+    var legend_svg = this.legend_svg;
     
     var all_colors= give_colors();
 
-    console.log("lenght yValues: "+all_yValues.length);
-    console.log(all_yValues);
     
     for(ind=0; ind<all_yValues.length; ind++){
-        console.log("color "+all_colors[ind]);
-        console.log("index line: "+ind);
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -168,22 +188,36 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues) {
             .y(function (d, i) {
                 return yScale(all_yValues[ind][i]);
             });
-
+        
+        var cur_color=all_colors[ind];
+        
         svg.append("path")
             .datum(all_yValues[ind])
             .attr("class", "chart line")
             .attr("d", line)
             .attr("transform", "translate(" + this.margin.left + ",0)")
-            .style("stroke", function(d) { return all_colors[ind]; });
+            .style("stroke", cur_color);
         
-        svg.append("rect")
-            .attr("x",width+margin.left+2)
-            .attr("y","25")
-            .attr("width","30")
+        legend_svg.append("rect")
+            .attr("x","5")
+            .attr("y",function(){
+                return 10+ind*40;
+            })
+            .attr("width","40")
             .attr("height","30")
-            .style("fill","none")
+            .style("fill",cur_color)
             .style("stroke","white")
-            .style("stroke-width","2vh");
+            .style("stroke-width","4");
+       
+        legend_svg.append("text")
+            .attr("class","legendText")
+            .attr("x","60")
+            .attr("y",function(){
+                return 35+ind*40;
+            })
+            .text(function(){
+                return (all_IDs[ind]+": "+all_names[ind]);
+            });
         
     }
     
@@ -251,4 +285,12 @@ function maxValue(arrayOfArray) {
             max = temp;
     }
     return max;
+}
+
+function all_stat_and_id(context){
+    d3.csv("data/stations.csv", function (error, data) {
+                data.forEach(function (d) {
+                        context.csvStations[context.csvStations.length] = [d.station_id,d.station_name];
+                    });
+    });
 }

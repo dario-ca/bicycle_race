@@ -122,3 +122,10 @@
 .bullet .subtitle {
     fill: #999;
 }
+
+/*LEGEND*/
+.legendText{
+    font-size: 30;
+    font-family: sans-serif;
+    fill: white;
+}
