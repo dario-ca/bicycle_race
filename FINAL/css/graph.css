@@ -138,3 +138,9 @@
     float: left;
     text-align: center;
 }
+
+
+#chart5 {
+	stroke: #444;
+	stroke-width: 1;
+}

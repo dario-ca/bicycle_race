@@ -4,12 +4,20 @@
 	color:				black;
 }
 
+.color_normal_stroke {
+	stroke:				black;
+}
+
 .color_header {
     color:				black;
 }
 
 .color_bg {
 	background-color:	#ddd;
+}
+
+.color_bg_stroke {
+	stroke:				#ddd;
 }
 
 .color_filter_bg {
