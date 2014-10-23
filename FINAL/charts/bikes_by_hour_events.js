@@ -240,6 +240,7 @@ LineChart5.prototype.draw = function () {
         .attr("y2", height)
         .attr("stroke","gray");
     
+
     svg.append("circle")
         .attr("cx", (sunriseX+margin.left) / 2)
         .attr("cy", height*0.1)
