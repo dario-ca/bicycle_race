@@ -614,11 +614,13 @@ function DivvyCircles() {
     };
 
     function selectStationsInside(community) {
+        // format coordinates to be used in the utils library
         var poly = {
             "type": "Polygon",
             "coordinates": community.coordinates[0][0]
         };
 
+        var communityStations = [];
         for (var i = 0; i < circles.length; i++) {
             var point = {
                 "type": "Point", 
@@ -626,8 +628,49 @@ function DivvyCircles() {
             };
 
             if (gju.pointInPolygon(point, poly))
-                circles[i].setStyle({color: "green"});
+                communityStations.push(circles[i]);
         };
+
+        // remove stations if all the stations in the community area are already selected
+        var count = 0;
+        for (var i = 0; i < communityStations.length; i++) {
+            for (var q = selectedStations.length - 1; q >= 0; q--) {
+                if (selectedStations[q].options.stationID == communityStations[i].options.stationID){
+                    count++
+                    break;
+                };
+            };
+        };
+
+        var remove = false;
+        if (count === communityStations.length)
+            remove = true;
+
+        if (remove) {
+            for (var i = 0; i < communityStations.length; i++) {
+                for (var q = selectedStations.length - 1; q >= 0; q--) {
+                    if (selectedStations[q].options.stationID === communityStations[i].options.stationID) {
+                        selectedStations.splice(q, 1);
+                    };
+                };
+            };
+        }
+        else{
+            for (var i = 0; i < communityStations.length; i++) {
+                var add = true;
+                for (var q = selectedStations.length - 1; q >= 0; q--) {
+                    console.log("I should be inside");
+                    if (selectedStations[q].options.stationID === communityStations[i].options.stationID){
+                        add = false;
+                        break;
+                    }
+                };
+                if (add)
+                    selectedStations.push(communityStations[i]);
+            };
+        };
+
+        showInfo();
     };
 
     stationObj.init = init;

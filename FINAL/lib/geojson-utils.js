@@ -102,7 +102,7 @@
     // var insidePoly = false
     // for (var i = 0; i < coords.length; i++) {
     //   // change this from coords
-    //   if (pnpoly(p.coordinates[1], p.coordinates[0], coords)) insidePoly = true
+    //   if (pnpoly(p.coordinates[1], p.coordinates[0], coords[i])) insidePoly = true
     // }
 
     // if (!insidePoly) { console.log("from insidePoly");};
