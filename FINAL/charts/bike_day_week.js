@@ -29,7 +29,7 @@ function BarChart1(tag, titletag) {
 }
 
 BarChart1.prototype.draw = function () {
-
+    
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("rect").remove();
     d3.select(this.tag).selectAll("#tip").remove();

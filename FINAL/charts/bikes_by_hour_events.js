@@ -41,6 +41,11 @@ function LineChart5(tag, titletag) {
     this.xValues = [];
     //number of bikes
     this.yValues = [];
+    
+    //Sunset and sunrise dates
+    this.sunsetDate = null;
+    this.sunriseDate = null;
+    
     this.setOption(null,null,null,null);
 }
 
@@ -51,6 +56,8 @@ LineChart5.prototype.setOption = function (station, gender, usertype, date) {
 LineChart5.prototype.callBack_getData = function (context, station, gender, usertype, date) {
     
     if (date == null) {
+        this.resetSvg();
+        
         d3.select("#mainSvg")
             .append("text")
             .attr("x", this.canvasWidth / 3 +15)
@@ -83,6 +90,8 @@ LineChart5.prototype.callBack_getData = function (context, station, gender, user
     // check specific date
     if(date != null){
         var d = new Date(date);
+        context.sunsetDate = SunCalc.getTimes(d, 41.83, -87.68).sunsetStart;
+    context.sunriseDate = SunCalc.getTimes(d, 41.83, -87.68).sunriseEnd;
         parameters = parameters + "&day=" + d.getDate();
         parameters = parameters + "&month=" + (d.getMonth()+1);
         d3.select(this.titletag).text("Bikes out on "+dayName(d)+" "+(d.getMonth()+1)+"/"+d.getDate()+"/"+d.getFullYear());
@@ -98,13 +107,8 @@ LineChart5.prototype.callBack_getData = function (context, station, gender, user
 }
 
 LineChart5.prototype.draw = function () {
-
-    d3.select(this.tag).selectAll("g").remove();
-    d3.select(this.tag).selectAll("path").remove();
-    d3.select(this.tag).selectAll("text").remove();
-    d3.select(this.tag).selectAll("#lunch").remove();
-    d3.select(this.tag).selectAll("#dinner").remove();
     
+    this.resetSvg();
     
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
@@ -112,6 +116,9 @@ LineChart5.prototype.draw = function () {
 
     var xValues = this.xValues;
     var yValues = this.yValues;
+    
+    var sunsetDate = this.sunsetDate;
+    var sunriseDate = this.sunriseDate;
 
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xValues);
@@ -214,6 +221,42 @@ LineChart5.prototype.draw = function () {
             return -height + yScale(yValues[i]);
         });
     */
+    
+    var sunriseX = margin.left + getXRelativePosition(sunriseDate,width);
+    var sunsetX = margin.left + getXRelativePosition(sunsetDate,width);
+    // SUNRISE LINE
+    svg.append("line")
+        .attr("x1", sunriseX)
+        .attr("x2", sunriseX)
+        .attr("y1", height*0.03)
+        .attr("y2", height)
+        .attr("stroke","gray");
+    
+    // SUNSET LINE
+    svg.append("line")
+        .attr("x1", sunsetX)
+        .attr("x2", sunsetX)
+        .attr("y1", height*0.03)
+        .attr("y2", height)
+        .attr("stroke","gray");
+    
+    svg.append("circle")
+        .attr("cx", (sunriseX+margin.left) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#474b65");
+    
+    svg.append("circle")
+        .attr("cx", (sunriseX+sunsetX) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#e3b13c");
+    
+    svg.append("circle")
+        .attr("cx", (sunsetX+width+margin.left) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#474b65");
 
     gy.selectAll("g")
         .classed("yminor", true)
@@ -268,6 +311,16 @@ LineChart5.prototype.draw = function () {
             .call(xAxis.scale(xScale.rangePoints([0, width],0)));*/
     }
 
+}
+
+LineChart5.prototype.resetSvg = function () {
+    d3.select(this.tag).selectAll("g").remove();
+    d3.select(this.tag).selectAll("path").remove();
+    d3.select(this.tag).selectAll("text").remove();
+    d3.select(this.tag).selectAll("#lunch").remove();
+    d3.select(this.tag).selectAll("#dinner").remove();
+    d3.select(this.tag).selectAll("line").remove();
+    d3.select(this.tag).selectAll("circle").remove();
 }
 
 //////////////////////////////////////////UTILS

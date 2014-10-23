@@ -57,5 +57,5 @@ Filters.prototype.resetFilters = function(){
 	this.date=null;
 	this.station=null;
 	this.age_min=null;
-	this.age_max=null;   
+	this.age_max=null; 
 }
