@@ -495,6 +495,7 @@ function DivvyCircles() {
         var context = this;
 
         if (pause && !this.pauseStart) {
+            // true means start
             this.pauseStart = true;
             animationOn = !animationOn;
         } else if (this.pauseStart && pause) {
@@ -502,15 +503,15 @@ function DivvyCircles() {
         };
 
         // run animation
-        if (animationOn && this.pauseStart) {
+        if (animationOn && this.pauseStart && !stop) {
             animationOn = true;
             //call dataLines every 1sec
             this.animationInterval = setInterval(function () {
                 dataLines(context, mapContext, date, spinner)
-            }, 3000);
+            }, 1000);
         }
-        // stop animation
-        else if (animationOn && !this.pauseStart) {
+        // pause animation
+        else if (animationOn && !this.pauseStart && !stop) {
             clearInterval(this.animationInterval);
             animationOn = false;
         }
@@ -529,7 +530,6 @@ function DivvyCircles() {
                 mapContext.removeLayer(this.polylines);
             }
         };
-
     };
 
     // function that makes heat map of pop of the stations
