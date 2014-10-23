@@ -611,7 +611,24 @@ function DivvyCircles() {
     function setWeatherInfo(wIc, pd) {
         this.weatherIcon = wIc;
         this.pickedDate = pd;
-    }
+    };
+
+    function selectStationsInside(community) {
+        var poly = {
+            "type": "Polygon",
+            "coordinates": community.coordinates[0][0]
+        };
+
+        for (var i = 0; i < circles.length; i++) {
+            var point = {
+                "type": "Point", 
+                "coordinates": [circles[i]._latlng.lng, circles[i]._latlng.lat]
+            };
+
+            if (gju.pointInPolygon(point, poly))
+                circles[i].setStyle({color: "green"});
+        };
+    };
 
     stationObj.init = init;
     stationObj.getCircles = getCircles;
@@ -619,5 +636,6 @@ function DivvyCircles() {
     stationObj.colorDate = colorDate;
     stationObj.returnToNormal = returnToNormal;
     stationObj.setWeatherInfo = setWeatherInfo;
+    stationObj.selectStationsInside = selectStationsInside;
     return stationObj
 };
