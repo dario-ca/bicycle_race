@@ -39,7 +39,13 @@ DemographicsChart.prototype.draw = function () {
 	d3.select(this.tag).selectAll("rect").remove();
 	d3.select(this.tag).selectAll("#tip").remove();
 
+	var data = this.values;
 	
+	var male = data[1].count;
+	var female = data[0].count;
+	var customer = data[2].count;
+
+	var malefemale = male + female;
 	
 
 
@@ -49,7 +55,6 @@ DemographicsChart.prototype.draw = function () {
 
 	color = ["#cc66ff"/*pink*/,"#0066cc"/*blue*/,"#ffcc66"/*yellow*/];
 
-	var data = this.values;
 	
 	var svg = d3.select(tag).append("svg:svg").data([data])
 		.attr("width",w).attr("height",h)
@@ -80,6 +85,7 @@ DemographicsChart.prototype.draw = function () {
 		.attr("stroke-width","5px")
 		.attr("class","color_bg_stroke");
 
+		/*
 	arcs.append("svg:text")
 		.attr("transform", function(d){
 //			d.innerRadius = 0;
@@ -98,19 +104,34 @@ DemographicsChart.prototype.draw = function () {
 		})
 		.attr("font-size", "30px")
 		.attr("class","color_normal_stroke");
+*/
 
+		var perc_subscriber = malefemale/(malefemale+customer);
+		var perc_customer = customer/(malefemale+customer);
 
+		svg.append("svg:text")
+			.attr("transform", "translate(" + 1.1*r + "," + 0 + ")")
+			.text("Customers")
+			.attr("font-size","4vh")
+			.attr("class","color_text")
+		
+		svg.append("svg:text")
+			.attr("transform", "translate(" + 1.1*r + "," + "8vh" + ")")
+			.text(Math.round(100*perc_customer) + "%")
+			.attr("font-size","6vh")
+			.attr("class","color_text")
+
+		svg.append("svg:text")
+			.attr("transform", "translate(" + -1.1*r + "," + 0 + ")")
+			.text("Subscribers")
+			.attr("font-size","4vh")
+			.attr("class","color_text")
 
 
 	// Gender Bar
 	
 	var gap = .01*r;
 
-	var male = data[1].count;
-	var female = data[0].count;
-	var customer = data[2].count;
-
-	var malefemale = male + female;
 
 	var phi = (malefemale/(malefemale + customer) * 2*Math.PI);
 
