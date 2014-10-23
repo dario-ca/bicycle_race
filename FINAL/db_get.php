@@ -139,7 +139,7 @@
     else if(strcmp($_GET['query'], "q8a") == 0){
         $bikeid = $_GET['bikeid'];
         $temp="SELECT bikeid as title,
-	                  'Distance [mi]' as subtitle,
+	                  '[miles]' as subtitle,
                       '' as ranges,
                       sum(meters)*0.0006213 as measures,
                       '' as markers
@@ -150,7 +150,7 @@
     else if(strcmp($_GET['query'], "q8b") == 0){
         $bikeid = $_GET['bikeid'];
         $temp="SELECT bikeid as title,
-	                  'Time [hrs]' as subtitle,
+	                  '[hours]' as subtitle,
                       '' as ranges,
                       sum(seconds)/3600 as measures,
                       '' as markers

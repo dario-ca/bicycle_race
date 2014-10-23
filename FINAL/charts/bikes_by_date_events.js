@@ -1,24 +1,33 @@
-function LineChart3(tag, appname, titletag) {
+function LineChart7(tag, titletag) {
 
     this.tag = tag;
 
-    this.temp = 'temp';
-    this.prec = 'prec';
-    
     this.margin = {
-        top: 10,
+        top: 0,
         right: 30,
-        bottom: 40,
+        bottom: 70,
         left: 60
     };
 
-    d3.select(titletag).text("Weather during the YEAR");
-    d3.select(tag).append("button").attr("onclick", appname + ".draw('temp')").style("margin-left","30%").text("Temperature");
-    d3.select(tag).append("button").attr("onclick", appname + ".draw('prec')").style("margin-left","10%").text("Precipitations");
-    
+    d3.select(titletag).text("AVG bikes out per DAY during the YEAR");
     this.canvasWidth = document.getElementById(tag.id).clientWidth;
     this.canvasHeight = document.getElementById(tag.id).clientHeight;
 
+    var legendSvg = d3.select(this.tag)
+        .append("svg");
+    
+    legendSvg.attr("class", "legend_chart_svg")
+        .attr("viewBox", "0 0 100 100")
+        .append("rect").attr("x", 0)
+        .attr("y", 0)
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("style","stroke:black;stroke-width:5")
+        .style('fill-opacity', 0.15)
+        .style('fill', '#00ceff');
+    
+    d3.select(tag).append("p").attr("style","float: left").text("School Holidays");
+    
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
@@ -28,76 +37,64 @@ function LineChart3(tag, appname, titletag) {
     //day of the year
     this.xValues = [];
     //number of bikes
-    this.yValuesTemp = [];
-    this.yValuesPrec = [];
-    
-    this.setOption();
+    this.yValues = [];
+
+    this.setOption(null, null, null);
 
 }
 
-LineChart3.prototype.setOption = function () {
-    this.callBack_getData(this);
+LineChart7.prototype.setOption = function (station, gender, usertype) {
+    this.callBack_getData(this, station, gender, usertype);
 }
 
-LineChart3.prototype.callBack_getData = function (context) {
-    
+LineChart7.prototype.callBack_getData = function (context, station, gender, usertype) {
+
     context.xValues = [];
-    context.yValuesTemp = [];
+    context.yValues = [];
+    var parameters;
+    parameters = "query=q4";
 
-    d3.csv("data/weather.csv", function (error, data) {
-        
-        var sumTemp = 0;
-        var sumPrec = 0;
-        
+    // station id: null means ALL
+    if (station != null)
+        parameters = parameters + "&station=" + station;
+
+    // check gender
+    if (gender != null)
+        parameters = parameters + "&gender=" + gender;
+
+    // check usertype
+    if (usertype != null)
+        parameters = parameters + "&usertype=" + usertype;
+
+    d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d, i) {
-            sumTemp += parseFloat(d.temperatureF);
-            if(d.precipitationIn != "N/A")
-                sumPrec += parseFloat(d.precipitationIn);
-            // Print on the chart only the average temperature of each day, and the average rain
-            if ((i+1) % 24 == 0) {
-                var date = new Date(d.datetime);
-                context.xValues[context.xValues.length] = date;
-                context.yValuesTemp[context.yValuesTemp.length] = sumTemp/24;
-                context.yValuesPrec[context.yValuesPrec.length] = sumPrec/24;
-                sumTemp = 0;
-                sumPrec = 0;
-            }
+            context.xValues[context.xValues.length] = d.day_year;
+            context.yValues[context.yValues.length] = d.bikes;
         });
-        context.draw('temp');
+        context.draw();
     });
 }
 
 
-LineChart3.prototype.draw = function (whatToDraw) {
+LineChart7.prototype.draw = function () {
 
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
-    d3.select(this.tag).selectAll("rect").remove();
+    d3.select(this.tag).selectAll("#hol1").remove();
+    d3.select(this.tag).selectAll("#hol2").remove();
 
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
     var height = this.canvasHeight - margin.top - margin.bottom;
 
     var xValues = this.xValues;
-    var yValues ;
-    var yLabel;
-    var maxLabel;
-    
-    if(whatToDraw == this.temp){
-        yValues = this.yValuesTemp;
-        yLabel = "Temperature [F]";
-        maxLabel = max(yValues) * 1.1;
-    }
-    else{
-        yValues = this.yValuesPrec;
-        yLabel = "Precipitation [In]";
-        maxLabel = 0.105
-    }
+    var yValues = this.yValues;
+
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xValues);
 
     var yScale = d3.scale.linear()
-        .range([height, 0]).domain([0, maxLabel]);
+        .range([height, 0]).domain([0, max(yValues) * 1.1]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
@@ -106,26 +103,26 @@ LineChart3.prototype.draw = function (whatToDraw) {
             return !(i % 12);
         }))
         .tickSize(3)
-        .tickPadding(7)
-        .tickFormat(function (d) {
-            return getXLabel(d);
-        });
+        .tickPadding(7);
 
     var yAxis = d3.svg.axis()
         .scale(yScale)
         .orient("left")
         .tickFormat(function (d) {
-            if(d >= 0.001 && d <= 0.999)
-                return (d*1000)+"m";
-            return d;
+            if (d >= 10000)
+                return (d / 1000).toFixed(0) + "k";
+            if (d >= 1000)
+                return (d / 1000).toFixed(1) + "k";
+            else return d;
         })
         .tickSize(3)
         .tickPadding(7);
 
     var svg = this.svg;
-    
+
     // HOLIDAY 1
     svg.append("rect")
+        .attr("id","hol1")
         .attr("x", parseFloat(margin.left))
         .attr("y", 0)
         .attr("width", width / 2.7)
@@ -135,12 +132,14 @@ LineChart3.prototype.draw = function (whatToDraw) {
 
     // HOLIDAY 2
     svg.append("rect")
+        .attr("id","hol2")
         .attr("x", parseFloat(margin.left + width / 1.08))
         .attr("y", 0)
         .attr("width", width / 10)
         .attr("height", height)
         .style('opacity', 0.15)
         .style('fill', '#00ceff');
+
 
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -195,7 +194,7 @@ LineChart3.prototype.draw = function (whatToDraw) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text(yLabel);
+        .text("Bikes Out");
 
 }
 
@@ -209,17 +208,4 @@ function dotSeparator(val) {
 
 function max(array) {
     return Math.max.apply(Math, array);
-}
-
-function getXLabel(date) {
-    var monthNames = [
-                    "Jan", "Feb", "Mar",
-                    "Apr", "May", "Jun",
-                    "Jul", "Aug", "Sep",
-                    "Oct", "Nov", "Dec"
-                    ];
-    var monthNumber = date.getMonth();
-    var day = date.getDate();
-    
-    return monthNames[monthNumber] + " "+day;
 }

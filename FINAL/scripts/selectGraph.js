@@ -154,7 +154,7 @@ function selectGraph(DOC, n) {
 			case 4:
 				clearGraph4();
 				app1 = new LineChart5(chart1, title1);
-				app2 = new LineChart2(chart2, title2);
+				app2 = new LineChart7(chart2, title2);
                 app3 = new LineChart4(chart3, "app3", title3);
 				app4 = new LineChart3(chart4, "app4", title4);
 				break;

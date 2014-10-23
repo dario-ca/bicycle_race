@@ -5,7 +5,7 @@
     <title>Bicycle Race</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/colorscheme_dark.css" id="colorscheme" />
+    <link rel="stylesheet" type="text/css" href="css/colorscheme_light.css" id="colorscheme" />
     <link rel="stylesheet" type="text/css" href="css/index_1map.css" id="mapscheme" />
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/graph.css">
@@ -29,6 +29,7 @@
     <script src="scripts/apply_filters.js"></script>
     <script src="scripts/init.js"></script>
     <script src="scripts/displayWeather.js"></script>
+    <script src="js/suncalc.js"></script>
 
     <!-- CHARTS -->
     <script src="charts/bike_day_week.js"></script>
@@ -38,8 +39,9 @@
     <script src="charts/bikes_hour_comparison.js"></script>
     <script src="charts/bike_month_year.js"></script>
     <script src="charts/bikes_by_hour_history.js"></script>
-    <script src="charts/bikes_by_hour_weather.js"></script>
+    <script src="charts/bikes_by_hour_events.js"></script>
     <script src="charts/bike_month_year.js"></script>
+    <script src="charts/bikes_by_date_events.js"></script>
     <script src="charts/weather_date.js"></script>
     <script src="charts/weather_hour.js"></script>
     <script src="charts/gender_distribution.js"></script>
@@ -110,7 +112,7 @@
 				</li>
 				<li class="color_tab"><a onclick="selectGraph(document,3); return false;">Rider Demographics</a>
                 </li>
-				<li class="color_tab"><a onclick="selectGraph(document,4); return false;">Weather</a>
+				<li class="color_tab"><a onclick="selectGraph(document,4); return false;">Weather and Events</a>
 				</li>
                 <li class="color_tab"><a onclick="selectGraph(document,5); return false;">Compare</a>
 				</li>

@@ -31,6 +31,11 @@ function LineChart4(tag, appname, titletag) {
     //number of bikes
     this.yValuesTemp = [];
     this.yValuesPrec = [];
+
+    //Sunset and sunrise dates
+    this.sunsetDate = null;
+    this.sunriseDate = null;
+
     this.setOption(null);
 }
 
@@ -43,17 +48,22 @@ LineChart4.prototype.setOption = function (date) {
 
 LineChart4.prototype.callBack_getData = function (context, date) {
     if (date == null) {
+        this.resetSvg();
+        
         d3.select(this.tag).select("svg")
             .append("text")
-            .attr("x", this.canvasWidth / 3 +15)
+            .attr("x", this.canvasWidth / 3 + 15)
             .attr("y", this.canvasHeight / 2)
             .text("Pick a day")
-            .attr("fill","steelblue")
-            .attr("font-size","5vh");
+            .attr("fill", "steelblue")
+            .attr("font-size", "5vh");
         return;
     }
 
     var dParam = new Date(date);
+    context.sunsetDate = SunCalc.getTimes(dParam, 41.83, -87.68).sunsetStart;
+    context.sunriseDate = SunCalc.getTimes(dParam, 41.83, -87.68).sunriseEnd;
+    
     context.xValues = [];
     context.yValues = [];
     d3.select(this.titletag).text("Weather on " + dayName(dParam) + " " + (dParam.getMonth() + 1) + "/" + dParam.getDate() + "/" + dParam.getFullYear());
@@ -80,13 +90,14 @@ LineChart4.prototype.callBack_getData = function (context, date) {
 
 LineChart4.prototype.draw = function (whatToDraw) {
 
-    d3.select(this.tag).selectAll("g").remove();
-    d3.select(this.tag).selectAll("path").remove();
-    d3.select(this.tag).selectAll("text").remove();
+    this.resetSvg();
 
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
     var height = this.canvasHeight - margin.top - margin.bottom;
+    
+    var sunsetDate = this.sunsetDate;
+    var sunriseDate = this.sunriseDate;
 
     var xValues = this.xValues;
     var yValues;
@@ -142,6 +153,26 @@ LineChart4.prototype.draw = function (whatToDraw) {
 
     var svg = this.svg;
 
+    // Lunch
+    svg.append("rect")
+        .attr("id", "lunch")
+        .attr("x", parseFloat(margin.left + width / 2))
+        .attr("y", 0)
+        .attr("width", width / 9)
+        .attr("height", height)
+        .style('opacity', 0.15)
+        .style('fill', '#23aa17');
+
+    // Dinner
+    svg.append("rect")
+        .attr("id", "dinner")
+        .attr("x", parseFloat(margin.left + width / 1.3))
+        .attr("y", 0)
+        .attr("width", width / 9)
+        .attr("height", height)
+        .style('opacity', 0.15)
+        .style('fill', '#23aa17');
+
     //svg.call(zoom);
 
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -175,17 +206,60 @@ LineChart4.prototype.draw = function (whatToDraw) {
     gx.selectAll("text")
         .attr("transform", "rotate(-35)")
         .style("text-anchor", "end");
-
+    
+    
+    var sunriseX = margin.left + getXRelativePosition(sunriseDate,width);
+    var sunsetX = margin.left + getXRelativePosition(sunsetDate,width);
+    // SUNRISE LINE
+    svg.append("line")
+        .attr("x1", sunriseX)
+        .attr("x2", sunriseX)
+        .attr("y1", height*0.03)
+        .attr("y2", height)
+        .attr("stroke","gray");
+    
+    // SUNSET LINE
+    svg.append("line")
+        .attr("x1", sunsetX)
+        .attr("x2", sunsetX)
+        .attr("y1", height*0.03)
+        .attr("y2", height)
+        .attr("stroke","gray");
+    
+    /*
+    svg.append("circle")
+        .attr("cx", (sunriseX+margin.left) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#474b65");
+    
+    svg.append("circle")
+        .attr("cx", (sunriseX+sunsetX) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#e3b13c");
+    
+    svg.append("circle")
+        .attr("cx", (sunsetX+width+margin.left) / 2)
+        .attr("cy", height*0.1)
+        .attr("r", height*0.07)
+        .attr("fill","#474b65");
+    */
+    
+    /*
+    <line x1="5" y1="5" x2="40" y2="40" stroke="gray" stroke-width="5"  />
+    <circle cx="25" cy="25" r="25" fill="purple" />
+    */
     /*
     // Vertical Lines
     gx.selectAll("g")
         .classed("xminor", true)
         .select("line")
         .attr("y2", function (d, i) {
-            return -height + yScale(yValues[i]);
+            return -height + ...;
         });
     */
-
+    
     gy.selectAll("g")
         .classed("yminor", true)
         .select("line")
@@ -241,6 +315,15 @@ LineChart4.prototype.draw = function (whatToDraw) {
 
 }
 
+LineChart4.prototype.resetSvg = function () {
+    d3.select(this.tag).selectAll("g").remove();
+    d3.select(this.tag).selectAll("path").remove();
+    d3.select(this.tag).selectAll("text").remove();
+    d3.select(this.tag).selectAll("rect").remove();
+    d3.select(this.tag).selectAll("line").remove();
+    d3.select(this.tag).selectAll("circle").remove();
+}
+
 //////////////////////////////////////////UTILS
 function hourAMPM(hour) {
     if (hour == 0)
@@ -267,4 +350,10 @@ function dotSeparator(val) {
 
 function max(array) {
     return Math.max.apply(Math, array);
+}
+
+function getXRelativePosition(date,width){
+    var oneMinutePixels = width / (23*60);
+    var dateMinutes = (date.getHours() * 60) + date.getMinutes();
+    return oneMinutePixels * dateMinutes;
 }
