@@ -146,7 +146,7 @@ function selectGraph(DOC, n) {
 
 			case 3:
 				clearGraph2();
-//				app1 = new PieChart1(chart5, title1);
+				app1 = new DemographicsChart(chart5, title1);
 				app2 = new AgeDistributionChart(chart6, title2);
 				break;
 			
