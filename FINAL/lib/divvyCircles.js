@@ -110,7 +110,7 @@ function DivvyCircles() {
         var context = this;
         if (flowOn) {
             map.removeLayer(context.polylines);
-            returnToNormal();
+            colorSelectedStations();
             flowOn = false;
             return;
         } else
@@ -278,23 +278,8 @@ function DivvyCircles() {
             mapContext.removeLayer(context.polylines);
         }
 
-        // normal color circles
-        for (var i = 0; i < circles.length; i++) {
-            circles[i].setStyle({
-                fillColor: context.fill
-            });
-            circles[i].setStyle({
-                color: context.outline
-            });
-        };
-
-        // color the selected stations green
-        for (var i = selectedStations.length - 1; i >= 0; i--) {
-            selectedStations[i].setStyle({
-                fillColor: "green"
-            })
-            selectedStations[i].bringToFront();
-        };
+        // color normal stations and selected stations
+        colorSelectedStations();
 
         // make query getting data on rides for specified hour
         var parameters = "query=m4&hour=" + context.hour + "&date=" + date;
@@ -302,7 +287,9 @@ function DivvyCircles() {
             if (error) {
                 console.warn(error);
             };
+
             var polylineArray = [];
+            var activeStations = [];
 
             // go through the data and find the stations that correspond to each trip
             for (var i = 0; i < data.length; i++) {
@@ -314,6 +301,8 @@ function DivvyCircles() {
                     for (var q = 0; q < circles.length; q++) {
                         // from locatation
                         if (data[i]["from_station_id"] == circles[q].options.stationID) {
+                            activeStations.push( circles[q]);
+
                             fromLatLng[0] = circles[q]._latlng.lat;
                             fromLatLng[1] = circles[q]._latlng.lng;
 
@@ -327,6 +316,8 @@ function DivvyCircles() {
 
                         // to locations
                         if (data[i]["to_station_id"] == circles[q].options.stationID) {
+                            activeStations.push( circles[q]);
+
                             toLatLng[0] = circles[q]._latlng.lat;
                             toLatLng[1] = circles[q]._latlng.lng;
 
@@ -343,6 +334,8 @@ function DivvyCircles() {
                     for (var q = 0; q < selectedStations.length; q++) {
                         // from locatation
                         if (data[i]["from_station_id"] == selectedStations[q].options.stationID) {
+                            activeStations.push( selectedStations[q]);
+
                             fromLatLng[0] = selectedStations[q]._latlng.lat;
                             fromLatLng[1] = selectedStations[q]._latlng.lng;
 
@@ -350,12 +343,14 @@ function DivvyCircles() {
                                 fillColor: "#05A2F0"
                             });
                             selectedStations[q].setStyle({
-                                color: "black"
+                                color: "green"
                             });
 
                             // find dest no matter if its not a selected station
                             for (var w = 0; w < circles.length; w++) {
                                 if (data[i]["to_station_id"] == circles[w].options.stationID) {
+                                    activeStations.push( circles[w]);
+
                                     toLatLng[0] = circles[w]._latlng.lat;
                                     toLatLng[1] = circles[w]._latlng.lng;
 
@@ -370,6 +365,8 @@ function DivvyCircles() {
                         }
                         // to locations
                         if (data[i]["to_station_id"] == selectedStations[q].options.stationID) {
+                            activeStations.push( selectedStations[q]);
+
                             toLatLng[0] = selectedStations[q]._latlng.lat;
                             toLatLng[1] = selectedStations[q]._latlng.lng;
 
@@ -377,17 +374,19 @@ function DivvyCircles() {
                                 fillColor: "#F05305"
                             });
                             selectedStations[q].setStyle({
-                                color: "black"
+                                color: "green"
                             });
 
                             // find from station even is its not a selected station
                             for (var w = 0; w < circles.length; w++) {
                                 if (data[i]["from_station_id"] == circles[w].options.stationID) {
+                                    activeStations.push( circles[w]);
+
                                     fromLatLng[0] = circles[w]._latlng.lat;
                                     fromLatLng[1] = circles[w]._latlng.lng;
 
                                     circles[w].setStyle({
-                                        fillColor: "#F05305"
+                                        fillColor: "#05A2F0"
                                     });
                                     circles[w].setStyle({
                                         color: "black"
@@ -409,20 +408,17 @@ function DivvyCircles() {
                             opacity: 1
                         });;
                     })
-                );
+                );       
             }; //end of for loop!
 
             context.polylines = L.layerGroup(polylineArray);
             context.polylines.addTo(mapContext);
 
-            // color selected stations
-            for (var i = selectedStations.length - 1; i >= 0; i--) {
-                selectedStations[i].setStyle({
-                    color: "green"
-                })
-                selectedStations[i].bringToFront();
+            for (var i = 0; i < activeStations.length; i++) {
+                activeStations[i].bringToFront();
             };
-        });
+
+        }); // end of d3 query stuff
 
         if (animationOn) {
             spinner.spinner("value", context.hour);
@@ -495,26 +491,6 @@ function DivvyCircles() {
                 }
 
                 showInfo();
-
-                // var flow = false;
-                // if (stationClicked == info.id){
-                //     flow = false;
-                //     stationClicked = 0;
-                // }
-                // else{
-                //     flow = true;
-                //     stationClicked = info.id;
-                // }
-
-                // // clear lines if drawn
-                // if (flowOn) {
-                //     map.removeLayer(polylines);
-                //     returnToNormal();
-                //     flowOn = false;
-                // };
-
-                // // update info div
-                // stationInformation.update(info, flow);
             });
             circles[i].on("mouseover", function (d) {
                 var info = {
@@ -530,21 +506,14 @@ function DivvyCircles() {
     };
 
     function showInfo() {
-        // color staions default
-        returnToNormal()
-        // color selected green
-        for (var i = selectedStations.length - 1; i >= 0; i--) {
-            selectedStations[i].setStyle({
-                fillColor: "green"
-            })
-            selectedStations[i].bringToFront();
-        };
+        // color staions default 
+        colorSelectedStations()
 
         // check to see if hover can be used again
         if (selectedStations.length == 0) {
             if (flowOn) {
                 map.removeLayer(polylines);
-                returnToNormal();
+                colorSelectedStations();
                 flowOn = false;
             };
             // show nothing in info div
@@ -677,7 +646,7 @@ function DivvyCircles() {
         }
     };
 
-    function returnToNormal() {
+    function colorSelectedStations() {
         var context = this;
         for (var i = 0; i < circles.length; i++) {
             circles[i].setStyle({
@@ -686,6 +655,15 @@ function DivvyCircles() {
             circles[i].setStyle({
                 color: "black"
             });
+        };
+
+         // color selected stations
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            selectedStations[i].setStyle({
+                fillColor: "green",
+                color: "black"
+            });
+            selectedStations[i].bringToFront();
         };
     };
 
@@ -766,7 +744,7 @@ function DivvyCircles() {
     stationObj.getCircles = getCircles;
     stationObj.colorPop = colorPop;
     stationObj.colorDate = colorDate;
-    stationObj.returnToNormal = returnToNormal;
+    stationObj.colorSelectedStations = colorSelectedStations;
     stationObj.setWeatherInfo = setWeatherInfo;
     stationObj.selectStationsInside = selectStationsInside;
     return stationObj
