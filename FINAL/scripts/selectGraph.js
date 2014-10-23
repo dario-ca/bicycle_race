@@ -138,15 +138,15 @@ function selectGraph(DOC, n) {
 
 			case 2:
 				clearGraph4();
-				app1 = new BulletChart1(chart1, "app1", title1);
-				app2 = new BulletChart2(chart2, "app2", title2);
-				app3 = new BarChart2(chart3, title3);
-				app4 = new BarChart3(chart4, title4);
+				app3 = new BulletChart1(chart3, "app3", title3);
+				app4 = new BulletChart2(chart4, "app4", title4);
+				app1 = new BarChart2(chart1, title1);
+				app2 = new BarChart3(chart2, title2);
 				break;
 
 			case 3:
 				clearGraph2();
-//				app1 = new PieChart1(chart5, title1);
+				app1 = new DemographicsChart(chart5, title1);
 				app2 = new AgeDistributionChart(chart6, title2);
 				break;
 			

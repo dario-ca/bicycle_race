@@ -4,12 +4,20 @@
 	color:				#eee;
 }
 
+.color_normal_stroke {
+	stroke:				#eee;
+}
+
 .color_header {
     color:				#3db7e4;
 }
 
 .color_bg {
 	background-color:	#222;
+}
+
+.color_bg_stroke {
+	stroke:				#222;
 }
 
 .color_filter_bg {

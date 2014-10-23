@@ -116,8 +116,8 @@ function drawMap() {
                     onEachFeature: function (feature, layer){
                         layer.bindPopup(feature.properties.name);
                         layer.on('click', function (){
-                            testStuff(feature.properties.name)}
-                        );
+                            findStationsInside(feature.geometry);
+                        });
                     }
                 })
             };
@@ -144,8 +144,8 @@ function drawMap() {
     };
 
     // future function here
-    function testStuff(name){
-        console.log(name);
+    function findStationsInside(community){
+        divvyCircles.selectStationsInside(community);
     };
 
     // color stations depending on options

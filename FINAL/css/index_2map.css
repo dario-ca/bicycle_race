@@ -11,16 +11,16 @@
 
 
 #map {
-    border:				solid 5px black;
+    border:				solid 1px #444;
 	position:			absolute;
 	left:				0%;
-	width:				50%;
+	width:				50%!important;
 	top:				0%;
 	height:				100%;
 }
 
 #map2 {
-    border:				solid 5px black;
+    border:				solid 1px #444;
 	position:			absolute;
 	left:				50%;
 	width:				50%;
