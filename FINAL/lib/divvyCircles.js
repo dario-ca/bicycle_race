@@ -288,6 +288,14 @@ function DivvyCircles() {
             });
         };
 
+        // color the selected stations green
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            selectedStations[i].setStyle({
+                fillColor: "green"
+            })
+            selectedStations[i].bringToFront();
+        };
+
         var parameters = "query=m4&hour=" + context.hour + "&date=" + date;
         d3.json("query.php?" + parameters, function (error, data) {
             if (error) {
@@ -328,8 +336,8 @@ function DivvyCircles() {
 
                 polylineArray.push(L.polyline([fromLatLng, toLatLng], {
                         color: "orange",
-                        weight: 3,
-                        opacity: .5,
+                        weight: 2,
+                        opacity: 1,
                     })
                     .on("click", function (target) {
                         target.target.setStyle({
@@ -671,6 +679,14 @@ function DivvyCircles() {
         };
 
         showInfo();
+    };
+
+    function selectedStationsContainsID(ID){
+        for (var i = selectedStations.length - 1; i >= 0; i--) {
+            if (selectedStations[i].options.stationID === info.id)
+               return true; 
+        };
+        return false;
     };
 
     stationObj.init = init;
