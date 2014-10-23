@@ -218,6 +218,64 @@ p {
 	background-color: #111;
     // height:             43%;
 }
+/*Section for comparison page*/
+#chart7 {
+	top:				4%;
+	bottom:				0%;
+	left:				0%;
+	width:				70%;
+    height:             43%;
+}
+#titlebar7 {
+	top:				0%;
+    left:				0%;
+	height:				4%;
+	width:				70%;
+}
+
+#legend7 {
+	top:				4%;
+	bottom:				0%;
+	left:				70%;
+	width:				30%;
+    height:             43%;
+}
+#titlelegend7 {
+	top:				0%;
+    left:				70%;
+	height:				4%;
+	width:				30%;
+}
+
+#titlebar8 {
+	top:				47%;
+    left:				0%;
+	height:				4%;
+	width:				70%;
+}
+
+#chart8 {
+	top:				51%;
+	bottom:				0%;
+	left:				0%;
+	width:				70%;
+    height:             43%;
+}
+
+#legend8 {
+	top:				51%;
+	bottom:				0%;
+	left:				70%;
+	width:				30%;
+    height:             43%;
+}
+#titlelegend8 {
+	top:				47%;
+    left:				70%;
+	height:				4%;
+	width:				30%;
+}
+/**/
 
 
 

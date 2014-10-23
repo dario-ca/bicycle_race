@@ -14,6 +14,11 @@ function selectGraph(DOC, n) {
 			$('#center').load('dynamic_html/center_2graphs.html');
 			prepareGraph2();
 			break;
+        
+        case 5:
+			$('#center').load('dynamic_html/center_4graphs_comparisons.html');
+			prepareGraph4_comparisons();
+			break;
 		
 		default:
 			$('#center').load('dynamic_html/center_4graphs.html');
@@ -76,14 +81,42 @@ function selectGraph(DOC, n) {
 
 		 window.setTimeout(waitForLoad, 500);   
 	}
+    
+    function prepareGraph4_comparisons() {
 
+		var waitForLoad = function () {
+			
+			chart1 = DOC.getElementById("chart7");
+			chart2 = DOC.getElementById("legend7");
+			chart3 = DOC.getElementById("chart8");
+			chart4 = DOC.getElementById("legend8");
+
+			title1 = DOC.getElementById("titlebar7");
+			title2 = DOC.getElementById("titlelegend7");
+			title3 = DOC.getElementById("titlebar8");
+			title4 = DOC.getElementById("titlelegend8");
+		
+			var chartsready = (typeof chart1 !== "undefined") && (typeof chart2 !== "undefined") && (typeof chart3 !== "undefined") && (typeof chart4 !== "undefined");
+			var titlesready = (typeof title1 !== "undefined") && (typeof title2 !== "undefined") && (typeof title3 !== "undefined") && (typeof title4 !== "undefined");
+			if (chartsready && titlesready) {
+				console.log("OK - dynamic html loaded");
+				drawAfterLoad();
+				// invoke any methods defined in your JS files to begin execution       
+			} else {
+				console.log("dynamic html not loaded..");
+				window.setTimeout(waitForLoad, 500);
+			}
+		 };
+
+		 window.setTimeout(waitForLoad, 500);   
+	}
+    
 	function clearGraph4() {
 		d3.select(chart1).selectAll("*").remove();
 		d3.select(chart2).selectAll("*").remove();
 		d3.select(chart3).selectAll("*").remove();
 		d3.select(chart4).selectAll("*").remove();
 	}
-
 
 	function clearGraph2() {
 		d3.select(chart5).selectAll("*").remove();
