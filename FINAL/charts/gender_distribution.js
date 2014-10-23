@@ -116,7 +116,7 @@ DemographicsChart.prototype.draw = function () {
 			.attr("class","color_text")
 		
 		svg.append("svg:text")
-			.attr("transform", "translate(" + 1.1*r + "," + "8vh" + ")")
+			.attr("transform", "translate(" + 1.1*r + "," + 0.3*r + ")")
 			.text(Math.round(100*perc_customer) + "%")
 			.attr("font-size","6vh")
 			.attr("class","color_text")
@@ -127,6 +127,11 @@ DemographicsChart.prototype.draw = function () {
 			.attr("font-size","4vh")
 			.attr("class","color_text")
 
+		svg.append("svg:text")
+			.attr("transform", "translate(" + -1.1*r + "," + 0.3*r + ")")
+			.text(Math.round(100*perc_subscriber) + "%")
+			.attr("font-size","6vh")
+			.attr("class","color_text")
 
 	// Gender Bar
 	
@@ -144,7 +149,7 @@ DemographicsChart.prototype.draw = function () {
 		.attr("class","color_bg_stroke");
 
 	svg.append("text")
-		.attr("x",-1.1*r).attr("y",1.3*r)
+		.attr("x",-1.1*r).attr("y",1.7*r)
 		.attr("class","color_text")
 		.text('Female')
 		.attr("font-size","30px");
@@ -156,7 +161,7 @@ DemographicsChart.prototype.draw = function () {
 		.attr("class","color_bg_stroke");
 
 	svg.append("text")
-		.attr("x",1.1*r).attr("y",1.3*r)
+		.attr("x",1.1*r).attr("y",1.7*r)
 		.attr("class","color_text")
 		.text('Male')
 		// .attr("text-align","right")
@@ -249,9 +254,9 @@ DemographicsChart.prototype.callBack_getDemographicsData = function(context,stat
 		
 		// console.log('DATA = ' + context.values);
 	
-		context.values = [{"gender":"Female", "count":1},
-			{"gender":"Male", "count":2},
-			{"gender":"Unknown", "count":4}];
+		context.values = [{"gender":"Female", "count":84450},
+			{"gender":"Male", "count":318596},
+			{"gender":"Unknown", "count":356742}];
 
         context.draw();
 
