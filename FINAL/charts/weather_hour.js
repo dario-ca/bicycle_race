@@ -83,6 +83,7 @@ LineChart4.prototype.draw = function (whatToDraw) {
     d3.select(this.tag).selectAll("g").remove();
     d3.select(this.tag).selectAll("path").remove();
     d3.select(this.tag).selectAll("text").remove();
+    d3.select(this.tag).selectAll("rect").remove();
 
     var margin = this.margin;
     var width = this.canvasWidth - margin.left - margin.right;
@@ -141,6 +142,26 @@ LineChart4.prototype.draw = function (whatToDraw) {
         .on("zoom", zoomed);*/
 
     var svg = this.svg;
+    
+    // Lunch
+    svg.append("rect")
+        .attr("id","lunch")
+        .attr("x", parseFloat(margin.left + width/2))
+        .attr("y", 0)
+        .attr("width", width / 9)
+        .attr("height", height)
+        .style('opacity', 0.15)
+        .style('fill', '#23aa17');
+
+    // Dinner
+    svg.append("rect")
+        .attr("id","dinner")
+        .attr("x", parseFloat(margin.left + width / 1.3))
+        .attr("y", 0)
+        .attr("width", width / 9)
+        .attr("height", height)
+        .style('opacity', 0.15)
+        .style('fill', '#23aa17');
 
     //svg.call(zoom);
 

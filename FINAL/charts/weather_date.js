@@ -131,7 +131,7 @@ LineChart3.prototype.draw = function (whatToDraw) {
         .attr("width", width / 2.7)
         .attr("height", height)
         .style('opacity', 0.15)
-        .style('fill', '#f00');
+        .style('fill', '#00ceff');
 
     // HOLIDAY 2
     svg.append("rect")
@@ -140,7 +140,7 @@ LineChart3.prototype.draw = function (whatToDraw) {
         .attr("width", width / 10)
         .attr("height", height)
         .style('opacity', 0.15)
-        .style('fill', '#f00');
+        .style('fill', '#00ceff');
 
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

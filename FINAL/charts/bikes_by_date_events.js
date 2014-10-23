@@ -22,8 +22,9 @@ function LineChart7(tag, titletag) {
         .attr("y", 0)
         .attr("width", "100%")
         .attr("height", "100%")
-        .style('opacity', 0.15)
-        .style('fill', '#f00');
+        .attr("style","stroke:black;stroke-width:5")
+        .style('fill-opacity', 0.15)
+        .style('fill', '#00ceff');
     
     d3.select(tag).append("p").attr("style","float: left").text("School Holidays");
     
@@ -127,7 +128,7 @@ LineChart7.prototype.draw = function () {
         .attr("width", width / 2.7)
         .attr("height", height)
         .style('opacity', 0.15)
-        .style('fill', '#f00');
+        .style('fill', '#00ceff');
 
     // HOLIDAY 2
     svg.append("rect")
@@ -137,7 +138,7 @@ LineChart7.prototype.draw = function () {
         .attr("width", width / 10)
         .attr("height", height)
         .style('opacity', 0.15)
-        .style('fill', '#f00');
+        .style('fill', '#00ceff');
 
 
     //svg.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
