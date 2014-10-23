@@ -296,6 +296,7 @@ function DivvyCircles() {
             selectedStations[i].bringToFront();
         };
 
+        // make query getting data on rides for specified hour
         var parameters = "query=m4&hour=" + context.hour + "&date=" + date;
         d3.json("query.php?" + parameters, function (error, data) {
             if (error) {
@@ -303,34 +304,97 @@ function DivvyCircles() {
             };
             var polylineArray = [];
 
+            // go through the data and find the stations that correspond to each trip
             for (var i = 0; i < data.length; i++) {
                 var fromLatLng = [0, 0];
                 var toLatLng = [0, 0];
-                for (var q = 0; q < circles.length; q++) {
-                    // from locatation
-                    if (data[i]["from_station_id"] == circles[q].options.stationID) {
-                        fromLatLng[0] = circles[q]._latlng.lat;
-                        fromLatLng[1] = circles[q]._latlng.lng;
 
-                        circles[q].setStyle({
-                            fillColor: "#05A2F0"
-                        });
-                        circles[q].setStyle({
-                            color: "black"
-                        });
+                // if stations have not been selected
+                if (selectedStations.length === 0) {
+                    for (var q = 0; q < circles.length; q++) {
+                        // from locatation
+                        if (data[i]["from_station_id"] == circles[q].options.stationID) {
+                            fromLatLng[0] = circles[q]._latlng.lat;
+                            fromLatLng[1] = circles[q]._latlng.lng;
+
+                            circles[q].setStyle({
+                                fillColor: "#05A2F0"
+                            });
+                            circles[q].setStyle({
+                                color: "black"
+                            });
+                        };
+
+                        // to locations
+                        if (data[i]["to_station_id"] == circles[q].options.stationID) {
+                            toLatLng[0] = circles[q]._latlng.lat;
+                            toLatLng[1] = circles[q]._latlng.lng;
+
+                            circles[q].setStyle({
+                                fillColor: "#F05305"
+                            });
+                            circles[q].setStyle({
+                                color: "black"
+                            });
+                        };
                     };
+                }
+                else{
+                    for (var q = 0; q < selectedStations.length; q++) {
+                        // from locatation
+                        if (data[i]["from_station_id"] == selectedStations[q].options.stationID) {
+                            fromLatLng[0] = selectedStations[q]._latlng.lat;
+                            fromLatLng[1] = selectedStations[q]._latlng.lng;
 
-                    // to locations
-                    if (data[i]["to_station_id"] == circles[q].options.stationID) {
-                        toLatLng[0] = circles[q]._latlng.lat;
-                        toLatLng[1] = circles[q]._latlng.lng;
+                            selectedStations[q].setStyle({
+                                fillColor: "#05A2F0"
+                            });
+                            selectedStations[q].setStyle({
+                                color: "black"
+                            });
 
-                        circles[q].setStyle({
-                            fillColor: "#F05305"
-                        });
-                        circles[q].setStyle({
-                            color: "black"
-                        });
+                            // find dest no matter if its not a selected station
+                            for (var w = 0; w < circles.length; w++) {
+                                if (data[i]["to_station_id"] == circles[w].options.stationID) {
+                                    toLatLng[0] = circles[w]._latlng.lat;
+                                    toLatLng[1] = circles[w]._latlng.lng;
+
+                                    circles[w].setStyle({
+                                        fillColor: "#F05305"
+                                    });
+                                    circles[w].setStyle({
+                                        color: "black"
+                                    });
+                                };
+                            };
+                        }
+                        // to locations
+                        if (data[i]["to_station_id"] == selectedStations[q].options.stationID) {
+                            toLatLng[0] = selectedStations[q]._latlng.lat;
+                            toLatLng[1] = selectedStations[q]._latlng.lng;
+
+                            selectedStations[q].setStyle({
+                                fillColor: "#F05305"
+                            });
+                            selectedStations[q].setStyle({
+                                color: "black"
+                            });
+
+                            // find from station even is its not a selected station
+                            for (var w = 0; w < circles.length; w++) {
+                                if (data[i]["from_station_id"] == circles[w].options.stationID) {
+                                    fromLatLng[0] = circles[w]._latlng.lat;
+                                    fromLatLng[1] = circles[w]._latlng.lng;
+
+                                    circles[w].setStyle({
+                                        fillColor: "#F05305"
+                                    });
+                                    circles[w].setStyle({
+                                        color: "black"
+                                    });
+                                };
+                            };
+                        };
                     };
                 };
 
@@ -346,9 +410,18 @@ function DivvyCircles() {
                         });;
                     })
                 );
-            };
+            }; //end of for loop!
+
             context.polylines = L.layerGroup(polylineArray);
             context.polylines.addTo(mapContext);
+
+            // color selected stations
+            for (var i = selectedStations.length - 1; i >= 0; i--) {
+                selectedStations[i].setStyle({
+                    color: "green"
+                })
+                selectedStations[i].bringToFront();
+            };
         });
 
         if (animationOn) {
