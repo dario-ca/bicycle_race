@@ -18,6 +18,7 @@ function LineChart6(tag,legendtag,appname,titletag) {
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
+        .attr("id","main_svg7")
         .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
     this.legend_svg = d3.select(this.legendtag)
@@ -47,6 +48,16 @@ function LineChart6(tag,legendtag,appname,titletag) {
     this.csvStations=[];
     
     all_stat_and_id(this);
+    
+    if(this.stations.length==0){
+        d3.select("#main_svg7")
+                .append("text")
+                .attr("x", this.canvasWidth / 3 - (this.canvasWidth/13.6) )
+                .attr("y", this.canvasHeight / 2)
+                .text("Pick stations from the map")
+                .attr("fill","steelblue")
+                .attr("font-size","5vh");
+    }
 
     
 }
