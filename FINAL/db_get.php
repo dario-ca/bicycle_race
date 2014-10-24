@@ -208,7 +208,7 @@
         if($_GET['usertype'])
 			$temp = $temp." AND usertype = '".$_GET['usertype']."'";
 
-		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 50;";
+		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 400;";
 	}
 
 
