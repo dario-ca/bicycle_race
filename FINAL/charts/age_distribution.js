@@ -110,7 +110,7 @@ AgeDistributionChart.prototype.draw = function () {
     svg.call(tip);
 
 
-    var padding = width / xvalues.length - 2;
+    var padding = width / xvalues.length - 0.1;
     x.domain(xvalues);
     y.domain([0, max(yvalues) * 1.1]);
 
@@ -122,13 +122,6 @@ AgeDistributionChart.prototype.draw = function () {
         .selectAll("text")
         .attr("transform", "rotate(-40)")
         .style("text-anchor", "end");
-
-	svg.append("text")
-        .attr("x", width)
-        .attr("y", height)
-        .attr("dy", "-.8em")
-		.attr("font-size","3vh")
-        .text("Age");
     
     // BARS
     svg.selectAll(".bar")
@@ -148,6 +141,14 @@ AgeDistributionChart.prototype.draw = function () {
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
+    
+    // X AXIS
+    svg.append("text")
+        .attr("x", width *1.1)
+        .attr("y", height)
+        .attr("dy", "-.8em")
+		.attr("font-size","3vh")
+        .text("Age");
     
     // Y AXIS
     svg.append("g")
