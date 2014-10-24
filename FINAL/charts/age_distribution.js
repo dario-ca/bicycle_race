@@ -69,6 +69,9 @@ AgeDistributionChart.prototype.draw = function () {
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
+    
+    var xScale = d3.scale.ordinal()
+        .rangePoints([0, width], 0).domain(xvalues);
 /*
     var x = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xvalues);
@@ -77,16 +80,15 @@ AgeDistributionChart.prototype.draw = function () {
         .range([height, 0]);
 
     var xAxis = d3.svg.axis()
-        .scale(x)
+        .scale(xScale)
         .orient("bottom") // TODO: remove labels
 /*		.tickValues(x.domain().filter(function (d, i) {
 			return !(i % 12);
 		}))*/
-		/*
-        .tickValues(x.domain().filter(function (d, i) {
-            return !(i % 12);
+		.tickFormat(function (d){return (2013-d);})
+        .tickValues(xScale.domain().filter(function (d, i) {
+            return !(i % 4);
         }))
-		*/
         .tickSize(3)
         .tickPadding(7);
 
@@ -125,8 +127,7 @@ AgeDistributionChart.prototype.draw = function () {
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end")
-        .text("Age"); // TODO: why not showing?
+        .style("text-anchor", "end"); // TODO: why not showing?
     
     // BARS
     svg.selectAll(".bar")
