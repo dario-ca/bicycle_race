@@ -175,14 +175,16 @@
         $temp = $temp." GROUP BY gender";
     }
 
-    // rides per age
+	// rides per age
+	// Query adapted to only show age groups with more than 50 rides and individuals < 100 years old
     else if(strcmp($_GET['query'], "qXage") == 0){   
 		
 		console.log("AGE QUERY");
 
-        $temp = "SELECT birthyear, COUNT(*) as count
+		$temp = "SELECT * FROM
+			(SELECT birthyear, COUNT(*) as count
 			FROM divvy_trips_distances
-			WHERE NOT birthyear = 'Unknown' ";
+			WHERE NOT birthyear = 'Unknown' AND birthyear > 1913";
 		
         if($_GET['station'])
             $temp = $temp." AND from_station_id = '".$_GET['station']."'";  
@@ -191,7 +193,7 @@
         if($_GET['usertype'])
 			$temp = $temp." AND usertype = '".$_GET['usertype']."'";
 
-		$temp=$temp." GROUP BY birthyear;";
+		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 50;";
 	}
 
 
