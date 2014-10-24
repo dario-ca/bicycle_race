@@ -85,13 +85,14 @@ p {
 	top:				0%;
 	bottom:				0%;
 }
+*/
 
 #filterbar {
 	position:			absolute;
-	left:				81vw;
-	width:				3vw;
+	left:				82vw;
+	width:				2vw;
 	height:				100vh;
-	padding-right:		.4vw;
+	padding-right:		.2vw;
 	padding-top:		1vh;
 }
 
@@ -101,7 +102,8 @@ p {
 	right:				0vw;
 	height:				100vh;
 }
-*/
+
+
 
 /* LEFT */
 
@@ -133,20 +135,23 @@ p {
 	fill:				#555;
 	stroke:				#111;
 	border:				none;
-	height:				3vw;
+	height:				2vw;
 	display:			block;
 	padding:			0;
 	margin:				0;
 }
 
-#graphicon_topspacing {
-	height: 25%;
+#topicons {
+/*	position: relative;
+	top: 50%;
+	transform: translateY(-50%); */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
 }
 
-#graphicon_home {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+#bottomicons {
+	padding-top: 2vh;
+	padding-bottom: 2vh;
 }
 
 /*

@@ -8,15 +8,6 @@
 	height:				100vh;
 }
 
-#center {
-	position:			absolute;
-	left:				28vw;
-	width:				53vw;
-	top:				0%;
-	bottom:				0%;
-}
-
-
 #map {
 	position:			absolute;
 	left:				0%;
@@ -34,19 +25,12 @@
 	background-color:	#1b5;
 }
 
-#filterbar {
+#center {
 	position:			absolute;
-	left:				81vw;
-	width:				3vw;
-	height:				100vh;
-	padding-right:		.4vw;
-	padding-top:		1vh;
+	left:				28vw;
+	width:				54vw;
+	top:				0%;
+	bottom:				0%;
 }
 
-.right {
-	position:			absolute;
-	left:				84vw;
-	right:				0vw;
-	height:				100vh;
-}
 
