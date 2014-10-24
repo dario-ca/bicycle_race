@@ -20,7 +20,7 @@ function drawMap() {
     var legend = L.control({position: 'bottomleft'});
     var animationControl = L.control({position: 'bottomleft'});
     var heatButton = L.control({position: "bottomleft"});
-    var weather = L.control({position: "bottomright"});
+    var weather = L.control({position: "topright"});
 
     // dom buttons init functions
     legend.onAdd = function(map){
