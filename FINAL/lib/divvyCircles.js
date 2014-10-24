@@ -504,10 +504,13 @@ function DivvyCircles() {
         //this is for adding/removing deselected stations
         if(windowNumber==5){
             app1.stations=[];
+            app2.stations=[];
             for(var i=0;i<selectedStations.length;i++){
                 app1.stations[app1.stations.length]=selectedStations[i];
+                app2.stations[app2.stations.length]=selectedStations[i];
             }
             app1.setOption(null,null,null);
+            app2.setOption(null,null,null);
         }
 
         // color staions default 

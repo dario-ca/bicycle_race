@@ -6,7 +6,7 @@ function LineChart8(tag,legendtag,appname,titletag) {
     this.margin = {
         top: 0,
         right: 30,
-        bottom: 38,
+        bottom: 43,
         left: 60
     };
 
@@ -175,7 +175,7 @@ LineChart8.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
         .scale(xScale)
         .orient("bottom")
         .tickValues(xScale.domain().filter(function (d, i) {
-            return !(i % 2);
+            return !(i % 12);
         }))
         .tickSize(3)
         .tickPadding(7);
@@ -224,8 +224,7 @@ LineChart8.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
         svg.append("path")
             .datum(all_yValues[ind])
             .attr("class", "chart line")
-            .attr("d", line)
-            .attr("transform", "translate(" + this.margin.left + ",0)")
+        .attr("d", line).attr("transform", "translate(" + parseFloat(this.margin.left + 2) + ",0)")
             .style("stroke", cur_color);
         
        // if(all_yValues.length <= 10){
