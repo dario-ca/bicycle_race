@@ -69,24 +69,20 @@ AgeDistributionChart.prototype.draw = function () {
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
-/*
-    var x = d3.scale.ordinal()
+    
+    var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xvalues);
-*/
-    var y = d3.scale.linear()
+    
+	var y = d3.scale.linear()
         .range([height, 0]);
 
     var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom") // TODO: remove labels
-/*		.tickValues(x.domain().filter(function (d, i) {
-			return !(i % 12);
-		}))*/
-		/*
-        .tickValues(x.domain().filter(function (d, i) {
-            return !(i % 12);
+        .scale(xScale)
+        .orient("bottom")
+		.tickFormat(function (d){return (2013-d);})
+        .tickValues(xScale.domain().filter(function (d, i) {
+            return !(i % 4);
         }))
-		*/
         .tickSize(3)
         .tickPadding(7);
 
@@ -120,13 +116,19 @@ AgeDistributionChart.prototype.draw = function () {
 
     // X AXIS
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis color_axis")
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end")
-        .text("Age"); // TODO: why not showing?
+        .style("text-anchor", "end");
+
+	svg.append("text")
+        .attr("x", width)
+        .attr("y", height)
+        .attr("dy", "-.8em")
+		.attr("font-size","3vh")
+        .text("Age");
     
     // BARS
     svg.selectAll(".bar")
@@ -157,6 +159,7 @@ AgeDistributionChart.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+		.attr("font-size","3vh")
         .text("Number of rides");
 
 }
