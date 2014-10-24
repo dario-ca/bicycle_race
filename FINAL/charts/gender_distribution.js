@@ -293,7 +293,7 @@ function thousandSeparator(x) {
 }
 
 function zoomIn(context,n) {
-	console.log("ZOOOOOOOOOOOOOOOOOOOOMING IN");
-	document.getElementById('chartscheme').href='css/zoom/zoomin' + n + '.css';
+//	console.log("ZOOOOOOOOOOOOOOOOOOOOMING IN");
+//	document.getElementById('chartscheme').href='css/zoom/zoomin' + n + '.css';
 	// context.draw();
 }
