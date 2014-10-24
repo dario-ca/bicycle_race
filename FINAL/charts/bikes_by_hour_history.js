@@ -53,8 +53,6 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
     
     if(agemin != null && agemax != null)
         parameters = parameters + "&agemin=" + parseInt(agemin) + "&agemax=" + parseInt(agemax);
-    
-    console.log(parameters);
 
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d) {
@@ -62,7 +60,6 @@ LineChart1.prototype.callBack_getData = function (context, station, gender, user
             context.yValues[context.yValues.length] = d.num_bikes;
         });
         context.draw();
-        console.log(context.yValues);
     });
 }
 
@@ -104,7 +101,7 @@ LineChart1.prototype.draw = function () {
             return d;
         })
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7).ticks(7);
     
     /*
     //zoom variable

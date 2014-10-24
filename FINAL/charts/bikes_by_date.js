@@ -102,7 +102,7 @@ LineChart2.prototype.draw = function () {
             else return d;
         })
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7).ticks(7);
 
     var svg = this.svg;
 
