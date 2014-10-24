@@ -46,7 +46,7 @@ function LineChart5(tag, titletag) {
     this.sunsetDate = null;
     this.sunriseDate = null;
     
-    this.setOption(null,null,null,null, 10, 20);
+    this.setOption(null,null,null,null, null, null);
 }
 
 LineChart5.prototype.setOption = function (station, gender, usertype, date, agemin, agemax) {

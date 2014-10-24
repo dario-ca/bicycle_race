@@ -24,7 +24,7 @@ function LineChart2(tag, titletag) {
     //number of bikes
     this.yValues = [];
 
-    this.setOption(null,null,null,10,20);
+    this.setOption(null,null,null,null,null);
 
 }
 
