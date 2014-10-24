@@ -193,7 +193,7 @@ function DivvyCircles() {
                         toLatLng[1] = circles[q]._latlng.lng;
 
                         circles[q].setStyle({
-                            color: "green"
+                            color: "#69FFDD"
                         });
 
                     };
@@ -271,7 +271,8 @@ function DivvyCircles() {
 
         if (context.hour > 23) {
             // clear stuff
-            conanimationOn = false;
+            animationOn = false;
+            this.pauseStart = false;
             clearInterval(context.animationInterval);
             return;
         } else if (context.polylines != null) {
@@ -343,7 +344,7 @@ function DivvyCircles() {
                                 fillColor: "#05A2F0"
                             });
                             selectedStations[q].setStyle({
-                                color: "green"
+                                color: "#69FFDD"
                             });
 
                             // find dest no matter if its not a selected station
@@ -374,7 +375,7 @@ function DivvyCircles() {
                                 fillColor: "#F05305"
                             });
                             selectedStations[q].setStyle({
-                                color: "green"
+                                color: "#69FFDD"
                             });
 
                             // find from station even is its not a selected station
@@ -469,25 +470,18 @@ function DivvyCircles() {
                 if (index > -1) {
                     selectedStations.splice(index, 1);
                     
-                    //this is for removing deselected stations
-                    if(windowNumber==5){
-                        app1.stations=[];
-                        for(var i=0;i<selectedStations.length;i++){
-                            app1.stations[app1.stations.length]=selectedStations[i];
-                        }
-                        app1.setOption(null,null,null);
-                    }
+                    
                 } else{
                     selectedStations.push(d.target);
                     
-                    //this is for adding lines to charts in the comparison section
-                    if(windowNumber==5){
-                        app1.stations=[];
-                        for(var i=0;i<selectedStations.length;i++){
-                            app1.stations[app1.stations.length]=selectedStations[i];
-                        }
-                        app1.setOption(null,null,null);
-                    }
+                    // //this is for adding lines to charts in the comparison section
+                    // if(windowNumber==5){
+                    //     app1.stations=[];
+                    //     for(var i=0;i<selectedStations.length;i++){
+                    //         app1.stations[app1.stations.length]=selectedStations[i];
+                    //     }
+                    //     app1.setOption(null,null,null);
+                    // }
                 }
 
                 showInfo();
@@ -501,13 +495,23 @@ function DivvyCircles() {
             });
         };
 
+        colorSelectedStations();
         // add station info div
         stationInformation.addTo(mapContext);
     };
 
     function showInfo() {
+        //this is for adding/removing deselected stations
+        if(windowNumber==5){
+            app1.stations=[];
+            for(var i=0;i<selectedStations.length;i++){
+                app1.stations[app1.stations.length]=selectedStations[i];
+            }
+            app1.setOption(null,null,null);
+        }
+
         // color staions default 
-        colorSelectedStations()
+        colorSelectedStations();
 
         // check to see if hover can be used again
         if (selectedStations.length == 0) {
@@ -545,6 +549,7 @@ function DivvyCircles() {
         var context = this;
 
         if (pause && !this.pauseStart) {
+            console.log("I should go");
             // true means start
             this.pauseStart = true;
             animationOn = !animationOn;
@@ -554,6 +559,7 @@ function DivvyCircles() {
 
         // run animation
         if (animationOn && this.pauseStart && !stop) {
+            console.log("run");
             animationOn = true;
             //call dataLines every 1sec
             this.animationInterval = setInterval(function () {
@@ -562,16 +568,19 @@ function DivvyCircles() {
         }
         // pause animation
         else if (animationOn && !this.pauseStart && !stop) {
+            console.log("pause");
             clearInterval(this.animationInterval);
             animationOn = false;
         }
         // manual control
         else if (!animationOn && !pause && !stop) {
+            console.log("manual");
             spinner.spinner("value", this.hour);
             dataLines(context, mapContext, date);
         }
         // clear
         else if (stop) {
+            console.log("manual");
             clearInterval(this.animationInterval);
             animationOn = false;
             this.hour = 0;
@@ -650,7 +659,7 @@ function DivvyCircles() {
         var context = this;
         for (var i = 0; i < circles.length; i++) {
             circles[i].setStyle({
-                fillColor: "grey"
+                fillColor: "#49578E"
             });
             circles[i].setStyle({
                 color: "black"
@@ -660,7 +669,7 @@ function DivvyCircles() {
          // color selected stations
         for (var i = selectedStations.length - 1; i >= 0; i--) {
             selectedStations[i].setStyle({
-                fillColor: "green",
+                fillColor: "#69FFDD",
                 color: "black"
             });
             selectedStations[i].bringToFront();

@@ -39,15 +39,15 @@ function LineChart7(tag, titletag) {
     //number of bikes
     this.yValues = [];
 
-    this.setOption(null, null, null);
+    this.setOption(null, null, null, null, null);
 
 }
 
-LineChart7.prototype.setOption = function (station, gender, usertype) {
-    this.callBack_getData(this, station, gender, usertype);
+LineChart7.prototype.setOption = function (station, gender, usertype, agemin, agemax) {
+    this.callBack_getData(this, station, gender, usertype, agemin, agemax);
 }
 
-LineChart7.prototype.callBack_getData = function (context, station, gender, usertype) {
+LineChart7.prototype.callBack_getData = function (context, station, gender, usertype, agemin, agemax) {
 
     context.xValues = [];
     context.yValues = [];
@@ -65,6 +65,9 @@ LineChart7.prototype.callBack_getData = function (context, station, gender, user
     // check usertype
     if (usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    if(agemin != null && agemax != null)
+        parameters = parameters + "&agemin=" + parseInt(agemin) + "&agemax=" + parseInt(agemax);
 
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d, i) {
@@ -116,7 +119,7 @@ LineChart7.prototype.draw = function () {
             else return d;
         })
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7).ticks(7);
 
     var svg = this.svg;
 

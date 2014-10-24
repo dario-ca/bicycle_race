@@ -141,7 +141,7 @@ LineChart4.prototype.draw = function (whatToDraw) {
             return d;
         })
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7).ticks(7);
 
     /*
     //zoom variable
