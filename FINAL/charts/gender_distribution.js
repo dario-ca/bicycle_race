@@ -264,20 +264,11 @@ DemographicsChart.prototype.callBack_getDemographicsData = function(context,stat
 
 	d3.json("db_get.php?" + parameters, function (error, data) {
 
-		/*
         data.forEach(function(d,i){
-            context.values[context.values.length] = [d.gender, d.count];
+            d.count = parseInt(d.count);
         });
-		*/
-		
-		// context.values = data;
-		
-		// console.log('DATA = ' + context.values);
-		
-		context.values = [{"gender":"Female", "count":84450},
-			{"gender":"Male", "count":318596},
-			{"gender":"Unknown", "count":356742}];
-        
+
+		context.values = data;
 		context.draw();
 
 	});
