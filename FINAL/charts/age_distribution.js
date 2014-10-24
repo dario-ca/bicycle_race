@@ -72,19 +72,13 @@ AgeDistributionChart.prototype.draw = function () {
     
     var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xvalues);
-/*
-    var x = d3.scale.ordinal()
-        .rangePoints([0, width], 0).domain(xvalues);
-*/
-    var y = d3.scale.linear()
+    
+	var y = d3.scale.linear()
         .range([height, 0]);
 
     var xAxis = d3.svg.axis()
         .scale(xScale)
-        .orient("bottom") // TODO: remove labels
-/*		.tickValues(x.domain().filter(function (d, i) {
-			return !(i % 12);
-		}))*/
+        .orient("bottom")
 		.tickFormat(function (d){return (2013-d);})
         .tickValues(xScale.domain().filter(function (d, i) {
             return !(i % 4);
@@ -122,12 +116,19 @@ AgeDistributionChart.prototype.draw = function () {
 
     // X AXIS
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis color_axis")
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end"); // TODO: why not showing?
+        .style("text-anchor", "end");
+
+	svg.append("text")
+        .attr("x", width)
+        .attr("y", height)
+        .attr("dy", "-.8em")
+		.attr("font-size","3vh")
+        .text("Age");
     
     // BARS
     svg.selectAll(".bar")
@@ -158,6 +159,7 @@ AgeDistributionChart.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+		.attr("font-size","3vh")
         .text("Number of rides");
 
 }

@@ -112,7 +112,7 @@ DemographicsChart.prototype.draw = function () {
 			.text("Customers")
 			.attr("text-anchor","start")
 			.attr("font-size","4vh")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 		
 		svg.append("svg:text")
 			.attr("transform", "translate(" + 1.1*r + "," + -0.2*r + ")")
@@ -120,14 +120,14 @@ DemographicsChart.prototype.draw = function () {
 			.attr("text-anchor","start")
 			.attr("font-size","6vh")
 			.attr("font-weight","600")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 
 		svg.append("svg:text")
 			.attr("transform", "translate(" + -1.1*r + "," + -.5*r + ")")
 			.text("Subscribers")
 			.attr("text-anchor","end")
 			.attr("font-size","4vh")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 
 		svg.append("svg:text")
 			.attr("transform", "translate(" + -1.1*r + "," + -0.2*r + ")")
@@ -135,7 +135,7 @@ DemographicsChart.prototype.draw = function () {
 			.attr("text-anchor","end")
 			.attr("font-size","6vh")
 			.attr("font-weight","600")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 
 	// Gender Bar
 	
@@ -154,7 +154,7 @@ DemographicsChart.prototype.draw = function () {
 
 	svg.append("text")
 		.attr("x",-1.1*r).attr("y",1.7*r)
-		.attr("class","color_text")
+		.attr("class","color_normal")
 		.text('Female')
 		.attr("text-anchor","start")
 		.attr("font-size","30px");
@@ -165,7 +165,7 @@ DemographicsChart.prototype.draw = function () {
 		.attr("text-anchor","start")
 		.attr("font-size","4vh")
 		.attr("font-weight","600")
-		.attr("class","color_text")
+		.attr("class","color_normal")
 	
 	svg.append("rect")
 		.attr("fill",color[1])
@@ -175,7 +175,7 @@ DemographicsChart.prototype.draw = function () {
 
 	svg.append("text")
 		.attr("x",1.1*r).attr("y",1.7*r)
-		.attr("class","color_text")
+		.attr("class","color_normal")
 		.text('Male')
 		.attr("text-anchor","end")
 		.attr("font-size","30px");
@@ -186,7 +186,7 @@ DemographicsChart.prototype.draw = function () {
 		.attr("text-anchor","end")
 		.attr("font-size","4vh")
 		.attr("font-weight","600")
-		.attr("class","color_text")
+		.attr("class","color_normal")
 
 	// Connecting lines
 	
@@ -264,20 +264,11 @@ DemographicsChart.prototype.callBack_getDemographicsData = function(context,stat
 
 	d3.json("db_get.php?" + parameters, function (error, data) {
 
-		/*
         data.forEach(function(d,i){
-            context.values[context.values.length] = [d.gender, d.count];
+            d.count = parseInt(d.count);
         });
-		*/
-		
-		// context.values = data;
-		
-		// console.log('DATA = ' + context.values);
-		
-		context.values = [{"gender":"Female", "count":84450},
-			{"gender":"Male", "count":318596},
-			{"gender":"Unknown", "count":356742}];
-        
+
+		context.values = data;
 		context.draw();
 
 	});

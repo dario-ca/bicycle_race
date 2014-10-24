@@ -8,9 +8,10 @@
 	height:				100vh;
 }
 
-
-
 #map {
+ 	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
+	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
+	box-sizing:			border-box;		/* Opera/IE 8+ */
     border:				solid 1px #444;
 	position:			absolute;
 	left:				0%;
@@ -20,7 +21,10 @@
 }
 
 #map2 {
-    border:				solid 1px #444;
+ 	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
+	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
+	box-sizing:			border-box;		/* Opera/IE 8+ */
+   border:				solid 1px #444;
 	position:			absolute;
 	left:				50%;
 	width:				50%;
@@ -32,24 +36,7 @@
 #center {
 	position:			absolute;
 	left:				34vw;
-	width:				47vw;
+	width:				48vw;
 	top:				0%;
 	bottom:				0%;
 }
-
-#filterbar {
-	position:			absolute;
-	left:				81vw;
-	width:				3vw;
-	height:				100vh;
-	padding-right:		.4vw;
-	padding-top:		1vh;
-}
-
-.right {
-	position:			absolute;
-	left:				84vw;
-	right:				0vw;
-	height:				100vh;
-}
-
