@@ -94,7 +94,7 @@
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 4
     //bikes out for all days of the year
     else if(strcmp($_GET['query'], "q4") == 0){
-        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes
+        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes, from_station_id as station
                 FROM divvy_trips_distances
                 WHERE 1=1 ";
         // FILTERS
