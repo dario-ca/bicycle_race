@@ -129,7 +129,7 @@ function drawMap() {
             //     collapsed: false
             // }).addTo(map);
 
-            L.control.layers(baseLayers, overlays).addTo(map);
+            L.control.layers(baseLayers, overlays, {position: 'bottomright'}).addTo(map);
             baseLayers['Streets'].addTo(map);
 
             for (var i = 0; i < stationCircles.length; i++)
