@@ -128,6 +128,7 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
                 context.draw(context.all_xValues,context.all_yValues,context.stat_ID,context.stat_names);
                 context.all_xValues=[];
                 context.all_yValues=[];
+                console.log(context.stations);
             }
             context.counter++;
         });
@@ -176,11 +177,24 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
     
     var svg = this.svg;
     var legend_svg = this.legend_svg;
-    
-    var all_colors= give_colors();
 
-    
     for(ind=0; ind<all_yValues.length; ind++){
+        var sum=0;
+        var mul=1;
+        var color_number=null;
+        
+        for(j=0;j<all_yValues[ind].length;j++){
+            sum=sum+parseFloat(all_yValues[ind][j]);
+            mul=mul*parseFloat(all_yValues[ind][j]);
+        }
+        
+        console.log("station: "+all_IDs[ind]);
+        console.log("overall sum: "+sum);
+        console.log("value for color: "+color_number);
+        
+        var cur_color = "rgb("+Math.round((sum+mul)%255)+","+Math.round((sum*all_IDs[ind])%255)+","+Math.round((mul*all_IDs[ind])%255)+")";
+        console.log(cur_color);
+        
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -188,8 +202,6 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
             .y(function (d, i) {
                 return yScale(all_yValues[ind][i]);
             });
-        
-        var cur_color=all_colors[ind];
         
         svg.append("path")
             .datum(all_yValues[ind])
