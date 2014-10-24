@@ -210,7 +210,7 @@ LineChart8.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
         console.log("overall sum: "+sum);
         console.log("value for color: "+color_number);
         
-        var cur_color = "rgb("+Math.round((sum+mul)%255)+","+Math.round((sum*all_IDs[ind])%255)+","+Math.round((mul*all_IDs[ind])%255)+")";
+        var cur_color = "rgb("+Math.round((all_IDs[ind]*33)%255)+","+Math.round((all_IDs[ind]*all_IDs[ind])%255)+","+Math.round((all_IDs[ind]*44)%255)+")";
         console.log(cur_color);
         
         var line = d3.svg.line()
