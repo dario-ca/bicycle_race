@@ -18,7 +18,7 @@ function BarChart2(tag, titletag) {
 
     this.values = [];
     this.counter = 0;
-    this.getBikesFarallIntervals(null,null,null);
+    this.getBikesFarallIntervals(null,null,null,null,null);
 }
 
 BarChart2.prototype.draw = function () {
@@ -45,10 +45,12 @@ BarChart2.prototype.draw = function () {
         .scale(y)
         .orient("left")
         .tickFormat(function (d) {
-            if (d >= 1000)
+            if (d >= 10000)
                 return (d / 1000).toFixed(0) + "K";
+            if (d >= 1000)
+                return (d / 1000).toFixed(1) + "K";
             return d;
-        });
+        }).ticks(7);
 
     var tip = d3.tip()
         .attr('id', 'tip')
@@ -112,18 +114,18 @@ BarChart2.prototype.draw = function () {
 }
 
 // For all intervals...
-BarChart2.prototype.getBikesFarallIntervals = function (station, gender, usertype) {
+BarChart2.prototype.getBikesFarallIntervals = function (station, gender, usertype, agemin, agemax) {
     this.counter = 0;
     // First 7 intervals
     for (miles = 0, index = 0; miles < 7; miles++, index++)
-        this.callBack_getBikesPerInterval(this, index, miles, (miles + 1) * 0.999, station, gender, usertype);
+        this.callBack_getBikesPerInterval(this, index, miles, (miles + 1) * 0.999, station, gender, usertype, agemin, agemax);
     // Last one
-    this.callBack_getBikesPerInterval(this, index, miles, 30000, station, gender, usertype);
+    this.callBack_getBikesPerInterval(this, index, miles, 30000, station, gender, usertype, agemin, agemax);
 
 }
 
 /*Load the result into a data structure*/
-BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype) {
+BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype, agemin, agemax) {
     // Empty the current values (this.values)
     context.values = [];
 
@@ -140,6 +142,9 @@ BarChart2.prototype.callBack_getBikesPerInterval = function (context, index, min
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    if(agemin != null && agemax != null)
+        parameters = parameters + "&agemin=" + parseInt(agemin) + "&agemax=" + parseInt(agemax);
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {

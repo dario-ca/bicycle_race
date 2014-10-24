@@ -21,7 +21,7 @@ function BarChart1(tag, titletag) {
     // Day = 6 is sunday
     this.values = [];
     this.counter = 0;
-    this.getBikesForallDays(null, null, null);
+    this.getBikesForallDays(null, null, null, null, null);
 
     // List of all the stations
     this.stations = [];
@@ -55,7 +55,7 @@ BarChart1.prototype.draw = function () {
             if (d >= 1000)
                 return (d / 1000).toFixed(1) + "K";
             return d;
-        });
+        }).ticks(7);
 
     var tip = d3.tip()
         .attr('id', 'tip')
@@ -119,14 +119,14 @@ BarChart1.prototype.draw = function () {
 }
 
 // For all days...
-BarChart1.prototype.getBikesForallDays = function (station, gender, usertype) {
+BarChart1.prototype.getBikesForallDays = function (station, gender, usertype, agemin, agemax) {
     this.counter = 0;
     for (day = 0; day < 7; day++)
-        this.callBack_getBikesPerDay(this, day, station, gender, usertype);
+        this.callBack_getBikesPerDay(this, day, station, gender, usertype, agemin, agemax);
 }
 
 /*Load the result into a data structure*/
-BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender, usertype) {
+BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, gender, usertype, agemin, agemax) {
     // Empty the current values (this.values)
     context.values = [];
 
@@ -142,6 +142,9 @@ BarChart1.prototype.callBack_getBikesPerDay = function (context, day, station, g
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    if(agemin != null && agemax != null)
+        parameters = parameters + "&agemin=" + parseInt(agemin) + "&agemax=" + parseInt(agemax);
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {

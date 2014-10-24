@@ -106,11 +106,12 @@ function drawMap() {
                 'Chicago Communities' : L.geoJson(chicagoMap, {
                     style: function (feature){
                         return {
-                            color: "#17D576",
+                            color: "#A669FF",
                             // colorOpacity: 1,
-                            fillColor: "grey",
+                            fillColor: "white",
                             fillOpacity: 0.25,
-                            opacity: 1
+                            opacity: 1,
+                            weight: 2
                         };
                     },
                     onEachFeature: function (feature, layer){
@@ -199,7 +200,7 @@ function drawMap() {
             heatButton.removeFrom(map);
             if (legendOn){
                 legend.removeFrom(map);
-                divvyCircles.returnToNormal();
+                divvyCircles.colorSelectedStations();
             }
 
             // add controls
@@ -218,7 +219,8 @@ function drawMap() {
             });
             $('#close').click(function (){
                 divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
-                divvyCircles.returnToNormal();
+                divvyCircles.colorSelectedStations();
+                console.log("Hello");
                 switchButtons(1); 
             });
         };

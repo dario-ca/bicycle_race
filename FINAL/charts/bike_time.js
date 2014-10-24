@@ -18,7 +18,7 @@ function BarChart3(tag, titletag) {
 
     this.values = [];
     this.counter = 0;
-    this.getBikesFarallIntervals(null, null, null);
+    this.getBikesFarallIntervals(null, null, null, null, null);
 }
 
 BarChart3.prototype.draw = function () {
@@ -45,10 +45,12 @@ BarChart3.prototype.draw = function () {
         .scale(y)
         .orient("left")
         .tickFormat(function (d) {
-            if (d >= 1000)
+            if (d >= 10000)
                 return (d / 1000).toFixed(0) + "K";
+            if (d >= 1000)
+                return (d / 1000).toFixed(1) + "K";
             return d;
-        });
+        }).ticks(7);
 
     var tip = d3.tip()
         .attr('id', 'tip')
@@ -111,18 +113,18 @@ BarChart3.prototype.draw = function () {
 }
 
 // For all intervals...
-BarChart3.prototype.getBikesFarallIntervals = function (station, gender, usertype) {
+BarChart3.prototype.getBikesFarallIntervals = function (station, gender, usertype, agemin, agemax) {
     this.counter = 0;
     // First 5 intervals up to 30 mins
     for (minutes = 0, index = 0; minutes < 30; minutes += 5, index++)
-        this.callBack_getBikesPerInterval(this, index, minutes, (minutes + 5) * 0.999, station, gender, usertype);
+        this.callBack_getBikesPerInterval(this, index, minutes, (minutes + 5) * 0.999, station, gender, usertype, agemin, agemax);
     // Last 2 intervals
-    this.callBack_getBikesPerInterval(this, index, minutes, 59.999, station, gender, usertype);
-    this.callBack_getBikesPerInterval(this, index + 1, 60, 1440, station, gender, usertype);
+    this.callBack_getBikesPerInterval(this, index, minutes, 59.999, station, gender, usertype, agemin, agemax);
+    this.callBack_getBikesPerInterval(this, index + 1, 60, 1440, station, gender, usertype, agemin, agemax);
 }
 
 /*Load the result into a data structure*/
-BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype) {
+BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min, max, station, gender, usertype, agemin, agemax) {
     // Empty the current values (this.values)
     context.values = [];
 
@@ -139,6 +141,9 @@ BarChart3.prototype.callBack_getBikesPerInterval = function (context, index, min
     // check usertype
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
+    
+    if(agemin != null && agemax != null)
+        parameters = parameters + "&agemin=" + parseInt(agemin) + "&agemax=" + parseInt(agemax);
 
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
