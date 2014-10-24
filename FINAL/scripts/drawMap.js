@@ -69,9 +69,9 @@ function drawMap() {
     // end of buttons init code
 
     // init function for object
-    function init(){
-        map = L.map('map', {zoomControl: false}).setView([41.9, -87.65], 12);
-        mapArea = $('#map');
+    function init(div){
+        map = L.map(div, {zoomControl: false}).setView([41.9, -87.65], 12);
+        mapArea = $(div);
         divvyCircles = new DivvyCircles();
 
         // chicago geoJson and add layers
@@ -239,6 +239,4 @@ function drawMap() {
     BikeMap.colorStations = coloStations;
     BikeMap.setWeatherIcon = setWeatherIcon;
     return BikeMap;
-}
-
-BikeMap = new drawMap();
+};

@@ -6,6 +6,7 @@ function init(DOC) {
     filters = new Filters(DOC);
 	/* Getting ID's from HTML document DOC */
 	mapid			= DOC.getElementById("map");
+    mapid2           = DOC.getElementById("map2");
     graphicon_mapcount = DOC.getElementById("graphicon_mapcount");
     graphicon_theme = DOC.getElementById("graphicon_theme");
     graphicon_home = DOC.getElementById("graphicon_home");
@@ -24,8 +25,13 @@ function init(DOC) {
 	function goToActive() { selectFilter(DOC,0); }
 	function goToDemographics() { selectFilter(DOC,1); }
 	function goToTime() { selectFilter(DOC,2); }
+
+    BikeMap = new drawMap();
+    SecondBikeMap = new drawMap();
 		
     BikeMap.init(mapid);
+    SecondBikeMap.init(mapid2);
+
     
 	weatherIcon = new WeatherForecast("#weatherIconBox","tempPar");
 
