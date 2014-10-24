@@ -34,14 +34,14 @@ Filters.prototype.apply = function(windowNumber){
 
     switch(windowNumber){
         case 1:
-            app1.setOption(this.station, this.gender, this.usertype);
-            app2.getBikesForallDays(this.station, this.gender, this.usertype);
-            app3.getBikesForallMonths(this.station, this.gender, this.usertype);
-            app4.setOption(this.station, this.gender, this.usertype);
+            app1.setOption(this.station, this.gender, this.usertype, this.age_min, this.age_max);
+            app2.getBikesForallDays(this.station, this.gender, this.usertype,this.age_min, this.age_max);
+            app3.getBikesForallMonths(this.station, this.gender, this.usertype,this.age_min, this.age_max);
+            app4.setOption(this.station, this.gender, this.usertype,this.age_min, this.age_max);
             break;
         case 2:
-            app3.getBikesFarallIntervals(this.station, this.gender, this.usertype);
-            app4.getBikesFarallIntervals(this.station, this.gender, this.usertype);
+            app3.getBikesFarallIntervals(this.station, this.gender, this.usertype,this.age_min, this.age_max);
+            app4.getBikesFarallIntervals(this.station, this.gender, this.usertype,this.age_min, this.age_max);
             break;
         case 4:
             app1.setOption(this.station, this.gender, this.usertype, this.date);

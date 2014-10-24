@@ -36,6 +36,8 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and (2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'];
         
         // end of the query
         $temp = $temp." GROUP BY day(starttime)) as Table_Alias";
@@ -56,6 +58,8 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and (2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'];
         
         // end of the query
         $temp = $temp." GROUP BY day(starttime)) as Table_Alias";
@@ -75,6 +79,8 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'"; 
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and ((2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'].")";
         if($_GET['day'])
             $temp = $temp." and day(starttime) = '".$_GET['day']."'";
         if($_GET['month'])
@@ -98,7 +104,10 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
-        $temp=$temp."GROUP BY date(starttime);";
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and (2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'];
+        
+        $temp=$temp." GROUP BY date(starttime);";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 6
     //distances in miles of all trips of all stations
@@ -116,6 +125,9 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and (2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'];
+        
         $temp=$temp.";";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 7
@@ -133,6 +145,9 @@
             $temp = $temp." and gender = '".$_GET['gender']."'";
         if($_GET['usertype'])
             $temp = $temp." and usertype = '".$_GET['usertype']."'";
+        if($_GET['agemin'] and $_GET['agemax'])
+            $temp = $temp." and (2013-birthyear) between ".$_GET['agemin']." and ".$_GET['agemax'];
+        
         $temp=$temp.";";
     }
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 8
