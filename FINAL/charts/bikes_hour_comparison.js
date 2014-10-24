@@ -83,6 +83,13 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
         d3.select(this.tag).selectAll("path").remove();
         d3.select(this.legendtag).selectAll("rect").remove();
         d3.select(this.legendtag).selectAll("text").remove();
+        d3.select("#main_svg7")
+                .append("text")
+                .attr("x", this.canvasWidth / 3 - (this.canvasWidth/13.6) )
+                .attr("y", this.canvasHeight / 2)
+                .text("Pick stations from the map")
+                .attr("fill","steelblue")
+                .attr("font-size","5vh");
     }
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
@@ -140,6 +147,7 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
                 context.all_xValues=[];
                 context.all_yValues=[];
                 console.log(context.stations);
+                d3.select("#main_svg7").select("text").remove();
             }
             context.counter++;
         });
@@ -221,26 +229,28 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
             .attr("transform", "translate(" + this.margin.left + ",0)")
             .style("stroke", cur_color);
         
-        legend_svg.append("rect")
-            .attr("x","5")
-            .attr("y",function(){
-                return 10+ind*40;
-            })
-            .attr("width","40")
-            .attr("height","30")
-            .style("fill",cur_color)
-            .style("stroke","black")
-            .style("stroke-width","2");
-       
-        legend_svg.append("text")
-            .attr("class","legendText")
-            .attr("x","60")
-            .attr("y",function(){
-                return 35+ind*40;
-            })
-            .text(function(){
-                return (all_IDs[ind]+": "+all_names[ind]);
-            });
+        if(all_yValues.length <= 10){
+            legend_svg.append("rect")
+                .attr("x","5")
+                .attr("y",function(){
+                    return 10+ind*40;
+                })
+                .attr("width","40")
+                .attr("height","30")
+                .style("fill",cur_color)
+                .style("stroke","black")
+                .style("stroke-width","2");
+
+            legend_svg.append("text")
+                .attr("class","legendText")
+                .attr("x","60")
+                .attr("y",function(){
+                    return 35+ind*40;
+                })
+                .text(function(){
+                    return (all_IDs[ind]+": "+all_names[ind]);
+                });
+        }
         
     }
     
