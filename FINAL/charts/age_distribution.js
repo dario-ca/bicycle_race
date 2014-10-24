@@ -127,7 +127,14 @@ AgeDistributionChart.prototype.draw = function () {
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end"); // TODO: why not showing?
+        .style("text-anchor", "end");
+
+	svg.append("text")
+        .attr("x", width)
+        .attr("y", height)
+        .attr("dy", "-.8em")
+		.attr("font-size","3vh")
+        .text("Age");
     
     // BARS
     svg.selectAll(".bar")
@@ -158,6 +165,7 @@ AgeDistributionChart.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+		.attr("font-size","3vh")
         .text("Number of rides");
 
 }
