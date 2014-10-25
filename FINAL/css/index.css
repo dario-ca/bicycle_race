@@ -391,3 +391,12 @@ input[type="radio"] {
 	margin-right: auto;
 }
 
+#filteragedisplay {
+	padding: 2vh 4vh 4vh 4vh;
+	font-size: 3vh;
+}
+
+#age {
+	font-size: 3vh;
+	width: 50%;
+}

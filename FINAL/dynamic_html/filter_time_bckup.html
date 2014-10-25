@@ -1,0 +1,34 @@
+<p>Date: <input type="text" id="datepicker"></p>
+
+<div class="buttonwrapper">
+	<input type="submit" value="Apply Filter" class="filterbutton color_button" id="fuu" onclick="selectFilter(document,0); printDate(); filters.apply(windowNumber); sendToMap()"/>
+</div>
+
+<script>
+	$(function() {
+		// formated date
+		$( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+	});
+
+	
+	/* Set Calendar Parameters */
+	$( "#datepicker" ).datepicker( "option", "minDate", new Date(2013, 7 - 1, 1) );
+	$( "#datepicker" ).datepicker( "option", "maxDate", new Date(2013, 12 - 1, 31) );
+
+	/* Print Date to Console */
+	function printDate() {
+		var currentDate = $( "#datepicker" ).datepicker( "getDate" );
+		filters.setDate(currentDate);
+	};
+
+	// function that simply sends the date to the map object
+	// this can be done else where as long as the date gets passed to the bikeobject it will still work
+	function sendToMap(){
+		// get displayed date and send it to Bikemap
+		BikeMap.colorStations(2, $('#datepicker').datepicker().val());
+        BikeMap.setWeatherIcon(weatherIcon, $('#datepicker').datepicker().val());
+	};
+
+</script>
+
+
