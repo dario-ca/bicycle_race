@@ -6,12 +6,10 @@
 	width:				34vw;
 	float:				left;
 	height:				100vh;
+	background-color:	black; // to make separation between maps visible
 }
 
 #map {
- 	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
-	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
-	box-sizing:			border-box;		/* Opera/IE 8+ */
     border:				solid 1px #444;
 	position:			absolute;
 	left:				0%;
@@ -21,15 +19,12 @@
 }
 
 #map2 {
- 	-webkit-box-sizing:	border-box;		/* Safari/Chrome, other WebKit */
-	-moz-box-sizing:	border-box;		/* Firefox, other Gecko */
-	box-sizing:			border-box;		/* Opera/IE 8+ */
-   border:				solid 1px #444;
 	position:			absolute;
 	left:				50%;
 	width:				50%;
 	top:				0%;
 	height:				100%;
+	margin-left:		.1vw;
 }
 
 #center {
