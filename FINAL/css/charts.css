@@ -109,12 +109,17 @@
 	left:				70%;
 	width:				30%;
     height:             43%;
+    overflow-y :        scroll;
 }
 #titlelegend7 {
 	top:				0%;
     left:				70%;
 	height:				4%;
 	width:				30%;
+}
+
+.legend_svg{
+    height:             800;
 }
 
 #titlebar8 {
@@ -138,6 +143,7 @@
 	left:				70%;
 	width:				30%;
     height:             43%;
+    overflow-y :        scroll;
 }
 #titlelegend8 {
 	top:				47%;
