@@ -10,6 +10,11 @@
     height: inherit;
 }
 
+#map2 svg{
+    height: inherit;
+    width: inherit;
+}
+
 /*heat map on off button*/
 #heatButton {
     width: 20vh;
