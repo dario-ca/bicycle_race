@@ -512,6 +512,17 @@ function DivvyCircles() {
             app1.setOption(null,null,null);
             app2.setOption(null,null,null);
         }
+        
+		if(windowNumber === 3){
+	
+			app1.stations = new Array(selectedStations.length);
+
+			for(i=0; i<selectedStations.length; ++i) {
+				app1.stations[i] = jQuery.extend(true, {}, selectedStations[i]);
+			}
+
+			app1.callBack_getDemographicsData(app1);
+        }
 
         // color staions default 
         colorSelectedStations();

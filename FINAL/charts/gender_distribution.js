@@ -9,11 +9,13 @@ function DemographicsChart(tag, titletag) {
 		left: 0
 	};
 
+	this.stations = [];
+
 	d3.select(titletag).text("Distribution of Gender and Usertype");
 
-/*
     this.svg = d3.select(this.tag).append("svg"); // .attr("class", "bar_chart_svg");
 
+/*
    
     this.svg.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 */
@@ -23,37 +25,34 @@ function DemographicsChart(tag, titletag) {
 	
 	this.values = [];
 
-	station = null;
-
-	this.callBack_getDemographicsData(this,station);
+	this.callBack_getDemographicsData(this);
 }
 
 
 DemographicsChart.prototype.draw = function () {
 
-	console.log("VALUES = " + this.values);
-
 	var tag = this.tag;
-	
-	d3.select(this.tag).selectAll("g").remove();
-	d3.select(this.tag).selectAll("rect").remove();
-	d3.select(this.tag).selectAll("#tip").remove();
+
+	d3.select(tag).selectAll("g").remove();
+	d3.select(tag).selectAll("path").remove();
+	d3.select(tag).selectAll("rect").remove();
+	d3.select(tag).selectAll("text").remove();
+	d3.select(tag).selectAll("line").remove();
+	d3.select(tag).selectAll("svg").remove();
 
 	var data = this.values;
 	
+	var customer = data[0].count;
 	var male = data[1].count;
-	var female = data[0].count;
-	var customer = data[2].count;
+	var female = data[2].count;
 
 	var malefemale = male + female;
 	
-
-
-	var w = this.canvasWidth;
-	var h = this.canvasHeight;
+	var w = this.canvasWidth - this.margin.left - this.margin.right;
+	var h = this.canvasHeight - this.margin.top - this.margin.bottom;
 	var r = .6*Math.min(w,h)/2;
 
-	color = ["#cc66ff"/*pink*/,"#0066cc"/*blue*/,"#ffcc66"/*yellow*/];
+	var color = ["#ffcc66"/*yellow*/,"#0066cc"/*blue*/,"#cc66ff"/*pink*/];
 
 	d3.select(tag).on("click", function() {
 		zoomIn(this,5);
@@ -66,7 +65,6 @@ DemographicsChart.prototype.draw = function () {
 		.append("svg:g")
 		.attr("transform","translate(" + w/2 + "," + 1.2*r + ")")
     
-
 	var arc = d3.svg.arc()
 		.outerRadius(r)
 		.innerRadius(.7*r);
@@ -74,7 +72,8 @@ DemographicsChart.prototype.draw = function () {
 	var pie = d3.layout.pie()
 		.value(function(d) {
 			return d.count;
-		});
+		})
+		.sort(null);
 
 	var arcs = svg.selectAll("g.slice")
 		.data(pie)
@@ -136,18 +135,17 @@ DemographicsChart.prototype.draw = function () {
 			.attr("font-size","6vh")
 			.attr("font-weight","600")
 			.attr("class","color_normal")
-
+	
 	// Gender Bar
 	
 	var gap = .01*r;
 
-
 	var phi = (malefemale/(malefemale + customer) * 2*Math.PI);
 
-	console.log("Male: " + male + "\tFemale: " + female + "\tTotal: " + malefemale);
+	// console.log("Male: " + male + "\tFemale: " + female + "\tTotal: " + malefemale);
 
 	svg.append("rect")
-		.attr("fill",color[0])
+		.attr("fill",color[2])
 		.attr("x",-1.1*r).attr("y",1.3*r)
 		.attr("width",(2.2*r)*female/malefemale - gap).attr("height",.2*r)
 		.attr("class","color_bg_stroke");
@@ -252,14 +250,19 @@ DemographicsChart.prototype.draw = function () {
 }
 
 
-DemographicsChart.prototype.callBack_getDemographicsData = function(context,station) {
-	
+DemographicsChart.prototype.callBack_getDemographicsData = function(context) {
+
 	context.values = [];
 
 	var parameters = "query=qXgender";
 
-	if (station != null) {
-		parameters = parameters + "&station=" + station;
+	if ((this.stations != null) && (this.stations.length > 0)) {
+		parameters = parameters + "&station=" + this.stations[this.stations.length-1].options.stationID;
+		// TODO: queries for multiple stations
+		/*
+		for(i=1; i<this.stations.length; ++i) {
+			parameters = parameters + "OR from_station_id=" + this.stations[i].options.stationID;
+		}*/
 	}
 
 	d3.json("db_get.php?" + parameters, function (error, data) {
@@ -274,8 +277,6 @@ DemographicsChart.prototype.callBack_getDemographicsData = function(context,stat
 	});
 	
 }
-
-
 
 // UTILS
 

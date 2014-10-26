@@ -187,7 +187,7 @@
 		if($_GET['station'])
             $temp = $temp." WHERE from_station_id = '".$_GET['station']."'";  
 
-        $temp = $temp." GROUP BY gender";
+        $temp = $temp." GROUP BY gender ORDER BY gender DESC";
     }
 
 	// rides per age
