@@ -670,7 +670,6 @@ button.ui-button::-moz-focus-inner {
 	display: block;
 	border: 0;
 	background-position: 0 0;
-	background-color: #3db7e4;
 }
 
 /* support: IE8 - See #6727 */
@@ -854,7 +853,7 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #aaaaaa;
-	background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+	background-color: #3db7e4; // #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
 	color: #222222;
 	font-weight: bold;
 }
