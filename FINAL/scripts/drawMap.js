@@ -103,7 +103,7 @@ function drawMap() {
                         minZoom: 10
                     }),
 
-                'MapQuest Aerial': L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+                'MapQuest Aerial': L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
                         attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a>',
                         subdomains: '1234',
                         maxZoom: 18,
@@ -187,9 +187,6 @@ function drawMap() {
             // remove legend and heat button
             date = pickedDate;
             switchButtons(2);
-
-            console.log(date);
-
             divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
         };
     };
@@ -243,10 +240,11 @@ function drawMap() {
     }
 
     function filtersActive(active){
+        console.log(filters.date);
 
         if (active) {
             var selecteddate = filters.date;
-            if (selecteddate != null) {
+            if (selecteddate != null && !animationOn) {
                 BikeMap.colorStations(2, 
                     selecteddate.getUTCFullYear() 
                     +"-"+ (selecteddate.getUTCMonth() + 1) 
@@ -254,6 +252,15 @@ function drawMap() {
                 ); 
                 animationOn = true;
             }
+            else if (selecteddate != null && animationOn) {
+                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
+                divvyCircles.colorSelectedStations();
+
+                date = selecteddate.getUTCFullYear() 
+                    +"-"+ (selecteddate.getUTCMonth() + 1) 
+                    +"-"+ selecteddate.getUTCDate();
+                divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
+            };
         }
         else{
             var selecteddate = filters.date;
