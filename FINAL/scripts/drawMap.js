@@ -186,6 +186,9 @@ function drawMap() {
             // remove legend and heat button
             date = pickedDate;
             switchButtons(2);
+
+            console.log(date);
+
             divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
         };
     };

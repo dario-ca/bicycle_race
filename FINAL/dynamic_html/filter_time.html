@@ -32,7 +32,8 @@
         filters.setDate(selecteddate);
         selectFilter(document,0);
         filters.apply(windowNumber);
-		BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
+        // Quick fix
+		BikeMap.colorStations(2, selecteddate.getUTCFullYear() +"-"+ (selecteddate.getUTCMonth() + 1) +"-"+ selecteddate.getUTCDate()); 
         BikeMap.setWeatherIcon(weatherIcon, selecteddate);
 	};
 
