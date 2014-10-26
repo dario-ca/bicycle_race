@@ -467,22 +467,10 @@ function DivvyCircles() {
                     };
                 };
 
-                if (index > -1) {
+                if (index > -1)
                     selectedStations.splice(index, 1);
-                    
-                    
-                } else{
+                else
                     selectedStations.push(d.target);
-                    
-                    // //this is for adding lines to charts in the comparison section
-                    // if(windowNumber==5){
-                    //     app1.stations=[];
-                    //     for(var i=0;i<selectedStations.length;i++){
-                    //         app1.stations[app1.stations.length]=selectedStations[i];
-                    //     }
-                    //     app1.setOption(null,null,null);
-                    // }
-                }
 
                 showInfo();
             });
@@ -494,10 +482,27 @@ function DivvyCircles() {
                 stationInformation.update(info, false);
             });
         };
-
         colorSelectedStations();
         // add station info div
         stationInformation.addTo(mapContext);
+
+        // get average for each stations
+        for (var i = 0; i < data.length; i++) {
+            (function(i){
+                d3.json("query.php?query=m0&id=" + data[i].station_id, function(error, daySum) {
+                    // get the total trips for each day and get average
+                    if (error) {
+                        console.warn(error);
+                    }; 
+
+                    var sum = 0;
+                    for (var q = 0; q < daySum.length; q++) {
+                        sum += parseInt(daySum[q]["count(*)"]);
+                    };
+                    circles[i].options.dayAvg = sum/daySum.length;
+                });
+            })(i);
+        };
     };
 
     function showInfo() {
@@ -608,65 +613,37 @@ function DivvyCircles() {
     // function that makes heat map of pop of the stations
     function colorPop() {
         this.showPop = !this.showPop; //toggle
-        var context = this;
         // heat map of popularity 
         if (this.showPop) {
-            // get data
-            d3.json("query.php?query=m1", function (error, data) {
-                if (error) {
-                    console.warn(error);
-                };
+            var minMax = getMinAndMax();
+            var max = minMax[1];
+            var min = minMax[0];
 
-                var max = 0;
-                var min = Number.MAX_VALUE;
-                for (var i = 0; i < data.length; i++) {
-                    if (max < parseInt(data[i]["count(*)"]))
-                        max = parseInt(data[i]["count(*)"]);
-                    if (min > parseInt(data[i]["count(*)"]))
-                        min = parseInt(data[i]["count(*)"]);
-                };
+            // heat map colors
+            var heatScale = d3.scale.sqrt()
+                .domain([min, max])
+                .range(["#fff", "#f00"]);
 
-                // console.log(max);
-                // console.log(min);
-
-                // heat map colors
-                var heatScale = d3.scale.sqrt()
-                    .domain([min, max])
-                    .range(["#fff7bc", "#f03b20"]);
-
-                // set colors
-                for (var i = 0; i < circles.length; i++) {
-                    var color = heatScale(getPop(data, circles[i].options.stationID));
-                    circles[i].setStyle({
-                        fillColor: color
-                    });
-                    circles[i].setStyle({
-                        color: "black"
-                    });
-                };
-            });
-        }
-
-        // normal colors
-        else {
+            // set colors
             for (var i = 0; i < circles.length; i++) {
+                var color = heatScale(circles[i].options.dayAvg);
                 circles[i].setStyle({
-                    fillColor: context.fill
+                    fillColor: color
                 });
                 circles[i].setStyle({
-                    color: context.outline
+                    color: "black"
                 });
             };
-        };
 
-        // helper function
-        function getPop(data, stationID) {
-            for (var i = 0; i < data.length; i++) {
-                if (data[i]["from_station_id"] == stationID) {
-                    return parseInt(data[i][["count(*)"]]);
-                }
+            for (var i = 0; i < selectedStations.length; i++) {
+                selectedStations[i].setStyle({
+                    color: "#69FFDD"
+                });
             };
         }
+        // normal colors
+        else
+           colorSelectedStations();
     };
 
     function colorSelectedStations() {
@@ -763,6 +740,20 @@ function DivvyCircles() {
         return false;
     };
 
+    // helper function for drawMap
+    function getMinAndMax(){
+        var max = 0;
+        var min = Number.MAX_VALUE;
+        for (var i = 0; i < circles.length; i++) {
+            if (max < circles[i].options.dayAvg)
+                max = circles[i].options.dayAvg;
+            if (min > circles[i].options.dayAvg)
+                min = circles[i].options.dayAvg;
+        };
+
+        return {0: min, 1:max};
+    };
+
     stationObj.init = init;
     stationObj.getCircles = getCircles;
     stationObj.colorPop = colorPop;
@@ -770,5 +761,6 @@ function DivvyCircles() {
     stationObj.colorSelectedStations = colorSelectedStations;
     stationObj.setWeatherInfo = setWeatherInfo;
     stationObj.selectStationsInside = selectStationsInside;
+    stationObj.getMinAndMax = getMinAndMax;
     return stationObj
 };

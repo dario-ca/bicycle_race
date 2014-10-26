@@ -18,7 +18,16 @@
     }
     
     // select the correct query
-    if (strcmp($_GET['query'], "m1") == 0) {
+    // get the total number of trips for the station for each day
+    if (strcmp($_GET['query'], "m0") == 0) {
+        $id = $_GET['id'];
+        $query = "SELECT DISTINCT date(starttime), count(*) 
+            FROM divvy_trips_distances 
+            WHERE (from_station_id='" .$id ."'OR to_station_id='" .$id ."') 
+            GROUP BY date(starttime);";
+    }
+
+    else if (strcmp($_GET['query'], "m1") == 0) {
         $query = "SELECT from_station_id, count(*) FROM divvy_trips_distances GROUP BY from_station_id;";
     }
 
