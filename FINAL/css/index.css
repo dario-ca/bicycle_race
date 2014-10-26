@@ -401,3 +401,8 @@ input[type="radio"] {
 	font-size: 3vh;
 	width: 50%;
 }
+
+#calendar {
+	padding: 2vh 0 2vh 0;
+	width: 100%;
+}

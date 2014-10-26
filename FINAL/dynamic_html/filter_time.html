@@ -1,32 +1,38 @@
-<p>Date: <input type="text" id="datepicker"></p>
+<p id="calendar"></p>
 
 <div class="buttonwrapper">
-	<input type="submit" value="Apply Filter" class="filterbutton color_button" id="fuu" onclick="selectFilter(document,0); printDate(); filters.apply(windowNumber); sendToMap()"/>
+	<input type="submit" value="Apply Filter" class="filterbutton color_button" id="fuu" onclick="selectFilter(document,0); filters.apply(windowNumber); sendToMap()"/>
 </div>
 
 <script>
-	$(function() {
-		// formated date
-		$( "#datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+
+	var startdate = new Date('2013-06-27');
+	var enddate = new Date('2013-12-31');
+
+	$('#calendar').DatePicker({			
+		flat: true,
+		date: [startdate, enddate],
+		current: startdate,
+		calendars: 1,
+		starts: 1,
+		view: 'days', // 'months',
+		onRender: function(date) {
+				return {
+					disabled: (date.valueOf() < startdate.valueOf() || date.valueOf() > enddate.valueOf())
+				}
+			}
 	});
 
-	
-	/* Set Calendar Parameters */
-	$( "#datepicker" ).datepicker( "option", "minDate", new Date(2013, 7 - 1, 1) );
-	$( "#datepicker" ).datepicker( "option", "maxDate", new Date(2013, 12 - 1, 31) );
-
-	/* Print Date to Console */
-	function printDate() {
-		var currentDate = $( "#datepicker" ).datepicker( "getDate" );
-		filters.setDate(currentDate);
-	};
 
 	// function that simply sends the date to the map object
 	// this can be done else where as long as the date gets passed to the bikeobject it will still work
 	function sendToMap(){
 		// get displayed date and send it to Bikemap
-		BikeMap.colorStations(2, $('#datepicker').datepicker().val());
-        BikeMap.setWeatherIcon(weatherIcon, $('#datepicker').datepicker().val());
+		var selecteddate = $('#calendar').DatePickerGetDate(true);
+		console.log('SELECTED DATE = ' + selecteddate);
+		filters.setDate(selecteddate);
+		BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
+        BikeMap.setWeatherIcon(weatherIcon, selecteddate);
 	};
 
 </script>

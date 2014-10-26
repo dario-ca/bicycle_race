@@ -77,7 +77,6 @@ AgeDistributionChart.prototype.draw = function () {
         .range([height, 0]);
 
 	var lastindex = xvalues.length - 1;
-	console.log('lastindex' + lastindex);
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
