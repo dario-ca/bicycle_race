@@ -30,7 +30,7 @@ Filters.prototype.setAge=function(agemin,agemax){
 }
 
 Filters.prototype.apply = function(windowNumber){
-    console.log(windowNumber);
+    console.log("WIND NUMB: "+windowNumber);
 
     switch(windowNumber){
         case 1:

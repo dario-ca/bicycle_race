@@ -1,9 +1,5 @@
 <p id="calendar"></p>
 
-<div class="buttonwrapper">
-	<input type="submit" value="Apply Filter" class="filterbutton color_button" id="fuu" onclick="selectFilter(document,0); filters.apply(windowNumber); sendToMap()"/>
-</div>
-
 <script>
 
 	var startdate = new Date('2013-06-27');
@@ -22,20 +18,19 @@
 				}
 			},
         onChange: function(date){
-            selectFilter(document,0);
-            filters.apply(windowNumber);
-            sendToMap();
+            var selecteddate = $('#calendar').DatePickerGetDate(true);
+            updateGraphsAndMap(selecteddate);
         }
 	});
 
 
 	// function that simply sends the date to the map object
 	// this can be done else where as long as the date gets passed to the bikeobject it will still work
-	function sendToMap(){
+	function updateGraphsAndMap(selecteddate){
 		// get displayed date and send it to Bikemap
-		var selecteddate = $('#calendar').DatePickerGetDate(true);
-		console.log('SELECTED DATE = ' + selecteddate);
-		filters.setDate(selecteddate);
+        filters.setDate(selecteddate);
+        selectFilter(document,0);
+        filters.apply(windowNumber);
 		BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
         BikeMap.setWeatherIcon(weatherIcon, selecteddate);
 	};
