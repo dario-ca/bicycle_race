@@ -18,7 +18,8 @@
 				}
 			},
         onChange: function(date){
-            var selecteddate = $('#calendar').DatePickerGetDate(true);
+            var selecteddate = new Date($('#calendar').DatePickerGetDate(true));
+            selecteddate.setDate(selecteddate.getDate()+1) ;
             updateGraphsAndMap(selecteddate);
         }
 	});
