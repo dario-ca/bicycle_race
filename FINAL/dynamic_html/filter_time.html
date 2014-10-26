@@ -20,7 +20,12 @@
 				return {
 					disabled: (date.valueOf() < startdate.valueOf() || date.valueOf() > enddate.valueOf())
 				}
-			}
+			},
+        onChange: function(date){
+            selectFilter(document,0);
+            filters.apply(windowNumber);
+            sendToMap();
+        }
 	});
 
 
@@ -29,7 +34,7 @@
 	function sendToMap(){
 		// get displayed date and send it to Bikemap
 		var selecteddate = $('#calendar').DatePickerGetDate(true);
-		console.log('SELECTED DATE = ' + selecteddate);
+        filters.setDate(selecteddate);
 		BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
         BikeMap.setWeatherIcon(weatherIcon, selecteddate);
 	};
