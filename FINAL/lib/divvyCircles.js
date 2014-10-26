@@ -521,12 +521,15 @@ function DivvyCircles() {
 		if(windowNumber === 3){
 	
 			app1.stations = new Array(selectedStations.length);
+			app2.stations = new Array(selectedStations.length);
 
 			for(i=0; i<selectedStations.length; ++i) {
 				app1.stations[i] = jQuery.extend(true, {}, selectedStations[i]);
+				app2.stations[i] = jQuery.extend(true, {}, selectedStations[i]);
 			}
 
 			app1.callBack_getDemographicsData(app1);
+			app2.callBack_getBikesPerDay(app2);
         }
 
         // color staions default 

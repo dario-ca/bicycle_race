@@ -406,3 +406,10 @@ input[type="radio"] {
 	padding: 2vh 0 2vh 0;
 	width: 100%;
 }
+
+#iconauthorattribution {
+	text-align: right;
+	font-size: 2vh;
+	position: absolute;
+	bottom: 3vh;
+}

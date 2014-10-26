@@ -41,6 +41,7 @@ AgeDistributionChart.prototype.draw = function () {
 
 	// Fill dates with no entries with 0
 	var arraysize = parseInt(this.labels[this.labels.length-1]) - parseInt(this.labels[0]);
+	console.log("ARRaysize = " + arraysize);
 	var invxvalues = new Array(arraysize);
 	var xvalues = new Array(arraysize);
 	var invyvalues = new Array(arraysize);
@@ -175,10 +176,12 @@ AgeDistributionChart.prototype.callBack_getBikesPerDay = function (context, stat
 	context.values = [];
 
     var parameters = "query=qXage";
-    // station id: null means ALL
-    if (station != null)
-        parameters = parameters + "&station=" + station;
     
+	// station id: null means ALL
+	if ((this.stations != null) && (this.stations.length > 0)) {
+		parameters = parameters + "&station=" + this.stations[this.stations.length-1].options.stationID;
+	}
+
     // check gender
     if(gender != null)
         parameters = parameters + "&gender=" + gender;
@@ -187,18 +190,15 @@ AgeDistributionChart.prototype.callBack_getBikesPerDay = function (context, stat
     if(usertype != null)
         parameters = parameters + "&usertype=" + usertype;
 
+	console.log("PARAMETERS   " + parameters);
+
     // Load data
     d3.json("db_get.php?" + parameters, function (error, data) {
         data.forEach(function (d,i) {
-            // NB: Don't use the push function! This method is called
-            // asynchronous, so I prefer to directly store the value
-            // in the corresponding index (monday is values[0] , tuesday is values[1]...)
 			context.labels[i] = d.birthyear;
-            context.values[i] = d.count; // parseFloat(d.count); // .toFixed(0);
+            context.values[i] = d.count;
         });
 
-        // context.counter ++;
-        // When all the 7 days have been loaded, draw the graph
         context.draw();
     });
 }

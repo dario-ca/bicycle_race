@@ -199,7 +199,7 @@
 		$temp = "SELECT * FROM
 			(SELECT birthyear, COUNT(*) as count
 			FROM divvy_trips_distances
-			WHERE NOT birthyear = 'Unknown' AND birthyear > 1913";
+			WHERE NOT birthyear = 'Unknown' AND birthyear BETWEEN 1943 AND 1996";
 		
         if($_GET['station'])
             $temp = $temp." AND from_station_id = '".$_GET['station']."'";  
@@ -208,7 +208,7 @@
         if($_GET['usertype'])
 			$temp = $temp." AND usertype = '".$_GET['usertype']."'";
 
-		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 400;";
+		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 0"; // instead of > 400 to allow filtering for station
 	}
 
 
