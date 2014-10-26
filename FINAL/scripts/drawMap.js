@@ -15,6 +15,7 @@ function drawMap() {
     // boolean globals
     var heatmap = false;
     var legendOn = false;
+    var animationOn = false;
     
     // dom elements and controls
     var legend = L.control({position: 'bottomleft'});
@@ -49,7 +50,7 @@ function drawMap() {
     animationControl.onAdd = function(map){
         var div = L.DomUtil.create('div', 'animationControl');
         div.innerHTML = '<p> <input id=\"hourChooser\" name=\"value\"> </p>' + 
-            '<i id="pause" style="background:' + "green" + '"></i> <i id="close" style="background:' + "red" + '"></i>';
+            '<i id="pause" style="background:' + "green" + '"></i>';
         return div;
     };
 
@@ -229,12 +230,6 @@ function drawMap() {
             $('#pause').click(function (){
                 divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), true, map, $("#hourChooser"), false);
             });
-            $('#close').click(function (){
-                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
-                divvyCircles.colorSelectedStations();
-                console.log("Hello");
-                switchButtons(1); 
-            });
         };
     }
     
@@ -247,8 +242,33 @@ function drawMap() {
         divvyCircles.setWeatherInfo(weatherIcon, pickedDate);
     }
 
+    function filtersActive(active){
+
+        if (active) {
+            var selecteddate = filters.date;
+            if (selecteddate != null) {
+                BikeMap.colorStations(2, 
+                    selecteddate.getUTCFullYear() 
+                    +"-"+ (selecteddate.getUTCMonth() + 1) 
+                    +"-"+ selecteddate.getUTCDate()
+                ); 
+                animationOn = true;
+            }
+        }
+        else{
+            var selecteddate = filters.date;
+            if (selecteddate == null && animationOn) {
+                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
+                divvyCircles.colorSelectedStations();
+                switchButtons(1);
+                animationOn = false;
+            }
+        }
+    };
+
     BikeMap.init = init;
     BikeMap.colorStations = coloStations;
     BikeMap.setWeatherIcon = setWeatherIcon;
+    BikeMap.filtersActive = filtersActive;
     return BikeMap;
 };

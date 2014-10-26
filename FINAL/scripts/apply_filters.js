@@ -47,7 +47,9 @@ Filters.prototype.apply = function(windowNumber){
             app1.setOption(this.station, this.gender, this.usertype, this.date,this.age_min, this.age_max);
             app2.setOption(this.station, this.gender, this.usertype, this.age_min, this.age_max);
             app3.setOption(this.date);
-    }
+    };
+
+    BikeMap.filtersActive(true);
 }
 
 Filters.prototype.resetFilters = function(){
@@ -60,4 +62,6 @@ Filters.prototype.resetFilters = function(){
 	this.age_max=null; 
     d3.select("#weatherIcon").remove();
     d3.select("#tempPar").text("");
+    BikeMap.filtersActive(false);
+
 }
