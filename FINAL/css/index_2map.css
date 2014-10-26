@@ -16,6 +16,7 @@
 	width:				50%!important;
 	top:				0%;
 	height:				100%;
+	cursor: crosshair;
 }
 
 #map2 {
@@ -25,6 +26,7 @@
 	top:				0%;
 	height:				100%;
 	margin-left:		.1vw;
+	cursor: crosshair;
 }
 
 #center {
