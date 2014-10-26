@@ -191,7 +191,7 @@
     }
 
 	// rides per age
-	// Query adapted to only show age groups with more than 50 rides and individuals < 100 years old
+	// Query adapted to only show age groups 17-70
     else if(strcmp($_GET['query'], "qXage") == 0){   
 		
 		console.log("AGE QUERY");
