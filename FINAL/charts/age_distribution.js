@@ -76,12 +76,14 @@ AgeDistributionChart.prototype.draw = function () {
 	var y = d3.scale.linear()
         .range([height, 0]);
 
+	var lastindex = xvalues.length - 1;
+	console.log('lastindex' + lastindex);
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
 		.tickFormat(function (d){return (2013-d);})
         .tickValues(xScale.domain().filter(function (d, i) {
-            return !(i % 4);
+            return !(i % 4) && !(i === lastindex);
         }))
         .tickSize(3)
         .tickPadding(7);
@@ -144,9 +146,10 @@ AgeDistributionChart.prototype.draw = function () {
     
     // X AXIS
     svg.append("text")
-        .attr("x", width *1.1)
+        .attr("x", width)
         .attr("y", height)
-        .attr("dy", "-.8em")
+		.attr("dx", "2em")
+        .attr("dy", "1em")
 		.attr("font-size","3vh")
         .text("Age");
     
