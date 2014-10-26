@@ -25,13 +25,22 @@ function drawMap() {
     // dom buttons init functions
     legend.onAdd = function(map){
         var div = L.DomUtil.create('div', 'legend');  //create div elelemt
-        var grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+        var minMax = divvyCircles.getMinAndMax();
+        var min = parseInt(minMax[0]);
+        var max = parseInt(minMax[1]);
+        var grades = [min, min + ((max-min)/4), (max-min)/2, max - ((max-min)/4), max],
             labels = [];
 
-        for (var i = 0; i < grades.length; i++) {
+        // heat map colors
+        var heatScale = d3.scale.sqrt()
+        .domain([min, max])
+        .range(["#fff", "#f00"]);
+
+        div.innerHTML += '<p>Daily Average:<p><hr><br>';
+        for (var i = grades.length-1; i > 0; i--) {
             div.innerHTML +=
-                '<i style="background:' + "red" + '"></i> ' + '<p>' +
-                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '</p><br>' : '+');
+                '<i style="background:' + heatScale(grades[i-1]) + '"></i> ' + '<p>' +
+                grades[i - 1] + (grades[i-1] ? '&ndash;' + grades[i] + '</p><br>' : '-');
         };
 
         return div;
