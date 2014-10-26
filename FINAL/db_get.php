@@ -94,7 +94,7 @@
     /////////////////////////////////////////////////////////////////////////////SECTION QUERY 4
     //bikes out for all days of the year
     else if(strcmp($_GET['query'], "q4") == 0){
-        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes
+        $temp="SELECT date_format(starttime,'%b %e') as day_year,count(*) AS bikes, from_station_id as station
                 FROM divvy_trips_distances
                 WHERE 1=1 ";
         // FILTERS
@@ -190,14 +190,16 @@
         $temp = $temp." GROUP BY gender";
     }
 
-    // rides per age
+	// rides per age
+	// Query adapted to only show age groups with more than 50 rides and individuals < 100 years old
     else if(strcmp($_GET['query'], "qXage") == 0){   
 		
 		console.log("AGE QUERY");
 
-        $temp = "SELECT birthyear, COUNT(*) as count
+		$temp = "SELECT * FROM
+			(SELECT birthyear, COUNT(*) as count
 			FROM divvy_trips_distances
-			WHERE NOT birthyear = 'Unknown' ";
+			WHERE NOT birthyear = 'Unknown' AND birthyear > 1913";
 		
         if($_GET['station'])
             $temp = $temp." AND from_station_id = '".$_GET['station']."'";  
@@ -206,7 +208,7 @@
         if($_GET['usertype'])
 			$temp = $temp." AND usertype = '".$_GET['usertype']."'";
 
-		$temp=$temp." GROUP BY birthyear;";
+		$temp=$temp." GROUP BY birthyear) AS sub WHERE count > 400;";
 	}
 
 

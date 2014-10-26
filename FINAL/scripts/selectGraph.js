@@ -4,6 +4,8 @@ function selectGraph(DOC, n) {
     windowNumber = n;
     resetFilters();
 
+	selectFilter(DOC,0);
+
 	switch (n) {
 		
 		case 0:
@@ -162,6 +164,7 @@ function selectGraph(DOC, n) {
             case 5:
                 clearGraph4();
                 app1 = new LineChart6(chart1,chart2,"app1",title1);
+                app2 = new LineChart8(chart3,chart4,"app2",title3);
                 break;
 
 		}
@@ -169,13 +172,13 @@ function selectGraph(DOC, n) {
 
 
 	function resetFilters() {
-        filters.resetFilters();
+    
+		filters.resetFilters();
 
 		// does not work if filter is dynamic html content
 		// better: edit global variables
 		// TODO: make filters consistent again - this version doesn't work at the moment
-		
-		/* 
+/*
         DOC.getElementById("fgm").checked = false;
         DOC.getElementById("fgm").disabled = false;
 

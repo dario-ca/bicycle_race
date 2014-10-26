@@ -2,6 +2,7 @@
 
 .color_text {
 	color:				black;
+	fill:				black;
 }
 
 .color_normal_stroke {
@@ -21,7 +22,7 @@
 }
 
 .color_filter_bg {
-	background-color:	#ddd;
+	background-color:	#ccc;
 }
 
 .color_tab {
@@ -56,3 +57,6 @@
 	color:				black;
 }
 
+.color_axis {
+	fill:				#888;	
+}

@@ -7,6 +7,7 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/colorscheme_light.css" id="colorscheme" />
     <link rel="stylesheet" type="text/css" href="css/index_1map.css" id="mapscheme" />
+    <link rel="stylesheet" type="text/css" href="css/charts.css" id="chartscheme" />
     <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/graph.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
@@ -38,6 +39,7 @@
     <script src="charts/bike_time.js"></script>
     <script src="charts/bikes_by_date.js"></script>
     <script src="charts/bikes_hour_comparison.js"></script>
+    <script src="charts/bikes_date_comparison.js"></script>
     <script src="charts/bike_month_year.js"></script>
     <script src="charts/bikes_by_hour_history.js"></script>
     <script src="charts/bikes_by_hour_events.js"></script>
@@ -56,10 +58,8 @@
 
 
 	<!-- Calendar SRC --> 
-   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-	 <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
-	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<script src="js/jquery-ui.js"></script>
 
 
 </head>
@@ -84,10 +84,16 @@
 
 	<div id="filterbar">
 		<!-- FILTER SELECTION -->
-		<div id="graphicon_topspacing"><svg id="graphicon_home" class="icon" viewBox="0 0 100 100"></svg></div>
-		<svg id="graphicon_active" class="icon" viewBox="0 0 100 100"></svg>
-		<svg id="graphicon_demographics" class="icon" viewBox="0 0 100 100"></svg>
-		<svg id="graphicon_time" class="icon" viewBox="0 0 100 100"></svg>
+		<div id="topicons">
+			<svg id="graphicon_home" class="icon" viewBox="0 0 100 100"></svg>
+			<svg id="graphicon_theme" class="icon" viewBox="0 0 100 100"></svg>
+			<svg id="graphicon_mapcount" class="icon" viewBox="0 0 100 100"></svg>
+		</div>
+		<div id="bottomicons">
+			<svg id="graphicon_active" class="icon" viewBox="0 0 100 100"></svg>
+			<svg id="graphicon_demographics" class="icon" viewBox="0 0 100 100"></svg>
+			<svg id="graphicon_time" class="icon" viewBox="0 0 100 100"></svg>
+		</div>
 	</div>
 
     <div class="right color_filter_bg">
@@ -133,18 +139,35 @@
     });
 
 	/* Dyncamically change theme */
-	function setTheme(filename) {
-		var stylepath = 'css/' + filename;
+	var stylepath = 'css/colorscheme_light.css';
+	function toggleTheme() {
+		if(stylepath === 'css/colorscheme_dark.css') {
+			stylepath = 'css/colorscheme_light.css';
+		} else {
+			stylepath = 'css/colorscheme_dark.css';
+		} 
 		document.getElementById('colorscheme').href=stylepath;
 	}
 
 	/* Toggle 2nd map */
+	var mapcount = 'css/index_1map.css';
+	function toggleMap() {
+		if(mapcount === 'css/index_1map.css') {
+			mapcount = 'css/index_2map.css';
+		} else {
+			mapcount = 'css/index_1map.css';
+		}
+		document.getElementById('mapscheme').href=mapcount;
+	}
+
+/*
 	function select2Map(filename) {
 		document.getElementById('mapscheme').href='css/index_2map.css';
 	}
 	function select1Map(filename) {
 		document.getElementById('mapscheme').href='css/index_1map.css';
 	}
+	*/
 
 </script>
 

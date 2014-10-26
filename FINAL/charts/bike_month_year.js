@@ -57,7 +57,7 @@ BarChart4.prototype.draw = function () {
             if (d >= 1000)
                 return (d / 1000).toFixed(1) + "K";
             return d;
-        });
+        }).ticks(7);
 
     var tip = d3.tip()
         .attr('id', 'tip')

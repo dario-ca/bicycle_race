@@ -55,12 +55,17 @@ DemographicsChart.prototype.draw = function () {
 
 	color = ["#cc66ff"/*pink*/,"#0066cc"/*blue*/,"#ffcc66"/*yellow*/];
 
+	d3.select(tag).on("click", function() {
+		zoomIn(this,5);
+	});
 	
-	var svg = d3.select(tag).append("svg:svg").data([data])
+	var svg = d3.select(tag).append("svg:svg")
+		.attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight)
+		.data([data])
 		.attr("width",w).attr("height",h)
 		.append("svg:g")
 		.attr("transform","translate(" + w/2 + "," + 1.2*r + ")")
-		.attr("viewBox", "0 0 " + w + " " + h);
+    
 
 	var arc = d3.svg.arc()
 		.outerRadius(r)
@@ -85,53 +90,52 @@ DemographicsChart.prototype.draw = function () {
 		.attr("stroke-width","5px")
 		.attr("class","color_bg_stroke");
 
-		/*
 	arcs.append("svg:text")
 		.attr("transform", function(d){
-//			d.innerRadius = 0;
-//			d.outerRadius = r;
 			var c = arc.centroid(d);
-			var sgn = (c[0] > 0 ? 1 : -1);
-			return "translate(" + (c[0] + sgn*r/2) + "," + (c[1]) + ")";
+			return "translate(" + (.6*c[0]) + "," + (.6*c[1]) + ")";
 		})
 		.attr("text-anchor", "middle")
 		.text( function(d, i) {
-			var label = data[i].gender;
-			if(label === 'Unknown') {
-				label = 'Customer';
-			}
+			var label = thousandSeparator(data[i].count);
 			return label;
 		})
-		.attr("font-size", "30px")
+		.attr("font-size", "3vh")
+		.attr("font-weight", "100")
 		.attr("class","color_normal_stroke");
-*/
 
 		var perc_subscriber = malefemale/(malefemale+customer);
 		var perc_customer = customer/(malefemale+customer);
 
 		svg.append("svg:text")
-			.attr("transform", "translate(" + 1.1*r + "," + 0 + ")")
+			.attr("transform", "translate(" + 1.1*r + "," + -.5*r + ")")
 			.text("Customers")
+			.attr("text-anchor","start")
 			.attr("font-size","4vh")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 		
 		svg.append("svg:text")
-			.attr("transform", "translate(" + 1.1*r + "," + 0.3*r + ")")
+			.attr("transform", "translate(" + 1.1*r + "," + -0.2*r + ")")
 			.text(Math.round(100*perc_customer) + "%")
+			.attr("text-anchor","start")
 			.attr("font-size","6vh")
-			.attr("class","color_text")
+			.attr("font-weight","600")
+			.attr("class","color_normal")
 
 		svg.append("svg:text")
-			.attr("transform", "translate(" + -1.1*r + "," + 0 + ")")
+			.attr("transform", "translate(" + -1.1*r + "," + -.5*r + ")")
 			.text("Subscribers")
+			.attr("text-anchor","end")
 			.attr("font-size","4vh")
-			.attr("class","color_text")
+			.attr("class","color_normal")
 
 		svg.append("svg:text")
-			.attr("transform", "translate(" + -1.1*r + "," + 0.3*r + ")")
+			.attr("transform", "translate(" + -1.1*r + "," + -0.2*r + ")")
 			.text(Math.round(100*perc_subscriber) + "%")
+			.attr("text-anchor","end")
 			.attr("font-size","6vh")
-			.attr("class","color_text")
+			.attr("font-weight","600")
+			.attr("class","color_normal")
 
 	// Gender Bar
 	
@@ -150,9 +154,18 @@ DemographicsChart.prototype.draw = function () {
 
 	svg.append("text")
 		.attr("x",-1.1*r).attr("y",1.7*r)
-		.attr("class","color_text")
+		.attr("class","color_normal")
 		.text('Female')
+		.attr("text-anchor","start")
 		.attr("font-size","30px");
+	
+	svg.append("svg:text")
+		.attr("x",-1.1*r).attr("y",1.9*r)
+		.text(Math.round(100*female/malefemale) + "%")
+		.attr("text-anchor","start")
+		.attr("font-size","4vh")
+		.attr("font-weight","600")
+		.attr("class","color_normal")
 	
 	svg.append("rect")
 		.attr("fill",color[1])
@@ -162,10 +175,18 @@ DemographicsChart.prototype.draw = function () {
 
 	svg.append("text")
 		.attr("x",1.1*r).attr("y",1.7*r)
-		.attr("class","color_text")
+		.attr("class","color_normal")
 		.text('Male')
-		// .attr("text-align","right")
+		.attr("text-anchor","end")
 		.attr("font-size","30px");
+	
+	svg.append("svg:text")
+		.attr("x",1.1*r).attr("y",1.9*r)
+		.text(Math.round(100*male/malefemale) + "%")
+		.attr("text-anchor","end")
+		.attr("font-size","4vh")
+		.attr("font-weight","600")
+		.attr("class","color_normal")
 
 	// Connecting lines
 	
@@ -243,23 +264,27 @@ DemographicsChart.prototype.callBack_getDemographicsData = function(context,stat
 
 	d3.json("db_get.php?" + parameters, function (error, data) {
 
-
-/*
         data.forEach(function(d,i){
-            context.values[context.values.length]=d.count;
+            d.count = parseInt(d.count);
         });
-*/
 
-		// context.values = data;
-		
-		// console.log('DATA = ' + context.values);
-	
-		context.values = [{"gender":"Female", "count":84450},
-			{"gender":"Male", "count":318596},
-			{"gender":"Unknown", "count":356742}];
-
-        context.draw();
+		context.values = data;
+		context.draw();
 
 	});
 	
+}
+
+
+
+// UTILS
+
+function thousandSeparator(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function zoomIn(context,n) {
+//	console.log("ZOOOOOOOOOOOOOOOOOOOOMING IN");
+//	document.getElementById('chartscheme').href='css/zoom/zoomin' + n + '.css';
+	// context.draw();
 }

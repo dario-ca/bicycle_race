@@ -28,7 +28,7 @@ WeatherForecast.prototype.draw = function (dateParameter) {
         var date = new Date(value.datetime);
         // Display Infos
         if (date.getMonth() == month && date.getDate() == day && date.getHours() == hour) {
-            var imageName = getImage(value.conditions, date.getHours());
+            var imageName = getImage(value.conditions, date);
             box.append("img").attr("id", this.iconId).attr("src", "img/weather_icons/" + imageName);
             // Escape ° symbol
             d3.select("#"+this.tempVal).html(value.temperatureF+" &#x00b0;F");
@@ -54,16 +54,17 @@ WeatherForecast.prototype.callBack_getWeather = function (context) {
 ===========================================*/
 
 // Returns the image filename with respect to conditions and time
-function getImage(conditions, time) {
+function getImage(conditions, date) {
     
     // Icon files properties, don't touch
     var ext = ".png";
     var day = "_day";
     var night = "_night";
+    var time = date.getHours();
 
     // Separators between day and night
-    var sunrise = 6;
-    var sunset = 19;
+    var sunrise = SunCalc.getTimes(date, 41.83, -87.68).sunriseEnd.getHours();
+    var sunset = SunCalc.getTimes(date, 41.83, -87.68).sunsetStart.getHours();
 
     switch (conditions) {
             

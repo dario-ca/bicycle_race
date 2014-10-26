@@ -18,6 +18,7 @@ function LineChart6(tag,legendtag,appname,titletag) {
     this.svg = d3.select(this.tag)
         .append("svg")
         .attr("class", "line_chart_svg")
+        .attr("id","main_svg7")
         .attr("viewBox", "0 0 " + this.canvasWidth + " " + this.canvasHeight);
 
     this.legend_svg = d3.select(this.legendtag)
@@ -47,7 +48,16 @@ function LineChart6(tag,legendtag,appname,titletag) {
     this.csvStations=[];
     
     all_stat_and_id(this);
-
+    
+    if(this.stations.length==0){
+        d3.select("#main_svg7")
+                .append("text")
+                .attr("x", this.canvasWidth / 3 - (this.canvasWidth/13.6) )
+                .attr("y", this.canvasHeight / 2)
+                .text("Pick stations from the map")
+                .attr("fill","steelblue")
+                .attr("font-size","5vh");
+    }
     
 }
 
@@ -72,6 +82,13 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
         d3.select(this.tag).selectAll("path").remove();
         d3.select(this.legendtag).selectAll("rect").remove();
         d3.select(this.legendtag).selectAll("text").remove();
+        d3.select("#main_svg7")
+                .append("text")
+                .attr("x", this.canvasWidth / 3 - (this.canvasWidth/13.6) )
+                .attr("y", this.canvasHeight / 2)
+                .text("Pick stations from the map")
+                .attr("fill","steelblue")
+                .attr("font-size","5vh");
     }
     d3.select(this.titletag).text("AVG bikes out per HOUR - Stations Comparison");
         
@@ -128,6 +145,8 @@ LineChart6.prototype.callBack_getData = function (context, gender, usertype, dat
                 context.draw(context.all_xValues,context.all_yValues,context.stat_ID,context.stat_names);
                 context.all_xValues=[];
                 context.all_yValues=[];
+                console.log(context.stations);
+                d3.select("#main_svg7").select("text").remove();
             }
             context.counter++;
         });
@@ -176,11 +195,24 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
     
     var svg = this.svg;
     var legend_svg = this.legend_svg;
-    
-    var all_colors= give_colors();
 
-    
     for(ind=0; ind<all_yValues.length; ind++){
+        var sum=0;
+        var mul=1;
+        var color_number=null;
+        
+        for(j=0;j<all_yValues[ind].length;j++){
+            sum=sum+parseFloat(all_yValues[ind][j]);
+            mul=mul*parseFloat(all_yValues[ind][j]);
+        }
+        
+        console.log("station: "+all_IDs[ind]);
+        console.log("overall sum: "+sum);
+        console.log("value for color: "+color_number);
+        
+        var cur_color = "rgb("+Math.round((all_IDs[ind]*33)%255)+","+Math.round((all_IDs[ind]*all_IDs[ind])%255)+","+Math.round((all_IDs[ind]*44)%255)+")";
+        console.log(cur_color);
+        
         var line = d3.svg.line()
             .x(function (d, i) {
                 return xScale(all_xValues[ind][i]);
@@ -189,8 +221,6 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
                 return yScale(all_yValues[ind][i]);
             });
         
-        var cur_color=all_colors[ind];
-        
         svg.append("path")
             .datum(all_yValues[ind])
             .attr("class", "chart line")
@@ -198,26 +228,28 @@ LineChart6.prototype.draw = function (all_xValues,all_yValues,all_IDs, all_names
             .attr("transform", "translate(" + this.margin.left + ",0)")
             .style("stroke", cur_color);
         
-        legend_svg.append("rect")
-            .attr("x","5")
-            .attr("y",function(){
-                return 10+ind*40;
-            })
-            .attr("width","40")
-            .attr("height","30")
-            .style("fill",cur_color)
-            .style("stroke","white")
-            .style("stroke-width","4");
-       
-        legend_svg.append("text")
-            .attr("class","legendText")
-            .attr("x","60")
-            .attr("y",function(){
-                return 35+ind*40;
-            })
-            .text(function(){
-                return (all_IDs[ind]+": "+all_names[ind]);
-            });
+       // if(all_yValues.length <= 10){
+            legend_svg.append("rect")
+                .attr("x","5")
+                .attr("y",function(){
+                    return 10+ind*40;
+                })
+                .attr("width","40")
+                .attr("height","30")
+                .style("fill",cur_color)
+                .style("stroke","black")
+                .style("stroke-width","2");
+
+            legend_svg.append("text")
+                .attr("class","legendText")
+                .attr("x","60")
+                .attr("y",function(){
+                    return 35+ind*40;
+                })
+                .text(function(){
+                    return (all_IDs[ind]+": "+all_names[ind]);
+                });
+       // }
         
     }
     

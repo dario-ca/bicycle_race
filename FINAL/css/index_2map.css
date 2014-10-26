@@ -6,9 +6,8 @@
 	width:				34vw;
 	float:				left;
 	height:				100vh;
+	background-color:	black; // to make separation between maps visible
 }
-
-
 
 #map {
     border:				solid 1px #444;
@@ -17,39 +16,23 @@
 	width:				50%!important;
 	top:				0%;
 	height:				100%;
+	cursor: crosshair;
 }
 
 #map2 {
-    border:				solid 1px #444;
 	position:			absolute;
 	left:				50%;
 	width:				50%;
 	top:				0%;
 	height:				100%;
-	background-color:	#1b5;
+	margin-left:		.1vw;
+	cursor: crosshair;
 }
 
 #center {
 	position:			absolute;
 	left:				34vw;
-	width:				47vw;
+	width:				48vw;
 	top:				0%;
 	bottom:				0%;
 }
-
-#filterbar {
-	position:			absolute;
-	left:				81vw;
-	width:				3vw;
-	height:				100vh;
-	padding-right:		.4vw;
-	padding-top:		1vh;
-}
-
-.right {
-	position:			absolute;
-	left:				84vw;
-	right:				0vw;
-	height:				100vh;
-}
-

@@ -69,24 +69,22 @@ AgeDistributionChart.prototype.draw = function () {
 
     var x = d3.scale.ordinal()
         .rangeRoundBands([0, width], .1);
-/*
-    var x = d3.scale.ordinal()
+    
+    var xScale = d3.scale.ordinal()
         .rangePoints([0, width], 0).domain(xvalues);
-*/
-    var y = d3.scale.linear()
+    
+	var y = d3.scale.linear()
         .range([height, 0]);
 
+	var lastindex = xvalues.length - 1;
+	console.log('lastindex' + lastindex);
     var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom") // TODO: remove labels
-/*		.tickValues(x.domain().filter(function (d, i) {
-			return !(i % 12);
-		}))*/
-		/*
-        .tickValues(x.domain().filter(function (d, i) {
-            return !(i % 12);
+        .scale(xScale)
+        .orient("bottom")
+		.tickFormat(function (d){return (2013-d);})
+        .tickValues(xScale.domain().filter(function (d, i) {
+            return !(i % 4) && !(i === lastindex);
         }))
-		*/
         .tickSize(3)
         .tickPadding(7);
 
@@ -114,19 +112,18 @@ AgeDistributionChart.prototype.draw = function () {
     svg.call(tip);
 
 
-    var padding = width / xvalues.length - 2;
+    var padding = width / xvalues.length - 0.1;
     x.domain(xvalues);
     y.domain([0, max(yvalues) * 1.1]);
 
     // X AXIS
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis color_axis")
         .attr("transform", "translate("+margin.left+"," + height + ")")
         .call(xAxis)
         .selectAll("text")
         .attr("transform", "rotate(-40)")
-        .style("text-anchor", "end")
-        .text("Age"); // TODO: why not showing?
+        .style("text-anchor", "end");
     
     // BARS
     svg.selectAll(".bar")
@@ -147,6 +144,15 @@ AgeDistributionChart.prototype.draw = function () {
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
     
+    // X AXIS
+    svg.append("text")
+        .attr("x", width)
+        .attr("y", height)
+		.attr("dx", "2em")
+        .attr("dy", "1em")
+		.attr("font-size","3vh")
+        .text("Age");
+    
     // Y AXIS
     svg.append("g")
         .attr("class", "y axis")
@@ -157,6 +163,7 @@ AgeDistributionChart.prototype.draw = function () {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+		.attr("font-size","3vh")
         .text("Number of rides");
 
 }

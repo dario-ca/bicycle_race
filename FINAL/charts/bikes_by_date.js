@@ -24,7 +24,7 @@ function LineChart2(tag, titletag) {
     //number of bikes
     this.yValues = [];
 
-    this.setOption(null,null,null,10,20);
+    this.setOption(null,null,null,null,null);
 
 }
 
@@ -102,7 +102,7 @@ LineChart2.prototype.draw = function () {
             else return d;
         })
         .tickSize(3)
-        .tickPadding(7);
+        .tickPadding(7).ticks(7);
 
     var svg = this.svg;
 
