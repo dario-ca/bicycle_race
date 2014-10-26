@@ -30,7 +30,7 @@
 		// get displayed date and send it to Bikemap
 		var selecteddate = $('#calendar').DatePickerGetDate(true);
 		console.log('SELECTED DATE = ' + selecteddate);
-		// BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
+		BikeMap.colorStations(2, selecteddate); // TODO: this throws an error, cannot figure out why
         BikeMap.setWeatherIcon(weatherIcon, selecteddate);
 	};
 
