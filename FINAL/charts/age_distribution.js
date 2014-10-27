@@ -41,7 +41,6 @@ AgeDistributionChart.prototype.draw = function () {
 
 	// Fill dates with no entries with 0
 	var arraysize = parseInt(this.labels[this.labels.length-1]) - parseInt(this.labels[0]);
-	console.log("ARRaysize = " + arraysize);
 	var invxvalues = new Array(arraysize);
 	var xvalues = new Array(arraysize);
 	var invyvalues = new Array(arraysize);
