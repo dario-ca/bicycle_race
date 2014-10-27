@@ -54,7 +54,7 @@
     else if (strcmp($_GET['query'], "m4") == 0) {
         $hour = $_GET['hour'];
         $date = $_GET['date'];
-        $query = "SELECT hour(starttime) as hour, from_station_id, to_station_id 
+        $query = "SELECT hour(starttime) as hour, from_station_id, to_station_id, usertype, gender, birthyear
                     FROM divvy_trips_distances WHERE (hour(starttime)=" .$hour 
                         ." AND date(starttime)='" .$date ."');";
     }

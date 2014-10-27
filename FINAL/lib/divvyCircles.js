@@ -269,9 +269,6 @@ function DivvyCircles() {
 
     // animation function
     function dataLines(context, mapContext, date, spinner) {
-
-        console.log("dataLines hour: " + context.hour);
-
         if (context.hour > 23) {
             // clear stuff
             animationOn = false;
@@ -575,7 +572,6 @@ function DivvyCircles() {
         var context = this;
 
         if (pause && !this.pauseStart) {
-            console.log("I should go");
             // true means start
             this.pauseStart = true;
             animationOn = !animationOn;
@@ -585,7 +581,6 @@ function DivvyCircles() {
 
         // run animation
         if (animationOn && this.pauseStart && !stop) {
-            console.log("run");
             animationOn = true;
             //call dataLines every 1sec
             this.animationInterval = setInterval(function () {
@@ -594,19 +589,16 @@ function DivvyCircles() {
         }
         // pause animation
         else if (animationOn && !this.pauseStart && !stop) {
-            console.log("pause");
             clearInterval(this.animationInterval);
             animationOn = false;
         }
         // manual control
         else if (!animationOn && !pause && !stop) {
-            console.log("manual");
             spinner.spinner("value", this.hour);
             dataLines(context, mapContext, date);
         }
         // clear
         else if (stop) {
-            console.log("manual");
             clearInterval(this.animationInterval);
             animationOn = false;
             this.hour = 0;

@@ -61,7 +61,7 @@ Filters.prototype.resetFilters = function(){
 	this.station=null;
 	this.age_min=null;
 	this.age_max=null; 
-    d3.select(".weatherIcon").remove();
+    d3.select("#weatherIcon").remove();
     d3.select("#tempPar").text("");
     BikeMap.filtersActive(false);
     SecondBikeMap.filtersActive(false);
