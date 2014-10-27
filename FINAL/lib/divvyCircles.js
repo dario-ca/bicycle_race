@@ -111,11 +111,8 @@ function DivvyCircles() {
     };
 
     function flowLines(flow) {
-        console.log("Map: " + divNumber);
-        console.log("flowOn: " + flowOn);
         if (flowOn) {
             map.removeLayer(self.polylines);
-            console.log("Should have removed lines!");
             colorSelectedStations();
             flowOn = false;
             return;
