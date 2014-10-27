@@ -26,6 +26,8 @@ function init(DOC) {
 	function goToDemographics() { selectFilter(DOC,1); }
 	function goToTime() { selectFilter(DOC,2); }
 
+    // quick fix for double maps and graph to work
+    selectedStations = [];
     BikeMap = new drawMap();
     SecondBikeMap = new drawMap();
 		
