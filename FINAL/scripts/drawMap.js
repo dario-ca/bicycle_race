@@ -39,7 +39,7 @@ function drawMap() {
         .domain([min, max])
         .range(["#fff", "#f00"]);
 
-        div.innerHTML += '<p>Daily Average:<p><hr><br>';
+        div.innerHTML += '<p>Average Bikes Used Per Day:<p><hr><br>';
         for (var i = grades.length-1; i > 0; i--) {
             div.innerHTML +=
                 '<i style="background:' + heatScale(grades[i-1]) + '"></i> ' + '<p>' +

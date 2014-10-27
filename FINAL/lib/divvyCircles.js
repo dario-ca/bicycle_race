@@ -297,6 +297,30 @@ function DivvyCircles() {
                 var fromLatLng = [0, 0];
                 var toLatLng = [0, 0];
 
+                // quick way to add the filters
+                if (filters.gender != null) {
+                    if (filters.gender != data[i].gender)
+                        continue;
+                };
+
+                if ((filters.age_min != null || filters.age_max != null) && isNaN(data[i].birthyear))
+                    continue;
+                
+                if (filters.age_min != null && !isNaN(data[i].birthyear)) {
+                    if ((2013 - (parseInt(data[i].birthyear))) < filters.age_min)
+                        continue;
+                };
+                
+                if (filters.age_max != null && !isNaN(data[i].birthyear)) {
+                    if ((2013 - (parseInt(data[i].birthyear))) > filters.age_max)
+                        continue;
+                };
+                
+                if (filters.usertype != null) {
+                    if (filters.usertype != data[i].usertype)
+                        continue;
+                };
+
                 // if stations have not been selected
                 if (selectedStations.length === 0) {
                     for (var q = 0; q < circles.length; q++) {
