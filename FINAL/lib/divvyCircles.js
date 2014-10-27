@@ -22,7 +22,7 @@ function DivvyCircles() {
     // used for showing the correct information in the div
     var selectedStationsHTML = '';
     var stationClicked = 0;
-    // var selectedStations = [];
+    var selectedStations = [];
     var allowHover = true;
     var divNumber = 0;
 
