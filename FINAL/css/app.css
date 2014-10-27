@@ -16,7 +16,7 @@
 }
 
 /*heat map on off button*/
-#heatButton {
+.heatButton {
     width: 20vh;
     height: 6vh;
     font-size: 3vh;
@@ -135,11 +135,11 @@
     font-size: 2.5vh;
 }
 
-#flow{
+.flow{
     font-size: 1.5vh;
 }
 
-#flow .ui-corner-left{
+.flow .ui-corner-left{
     float: left;
     width: 5vh;
     height: 5vh;
@@ -147,7 +147,7 @@
     /*background-color: red;*/
 }
 
-#flow .ui-corner-right{
+.flow .ui-corner-right{
     float: right;
     width: 5vh;
     height: 5vh;

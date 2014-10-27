@@ -8,6 +8,7 @@ function drawMap() {
     var divvyCircles;
     var date;
     var weatherIcon;
+    var divNumber = 0;
 
     // function object
     var BikeMap = new Object();
@@ -56,7 +57,7 @@ function drawMap() {
 
     heatButton.onAdd = function(map){
         var div = L.DomUtil.create('div', 'heatButtonWrapper');
-        div.innerHTML = "<input type=\"button\" id=\"heatButton\" value=\"Popularity\" />";
+        div.innerHTML = "<input type=\"button\" class=\"heatButton\" id=\"heatButton" + divNumber + "\" value=\"Popularity\" />";
         return div;
     }
     
@@ -64,22 +65,12 @@ function drawMap() {
         var div = L.DomUtil.create('div', 'weatherWrapper');
         div.innerHTML = "<div id=\"tempBox\"><div id=\"textBox\"><p id=\"tempPar\" style=\"color: black; font-weight: bold;\"></p></div></div><div id=\"weatherIconBox\"></div>";
         return div;
-        
-        /*
-        <div id="tempBox">
-            <div id="textBox">
-                <p id="tempPar">Temperature</p>
-            </div>
-        </div>
-        <div id="weatherIconBox">
-            <img id="weatherIcon" src="weather_icons/Unknown.png">
-        </div>
-        */
     }
     // end of buttons init code
 
     // init function for object
-    function init(div){
+    function init(div, number){
+        divNumber = number;
         map = L.map(div, {zoomControl: false}).setView([41.9, -87.65], 12);
         mapArea = $(div);
         divvyCircles = new DivvyCircles();
@@ -88,7 +79,7 @@ function drawMap() {
         d3.json("data/chicagoDist.json", function(data){
                 //read in divvy bike location
                 d3.csv("data/stations.csv", function(stations){
-                divvyCircles.init(stations, "grey", "black", 5, map);
+                divvyCircles.init(stations, "grey", "black", 5, map, divNumber);
                 addLayers(data, divvyCircles.getCircles());
             });
         });
@@ -148,7 +139,7 @@ function drawMap() {
             // add heatbutton
             heatButton.addTo(map);
             weather.addTo(map);
-            $('#heatButton').click( function(){
+            $('#' + 'heatButton' + divNumber).click( function(){
                 BikeMap.colorStations(1)}
             );
         };

@@ -24,13 +24,17 @@ function DivvyCircles() {
     var stationClicked = 0;
     var selectedStations = [];
     var allowHover = true;
+    var divNumber = 0;
 
     //Weather
     this.weatherIcon = null;
     this.pickedDate = null;
 
     // used for switching between flowlines
-    flowOn = false;
+    var flowOn = false;
+
+    // testing fix
+    var self = this;
 
     // helper method
     function indexOfObject(theArray, property, value) {
@@ -86,35 +90,39 @@ function DivvyCircles() {
 
         function addFlowButtons(elem) {
             elem._div.innerHTML += '<hr><p>Flow:</p>' +
-                '</p> <div id="flow">' +
-                '<input type="checkbox" id="check1"><label for="check1">In</label>' +
-                '<input type="checkbox" id="check2"><label for="check2">Out</label>' +
+                "</p> <div class=\"flow\" id=\"flow" + divNumber + "\">" +
+                "<input type=\"checkbox\" id=\"check1" + divNumber + "\"><label for=\"check1" + divNumber + "\">In</label>" +
+                "<input type=\"checkbox\" id=\"check2" + divNumber + "\"><label for=\"check2" + divNumber + "\">Out</label>" +
                 '</div>';
 
-            $("#check1").button();
-            $("#check2").button();
-            $("#flow").buttonset();
+            $("#check1" + divNumber).button();
+            $("#check2" + divNumber).button();
+            $("#flow" + divNumber).buttonset();
 
             // add listeners
-            $("#check1").on("click", function () {
+            $("#check1" + divNumber).on("click", function () {
                 flowLines(1);
             });
 
-            $("#check2").on("click", function () {
+            $("#check2" + divNumber).on("click", function () {
                 flowLines(2);
             });
         }
     };
 
     function flowLines(flow) {
-        var context = this;
+        console.log("Map: " + divNumber);
+        console.log("flowOn: " + flowOn);
         if (flowOn) {
-            map.removeLayer(context.polylines);
+            map.removeLayer(self.polylines);
+            console.log("Should have removed lines!");
             colorSelectedStations();
             flowOn = false;
             return;
         } else
             flowOn = true;
+
+
 
         var parameters;
         var hiColor = "";
@@ -148,17 +156,12 @@ function DivvyCircles() {
             var max = 0;
             var min = Number.MAX_VALUE;
 
-            console.log(sumOfTotalFlow.length);
-
             for (var i = sumOfTotalFlow.length - 1; i >= 0; i--) {
                 if (sumOfTotalFlow[i]["count(*)"] > max)
                     max = sumOfTotalFlow[i]["count(*)"];
                 if (sumOfTotalFlow[i]["count(*)"] < min)
                     min = sumOfTotalFlow[i]["count(*)"];
             };
-
-            console.log(max);
-            console.log(min);
 
             // heat map colors
             var heatScale = d3.scale.linear()
@@ -220,8 +223,8 @@ function DivvyCircles() {
                     clickable: false
                 }));
             };
-            context.polylines = L.layerGroup(polylineArray);
-            context.polylines.addTo(map);
+            self.polylines = L.layerGroup(polylineArray);
+            self.polylines.addTo(map);
 
             for (var i = 0; i < allTrips.length; i++) {
                 for (var q = 0; q < circles.length; q++) {
@@ -434,7 +437,8 @@ function DivvyCircles() {
 
     }; //end of datalines function
 
-    function init(data, fill, outline, radius, mapContext) {
+    function init(data, fill, outline, radius, mapContext, divNum) {
+        divNumber = divNum;
         map = mapContext;
         this.fill = fill;
         this.outline = outline;

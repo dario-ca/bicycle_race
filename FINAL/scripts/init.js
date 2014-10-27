@@ -29,8 +29,8 @@ function init(DOC) {
     BikeMap = new drawMap();
     SecondBikeMap = new drawMap();
 		
-    BikeMap.init(mapid);
-    SecondBikeMap.init(mapid2);
+    BikeMap.init(mapid, 1);
+    SecondBikeMap.init(mapid2, 2);
 
     
 	weatherIcon = new WeatherForecast("#weatherIconBox","tempPar");
