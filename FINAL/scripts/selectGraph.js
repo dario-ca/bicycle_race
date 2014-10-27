@@ -3,6 +3,8 @@ function selectGraph(DOC, n) {
     console.log("\t- Draw Graph" + n);
     windowNumber = n;
     resetFilters();
+    
+    var timeout = 2000;
 
 	selectFilter(DOC,0);
 
@@ -47,11 +49,11 @@ function selectGraph(DOC, n) {
 				// invoke any methods defined in your JS files to begin execution       
 			} else {
 				console.log("dynamic html not loaded..");
-				window.setTimeout(waitForLoad, 500);
+				window.setTimeout(waitForLoad, timeout);
 			}
 		 };
 
-		 window.setTimeout(waitForLoad, 500);   
+		 window.setTimeout(waitForLoad, timeout);   
 	}
 
 
@@ -77,11 +79,11 @@ function selectGraph(DOC, n) {
 				// invoke any methods defined in your JS files to begin execution       
 			} else {
 				console.log("dynamic html not loaded..");
-				window.setTimeout(waitForLoad, 500);
+				window.setTimeout(waitForLoad, timeout);
 			}
 		 };
 
-		 window.setTimeout(waitForLoad, 500);   
+		 window.setTimeout(waitForLoad, timeout);   
 	}
     
     function prepareGraph4_comparisons() {
@@ -106,11 +108,11 @@ function selectGraph(DOC, n) {
 				// invoke any methods defined in your JS files to begin execution       
 			} else {
 				console.log("dynamic html not loaded..");
-				window.setTimeout(waitForLoad, 500);
+				window.setTimeout(waitForLoad, timeout);
 			}
 		 };
 
-		 window.setTimeout(waitForLoad, 500);   
+		 window.setTimeout(waitForLoad, timeout);   
 	}
     
 	function clearGraph4() {
