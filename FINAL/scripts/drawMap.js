@@ -9,6 +9,7 @@ function drawMap() {
     var date;
     var weatherIcon;
     var divNumber = 0;
+    var parentDivName = "";
 
     // function object
     var BikeMap = new Object();
@@ -50,8 +51,8 @@ function drawMap() {
 
     animationControl.onAdd = function(map){
         var div = L.DomUtil.create('div', 'animationControl');
-        div.innerHTML = '<p> <input id=\"hourChooser\" name=\"value\"> </p>' + 
-            '<i id="pause" style="background:' + "green" + '"></i>';
+        div.innerHTML = "<p> <input id=\"hourChooser" + divNumber + "\" name=\"value\"> </p>" + 
+            "<i class=\"pause\" id=\"pause" + divNumber + "\" style=\"background: green\"></i>";
         return div;
     };
 
@@ -70,6 +71,7 @@ function drawMap() {
 
     // init function for object
     function init(div, number){
+        parentDivName = div.id;
         divNumber = number;
         map = L.map(div, {zoomControl: false}).setView([41.9, -87.65], 12);
         mapArea = $(div);
@@ -178,7 +180,7 @@ function drawMap() {
             // remove legend and heat button
             date = pickedDate;
             switchButtons(2);
-            divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
+            divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" + divNumber));
         };
     };
 
@@ -206,17 +208,18 @@ function drawMap() {
 
             // add controls
             animationControl.addTo(map);
-            var spinner = $( "#hourChooser" ).spinner();
+            var spinner = $( "#hourChooser" + divNumber ).spinner();
             // $("#spinner").spinner({ numberFormat: "d2" });
-            $( "#hourChooser" ).spinner( "option", "max", 23 );
-            $( "#hourChooser" ).spinner( "option", "min", 0 );
+            $( "#hourChooser" + divNumber ).spinner( "option", "max", 23 );
+            $( "#hourChooser" + divNumber ).spinner( "option", "min", 0 );
 
             // add the listners
-            $('.ui-spinner-button').click(function (){
-                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), false);
+            console.log(parentDivName);
+            $('.ui-spinner-button', "#" + parentDivName) .click(function (){
+                divvyCircles.colorDate(date, $( "#hourChooser" + divNumber ).spinner("value"), false, map, $("#hourChooser" + divNumber), false);
             });
-            $('#pause').click(function (){
-                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), true, map, $("#hourChooser"), false);
+            $("#pause" + divNumber).click(function (){
+                divvyCircles.colorDate(date, $( "#hourChooser" + divNumber ).spinner("value"), true, map, $("#hourChooser" + divNumber), false);
             });
         };
     }
@@ -244,19 +247,19 @@ function drawMap() {
                 animationOn = true;
             }
             else if (selecteddate != null && animationOn) {
-                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
+                divvyCircles.colorDate(date, $( "#hourChooser" + divNumber ).spinner("value"), false, map, $("#hourChooser" + divNumber), true);
                 divvyCircles.colorSelectedStations();
 
                 date = selecteddate.getUTCFullYear() 
                     +"-"+ (selecteddate.getUTCMonth() + 1) 
                     +"-"+ selecteddate.getUTCDate();
-                divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" ));
+                divvyCircles.colorDate(date, 0, false, map, $( "#hourChooser" + divNumber ));
             };
         }
         else{
             var selecteddate = filters.date;
             if (selecteddate == null && animationOn) {
-                divvyCircles.colorDate(date, $( "#hourChooser" ).spinner("value"), false, map, $("#hourChooser"), true);
+                divvyCircles.colorDate(date, $( "#hourChooser" + divNumber ).spinner("value"), false, map, $("#hourChooser" + divNumber), true);
                 divvyCircles.colorSelectedStations();
                 switchButtons(1);
                 animationOn = false;

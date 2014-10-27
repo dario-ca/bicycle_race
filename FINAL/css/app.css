@@ -111,7 +111,7 @@
 }
 
 /*control buttons*/
-#pause, #close{
+.pause{
     width: 3.5vh;
     height: 3.5vh;
     float: left;

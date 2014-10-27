@@ -34,6 +34,7 @@ function init(DOC) {
 
     
 	weatherIcon = new WeatherForecast("#weatherIconBox","tempPar");
+    // SecondWeatherIcon = new WeatherForecast("#weatherIconBox","tempPar");
 
     drawDarkGraphIcon(graphicon_mapcount,'two298',changeOneTwoMap);
     drawDarkGraphIcon(graphicon_theme,'sun4',changeTheme);
