@@ -4,7 +4,7 @@ function selectGraph(DOC, n) {
     windowNumber = n;
     resetFilters();
     
-    var timeout = 2000;
+    var timeout = 1500;
 
 	selectFilter(DOC,0);
 
