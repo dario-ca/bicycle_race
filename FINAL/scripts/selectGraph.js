@@ -132,6 +132,7 @@ function selectGraph(DOC, n) {
 
 			case 1:
 				clearGraph4();
+                showFilters("yes","yes","none");
 				app1 = new LineChart1(chart1, title1);
 				app2 = new BarChart1(chart2, title2);
 				app3 = new BarChart4(chart3, title3);
@@ -140,6 +141,7 @@ function selectGraph(DOC, n) {
 
 			case 2:
 				clearGraph4();
+                showFilters("yes","yes","none");
 				app3 = new BulletChart1(chart3, "app3", title3);
 				app4 = new BulletChart2(chart4, "app4", title4);
 				app1 = new BarChart2(chart1, title1);
@@ -148,6 +150,7 @@ function selectGraph(DOC, n) {
 
 			case 3:
 				clearGraph2();
+                showFilters("yes","none","none");
 				app1 = new DemographicsChart(chart5, title1);
 				app2 = new AgeDistributionChart(chart6, title2);
 				break;
@@ -155,6 +158,7 @@ function selectGraph(DOC, n) {
             // WEATHER
 			case 4:
 				clearGraph4();
+                showFilters("yes","yes","yes");
 				app1 = new LineChart5(chart1, title1);
 				app2 = new LineChart7(chart2, title2);
                 app3 = new LineChart4(chart3, "app3", title3);
@@ -163,6 +167,7 @@ function selectGraph(DOC, n) {
             
             case 5:
                 clearGraph4();
+                showFilters("yes","yes","none");
                 app1 = new LineChart6(chart1,chart2,"app1",title1);
                 app2 = new LineChart8(chart3,chart4,"app2",title3);
                 break;
@@ -170,6 +175,22 @@ function selectGraph(DOC, n) {
 		}
 	}
 
+    function showFilters(active,demo,time){
+        if(active == "none")
+            DOC.getElementById("graphicon_active").style.display = active;
+        else
+            DOC.getElementById("graphicon_active").removeAttribute("style");
+        
+        if(demo == "none")
+            DOC.getElementById("graphicon_demographics").style.display = demo;
+        else
+            DOC.getElementById("graphicon_demographics").removeAttribute("style");
+        
+        if(time == "none")
+            DOC.getElementById("graphicon_time").style.display = time;
+        else
+            DOC.getElementById("graphicon_time").removeAttribute("style");
+    }
 
 	function resetFilters() {
     
